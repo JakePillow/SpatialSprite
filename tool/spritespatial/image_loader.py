@@ -27,4 +27,5 @@ def mirror_sprite_to_left_right(source_path: Path, left_path: Path, right_path: 
     ensure_dir(left_path)
     ensure_dir(right_path)
     mirror_horizontal(source_path, left_path)
-    mirror_horizontal(source_path, right_path)
+    with Image.open(source_path) as image:
+        image.save(right_path, format="PNG")

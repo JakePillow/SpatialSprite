@@ -1,4 +1,4 @@
-tool
+@tool
 extends EditorScript
 
 # Simple helper: lists all PNG textures under res://assets/samples and
@@ -14,7 +14,7 @@ func _run() -> void:
 
     var to_process := []
     dir.list_dir_begin(true, true)
-    var name = dir.get_next()
+    var name := dir.get_next()
     while name != "":
         if name.to_lower().ends_with(".png"):
             to_process.append(dir.get_current_dir().plus_file(name))

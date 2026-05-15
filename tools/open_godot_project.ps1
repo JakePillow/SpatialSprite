@@ -34,8 +34,10 @@ if (-not (Test-Path $godotPath)) {
 }
 
 $projectText = @'
-[gd_resource type="ProjectSettings" load_steps=2 format=3]
+config_version=5
+
 [application]
+
 config/name="SpriteSpatial"
 config/description="Directional sprite spatial prototype"
 config/author="SpriteSpatial"
@@ -47,16 +49,19 @@ $utf8NoBom = New-Object System.Text.UTF8Encoding($false)
 Write-Host "Wrote Godot project file: $ProjectFile"
 
 $mainText = @'
-[gd_scene load_steps=3 format=3]
-[ext_resource path="res://outputs/hero/hero.tscn" type="PackedScene" id=1]
+[gd_scene load_steps=2 format=3]
 
-[node name="Main" type=Node3D]
-[node name="HeroInstance" type=Instance3D parent="."]
-scene = ExtResource( 1 )
-[node name="Camera3D" type=Camera3D parent="."]
+[ext_resource type="PackedScene" path="res://outputs/hero/hero.tscn" id="1_hero"]
+
+[node name="Main" type="Node3D"]
+
+[node name="HeroInstance" parent="." instance=ExtResource("1_hero")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 6 )
 current = true
-[node name="DirectionalLight3D" type=DirectionalLight3D parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 6 )
 '@
 [System.IO.File]::WriteAllText($MainScene, $mainText, $utf8NoBom)

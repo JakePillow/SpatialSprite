@@ -4,6 +4,7 @@ from pathlib import Path
 from typing import Any
 
 from spritespatial.asset_schema import AssetSchema
+from spritespatial.validators import inspect_png
 
 
 def _to_res_path(workspace_root: Path, target_path: Path) -> str:
@@ -22,21 +23,27 @@ def generate_scene_file(scene_path: Path, script_path: Path, asset: AssetSchema,
 
 def _build_scene_text(scene_path: Path, script_path: Path, asset: AssetSchema, workspace_root: Path) -> str:
     script_res_path = _to_res_path(workspace_root, script_path)
+    script_id = "1_script"
     ext_resource_lines = [
-        f"[ext_resource path=\"{script_res_path}\" type=\"Script\" id=1]"
+        f"[ext_resource type=\"Script\" path=\"{script_res_path}\" id=\"{script_id}\"]"
     ]
 
-    direction_textures: dict[str, int] = {}
+    direction_textures: dict[str, str] = {}
     for index, direction in enumerate(asset.source_sprites, start=2):
         texture_path = _to_res_path(workspace_root, asset.sprite_path(direction))
+        resource_id = f"{index}_{direction}"
         ext_resource_lines.append(
-            f"[ext_resource path=\"{texture_path}\" type=\"Texture2D\" id={index}]"
+            f"[ext_resource type=\"Texture2D\" path=\"{texture_path}\" id=\"{resource_id}\"]"
         )
-        direction_textures[direction] = index
+        direction_textures[direction] = resource_id
 
     collision = asset.collision
     height = float(collision.get("height", 1.6))
     radius = float(collision.get("radius", 0.35))
+    pixel_scale = float(asset.pixel_scale)
+    _, texture_height, _ = inspect_png(asset.sprite_path("front"))
+    sprite_y_offset = texture_height * pixel_scale * 0.5
+    collision_y_offset = height * 0.5
 
     body_name = asset.asset_name.capitalize()
     front_texture_id = direction_textures["front"]
@@ -44,25 +51,33 @@ def _build_scene_text(scene_path: Path, script_path: Path, asset: AssetSchema, w
     left_texture_id = direction_textures["left"]
     right_texture_id = direction_textures["right"]
 
+    load_steps = len(ext_resource_lines) + 2
+
     lines: list[str] = []
-    lines.append("[gd_scene load_steps=3 format=3]")
-    # ext_resource entries must come after the [gd_scene] header for Godot to parse correctly
+    lines.append(f"[gd_scene load_steps={load_steps} format=3]")
     lines.extend(ext_resource_lines)
     lines.append("")
-    lines.append(f"[node name=\"{body_name}\" type=CharacterBody3D]")
-    lines.append(f"script = ExtResource( {1} )")
-    lines.append(f"front_texture = ExtResource( {front_texture_id} )")
-    lines.append(f"back_texture = ExtResource( {back_texture_id} )")
-    lines.append(f"left_texture = ExtResource( {left_texture_id} )")
-    lines.append(f"right_texture = ExtResource( {right_texture_id} )")
+    lines.append("[sub_resource type=\"CapsuleShape3D\" id=\"CapsuleShape3D_hero\"]")
+    lines.append(f"height = {height}")
+    lines.append(f"radius = {radius}")
+    lines.append("")
+    lines.append(f"[node name=\"{body_name}\" type=\"CharacterBody3D\"]")
+    lines.append(f"script = ExtResource(\"{script_id}\")")
+    lines.append(f"front_texture = ExtResource(\"{front_texture_id}\")")
+    lines.append(f"back_texture = ExtResource(\"{back_texture_id}\")")
+    lines.append(f"left_texture = ExtResource(\"{left_texture_id}\")")
+    lines.append(f"right_texture = ExtResource(\"{right_texture_id}\")")
     lines.append("transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )")
     lines.append("")
-    lines.append("[node name=\"Sprite3D\" type=Sprite3D parent=\".\"]")
-    lines.append(f"texture = ExtResource( {front_texture_id} )")
+    lines.append("[node name=\"Sprite3D\" type=\"Sprite3D\" parent=\".\"]")
+    lines.append(f"transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, {sprite_y_offset}, 0 )")
+    lines.append(f"texture = ExtResource(\"{front_texture_id}\")")
+    lines.append(f"pixel_size = {pixel_scale}")
     lines.append("billboard_mode = 2")
     lines.append("")
-    lines.append("[node name=\"CollisionShape3D\" type=CollisionShape3D parent=\".\"]")
-    lines.append(f"shape = CapsuleShape3D {{ height = {height} radius = {radius} }}")
+    lines.append("[node name=\"CollisionShape3D\" type=\"CollisionShape3D\" parent=\".\"]")
+    lines.append(f"transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, {collision_y_offset}, 0 )")
+    lines.append("shape = SubResource(\"CapsuleShape3D_hero\")")
     return "\n".join(lines) + "\n"
 
 
@@ -78,7 +93,6 @@ var _sprite: Sprite3D
 
 func _ready() -> void:
     _sprite = get_node_or_null(sprite_path)
-    _apply_nearest_filter([front_texture, back_texture, left_texture, right_texture])
     _update_sprite()
 
 func _physics_process(delta: float) -> void:
@@ -91,7 +105,11 @@ func _get_active_camera() -> Camera3D:
         if cam:
             return cam
 
-    return get_tree().get_current_scene().find_node("Camera3D", true, false)
+    var current_scene = get_tree().current_scene
+    if current_scene:
+        return current_scene.find_child("Camera3D", true, false) as Camera3D
+
+    return null
 
 func _update_sprite() -> void:
     if not _sprite:
@@ -118,10 +136,10 @@ func _update_sprite() -> void:
         _sprite.texture = selected_texture
 
 func _apply_nearest_filter(textures: Array) -> void:
-    for texture in textures:
-        if texture and texture is Texture2D:
-            var flags = texture.get_flags()
-            flags &= ~Texture2D.FLAG_FILTER
-            flags &= ~Texture2D.FLAG_MIPMAPS
-            texture.set_flags(flags)
+    # NOTE: Manipulating Texture2D import flags at runtime can be
+    # incompatible across Godot builds. Instead, set Filter = Off and
+    # Generate Mipmaps = Off in the Editor Import settings for each PNG
+    # to ensure nearest-neighbour sampling. This function is intentionally
+    # a no-op to remain compatible with various Godot versions.
+    return
 '''

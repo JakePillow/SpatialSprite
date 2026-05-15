@@ -6,7 +6,7 @@ from pathlib import Path
 workspace_root = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(workspace_root / "tool"))
 
-from spritespatial.image_loader import mirror_horizontal
+from spritespatial.image_loader import mirror_sprite_to_left_right
 
 
 def main() -> int:
@@ -22,12 +22,11 @@ def main() -> int:
         print(f"Source file not found: {source}")
         return 2
 
-    mirror_horizontal(source, left_target)
-    mirror_horizontal(source, right_target)
+    mirror_sprite_to_left_right(source, left_target, right_target)
 
-    print(f"Mirrored {source} to:")
-    print(f"  left:  {left_target}")
-    print(f"  right: {right_target}")
+    print(f"Created side sprites from {source}:")
+    print(f"  left mirrored: {left_target}")
+    print(f"  right source:  {right_target}")
     return 0
 
 

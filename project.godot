@@ -1,5 +1,7 @@
-[gd_resource type="ProjectSettings" load_steps=2 format=3]
+config_version=5
+
 [application]
+
 config/name="SpriteSpatial"
 config/description="Directional sprite spatial prototype"
 config/author="SpriteSpatial"

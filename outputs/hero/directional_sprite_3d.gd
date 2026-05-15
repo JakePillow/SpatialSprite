@@ -10,7 +10,6 @@ var _sprite: Sprite3D
 
 func _ready() -> void:
     _sprite = get_node_or_null(sprite_path)
-    _apply_nearest_filter([front_texture, back_texture, left_texture, right_texture])
     _update_sprite()
 
 func _physics_process(delta: float) -> void:
@@ -23,7 +22,11 @@ func _get_active_camera() -> Camera3D:
         if cam:
             return cam
 
-    return get_tree().get_current_scene().find_node("Camera3D", true, false)
+    var current_scene = get_tree().current_scene
+    if current_scene:
+        return current_scene.find_child("Camera3D", true, false) as Camera3D
+
+    return null
 
 func _update_sprite() -> void:
     if not _sprite:
@@ -50,9 +53,9 @@ func _update_sprite() -> void:
         _sprite.texture = selected_texture
 
 func _apply_nearest_filter(textures: Array) -> void:
-    for texture in textures:
-        if texture and texture is Texture2D:
-            var flags = texture.get_flags()
-            flags &= ~Texture2D.FLAG_FILTER
-            flags &= ~Texture2D.FLAG_MIPMAPS
-            texture.set_flags(flags)
+    # NOTE: Manipulating Texture2D import flags at runtime can be
+    # incompatible across Godot builds. Instead, set Filter = Off and
+    # Generate Mipmaps = Off in the Editor Import settings for each PNG
+    # to ensure nearest-neighbour sampling. This function is intentionally
+    # a no-op to remain compatible with various Godot versions.
+    return
