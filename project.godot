@@ -1,0 +1,7 @@
+﻿[gd_resource type=\"ProjectSettings\" load_steps=2 format=3]
+[application]
+config/name=\"SpriteSpatial\"
+config/description=\"Directional sprite spatial prototype\"
+config/author=\"SpriteSpatial\"
+config/main_scene=\"res://main.tscn\"
+config/version={"major":4,"minor":0,"patch":0}

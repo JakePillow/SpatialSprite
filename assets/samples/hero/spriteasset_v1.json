@@ -1,0 +1,18 @@
+{
+  "schema_version": "spriteasset_v1",
+  "asset_name": "hero",
+  "asset_type": "character",
+  "source_sprites": {
+    "front": "hero_front.png",
+    "back": "hero_back.png",
+    "left": "hero_left.png",
+    "right": "hero_right.png"
+  },
+  "render_mode": "directional_sprite_3d",
+  "pixel_scale": 0.05,
+  "collision": {
+    "type": "capsule",
+    "height": 1.6,
+    "radius": 0.35
+  }
+}
