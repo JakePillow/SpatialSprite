@@ -18,9 +18,9 @@ right_texture = ExtResource("5_right")
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
-transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.896, 0 )
+transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.84, 0 )
 texture = ExtResource("2_front")
-pixel_size = 0.014
+pixel_size = 0.06
 billboard_mode = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]

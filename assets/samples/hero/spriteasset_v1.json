@@ -9,7 +9,7 @@
     "right": "hero_right.png"
   },
   "render_mode": "directional_sprite_3d",
-  "pixel_scale": 0.014,
+  "pixel_scale": 0.06,
   "collision": {
     "type": "capsule",
     "height": 1.6,

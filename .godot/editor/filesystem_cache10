@@ -1,7 +1,7 @@
 63f7b34db8d8cdea90c76aacccf841ec
 ::res://::1778877997
 build.txt::TextFile::-1::1778876051::0::1::::<><><>0<>0<><>::
-main.tscn::PackedScene::-1::1778877997::0::1::::<><><>0<>0<><>::res://outputs/hero/hero.tscn<>res://scripts/main.gd
+main.tscn::PackedScene::-1::1778878318::0::1::::<><><>0<>0<><>::res://outputs/hero/layered_sprite_entity.tscn<>res://scripts/main.gd
 preflight.txt::TextFile::-1::1778876051::0::1::::<><><>0<>0<><>::
 ::res://assets/::1778873528
 ::res://assets/samples/::1778873528
@@ -15,12 +15,14 @@ spriteasset_v1.json::JSON::-1::1778877859::0::1::::<><><>0<>0<><>::
 ::res://godot_demo/editor/::1778877418
 reimport_textures.gd::GDScript::7886281337526051199::1778875649::0::1::::<>EditorScript<><>0<>1<><>::
 ::res://outputs/::1778873528
-::res://outputs/hero/::1778877418
+::res://outputs/hero/::1778878318
 directional_sprite_3d.gd::GDScript::4872970069753835193::1778878004::0::1::::<>CharacterBody3D<><>0<>0<><>::
 hero.tscn::PackedScene::-1::1778878004::0::1::::<><><>0<>0<><>::res://outputs/hero/directional_sprite_3d.gd<>res://assets/samples/hero/hero_front.png<>res://assets/samples/hero/hero_back.png<>res://assets/samples/hero/hero_left.png<>res://assets/samples/hero/hero_right.png
 hero_right_mirrored_left.png::CompressedTexture2D::841041666164194715::1778873971::1778877418::1::::<><><>0<>0<>af7a4198b30415b33f9981f231615228<>res://.godot/imported/hero_right_mirrored_left.png-e4f0744ad6e5345bc7fbd104b3722ba2.ctex::
 hero_right_mirrored_right.png::CompressedTexture2D::5136201895752840715::1778873971::1778877418::1::::<><><>0<>0<>e8a50d3d909f9f757f0f88ad88615377<>res://.godot/imported/hero_right_mirrored_right.png-fe00492fe9b328be9b73c630ee42eda9.ctex::
-::res://scripts/::1778877997
+layered_sprite_entity.gd::GDScript::7385632774484080041::1778878318::0::1::::<>Node3D<><>0<>0<><>::
+layered_sprite_entity.tscn::PackedScene::-1::1778878318::0::1::::<><><>0<>0<><>::res://outputs/hero/layered_sprite_entity.gd<>res://assets/samples/hero/hero_front.png<>res://assets/samples/hero/hero_back.png<>res://assets/samples/hero/hero_left.png<>res://assets/samples/hero/hero_right.png
+::res://scripts/::1778878025
 main.gd::GDScript::2955947234731372507::1778877997::0::1::::<>Node3D<><>0<>0<><>::
 ::res://tool/::1778873528
 ::res://tool/spritespatial/::1778873966
