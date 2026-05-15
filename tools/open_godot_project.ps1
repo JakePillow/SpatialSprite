@@ -33,35 +33,34 @@ if (-not (Test-Path $godotPath)) {
     exit 2
 }
 
-if (-not (Test-Path $ProjectFile)) {
-    @"
-[gd_resource type=\"ProjectSettings\" load_steps=2 format=3]
+$projectText = @'
+[gd_resource type="ProjectSettings" load_steps=2 format=3]
 [application]
-config/name=\"SpriteSpatial\"
-config/description=\"Directional sprite spatial prototype\"
-config/author=\"SpriteSpatial\"
-config/main_scene=\"res://main.tscn\"
-config/version={"major":4,"minor":0,"patch":0}
-"@ | Set-Content -Path $ProjectFile -Encoding UTF8
-    Write-Host "Created Godot project file: $ProjectFile"
-}
+config/name="SpriteSpatial"
+config/description="Directional sprite spatial prototype"
+config/author="SpriteSpatial"
+run/main_scene="res://main.tscn"
+config/version="4.6.2"
+'@
+$utf8NoBom = New-Object System.Text.UTF8Encoding($false)
+[System.IO.File]::WriteAllText($ProjectFile, $projectText, $utf8NoBom)
+Write-Host "Wrote Godot project file: $ProjectFile"
 
-if (-not (Test-Path $MainScene)) {
-    @"
-[ext_resource path=\"res://outputs/hero/hero.tscn\" type=\"PackedScene\" id=1]
-
+$mainText = @'
 [gd_scene load_steps=3 format=3]
-[node name=\"Main\" type=Node3D]
-[node name=\"HeroInstance\" type=Instance3D parent=\".\"]
+[ext_resource path="res://outputs/hero/hero.tscn" type="PackedScene" id=1]
+
+[node name="Main" type=Node3D]
+[node name="HeroInstance" type=Instance3D parent="."]
 scene = ExtResource( 1 )
-[node name=\"Camera3D\" type=Camera3D parent=\".\"]
+[node name="Camera3D" type=Camera3D parent="."]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 6 )
 current = true
-[node name=\"DirectionalLight3D\" type=DirectionalLight3D parent=\".\"]
+[node name="DirectionalLight3D" type=DirectionalLight3D parent="."]
 transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 6 )
-"@ | Set-Content -Path $MainScene -Encoding UTF8
-    Write-Host "Created demo main scene: $MainScene"
-}
+'@
+[System.IO.File]::WriteAllText($MainScene, $mainText, $utf8NoBom)
+Write-Host "Wrote demo main scene: $MainScene"
 
-Write-Host "Opening Godot project at $RepoRoot"
-& $GodotExe --path $RepoRoot
+Write-Host "Opening Godot project at $RepoRoot using $godotPath"
+& "$godotPath" --path "$RepoRoot"

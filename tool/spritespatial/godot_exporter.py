@@ -45,8 +45,10 @@ def _build_scene_text(scene_path: Path, script_path: Path, asset: AssetSchema, w
     right_texture_id = direction_textures["right"]
 
     lines: list[str] = []
+    lines.append("[gd_scene load_steps=3 format=3]")
+    # ext_resource entries must come after the [gd_scene] header for Godot to parse correctly
     lines.extend(ext_resource_lines)
-    lines.append("\n[gd_scene load_steps=3 format=3]")
+    lines.append("")
     lines.append(f"[node name=\"{body_name}\" type=CharacterBody3D]")
     lines.append(f"script = ExtResource( {1} )")
     lines.append(f"front_texture = ExtResource( {front_texture_id} )")
