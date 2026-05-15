@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Iterable
 
 from spritespatial.asset_schema import AssetSchema, SOURCE_DIRECTIONS
+from spritespatial.upscale import UPSCALE_EXTERNAL_ML, UPSCALE_MODES, UPSCALE_NEAREST_INTEGER
 
 PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
 
@@ -57,6 +58,8 @@ def validate_asset_schema(asset: AssetSchema) -> None:
     if asset.collision.get("height") is None or asset.collision.get("radius") is None:
         raise ValueError("collision must include height and radius")
 
+    validate_upscaling_config(asset)
+
     sprite_sizes: list[tuple[int, int]] = []
     for direction in SOURCE_DIRECTIONS:
         sprite_path = asset.sprite_path(direction)
@@ -77,6 +80,28 @@ def validate_asset_schema(asset: AssetSchema) -> None:
                 "All source sprites must have the same dimensions. "
                 f"{direction} has size {size}, expected {first_size}."
             )
+
+
+def validate_upscaling_config(asset: AssetSchema) -> None:
+    if not isinstance(asset.upscaling, dict):
+        raise ValueError("upscaling must be an object when provided")
+
+    method = asset.upscaling.get("method", UPSCALE_NEAREST_INTEGER)
+    if method not in UPSCALE_MODES:
+        raise ValueError(f"Unsupported upscaling.method: {method}")
+
+    if method == UPSCALE_EXTERNAL_ML:
+        raise ValueError(
+            "upscaling.method='external_ml' is a placeholder only and is not implemented"
+        )
+
+    scale_factor = int(asset.upscaling.get("scale_factor", 1))
+    if scale_factor <= 0:
+        raise ValueError("upscaling.scale_factor must be greater than 0")
+
+    generates_new_art = asset.upscaling.get("generates_new_art_content", False)
+    if generates_new_art:
+        raise ValueError("SpriteSpatial upscaling must not generate new art content")
 
 
 def validate_paths_exist(asset: AssetSchema) -> None:

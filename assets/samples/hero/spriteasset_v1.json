@@ -10,6 +10,11 @@
   },
   "render_mode": "directional_sprite_3d",
   "pixel_scale": 0.06,
+  "upscaling": {
+    "method": "nearest_integer",
+    "scale_factor": 1,
+    "generates_new_art_content": false
+  },
   "collision": {
     "type": "capsule",
     "height": 1.6,
