@@ -1,0 +1,35 @@
+{
+  "total_faces": 1568,
+  "faces_with_fallback_material": 0,
+  "fallback_face_percentage": 0.0,
+  "number_of_materials": 12,
+  "occupied_voxels": 846,
+  "transparent_pixels_ignored": 208,
+  "alpha_coverage": 0.4583333333333333,
+  "regions_generated": 10,
+  "final_mesh_bounds": {
+    "min": [
+      -0.30000000000000004,
+      0.050000000000000044,
+      -0.18571428571428572
+    ],
+    "max": [
+      0.3,
+      1.1,
+      0.2321428571428571
+    ],
+    "size": [
+      0.6000000000000001,
+      1.05,
+      0.4178571428571428
+    ]
+  },
+  "front_projection_coverage": 0.4583333333333333,
+  "part_count": 10,
+  "fail_conditions": {
+    "fallback_faces_above_1_percent": false,
+    "generated_mesh_has_zero_faces": false,
+    "no_regions_generated": false
+  },
+  "passed": true
+}
