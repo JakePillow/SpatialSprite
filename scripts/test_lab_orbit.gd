@@ -31,10 +31,25 @@ func _update_camera() -> void:
     if not _camera:
         return
 
+    set_camera_angle_distance(_angle, orbit_radius)
+
+
+func set_camera_angle_distance(angle_radians: float, distance: float) -> void:
+    if not _camera:
+        _camera = get_node_or_null(camera_path) as Camera3D
+    if not _camera:
+        return
+
     var look_target = orbit_center + Vector3(0.0, look_height, 0.0)
     _camera.global_position = orbit_center + Vector3(
-        sin(_angle) * orbit_radius,
+        sin(angle_radians) * distance,
         orbit_height,
-        cos(_angle) * orbit_radius
+        cos(angle_radians) * distance
     )
     _camera.look_at(look_target, Vector3.UP)
+
+
+func get_camera() -> Camera3D:
+    if not _camera:
+        _camera = get_node_or_null(camera_path) as Camera3D
+    return _camera

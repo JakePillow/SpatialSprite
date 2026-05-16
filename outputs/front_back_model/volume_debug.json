@@ -1,0 +1,32 @@
+{
+  "front_depth": "C:\\dev\\SpatialSprite\\outputs\\front_back_model\\front_depth.png",
+  "back_depth": "C:\\dev\\SpatialSprite\\outputs\\front_back_model\\back_depth.png",
+  "regions": "C:\\dev\\SpatialSprite\\outputs\\front_back_model\\regions.json",
+  "depth_debug_overlay": "C:\\dev\\SpatialSprite\\outputs\\front_back_model\\depth_debug_overlay.png",
+  "volume_debug": "C:\\dev\\SpatialSprite\\outputs\\front_back_model\\volume_debug.json",
+  "manual_front_depth": null,
+  "manual_back_depth": null,
+  "ai_assistance": {
+    "enabled": false,
+    "accepted_without_validation": false,
+    "note": "AI hook is available but not used by deterministic baseline."
+  },
+  "validation": {
+    "front": {
+      "dimensions_match": true,
+      "transparent_pixels_zero": true,
+      "opaque_pixels_nonzero": true,
+      "values_in_range": true,
+      "coverage_matches_alpha": true,
+      "depth_layers_used": 96
+    },
+    "back": {
+      "dimensions_match": true,
+      "transparent_pixels_zero": true,
+      "opaque_pixels_nonzero": true,
+      "values_in_range": true,
+      "coverage_matches_alpha": true,
+      "depth_layers_used": 60
+    }
+  }
+}

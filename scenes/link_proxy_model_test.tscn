@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://scripts/sprite_guided_proxy_model.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/samples/hero/hero_front.png" id="2_front"]
+[ext_resource type="Texture2D" path="res://assets/samples/hero/hero_back.png" id="3_back"]
+[ext_resource type="Texture2D" path="res://assets/samples/hero/hero_left.png" id="4_left"]
+[ext_resource type="Texture2D" path="res://assets/samples/hero/hero_right.png" id="5_right"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_link"]
+height = 1.6
+radius = 0.35
+
+[node name="LinkProxyModel" type="CharacterBody3D"]
+script = ExtResource("1_script")
+front_texture = ExtResource("2_front")
+back_texture = ExtResource("3_back")
+left_texture = ExtResource("4_left")
+right_texture = ExtResource("5_right")
+sprite_width_units = 1.15
+sprite_height_units = 1.9
+body_depth_units = 0.46
+sprite_opacity = 0.92
+proxy_opacity = 0.56
+canonical_snap_strength = 2.2
+texture_projection_mode = "keyview_cards"
+show_proxy_geometry = true
+show_keyview_cards = true
+side_material_color = Color(0.13, 0.15, 0.13, 1)
+debug_overlay = true
+debug_log = false
+canonical_proxy_visibility = 0.18
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("CapsuleShape3D_link")

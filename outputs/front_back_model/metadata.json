@@ -1,0 +1,25 @@
+{
+  "front_source": "C:\\dev\\SpatialSprite\\assets\\samples\\hero\\hero_front.png",
+  "back_source": "C:\\dev\\SpatialSprite\\assets\\samples\\hero\\hero_back.png",
+  "front_texture": "C:\\dev\\SpatialSprite\\outputs\\front_back_model\\front_aligned.png",
+  "back_texture": "C:\\dev\\SpatialSprite\\outputs\\front_back_model\\back_aligned.png",
+  "front_depth": "C:\\dev\\SpatialSprite\\outputs\\front_back_model\\front_depth.png",
+  "back_depth": "C:\\dev\\SpatialSprite\\outputs\\front_back_model\\back_depth.png",
+  "regions": "C:\\dev\\SpatialSprite\\outputs\\front_back_model\\regions.json",
+  "depth_debug_overlay": "C:\\dev\\SpatialSprite\\outputs\\front_back_model\\depth_debug_overlay.png",
+  "volume_debug": "C:\\dev\\SpatialSprite\\outputs\\front_back_model\\volume_debug.json",
+  "canvas_size": [
+    24,
+    32
+  ],
+  "depth_slices": 7,
+  "voxel_size": 0.06,
+  "model_depth_units": 0.48,
+  "side_colour_mode": "blended",
+  "smoothing_mode": "merge_faces",
+  "upscale_mode": "none",
+  "ml_cleanup_enabled": false,
+  "vertex_count": 4768,
+  "triangle_count": 2384,
+  "debug_dir": "C:\\dev\\SpatialSprite\\outputs\\front_back_model\\debug"
+}

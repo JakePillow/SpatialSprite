@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3]
 
-[ext_resource type="PackedScene" path="res://outputs/hero/hybrid_sprite_volume_entity.tscn" id="1_hybrid_hero"]
+[ext_resource type="PackedScene" path="res://outputs/hero/hero.tscn" id="1_hero"]
 [ext_resource type="Script" path="res://scripts/main.gd" id="2_main"]
 
 [node name="Main" type="Node3D"]
 script = ExtResource("2_main")
-target_path = NodePath("HybridHero")
+target_path = NodePath("HeroInstance")
 
-[node name="HybridHero" parent="." instance=ExtResource("1_hybrid_hero")]
+[node name="HeroInstance" parent="." instance=ExtResource("1_hero")]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D( 1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 2, 4 )

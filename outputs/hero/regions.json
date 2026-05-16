@@ -1,0 +1,122 @@
+{
+  "schema": "spritespatial_regions_v1",
+  "source": "deterministic_baseline",
+  "regions": [
+    {
+      "name": "hat",
+      "depth": 196,
+      "bbox": [
+        4,
+        9,
+        19,
+        12
+      ],
+      "editable": true
+    },
+    {
+      "name": "head",
+      "depth": 226,
+      "bbox": [
+        7,
+        11,
+        17,
+        17
+      ],
+      "editable": true
+    },
+    {
+      "name": "torso",
+      "depth": 204,
+      "bbox": [
+        7,
+        17,
+        17,
+        24
+      ],
+      "editable": true
+    },
+    {
+      "name": "left_arm",
+      "depth": 176,
+      "bbox": [
+        4,
+        16,
+        8,
+        24
+      ],
+      "editable": true
+    },
+    {
+      "name": "right_arm",
+      "depth": 176,
+      "bbox": [
+        14,
+        16,
+        19,
+        24
+      ],
+      "editable": true
+    },
+    {
+      "name": "legs",
+      "depth": 160,
+      "bbox": [
+        6,
+        23,
+        18,
+        29
+      ],
+      "editable": true
+    },
+    {
+      "name": "clothing",
+      "depth": 188,
+      "bbox": [
+        4,
+        9,
+        19,
+        29
+      ],
+      "editable": true
+    },
+    {
+      "name": "shield",
+      "depth": 180,
+      "bbox": [
+        4,
+        14,
+        9,
+        23
+      ],
+      "editable": true
+    },
+    {
+      "name": "sword",
+      "depth": 168,
+      "bbox": [
+        17,
+        11,
+        19,
+        27
+      ],
+      "editable": true
+    },
+    {
+      "name": "hair",
+      "depth": 214,
+      "bbox": [
+        6,
+        10,
+        18,
+        16
+      ],
+      "editable": true
+    }
+  ],
+  "ai_assistance": {
+    "enabled": false,
+    "hook": "ai_depth_suggestion_hook",
+    "accepted_without_validation": false
+  },
+  "back_sprite_present": true
+}

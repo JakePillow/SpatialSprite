@@ -1,140 +1,113 @@
-[gd_scene load_steps=13 format=3]
+[gd_scene load_steps=11 format=3]
 
 [ext_resource type="Script" path="res://scripts/test_lab_orbit.gd" id="1_orbit"]
-[ext_resource type="PackedScene" path="res://outputs/hero/hero.tscn" id="2_variant_a"]
-[ext_resource type="PackedScene" path="res://outputs/hero/hybrid_sprite_volume_entity.tscn" id="3_variant_b"]
+[ext_resource type="PackedScene" path="res://scenes/link_directional.tscn" id="2_track_a"]
+[ext_resource type="PackedScene" path="res://scenes/link_keyview_voxel_test.tscn" id="3_track_b"]
+[ext_resource type="PackedScene" path="res://scenes/link_proxy_model_test.tscn" id="4_track_c"]
+[ext_resource type="Script" path="res://scripts/capture_angles.gd" id="5_capture"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_floor"]
 albedo_color = Color(0.33, 0.34, 0.33, 1)
 roughness = 1.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_spawn"]
-albedo_color = Color(0.12, 0.14, 0.16, 1)
-roughness = 0.9
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b"]
-albedo_color = Color(0.15, 0.22, 0.30, 1)
-roughness = 1.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c"]
-albedo_color = Color(0.18, 0.28, 0.18, 1)
-roughness = 1.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d"]
-albedo_color = Color(0.30, 0.23, 0.14, 1)
-roughness = 1.0
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pad"]
+albedo_color = Color(0.13, 0.15, 0.15, 1)
+roughness = 0.95
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_floor"]
-size = Vector2(10, 7)
+size = Vector2(8, 5.5)
 
-[sub_resource type="BoxMesh" id="BoxMesh_spawn"]
-size = Vector3(1.6, 0.04, 1.6)
-
-[sub_resource type="BoxMesh" id="BoxMesh_placeholder"]
-size = Vector3(0.7, 1.5, 0.35)
-
-[sub_resource type="BoxMesh" id="BoxMesh_low_poly"]
-size = Vector3(0.8, 1.35, 0.55)
+[sub_resource type="BoxMesh" id="BoxMesh_pad"]
+size = Vector3(1.7, 0.035, 1.7)
 
 [node name="TestLab" type="Node3D"]
 script = ExtResource("1_orbit")
 orbit_center = Vector3(0, 0, 0)
-orbit_radius = 7.5
-orbit_height = 2.2
-orbit_speed = 0.45
-look_height = 0.75
+orbit_radius = 5.6
+orbit_height = 2.0
+orbit_speed = 0.045
+look_height = 0.85
+
+[node name="CaptureAngles" type="Node" parent="."]
+script = ExtResource("5_capture")
+camera_path = NodePath("../Camera3D")
+orbit_controller_path = NodePath("..")
+output_dir = "res://outputs/link/test_lab_captures"
+results_path = "res://outputs/link/test_results.json"
+capture_on_ready = false
+quit_after_capture = true
+near_distance = 4.6
+mid_distance = 5.6
+far_distance = 7.0
+camera_height = 2.0
+look_height = 0.85
 
 [node name="Floor" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_floor")
 surface_material_override/0 = SubResource("StandardMaterial3D_floor")
 
-[node name="VariantA" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, -1.25)
+[node name="TrackA" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.35, 0, 0)
 
-[node name="SpawnPad" type="MeshInstance3D" parent="VariantA"]
+[node name="Pad" type="MeshInstance3D" parent="TrackA"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, 0)
-mesh = SubResource("BoxMesh_spawn")
-surface_material_override/0 = SubResource("StandardMaterial3D_spawn")
+mesh = SubResource("BoxMesh_pad")
+surface_material_override/0 = SubResource("StandardMaterial3D_pad")
 
-[node name="DirectionalBillboard" parent="VariantA" instance=ExtResource("2_variant_a")]
+[node name="DirectionalBillboard" parent="TrackA" instance=ExtResource("2_track_a")]
 
-[node name="Label" type="Label3D" parent="VariantA"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 1.05)
-text = "A: Directional billboard"
-font_size = 36
-pixel_size = 0.006
+[node name="Label" type="Label3D" parent="TrackA"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15, 0)
+visible = false
+text = "A Directional"
+font_size = 22
+pixel_size = 0.004
 billboard = 1
 
-[node name="VariantB" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1.25)
+[node name="TrackB" type="Node3D" parent="."]
 
-[node name="SpawnPad" type="MeshInstance3D" parent="VariantB"]
+[node name="Pad" type="MeshInstance3D" parent="TrackB"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, 0)
-mesh = SubResource("BoxMesh_spawn")
-surface_material_override/0 = SubResource("StandardMaterial3D_spawn")
+mesh = SubResource("BoxMesh_pad")
+surface_material_override/0 = SubResource("StandardMaterial3D_pad")
 
-[node name="HybridSpriteVolume" parent="VariantB" instance=ExtResource("3_variant_b")]
-proxy_depth = 0.18
-proxy_visibility = 0.46
-side_material_color = Color(0.08, 0.09, 0.08, 1)
-angle_fade_strength = 1.0
+[node name="KeyviewVoxel" parent="TrackB" instance=ExtResource("3_track_b")]
+debug_overlay = false
 
-[node name="Label" type="Label3D" parent="VariantB"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 1.05)
-text = "B: Billboard + silhouette thickness"
-font_size = 36
-pixel_size = 0.006
+[node name="Label" type="Label3D" parent="TrackB"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15, 0)
+visible = false
+text = "B Keyview Voxel"
+font_size = 22
+pixel_size = 0.004
 billboard = 1
 
-[node name="VariantC" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1.25)
+[node name="TrackC" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.35, 0, 0)
 
-[node name="SpawnPad" type="MeshInstance3D" parent="VariantC"]
+[node name="Pad" type="MeshInstance3D" parent="TrackC"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, 0)
-mesh = SubResource("BoxMesh_spawn")
-surface_material_override/0 = SubResource("StandardMaterial3D_spawn")
+mesh = SubResource("BoxMesh_pad")
+surface_material_override/0 = SubResource("StandardMaterial3D_pad")
 
-[node name="Placeholder" type="MeshInstance3D" parent="VariantC"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.12, 0.75, 0)
-mesh = SubResource("BoxMesh_placeholder")
-surface_material_override/0 = SubResource("StandardMaterial3D_c")
+[node name="SpriteGuidedProxyModel" parent="TrackC" instance=ExtResource("4_track_c")]
+proxy_opacity = 0.56
+side_material_color = Color(0.13, 0.15, 0.13, 1)
+debug_overlay = false
+canonical_proxy_visibility = 0.18
 
-[node name="LayerHint" type="MeshInstance3D" parent="VariantC"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18, 0.75, 0.16)
-mesh = SubResource("BoxMesh_placeholder")
-surface_material_override/0 = SubResource("StandardMaterial3D_c")
-
-[node name="Label" type="Label3D" parent="VariantC"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 1.05)
-text = "C: Layered body-part cards"
-font_size = 36
-pixel_size = 0.006
-billboard = 1
-
-[node name="VariantD" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -1.25)
-
-[node name="SpawnPad" type="MeshInstance3D" parent="VariantD"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.02, 0)
-mesh = SubResource("BoxMesh_spawn")
-surface_material_override/0 = SubResource("StandardMaterial3D_spawn")
-
-[node name="Placeholder" type="MeshInstance3D" parent="VariantD"]
-transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 0, 0.68, 0)
-mesh = SubResource("BoxMesh_low_poly")
-surface_material_override/0 = SubResource("StandardMaterial3D_d")
-
-[node name="Label" type="Label3D" parent="VariantD"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.02, 1.05)
-text = "D: Low-poly proxy placeholder"
-font_size = 36
-pixel_size = 0.006
+[node name="Label" type="Label3D" parent="TrackC"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15, 0)
+visible = false
+text = "C Proxy Model"
+font_size = 22
+pixel_size = 0.004
 billboard = 1
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.957826, -0.287348, 0, 0.287348, 0.957826, 0, 2.2, 7.5)
+transform = Transform3D(1, 0, 0, 0, 0.962651, -0.270745, 0, 0.270745, 0.962651, 0, 2, 5.6)
 current = true
-fov = 52.0
+fov = 45.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 0, 5, 3)

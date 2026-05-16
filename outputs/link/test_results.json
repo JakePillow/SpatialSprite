@@ -1,0 +1,173 @@
+{
+  "angles_degrees": [
+    0,
+    45,
+    90,
+    135,
+    180,
+    225,
+    270,
+    315
+  ],
+  "captures": [
+    {
+      "angle_degrees": 0,
+      "distance": "near",
+      "distance_value": 4.6,
+      "image": "res://outputs/link/test_lab_captures/near_000.png"
+    },
+    {
+      "angle_degrees": 45,
+      "distance": "near",
+      "distance_value": 4.6,
+      "image": "res://outputs/link/test_lab_captures/near_045.png"
+    },
+    {
+      "angle_degrees": 90,
+      "distance": "near",
+      "distance_value": 4.6,
+      "image": "res://outputs/link/test_lab_captures/near_090.png"
+    },
+    {
+      "angle_degrees": 135,
+      "distance": "near",
+      "distance_value": 4.6,
+      "image": "res://outputs/link/test_lab_captures/near_135.png"
+    },
+    {
+      "angle_degrees": 180,
+      "distance": "near",
+      "distance_value": 4.6,
+      "image": "res://outputs/link/test_lab_captures/near_180.png"
+    },
+    {
+      "angle_degrees": 225,
+      "distance": "near",
+      "distance_value": 4.6,
+      "image": "res://outputs/link/test_lab_captures/near_225.png"
+    },
+    {
+      "angle_degrees": 270,
+      "distance": "near",
+      "distance_value": 4.6,
+      "image": "res://outputs/link/test_lab_captures/near_270.png"
+    },
+    {
+      "angle_degrees": 315,
+      "distance": "near",
+      "distance_value": 4.6,
+      "image": "res://outputs/link/test_lab_captures/near_315.png"
+    },
+    {
+      "angle_degrees": 0,
+      "distance": "mid",
+      "distance_value": 5.6,
+      "image": "res://outputs/link/test_lab_captures/mid_000.png"
+    },
+    {
+      "angle_degrees": 45,
+      "distance": "mid",
+      "distance_value": 5.6,
+      "image": "res://outputs/link/test_lab_captures/mid_045.png"
+    },
+    {
+      "angle_degrees": 90,
+      "distance": "mid",
+      "distance_value": 5.6,
+      "image": "res://outputs/link/test_lab_captures/mid_090.png"
+    },
+    {
+      "angle_degrees": 135,
+      "distance": "mid",
+      "distance_value": 5.6,
+      "image": "res://outputs/link/test_lab_captures/mid_135.png"
+    },
+    {
+      "angle_degrees": 180,
+      "distance": "mid",
+      "distance_value": 5.6,
+      "image": "res://outputs/link/test_lab_captures/mid_180.png"
+    },
+    {
+      "angle_degrees": 225,
+      "distance": "mid",
+      "distance_value": 5.6,
+      "image": "res://outputs/link/test_lab_captures/mid_225.png"
+    },
+    {
+      "angle_degrees": 270,
+      "distance": "mid",
+      "distance_value": 5.6,
+      "image": "res://outputs/link/test_lab_captures/mid_270.png"
+    },
+    {
+      "angle_degrees": 315,
+      "distance": "mid",
+      "distance_value": 5.6,
+      "image": "res://outputs/link/test_lab_captures/mid_315.png"
+    },
+    {
+      "angle_degrees": 0,
+      "distance": "far",
+      "distance_value": 7.0,
+      "image": "res://outputs/link/test_lab_captures/far_000.png"
+    },
+    {
+      "angle_degrees": 45,
+      "distance": "far",
+      "distance_value": 7.0,
+      "image": "res://outputs/link/test_lab_captures/far_045.png"
+    },
+    {
+      "angle_degrees": 90,
+      "distance": "far",
+      "distance_value": 7.0,
+      "image": "res://outputs/link/test_lab_captures/far_090.png"
+    },
+    {
+      "angle_degrees": 135,
+      "distance": "far",
+      "distance_value": 7.0,
+      "image": "res://outputs/link/test_lab_captures/far_135.png"
+    },
+    {
+      "angle_degrees": 180,
+      "distance": "far",
+      "distance_value": 7.0,
+      "image": "res://outputs/link/test_lab_captures/far_180.png"
+    },
+    {
+      "angle_degrees": 225,
+      "distance": "far",
+      "distance_value": 7.0,
+      "image": "res://outputs/link/test_lab_captures/far_225.png"
+    },
+    {
+      "angle_degrees": 270,
+      "distance": "far",
+      "distance_value": 7.0,
+      "image": "res://outputs/link/test_lab_captures/far_270.png"
+    },
+    {
+      "angle_degrees": 315,
+      "distance": "far",
+      "distance_value": 7.0,
+      "image": "res://outputs/link/test_lab_captures/far_315.png"
+    }
+  ],
+  "distances": {
+    "far": 7.0,
+    "mid": 5.6,
+    "near": 4.6
+  },
+  "output_dir": "res://outputs/link/test_lab_captures",
+  "review_criteria": {
+    "back": "PASS if back sprite resolves cleanly.",
+    "edges": "PASS if no background halo/fringe.",
+    "forty_five_degrees": "PASS if illusion breaks gracefully, not as paper-thin card.",
+    "head_on": "PASS if player would not notice 3D scaffold.",
+    "motion": "PASS if no flicker or distracting popping.",
+    "side": "PASS if side sprite resolves cleanly."
+  },
+  "scene": "res://test_lab.tscn"
+}

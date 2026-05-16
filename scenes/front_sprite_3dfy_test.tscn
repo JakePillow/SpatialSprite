@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/test_lab_orbit.gd" id="1_orbit"]
+[ext_resource type="Script" path="res://scripts/front_sprite_3dfy.gd" id="2_front3dfy"]
+[ext_resource type="Texture2D" path="res://assets/samples/hero/hero_front.png" id="3_front"]
+[ext_resource type="Script" path="res://scripts/capture_front_3dfy.gd" id="4_capture"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_floor"]
+albedo_color = Color(0.33, 0.34, 0.33, 1)
+roughness = 1.0
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_floor"]
+size = Vector2(4, 4)
+
+[node name="FrontSprite3DFYTest" type="Node3D"]
+script = ExtResource("1_orbit")
+orbit_center = Vector3(0, 0, 0)
+orbit_radius = 4.0
+orbit_height = 1.65
+orbit_speed = 0.045
+look_height = 0.85
+
+[node name="CaptureFront3DFY" type="Node" parent="."]
+script = ExtResource("4_capture")
+camera_path = NodePath("../Camera3D")
+orbit_controller_path = NodePath("..")
+output_dir = "res://outputs/front_3dfy_test"
+capture_on_ready = false
+quit_after_capture = true
+camera_distance = 4.0
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_floor")
+surface_material_override/0 = SubResource("StandardMaterial3D_floor")
+
+[node name="FrontSprite3DFY" type="Node3D" parent="."]
+script = ExtResource("2_front3dfy")
+front_texture = ExtResource("3_front")
+sprite_width_units = 1.15
+sprite_height_units = 1.9
+body_depth_units = 0.42
+show_front_sprite = true
+show_proxy_volume = true
+proxy_depth = 0.42
+proxy_opacity = 0.68
+simplify_proxy = true
+side_material_color = Color(0.12, 0.14, 0.12, 1)
+front_projection_offset = 0.006
+simplified_band_pixels = 3
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.966235, -0.257663, 0, 0.257663, 0.966235, 0, 1.65, 4)
+current = true
+fov = 38.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, -0.353553, 0.612372, 0, 0.866025, 0.5, -0.707107, -0.353553, 0.612372, 0, 5, 3)
+light_energy = 1.35

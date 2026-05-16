@@ -74,6 +74,7 @@ def _build_scene_text(scene_path: Path, script_path: Path, asset: AssetSchema, w
     lines.append(f"texture = ExtResource(\"{front_texture_id}\")")
     lines.append(f"pixel_size = {pixel_scale}")
     lines.append("billboard_mode = 2")
+    lines.append("texture_filter = 0")
     lines.append("")
     lines.append("[node name=\"CollisionShape3D\" type=\"CollisionShape3D\" parent=\".\"]")
     lines.append(f"transform = Transform3D( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, {collision_y_offset}, 0 )")
@@ -93,6 +94,7 @@ var _sprite: Sprite3D
 
 func _ready() -> void:
     _sprite = get_node_or_null(sprite_path)
+    _apply_nearest_filter()
     _update_sprite()
 
 func _physics_process(delta: float) -> void:
@@ -135,11 +137,7 @@ func _update_sprite() -> void:
     if _sprite.texture != selected_texture:
         _sprite.texture = selected_texture
 
-func _apply_nearest_filter(textures: Array) -> void:
-    # NOTE: Manipulating Texture2D import flags at runtime can be
-    # incompatible across Godot builds. Instead, set Filter = Off and
-    # Generate Mipmaps = Off in the Editor Import settings for each PNG
-    # to ensure nearest-neighbour sampling. This function is intentionally
-    # a no-op to remain compatible with various Godot versions.
-    return
+func _apply_nearest_filter() -> void:
+    if _sprite:
+        _sprite.texture_filter = BaseMaterial3D.TEXTURE_FILTER_NEAREST
 '''

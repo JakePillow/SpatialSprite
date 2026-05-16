@@ -1,0 +1,186 @@
+{
+  "asset_name": "hero",
+  "directions": [
+    "front",
+    "back",
+    "left",
+    "right"
+  ],
+  "upscaling": {
+    "method": "nearest_integer",
+    "scale_factor": 2,
+    "generates_new_art_content": false,
+    "deterministic": true,
+    "output_format": "png",
+    "external_hooks": {
+      "real_esrgan": "placeholder_not_implemented",
+      "waifu2x": "placeholder_not_implemented"
+    },
+    "output_dir": "debug/deterministic_upscale/hero_nearest_2x"
+  },
+  "strict_gates": {
+    "rgba_required": true,
+    "corner_opacity_max": 0.05,
+    "alpha_area_drift_max_for_deterministic": 0.005,
+    "introduced_colours_for_nearest": 0,
+    "dimensions_match_across_directions": true
+  },
+  "source_sprites": {
+    "front": {
+      "path": "assets\\samples\\hero\\hero_front.png",
+      "exists": true,
+      "mode": "RGBA",
+      "size": [
+        24,
+        32
+      ],
+      "alpha_channel_present": true,
+      "transparent_ratio": 0.6471354166666666,
+      "corner_opacity": 0.0,
+      "palette_size": 15,
+      "introduced_colour_count": 0,
+      "alpha_area_drift_vs_nearest_baseline": 0.0,
+      "mask_ssim": null,
+      "hausdorff_distance": null,
+      "passes": true,
+      "failures": []
+    },
+    "back": {
+      "path": "assets\\samples\\hero\\hero_back.png",
+      "exists": true,
+      "mode": "RGBA",
+      "size": [
+        24,
+        32
+      ],
+      "alpha_channel_present": true,
+      "transparent_ratio": 0.6536458333333334,
+      "corner_opacity": 0.0,
+      "palette_size": 14,
+      "introduced_colour_count": 0,
+      "alpha_area_drift_vs_nearest_baseline": 0.0,
+      "mask_ssim": null,
+      "hausdorff_distance": null,
+      "passes": true,
+      "failures": []
+    },
+    "left": {
+      "path": "assets\\samples\\hero\\hero_left.png",
+      "exists": true,
+      "mode": "RGBA",
+      "size": [
+        24,
+        32
+      ],
+      "alpha_channel_present": true,
+      "transparent_ratio": 0.7005208333333334,
+      "corner_opacity": 0.0,
+      "palette_size": 15,
+      "introduced_colour_count": 0,
+      "alpha_area_drift_vs_nearest_baseline": 0.0,
+      "mask_ssim": null,
+      "hausdorff_distance": null,
+      "passes": true,
+      "failures": []
+    },
+    "right": {
+      "path": "assets\\samples\\hero\\hero_right.png",
+      "exists": true,
+      "mode": "RGBA",
+      "size": [
+        24,
+        32
+      ],
+      "alpha_channel_present": true,
+      "transparent_ratio": 0.7005208333333334,
+      "corner_opacity": 0.0,
+      "palette_size": 15,
+      "introduced_colour_count": 0,
+      "alpha_area_drift_vs_nearest_baseline": 0.0,
+      "mask_ssim": null,
+      "hausdorff_distance": null,
+      "passes": true,
+      "failures": []
+    }
+  },
+  "upscaled_sprites": {
+    "front": {
+      "path": "C:\\dev\\SpatialSprite\\debug\\deterministic_upscale\\hero_nearest_2x\\hero_front.png",
+      "exists": true,
+      "mode": "RGBA",
+      "size": [
+        48,
+        64
+      ],
+      "alpha_channel_present": true,
+      "transparent_ratio": 0.6471354166666666,
+      "corner_opacity": 0.0,
+      "palette_size": 15,
+      "introduced_colour_count": 0,
+      "alpha_area_drift_vs_nearest_baseline": 0.0,
+      "mask_ssim": null,
+      "hausdorff_distance": null,
+      "passes": true,
+      "failures": []
+    },
+    "back": {
+      "path": "C:\\dev\\SpatialSprite\\debug\\deterministic_upscale\\hero_nearest_2x\\hero_back.png",
+      "exists": true,
+      "mode": "RGBA",
+      "size": [
+        48,
+        64
+      ],
+      "alpha_channel_present": true,
+      "transparent_ratio": 0.6536458333333334,
+      "corner_opacity": 0.0,
+      "palette_size": 14,
+      "introduced_colour_count": 0,
+      "alpha_area_drift_vs_nearest_baseline": 0.0,
+      "mask_ssim": null,
+      "hausdorff_distance": null,
+      "passes": true,
+      "failures": []
+    },
+    "left": {
+      "path": "C:\\dev\\SpatialSprite\\debug\\deterministic_upscale\\hero_nearest_2x\\hero_left.png",
+      "exists": true,
+      "mode": "RGBA",
+      "size": [
+        48,
+        64
+      ],
+      "alpha_channel_present": true,
+      "transparent_ratio": 0.7005208333333334,
+      "corner_opacity": 0.0,
+      "palette_size": 15,
+      "introduced_colour_count": 0,
+      "alpha_area_drift_vs_nearest_baseline": 0.0,
+      "mask_ssim": null,
+      "hausdorff_distance": null,
+      "passes": true,
+      "failures": []
+    },
+    "right": {
+      "path": "C:\\dev\\SpatialSprite\\debug\\deterministic_upscale\\hero_nearest_2x\\hero_right.png",
+      "exists": true,
+      "mode": "RGBA",
+      "size": [
+        48,
+        64
+      ],
+      "alpha_channel_present": true,
+      "transparent_ratio": 0.7005208333333334,
+      "corner_opacity": 0.0,
+      "palette_size": 15,
+      "introduced_colour_count": 0,
+      "alpha_area_drift_vs_nearest_baseline": 0.0,
+      "mask_ssim": null,
+      "hausdorff_distance": null,
+      "passes": true,
+      "failures": []
+    }
+  },
+  "overall_pass": true,
+  "failures": []
+}

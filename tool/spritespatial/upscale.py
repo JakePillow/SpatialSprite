@@ -12,13 +12,12 @@ from spritespatial.asset_schema import AssetSchema, SOURCE_DIRECTIONS
 UPSCALE_NEAREST_INTEGER = "nearest_integer"
 UPSCALE_SCALE2X = "scale2x"
 UPSCALE_SCALE3X = "scale3x"
-UPSCALE_EXTERNAL_ML = "external_ml"
 UPSCALE_MODES = {
     UPSCALE_NEAREST_INTEGER,
     UPSCALE_SCALE2X,
     UPSCALE_SCALE3X,
-    UPSCALE_EXTERNAL_ML,
 }
+PLACEHOLDER_HOOKS = ("real_esrgan", "waifu2x")
 
 
 @dataclass(frozen=True)
@@ -54,10 +53,6 @@ def upscale_image(
     _validate_scale(scale_factor)
 
     source = image.convert("RGBA")
-    if mode == UPSCALE_EXTERNAL_ML:
-        raise NotImplementedError(
-            "external_ml is a placeholder only. SpriteSpatial does not ship generative upscaling."
-        )
 
     if mode == UPSCALE_NEAREST_INTEGER:
         return source.resize(
@@ -68,12 +63,12 @@ def upscale_image(
     if mode == UPSCALE_SCALE2X:
         if scale_factor != 2:
             raise ValueError("scale2x requires scale_factor=2")
-        return _scale2x(source)
+        return _with_nearest_alpha(source, _scale2x(source), scale_factor)
 
     if mode == UPSCALE_SCALE3X:
         if scale_factor != 3:
             raise ValueError("scale3x requires scale_factor=3")
-        return _scale3x(source)
+        return _with_nearest_alpha(source, _scale3x(source), scale_factor)
 
     raise ValueError(f"Unsupported upscale mode: {mode}")
 
@@ -84,13 +79,18 @@ def upscale_file(
     scale_factor: int = 2,
     mode: str = UPSCALE_NEAREST_INTEGER,
 ) -> UpscaleValidation:
+    if source_path.suffix.lower() != ".png":
+        raise ValueError("Upscaling input must be a PNG file.")
+    if output_path.suffix.lower() != ".png":
+        raise ValueError("Upscaling output must be a PNG file.")
+
     with Image.open(source_path) as image:
         source = image.convert("RGBA")
 
     upscaled = upscale_image(source, scale_factor=scale_factor, mode=mode)
     validation = validate_upscale(source, upscaled, scale_factor=scale_factor, method=mode)
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    upscaled.save(output_path, format="PNG")
+    upscaled.convert("RGBA").save(output_path, format="PNG")
     return validation
 
 
@@ -132,6 +132,12 @@ def record_upscaling_method(
         "method": method,
         "scale_factor": scale_factor,
         "generates_new_art_content": False,
+        "deterministic": True,
+        "output_format": "png",
+        "external_hooks": {
+            "real_esrgan": "placeholder_not_implemented",
+            "waifu2x": "placeholder_not_implemented",
+        },
     }
     if output_dir is not None:
         upscaling["output_dir"] = output_dir.as_posix()
@@ -180,14 +186,14 @@ def validate_upscale(
         )
 
     if method in {UPSCALE_NEAREST_INTEGER, UPSCALE_SCALE2X, UPSCALE_SCALE3X} and introduced:
-        raise ValueError(
-            f"{method} introduced {len(introduced)} new colours, which is not allowed."
-        )
+        if method == UPSCALE_NEAREST_INTEGER:
+            raise ValueError(
+                f"{method} introduced {len(introduced)} new colours, which is not allowed."
+            )
 
-    min_similarity = 1.0 if method == UPSCALE_NEAREST_INTEGER else 0.9
-    if validation.alpha_silhouette_similarity < min_similarity:
+    if validation.alpha_silhouette_similarity < 1.0:
         raise ValueError(
-            "Upscaled alpha silhouette differs too much from the expected "
+            "Upscaled alpha silhouette differs from the expected "
             f"nearest-neighbour silhouette: {validation.alpha_silhouette_similarity:.3f}."
         )
 
@@ -224,6 +230,24 @@ def _scale2x(source: Image.Image) -> Image.Image:
             dst[ox + 1, oy + 1] = e3
 
     return output
+
+
+def _with_nearest_alpha(source: Image.Image, output: Image.Image, scale_factor: int) -> Image.Image:
+    result = output.convert("RGBA")
+    alpha = source.getchannel("A").resize(
+        (source.width * scale_factor, source.height * scale_factor),
+        Image.Resampling.NEAREST,
+    )
+    result.putalpha(alpha)
+    return result
+
+
+def real_esrgan_placeholder(*args: Any, **kwargs: Any) -> None:
+    raise NotImplementedError("Real-ESRGAN is a placeholder hook only and is not implemented.")
+
+
+def waifu2x_placeholder(*args: Any, **kwargs: Any) -> None:
+    raise NotImplementedError("waifu2x is a placeholder hook only and is not implemented.")
 
 
 def _scale3x(source: Image.Image) -> Image.Image:

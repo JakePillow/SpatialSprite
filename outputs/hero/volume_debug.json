@@ -1,0 +1,32 @@
+{
+  "front_sprite": "C:\\dev\\SpatialSprite\\assets\\samples\\hero\\hero_front.png",
+  "back_sprite": "C:\\dev\\SpatialSprite\\assets\\samples\\hero\\hero_back.png",
+  "front_depth": "C:\\dev\\SpatialSprite\\outputs\\hero\\front_depth.png",
+  "back_depth": "C:\\dev\\SpatialSprite\\outputs\\hero\\back_depth.png",
+  "regions": "C:\\dev\\SpatialSprite\\outputs\\hero\\regions.json",
+  "manual_front_depth": null,
+  "manual_back_depth": null,
+  "ai_assistance": {
+    "enabled": false,
+    "accepted_without_validation": false,
+    "note": "External AI suggestions may populate proposed_regions, but deterministic validation must pass before use."
+  },
+  "validation": {
+    "front": {
+      "dimensions_match": true,
+      "transparent_pixels_zero": true,
+      "opaque_pixels_nonzero": true,
+      "values_in_range": true,
+      "coverage_matches_alpha": true,
+      "depth_layers_used": 96
+    },
+    "back": {
+      "dimensions_match": true,
+      "transparent_pixels_zero": true,
+      "opaque_pixels_nonzero": true,
+      "values_in_range": true,
+      "coverage_matches_alpha": true,
+      "depth_layers_used": 60
+    }
+  }
+}

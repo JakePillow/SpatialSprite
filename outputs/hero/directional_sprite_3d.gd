@@ -10,6 +10,7 @@ var _sprite: Sprite3D
 
 func _ready() -> void:
     _sprite = get_node_or_null(sprite_path)
+    _apply_nearest_filter()
     _update_sprite()
 
 func _physics_process(delta: float) -> void:
@@ -52,10 +53,6 @@ func _update_sprite() -> void:
     if _sprite.texture != selected_texture:
         _sprite.texture = selected_texture
 
-func _apply_nearest_filter(textures: Array) -> void:
-    # NOTE: Manipulating Texture2D import flags at runtime can be
-    # incompatible across Godot builds. Instead, set Filter = Off and
-    # Generate Mipmaps = Off in the Editor Import settings for each PNG
-    # to ensure nearest-neighbour sampling. This function is intentionally
-    # a no-op to remain compatible with various Godot versions.
-    return
+func _apply_nearest_filter() -> void:
+    if _sprite:
+        _sprite.texture_filter = BaseMaterial3D.TEXTURE_FILTER_NEAREST

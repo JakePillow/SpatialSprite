@@ -1,0 +1,10 @@
+{
+  "extraPaths": [
+    "tool"
+  ],
+  "exclude": [
+    ".godot",
+    "debug",
+    "outputs"
+  ]
+}
