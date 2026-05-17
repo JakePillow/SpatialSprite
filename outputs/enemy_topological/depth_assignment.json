@@ -1,0 +1,84 @@
+{
+  "assignments": [
+    {
+      "region_id": 0,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 1,
+      "label": "hat",
+      "z_offset": 0.08,
+      "local_depth": 0.38,
+      "smoothing_strength": 0.3,
+      "merge_policy": "part"
+    },
+    {
+      "region_id": 2,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 3,
+      "label": "equipment",
+      "z_offset": 0.12,
+      "local_depth": 0.36,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 4,
+      "label": "equipment",
+      "z_offset": 0.12,
+      "local_depth": 0.36,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 5,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 6,
+      "label": "head",
+      "z_offset": 0.18,
+      "local_depth": 0.42,
+      "smoothing_strength": 0.35,
+      "merge_policy": "part"
+    },
+    {
+      "region_id": 7,
+      "label": "legs",
+      "z_offset": -0.04,
+      "local_depth": 0.34,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 8,
+      "label": "boots",
+      "z_offset": -0.04,
+      "local_depth": 0.34,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 9,
+      "label": "legs",
+      "z_offset": -0.04,
+      "local_depth": 0.34,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    }
+  ]
+}

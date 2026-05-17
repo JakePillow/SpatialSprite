@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var model_data_path := "res://outputs/link_topological/topological_model.json"
+@export_enum("final_model", "semantic_regions", "semantic_depth", "occupancy", "raw_voxels", "merged_cuboids", "outline_only", "unknown_regions") var render_mode := "final_model"
 @export var show_source_reference := true
 @export var show_region_debug := false
 @export var show_depth_debug := false
@@ -20,6 +21,11 @@ var _final_mesh: MeshInstance3D
 var _source_card: Sprite3D
 var _region_card: Sprite3D
 var _depth_card: Sprite3D
+var _semantic_region_card: Sprite3D
+var _semantic_depth_card: Sprite3D
+var _occupancy_card: Sprite3D
+var _outline_card: Sprite3D
+var _unknown_card: Sprite3D
 
 
 func _ready() -> void:
@@ -58,6 +64,11 @@ func _build_view() -> void:
     _source_card = _create_card("Stage0SourceReference", str(_model_data.get("front_texture", "")), Vector3(-1.25, y_offset, 0.0), pixel_size)
     _region_card = _create_card("Stage2RegionDebug", str(_model_data.get("region_overlay", "")), Vector3(0.0, y_offset, -1.2), pixel_size)
     _depth_card = _create_card("Stage2DepthDebug", str(_model_data.get("depth_debug", "")), Vector3(0.0, y_offset, 1.2), pixel_size)
+    _semantic_region_card = _create_card("SemanticRegions", str(_model_data.get("semantic_region_overlay", "")), Vector3(1.25, y_offset, 0.0), pixel_size)
+    _semantic_depth_card = _create_card("SemanticDepth", str(_model_data.get("semantic_depth_overlay", "")), Vector3(1.25, y_offset, 0.0), pixel_size)
+    _occupancy_card = _create_card("SemanticOccupancy", str(_model_data.get("semantic_occupancy", "")), Vector3(1.25, y_offset, 0.0), pixel_size)
+    _outline_card = _create_card("SemanticOutlineOnly", str(_model_data.get("semantic_outline_only", "")), Vector3(1.25, y_offset, 0.0), pixel_size)
+    _unknown_card = _create_card("SemanticUnknownRegions", str(_model_data.get("semantic_unknown_regions", "")), Vector3(1.25, y_offset, 0.0), pixel_size)
 
     _raw_voxels = _create_mesh_instance("Stage3RawPartVolumes", Vector3(0.0, 0.0, 0.0), 0.42)
     _generated_model = Node3D.new()
@@ -126,6 +137,8 @@ func _create_card(card_name: String, texture_path: String, position: Vector3, pi
 
 
 func _load_texture(texture_path: String) -> Texture2D:
+    if texture_path.is_empty():
+        return null
     var image := Image.new()
     var error := image.load(ProjectSettings.globalize_path(texture_path))
     if error != OK:
@@ -141,18 +154,28 @@ func _apply_toggles() -> void:
         _region_card.visible = show_region_debug
     if _depth_card:
         _depth_card.visible = show_depth_debug
+    if _semantic_region_card:
+        _semantic_region_card.visible = render_mode == "semantic_regions"
+    if _semantic_depth_card:
+        _semantic_depth_card.visible = render_mode == "semantic_depth"
+    if _occupancy_card:
+        _occupancy_card.visible = render_mode == "occupancy"
+    if _outline_card:
+        _outline_card.visible = render_mode == "outline_only"
+    if _unknown_card:
+        _unknown_card.visible = render_mode == "unknown_regions"
     if _raw_voxels:
-        _raw_voxels.visible = show_raw_voxels
+        _raw_voxels.visible = show_raw_voxels or render_mode == "raw_voxels"
         _raw_voxels.rotation.y = _angle
     if _generated_model:
-        _generated_model.visible = show_final_model
+        _generated_model.visible = show_final_model and render_mode in ["final_model", "merged_cuboids"]
         _generated_model.rotation.y = _angle
     if _final_mesh:
-        _final_mesh.visible = show_final_model
+        _final_mesh.visible = show_final_model and render_mode in ["final_model", "merged_cuboids"]
 
 
 func _update_camera() -> void:
     if not _camera:
         return
-    _camera.global_position = Vector3(sin(_angle * 0.35) * orbit_radius, orbit_height, cos(_angle * 0.35) * orbit_radius)
+    _camera.global_position = Vector3(0.0, orbit_height, orbit_radius)
     _camera.look_at(Vector3(0.0, look_height, 0.0), Vector3.UP)

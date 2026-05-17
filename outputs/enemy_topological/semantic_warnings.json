@@ -1,0 +1,44 @@
+{
+  "disconnected_body_parts": [
+    {
+      "label": "torso",
+      "region_ids": [
+        6,
+        8
+      ],
+      "message": "label is split across multiple disconnected regions"
+    }
+  ],
+  "tiny_orphan_regions": [],
+  "ambiguous_assignment": [
+    {
+      "region_id": 3,
+      "assigned_label": "unknown",
+      "bbox": [
+        5,
+        4,
+        7,
+        6
+      ],
+      "confidence_score": 0.24,
+      "message": "low semantic confidence"
+    },
+    {
+      "region_id": 4,
+      "assigned_label": "unknown",
+      "bbox": [
+        11,
+        4,
+        13,
+        6
+      ],
+      "confidence_score": 0.24,
+      "message": "low semantic confidence"
+    }
+  ],
+  "outline_regions_merged_into_body": [],
+  "left_right_confusion": [],
+  "torso_head_overlap": [],
+  "equipment_merged_into_body": [],
+  "depth_discontinuities": []
+}

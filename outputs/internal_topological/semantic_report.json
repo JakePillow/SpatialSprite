@@ -1,0 +1,453 @@
+{
+  "required_labels": [
+    "head",
+    "hair/hat",
+    "face",
+    "torso",
+    "left_arm",
+    "right_arm",
+    "left_leg",
+    "right_leg",
+    "boots/feet",
+    "equipment/shield/sword",
+    "outline",
+    "unknown"
+  ],
+  "pass_order": [
+    "Pass A: connected-component extraction",
+    "Pass B: colour-region merging",
+    "Pass C: outline isolation",
+    "Pass D: anatomical heuristics",
+    "Pass E: equipment detection",
+    "Pass F: left/right assignment",
+    "Pass G: confidence scoring",
+    "Pass H: unknown-region fallback"
+  ],
+  "label_counts": {
+    "outline": 2,
+    "hair/hat": 1,
+    "face": 1,
+    "torso": 1,
+    "left_arm": 1,
+    "right_arm": 1,
+    "left_leg": 1,
+    "right_leg": 1,
+    "boots/feet": 1
+  },
+  "regions": [
+    {
+      "region_id": 0,
+      "pixel_count": 82,
+      "bbox": [
+        2,
+        2,
+        14,
+        20
+      ],
+      "centroid": [
+        7.5,
+        11.634
+      ],
+      "dominant_colour": [
+        24,
+        24,
+        24,
+        255
+      ],
+      "neighbour_regions": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9
+      ],
+      "vertical_rank": 0.5058,
+      "horizontal_rank": 0.5,
+      "confidence_score": 1.0,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_000",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "1.000",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 1,
+      "pixel_count": 8,
+      "bbox": [
+        6,
+        2,
+        10,
+        4
+      ],
+      "centroid": [
+        7.5,
+        2.5
+      ],
+      "dominant_colour": [
+        96,
+        64,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        0,
+        2
+      ],
+      "vertical_rank": 0.1087,
+      "horizontal_rank": 0.5,
+      "confidence_score": 0.78,
+      "assigned_label": "hair/hat",
+      "assignment_reason": "upper non-skin region classified as hair/hat",
+      "pass_labels": {
+        "A_connected_component": "region_001",
+        "B_colour_region": "brown",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "hair/hat",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "hair/hat",
+        "G_confidence_scoring": "0.780",
+        "H_unknown_fallback": "hair/hat"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 2,
+      "pixel_count": 12,
+      "bbox": [
+        6,
+        4,
+        10,
+        7
+      ],
+      "centroid": [
+        7.5,
+        5.0
+      ],
+      "dominant_colour": [
+        232,
+        160,
+        104,
+        255
+      ],
+      "neighbour_regions": [
+        0,
+        1
+      ],
+      "vertical_rank": 0.2174,
+      "horizontal_rank": 0.5,
+      "confidence_score": 0.88,
+      "assigned_label": "face",
+      "assignment_reason": "upper central skin region classified as face",
+      "pass_labels": {
+        "A_connected_component": "region_002",
+        "B_colour_region": "skin",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "face",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "face",
+        "G_confidence_scoring": "0.880",
+        "H_unknown_fallback": "face"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 3,
+      "pixel_count": 30,
+      "bbox": [
+        5,
+        9,
+        11,
+        14
+      ],
+      "centroid": [
+        7.5,
+        11.0
+      ],
+      "dominant_colour": [
+        64,
+        168,
+        208,
+        255
+      ],
+      "neighbour_regions": [
+        0
+      ],
+      "vertical_rank": 0.4783,
+      "horizontal_rank": 0.5,
+      "confidence_score": 0.82,
+      "assigned_label": "torso",
+      "assignment_reason": "central middle high-area component classified as torso",
+      "pass_labels": {
+        "A_connected_component": "region_003",
+        "B_colour_region": "blue",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "torso",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "torso",
+        "G_confidence_scoring": "0.820",
+        "H_unknown_fallback": "torso"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 4,
+      "pixel_count": 5,
+      "bbox": [
+        3,
+        10,
+        4,
+        15
+      ],
+      "centroid": [
+        3.0,
+        12.0
+      ],
+      "dominant_colour": [
+        232,
+        160,
+        104,
+        255
+      ],
+      "neighbour_regions": [
+        0
+      ],
+      "vertical_rank": 0.5217,
+      "horizontal_rank": 0.2,
+      "confidence_score": 0.82,
+      "assigned_label": "left_arm",
+      "assignment_reason": "side skin region left of centre classified as left arm",
+      "pass_labels": {
+        "A_connected_component": "region_004",
+        "B_colour_region": "skin",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "left_arm",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "left_arm",
+        "G_confidence_scoring": "0.820",
+        "H_unknown_fallback": "left_arm"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 5,
+      "pixel_count": 5,
+      "bbox": [
+        12,
+        10,
+        13,
+        15
+      ],
+      "centroid": [
+        12.0,
+        12.0
+      ],
+      "dominant_colour": [
+        232,
+        160,
+        104,
+        255
+      ],
+      "neighbour_regions": [
+        0
+      ],
+      "vertical_rank": 0.5217,
+      "horizontal_rank": 0.8,
+      "confidence_score": 0.82,
+      "assigned_label": "right_arm",
+      "assignment_reason": "side skin region right of centre classified as right arm",
+      "pass_labels": {
+        "A_connected_component": "region_005",
+        "B_colour_region": "skin",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "right_arm",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "right_arm",
+        "G_confidence_scoring": "0.820",
+        "H_unknown_fallback": "right_arm"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 6,
+      "pixel_count": 5,
+      "bbox": [
+        6,
+        15,
+        7,
+        20
+      ],
+      "centroid": [
+        6.0,
+        17.0
+      ],
+      "dominant_colour": [
+        56,
+        96,
+        184,
+        255
+      ],
+      "neighbour_regions": [
+        0,
+        9
+      ],
+      "vertical_rank": 0.7391,
+      "horizontal_rank": 0.4,
+      "confidence_score": 0.76,
+      "assigned_label": "left_leg",
+      "assignment_reason": "lower component left of centre classified as left leg",
+      "pass_labels": {
+        "A_connected_component": "region_006",
+        "B_colour_region": "blue",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "left_leg",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "left_leg",
+        "G_confidence_scoring": "0.760",
+        "H_unknown_fallback": "left_leg"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 7,
+      "pixel_count": 5,
+      "bbox": [
+        9,
+        15,
+        10,
+        20
+      ],
+      "centroid": [
+        9.0,
+        17.0
+      ],
+      "dominant_colour": [
+        56,
+        96,
+        184,
+        255
+      ],
+      "neighbour_regions": [
+        0,
+        9
+      ],
+      "vertical_rank": 0.7391,
+      "horizontal_rank": 0.6,
+      "confidence_score": 0.76,
+      "assigned_label": "right_leg",
+      "assignment_reason": "lower component right of centre classified as right leg",
+      "pass_labels": {
+        "A_connected_component": "region_007",
+        "B_colour_region": "blue",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "right_leg",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "right_leg",
+        "G_confidence_scoring": "0.760",
+        "H_unknown_fallback": "right_leg"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 8,
+      "pixel_count": 12,
+      "bbox": [
+        4,
+        20,
+        12,
+        23
+      ],
+      "centroid": [
+        7.5,
+        21.5
+      ],
+      "dominant_colour": [
+        24,
+        24,
+        24,
+        255
+      ],
+      "neighbour_regions": [
+        9
+      ],
+      "vertical_rank": 0.9348,
+      "horizontal_rank": 0.5,
+      "confidence_score": 0.96,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_008",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.960",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 9,
+      "pixel_count": 12,
+      "bbox": [
+        5,
+        20,
+        11,
+        22
+      ],
+      "centroid": [
+        7.5,
+        20.5
+      ],
+      "dominant_colour": [
+        136,
+        72,
+        48,
+        255
+      ],
+      "neighbour_regions": [
+        0,
+        6,
+        7,
+        8
+      ],
+      "vertical_rank": 0.8913,
+      "horizontal_rank": 0.5,
+      "confidence_score": 0.83,
+      "assigned_label": "boots/feet",
+      "assignment_reason": "lower brown/dark component classified as boots/feet",
+      "pass_labels": {
+        "A_connected_component": "region_009",
+        "B_colour_region": "brown",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "boots/feet",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "boots/feet",
+        "G_confidence_scoring": "0.830",
+        "H_unknown_fallback": "boots/feet"
+      },
+      "is_outline": false
+    }
+  ],
+  "warnings": {
+    "disconnected_body_parts": [],
+    "tiny_orphan_regions": [],
+    "ambiguous_assignment": [],
+    "outline_regions_merged_into_body": [],
+    "left_right_confusion": [],
+    "torso_head_overlap": [],
+    "equipment_merged_into_body": [],
+    "depth_discontinuities": []
+  }
+}
