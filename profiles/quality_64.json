@@ -1,0 +1,21 @@
+{
+  "name": "quality_64",
+  "description": "Higher-resolution deterministic target profile reserved for stricter future builds.",
+  "pipeline": "link_depth_volume",
+  "depth_slices": 24,
+  "voxel_size": 0.025,
+  "model_depth_units": 0.72,
+  "semantic_mode": "validated_regions",
+  "primitive_mode": "depth_volume",
+  "smoothing_mode": "merged_faces",
+  "outline_policy": "nearest_valid_body_colour",
+  "target_face_budget": 9000,
+  "capture_angles": [0, 30, 45, 60, 90, 120, 135, 150, 180],
+  "validation_thresholds": {
+    "max_black_side_face_percentage": 0.03,
+    "max_hollow_gap_ratio": 0.12,
+    "max_fallback_colour_count": 0,
+    "require_nonzero_faces": true,
+    "require_front_back_dimension_match": true
+  }
+}

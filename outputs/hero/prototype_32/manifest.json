@@ -1,0 +1,72 @@
+{
+  "schema": "spritespatial_build_manifest_v1",
+  "asset_name": "hero",
+  "asset_schema": "res://assets/samples/hero/spriteasset_v1.json",
+  "pipeline": "link_depth_volume",
+  "source_sprites": {
+    "front": "res://assets/samples/hero/hero_front.png",
+    "back": "res://assets/samples/hero/hero_back.png",
+    "left": "res://assets/samples/hero/hero_left.png",
+    "right": "res://assets/samples/hero/hero_right.png"
+  },
+  "profile_path": "res://profiles/prototype_32.json",
+  "profile": {
+    "name": "prototype_32",
+    "description": "Default deterministic depth-volume baseline for current SpriteSpatial builds.",
+    "pipeline": "link_depth_volume",
+    "depth_slices": 12,
+    "voxel_size": 0.05,
+    "model_depth_units": 0.6,
+    "semantic_mode": "none",
+    "primitive_mode": "depth_volume",
+    "smoothing_mode": "merged_faces",
+    "outline_policy": "nearest_valid_body_colour",
+    "target_face_budget": 4000,
+    "capture_angles": [
+      0,
+      45,
+      90,
+      135,
+      180
+    ],
+    "validation_thresholds": {
+      "max_black_side_face_percentage": 0.05,
+      "max_hollow_gap_ratio": 0.2,
+      "max_fallback_colour_count": 0,
+      "require_nonzero_faces": true,
+      "require_front_back_dimension_match": true
+    }
+  },
+  "generated_artefacts": {
+    "cleaned_sprite": "res://outputs/hero/prototype_32/cleaned_sprite.png",
+    "alpha_mask": "res://outputs/hero/prototype_32/alpha_mask.png",
+    "semantic_map": "res://outputs/hero/prototype_32/semantic_map.png",
+    "depth_map": "res://outputs/hero/prototype_32/depth_map.png",
+    "zfield_debug": "res://outputs/hero/prototype_32/zfield_debug.png",
+    "occupancy_summary": "res://outputs/hero/prototype_32/occupancy_summary.json",
+    "mesh": "res://outputs/hero/prototype_32/mesh.json",
+    "validation_report": "res://outputs/hero/prototype_32/validation_report.json",
+    "captures": "res://outputs/hero/prototype_32/captures"
+  },
+  "validation_reports": {
+    "main": "res://outputs/hero/prototype_32/validation_report.json",
+    "depth_report": "res://outputs/hero/prototype_32/depth_report.json"
+  },
+  "mesh_stats": {
+    "vertex_count": 7000,
+    "triangle_count": 3500,
+    "exposed_face_count": 1750,
+    "internal_faces_removed": 21254,
+    "black_side_face_count": 8,
+    "black_side_face_percentage": 0.004571428571428572,
+    "material_colour_count": 27,
+    "bounding_box_dimensions": [
+      1.2000000000000002,
+      1.6,
+      0.6
+    ]
+  },
+  "validation_passed": true,
+  "timestamp": "2026-05-20T19:00:50.429055+00:00",
+  "command": "python tools/build_profiled_asset.py --asset C:\\dev\\SpatialSprite\\assets\\samples\\hero\\spriteasset_v1.json --profile C:\\dev\\SpatialSprite\\profiles\\prototype_32.json --out C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32"
+}

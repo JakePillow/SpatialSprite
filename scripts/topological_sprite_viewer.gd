@@ -88,7 +88,8 @@ func _create_mesh_instance(instance_name: String, position: Vector3, opacity: fl
     material.vertex_color_use_as_albedo = true
     material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
     material.texture_filter = BaseMaterial3D.TEXTURE_FILTER_NEAREST
-    material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
+    material.cull_mode = BaseMaterial3D.CULL_DISABLED
+    material.transparency = BaseMaterial3D.TRANSPARENCY_DISABLED if opacity >= 1.0 else BaseMaterial3D.TRANSPARENCY_ALPHA
     material.albedo_color = Color(1, 1, 1, opacity)
     instance.material_override = material
     if parent:

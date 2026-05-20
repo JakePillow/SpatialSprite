@@ -1,0 +1,21 @@
+{
+  "name": "semantic_debug",
+  "description": "Debug profile for inspecting masks, labels, and depth-field stage artefacts.",
+  "pipeline": "link_depth_volume",
+  "depth_slices": 12,
+  "voxel_size": 0.05,
+  "model_depth_units": 0.6,
+  "semantic_mode": "debug_maps",
+  "primitive_mode": "depth_volume",
+  "smoothing_mode": "raw_debug",
+  "outline_policy": "preserve_outline_debug",
+  "target_face_budget": 5000,
+  "capture_angles": [0, 30, 45, 60, 90, 135, 180],
+  "validation_thresholds": {
+    "max_black_side_face_percentage": 0.05,
+    "max_hollow_gap_ratio": 0.2,
+    "max_fallback_colour_count": 0,
+    "require_nonzero_faces": true,
+    "require_front_back_dimension_match": true
+  }
+}

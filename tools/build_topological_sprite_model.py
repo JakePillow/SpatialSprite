@@ -214,7 +214,7 @@ def _build_part_mesh(front: Image.Image, regions, graph, assignments, args, sema
     if args.representation_style == "cuboid_parts":
         return _build_cuboid_parts_mesh(front, regions, graph, assignments, args, semantic_regions)
 
-    pixels = front.load()
+    source_rgba = front.convert("RGBA")
     width, height = front.size
     voxel_x = args.voxel_size
     voxel_y = args.voxel_size
@@ -238,7 +238,7 @@ def _build_part_mesh(front: Image.Image, regions, graph, assignments, args, sema
         for x, y in region:
             if not (0 <= x < width and 0 <= y < height):
                 continue
-            if pixels[x, y][3] <= args.alpha_threshold:
+            if _source_rgba_at(source_rgba, x, y)[3] <= args.alpha_threshold:
                 continue
             region_lookup[(x, y)] = region_info.region_id
 
@@ -264,7 +264,7 @@ def _build_part_mesh(front: Image.Image, regions, graph, assignments, args, sema
                         if (nx, ny, nz) in occupied:
                             continue
                         exposed_faces += 1
-                        colour, used_fallback = _part_face_colour(pixels[x, y], region_info.dominant_colour, assignment.label, face)
+                        colour, used_fallback = _part_face_colour(_source_rgba_at(source_rgba, x, y), region_info.dominant_colour, assignment.label, face)
                         _add_face(vertices, normals, colors, indices, part_ids, region_info.region_id, face, x0, x1, y0, y1, z0, z1, colour)
         part_reports.append(
             {
@@ -317,7 +317,7 @@ def _build_part_mesh(front: Image.Image, regions, graph, assignments, args, sema
 
 
 def _build_paper_cutout_mesh(front: Image.Image, regions, graph, args) -> tuple[dict, list[dict]]:
-    pixels = front.load()
+    source_rgba = front.convert("RGBA")
     width, height = front.size
     depth_slices = max(1, args.paper_depth_slices)
     voxel_x = args.voxel_size
@@ -357,7 +357,7 @@ def _build_paper_cutout_mesh(front: Image.Image, regions, graph, args) -> tuple[
             if neighbour in occupied:
                 continue
             exposed_faces += 1
-            colour = _paper_face_colour(pixels[x, y], label, face)
+            colour = _paper_face_colour(_source_rgba_at(source_rgba, x, y), label, face)
             _add_face(vertices, normals, colors, indices, part_ids, region_id, face, x0, x1, y0, y1, z0, z1, colour)
 
     reports = [
@@ -434,22 +434,46 @@ def _build_cuboid_parts_mesh(front: Image.Image, regions, graph, assignments, ar
     indices: list[int] = []
     part_ids: list[int] = []
     reports: list[dict] = []
-
-    total_height = front.height * args.voxel_size
+    occupied, voxel_owner, part_depths = _build_global_unit_cube_lattice(front, part_boxes, args.alpha_threshold)
+    face_counts = _emit_global_unit_cube_surface(
+        front,
+        occupied,
+        voxel_owner,
+        vertices,
+        normals,
+        colors,
+        indices,
+        part_ids,
+        args.voxel_size,
+        front.height * args.voxel_size,
+    )
     for part_index, part in enumerate(part_boxes):
-        report = createCuboidForPart(
-            front,
-            part,
-            part_index,
-            vertices,
-            normals,
-            colors,
-            indices,
-            part_ids,
-            args.voxel_size,
-            total_height,
+        x0_px, y0_px, x1_px, y1_px = part["bbox"]
+        width_px = x1_px - x0_px
+        height_px = y1_px - y0_px
+        depth_cells = part_depths.get(part_index, 1)
+        reports.append(
+            {
+                "region_id": part_index,
+                "name": part["name"],
+                "label": part["name"],
+                "semantic_label": part.get("semantic_label", part["name"]),
+                "pixel_count": len(part["pixels"]),
+                "voxel_count": len(part["pixels"]) * depth_cells,
+                "exposed_faces": face_counts.get(part_index, 0),
+                "width": width_px * args.voxel_size,
+                "height": height_px * args.voxel_size,
+                "depth": depth_cells * args.voxel_size,
+                "width_pixels": width_px,
+                "height_pixels": height_px,
+                "depth_pixels": depth_cells,
+                "centerX": (x0_px + x1_px) * 0.5,
+                "centerY": (y0_px + y1_px) * 0.5,
+                "merge_policy": "global_shared_unit_cube_lattice",
+                "unit_cube_size": args.voxel_size,
+                "merged_cuboids": 0,
+            }
         )
-        reports.append(report)
 
     print("SpriteSpatial cuboid parts:")
     for report in reports:
@@ -466,8 +490,114 @@ def _build_cuboid_parts_mesh(front: Image.Image, regions, graph, assignments, ar
         "colors": colors,
         "indices": indices,
         "part_ids": part_ids,
-        "occupied_voxels": sum(report.get("voxel_count", 0) for report in reports),
+        "occupied_voxels": len(occupied),
     }, reports
+
+
+def _build_global_unit_cube_lattice(front: Image.Image, part_boxes: list[dict], alpha_threshold: int) -> tuple[set[tuple[int, int, int]], dict[tuple[int, int, int], dict], dict[int, int]]:
+    source = front.load()
+    occupied: set[tuple[int, int, int]] = set()
+    voxel_owner: dict[tuple[int, int, int], dict] = {}
+    part_depths: dict[int, int] = {}
+    for part_index, part in enumerate(part_boxes):
+        depth_cells = _part_depth_cells(part)
+        part_depths[part_index] = depth_cells
+        for x, y in sorted(part["pixels"]):
+            if not (0 <= x < front.width and 0 <= y < front.height):
+                continue
+            if source[x, y][3] <= alpha_threshold:
+                continue
+            # z=0 is the authoritative front plane for every part. Extra
+            # depth grows backward only, so the side view is one coherent
+            # cubic lattice instead of many locally-centered slabs.
+            for depth_index in range(depth_cells):
+                z = -depth_index
+                key = (x, y, z)
+                occupied.add(key)
+                voxel_owner[key] = {
+                    "part_id": part_index,
+                    "part_name": part["name"],
+                    "source_xy": (x, y),
+                }
+    return occupied, voxel_owner, part_depths
+
+
+def _part_depth_cells(part: dict) -> int:
+    x0_px, _y0_px, x1_px, _y1_px = part["bbox"]
+    width_px = x1_px - x0_px
+    name = part["name"]
+    if name == "outline":
+        return 1
+    semantic_depth = int(round(width_px * _depth_multiplier_for_part(name)))
+    minimum_depths = {
+        "head": 4,
+        "face": 4,
+        "hair": 4,
+        "torso": 4,
+        "left_arm": 3,
+        "right_arm": 3,
+        "left_leg": 3,
+        "right_leg": 3,
+        "left_foot": 4,
+        "right_foot": 4,
+        "equipment": 3,
+        "unknown": 3,
+    }
+    return max(minimum_depths.get(name, 3), semantic_depth)
+
+
+def _emit_global_unit_cube_surface(
+    front: Image.Image,
+    occupied: set[tuple[int, int, int]],
+    voxel_owner: dict[tuple[int, int, int], dict],
+    vertices,
+    normals,
+    colors,
+    indices,
+    part_ids,
+    pixel_size: float,
+    total_height: float,
+) -> dict[int, int]:
+    source_rgba = front.convert("RGBA")
+    total_width = front.width * pixel_size
+    face_counts: dict[int, int] = {}
+    for x, y, z in sorted(occupied):
+        owner = voxel_owner[(x, y, z)]
+        part_id = owner["part_id"]
+        sx, sy = owner["source_xy"]
+        source_pixel = _source_rgba_at(source_rgba, sx, sy)
+        if source_pixel[3] == 0:
+            continue
+        x0 = x * pixel_size - total_width * 0.5
+        x1 = x0 + pixel_size
+        y0 = total_height - (y + 1) * pixel_size
+        y1 = total_height - y * pixel_size
+        z0 = (z - 0.5) * pixel_size
+        z1 = z0 + pixel_size
+        for face, delta in FACE_DELTAS.items():
+            neighbour = (x + delta[0], y + delta[1], z + delta[2])
+            if neighbour in occupied:
+                continue
+            is_front_face = face == "front" and z == 0
+            colour = _rgba_float(source_pixel) if is_front_face else _vibrant_side_colour(source_pixel)
+            _add_cuboid_face(
+                vertices,
+                normals,
+                colors,
+                indices,
+                part_ids,
+                part_id,
+                face,
+                x0,
+                x1,
+                y0,
+                y1,
+                z0,
+                z1,
+                colour,
+            )
+            face_counts[part_id] = face_counts.get(part_id, 0) + 1
+    return face_counts
 
 
 def createCuboidForPart(front: Image.Image, part: dict, part_id: int, vertices, normals, colors, indices, part_ids, pixel_size: float, total_height: float) -> dict:
@@ -580,7 +710,7 @@ def _emit_unit_cube_surface(
     pixel_size: float,
     total_height: float,
 ) -> int:
-    pixels = front.load()
+    source_rgba = front.convert("RGBA")
     total_width = front.width * pixel_size
     face_count = 0
     if not occupied:
@@ -598,7 +728,7 @@ def _emit_unit_cube_surface(
         y1 = total_height - y * pixel_size
         z0 = (z - min_z - depth_cells * 0.5) * pixel_size
         z1 = z0 + pixel_size
-        source_pixel = pixels[x, y]
+        source_pixel = _source_rgba_at(source_rgba, x, y)
         if source_pixel[3] == 0:
             continue
         for face, delta in FACE_DELTAS.items():
@@ -658,14 +788,14 @@ def createPixelCubeForPart(
 
 
 def _greedy_rectangles_for_part(front: Image.Image, part: dict) -> list[dict]:
-    pixels = front.load()
+    source_rgba = front.convert("RGBA")
     remaining = set(part["pixels"])
     rectangles: list[dict] = []
     while remaining:
         start_x, start_y = min(remaining, key=lambda pixel: (pixel[1], pixel[0]))
-        colour = pixels[start_x, start_y]
+        colour = _source_rgba_at(source_rgba, start_x, start_y)
         width = 1
-        while (start_x + width, start_y) in remaining and pixels[start_x + width, start_y] == colour:
+        while (start_x + width, start_y) in remaining and _source_rgba_at(source_rgba, start_x + width, start_y) == colour:
             width += 1
 
         height = 1
@@ -674,7 +804,7 @@ def _greedy_rectangles_for_part(front: Image.Image, part: dict) -> list[dict]:
             row_pixels = {(x, next_y) for x in range(start_x, start_x + width)}
             if not row_pixels.issubset(remaining):
                 break
-            if any(pixels[x, next_y] != colour for x in range(start_x, start_x + width)):
+            if any(_source_rgba_at(source_rgba, x, next_y) != colour for x in range(start_x, start_x + width)):
                 break
             height += 1
 
@@ -756,9 +886,19 @@ def _pixel_bbox(pixels_set: set[tuple[int, int]]) -> list[int]:
     return [min(xs), min(ys), max(xs) + 1, max(ys) + 1]
 
 
+def _source_rgba_at(source_rgba: Image.Image, x: int, y: int) -> tuple[int, int, int, int]:
+    if source_rgba.mode != "RGBA":
+        source_rgba = source_rgba.convert("RGBA")
+    return source_rgba.getpixel((x, y))
+
+
 def _dominant_colour(front: Image.Image, pixels_set: set[tuple[int, int]]) -> tuple[int, int, int, int]:
-    front_pixels = front.load()
-    colours = [front_pixels[x, y] for x, y in pixels_set if front_pixels[x, y][3] > 0]
+    source_rgba = front.convert("RGBA")
+    colours = [
+        _source_rgba_at(source_rgba, x, y)
+        for x, y in pixels_set
+        if _source_rgba_at(source_rgba, x, y)[3] > 0
+    ]
     if not colours:
         return (255, 0, 255, 255)
     return max(set(colours), key=colours.count)
@@ -772,12 +912,11 @@ def _vibrant_side_colour(colour: tuple[int, int, int, int]) -> list[float]:
     red, green, blue, alpha = colour
     if max(red, green, blue) <= 72:
         return [red / 255.0, green / 255.0, blue / 255.0, alpha / 255.0]
-    factor = 0.92
-    return [red / 255.0 * factor, green / 255.0 * factor, blue / 255.0 * factor, alpha / 255.0]
+    return [red / 255.0, green / 255.0, blue / 255.0, alpha / 255.0]
 
 
 def _add_cuboid_front_sprite_shell(front: Image.Image, regions, vertices, normals, colors, indices, part_ids, args, z_front: float) -> int:
-    pixels = front.load()
+    source_rgba = front.convert("RGBA")
     width, height = front.size
     pixel_size = args.voxel_size
     total_width = width * pixel_size
@@ -787,7 +926,7 @@ def _add_cuboid_front_sprite_shell(front: Image.Image, regions, vertices, normal
     face_count = 0
     for region in regions:
         for x, y in region:
-            pixel = pixels[x, y]
+            pixel = _source_rgba_at(source_rgba, x, y)
             if pixel[3] <= args.alpha_threshold:
                 continue
             x0 = x * pixel_size - total_width * 0.5
@@ -806,7 +945,7 @@ def _max_z(vertices: list[list[float]]) -> float:
 
 
 def _build_relief_cutout_mesh(front: Image.Image, regions, graph, assignments, args) -> tuple[dict, list[dict]]:
-    pixels = front.load()
+    source_rgba = front.convert("RGBA")
     width, height = front.size
     depth_slices = max(5, args.relief_depth_slices)
     voxel_x = args.voxel_size
@@ -854,7 +993,7 @@ def _build_relief_cutout_mesh(front: Image.Image, regions, graph, assignments, a
             if neighbour in occupied:
                 continue
             exposed_faces += 1
-            colour = _relief_face_colour(front, pixels, x, y, label, face)
+            colour = _relief_face_colour(_source_rgba_at(source_rgba, x, y), label, face)
             _add_face(vertices, normals, colors, indices, part_ids, region_id, face, x0, x1, y0, y1, z0, z1, colour)
 
     shell_faces = _add_relief_front_sprite_shell(
@@ -931,8 +1070,7 @@ def _relief_z_range(label: str, depth_slices: int) -> tuple[int, int]:
     return max(0, front - 4), front - 1
 
 
-def _relief_face_colour(front: Image.Image, pixels, x: int, y: int, label: str, face: str) -> tuple[int, int, int, int]:
-    source = pixels[x, y]
+def _relief_face_colour(source: tuple[int, int, int, int], label: str, face: str) -> tuple[int, int, int, int]:
     if face == "front":
         return source
     if label == "outline" or max(source[0], source[1], source[2]) <= 72:
@@ -945,7 +1083,7 @@ def _relief_face_colour(front: Image.Image, pixels, x: int, y: int, label: str, 
 
 
 def _add_relief_front_sprite_shell(front: Image.Image, regions, vertices, normals, colors, indices, part_ids, args, z_front: float) -> int:
-    pixels = front.load()
+    source_rgba = front.convert("RGBA")
     width, height = front.size
     voxel_x = args.voxel_size
     voxel_y = args.voxel_size
@@ -956,7 +1094,7 @@ def _add_relief_front_sprite_shell(front: Image.Image, regions, vertices, normal
     face_count = 0
     for region in regions:
         for x, y in region:
-            pixel = pixels[x, y]
+            pixel = _source_rgba_at(source_rgba, x, y)
             if pixel[3] <= args.alpha_threshold:
                 continue
             x0 = x * voxel_x - total_width * 0.5
@@ -1018,7 +1156,7 @@ def _add_silhouette_core(
     args,
 ) -> dict:
     width, height = front.size
-    pixels = front.load()
+    source_rgba = front.convert("RGBA")
     voxel_x = args.voxel_size
     voxel_y = args.voxel_size
     voxel_z = args.model_depth_units / max(args.total_depth_slices, 1)
@@ -1049,7 +1187,8 @@ def _add_silhouette_core(
                 continue
             exposed_faces += 1
             region_id = region_lookup.get((x, y), -1)
-            dominant = region_colour_lookup.get(region_id, [pixels[x, y][0], pixels[x, y][1], pixels[x, y][2], pixels[x, y][3]])
+            fallback_pixel = _source_rgba_at(source_rgba, x, y)
+            dominant = region_colour_lookup.get(region_id, [fallback_pixel[0], fallback_pixel[1], fallback_pixel[2], fallback_pixel[3]])
             colour = _core_colour(dominant, face)
             _add_face(vertices, normals, colors, indices, part_ids, core_id, face, x0, x1, y0, y1, z0, z1, colour)
     existing_occupied.update(core_occupied)
@@ -1075,7 +1214,7 @@ def _add_front_ink_shell(
     part_ids,
     args,
 ) -> dict:
-    pixels = front.load()
+    source_rgba = front.convert("RGBA")
     width, height = front.size
     voxel_x = args.voxel_size
     voxel_y = args.voxel_size
@@ -1088,7 +1227,7 @@ def _add_front_ink_shell(
     face_count = 0
     for region in regions:
         for x, y in region:
-            pixel = pixels[x, y]
+            pixel = _source_rgba_at(source_rgba, x, y)
             if pixel[3] <= args.alpha_threshold:
                 continue
             x0 = x * voxel_x - total_width * 0.5

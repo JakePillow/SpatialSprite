@@ -1,0 +1,23 @@
+{
+  "schema": "spritespatial_occupancy_summary_v1",
+  "occupied_voxel_count": 3834,
+  "exposed_face_count": 1750,
+  "internal_faces_removed": 21254,
+  "hollow_gap_ratio": 0.0,
+  "canvas_size": [
+    24,
+    32
+  ],
+  "config": {
+    "total_depth_slices": 12,
+    "front_relief_ratio": 0.3,
+    "core_ratio": 0.4,
+    "back_relief_ratio": 0.3,
+    "voxel_size": 0.05,
+    "model_depth_units": 0.6,
+    "simplify_mesh": true,
+    "side_colour_mode": "nearest_valid_edge",
+    "cleanup_mode": "merged_faces",
+    "debug_show_zones": false
+  }
+}

@@ -1,38 +1,38 @@
 {
-  "total_faces": 1386,
+  "total_faces": 678,
   "faces_with_fallback_material": 0,
   "fallback_face_percentage": 0.0,
-  "number_of_materials": 14,
-  "occupied_voxels": 789,
-  "transparent_pixels_ignored": 497,
-  "alpha_coverage": 0.3528645833333333,
-  "regions_generated": 64,
+  "number_of_materials": 6,
+  "occupied_voxels": 402,
+  "transparent_pixels_ignored": 208,
+  "alpha_coverage": 0.4583333333333333,
+  "regions_generated": 10,
   "final_mesh_bounds": {
     "min": [
-      -0.4000000000000001,
-      0.10000000000000009,
-      -0.275
+      -0.30000000000000004,
+      0.050000000000000044,
+      -0.17500000000000002
     ],
     "max": [
-      0.39999999999999997,
-      1.1500000000000001,
+      0.3,
+      1.1,
       0.025
     ],
     "size": [
-      0.8,
+      0.6000000000000001,
       1.05,
-      0.30000000000000004
+      0.2
     ]
   },
-  "front_projection_coverage": 0.3528645833333333,
-  "part_count": 7,
+  "front_projection_coverage": 0.4583333333333333,
+  "part_count": 10,
   "semantic_warning_counts": {
-    "disconnected_body_parts": 5,
-    "tiny_orphan_regions": 2,
-    "ambiguous_assignment": 1,
+    "disconnected_body_parts": 0,
+    "tiny_orphan_regions": 0,
+    "ambiguous_assignment": 0,
     "outline_regions_merged_into_body": 0,
     "left_right_confusion": 0,
-    "torso_head_overlap": 1,
+    "torso_head_overlap": 0,
     "equipment_merged_into_body": 0,
     "depth_discontinuities": 0
   },

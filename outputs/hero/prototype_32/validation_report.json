@@ -1,0 +1,64 @@
+{
+  "front_alpha_coverage": 0.3528645833333333,
+  "back_alpha_coverage": 0.3463541666666667,
+  "depth_map_coverage": {
+    "front": 0.3528645833333333,
+    "back": 0.3463541666666667
+  },
+  "occupied_voxel_count": 3834,
+  "exposed_face_count": 1750,
+  "internal_faces_removed": 21254,
+  "percentage_of_black_side_faces": 0.004571428571428572,
+  "number_of_side_faces_using_fallback_colour": 0,
+  "material_colour_count": 27,
+  "bounding_box_dimensions": [
+    1.2000000000000002,
+    1.6,
+    0.6
+  ],
+  "front_back_projection_dimensions": [
+    24,
+    32
+  ],
+  "hollow_gap_ratio": 0.0,
+  "fail_conditions": {
+    "side_faces_default_black_above_5_percent": false,
+    "large_hollow_gaps": false,
+    "generated_mesh_has_zero_faces": false,
+    "front_back_dimensions_mismatch_without_padding": false
+  },
+  "passed": true,
+  "outputs": {
+    "model": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32\\depth_volume_model.json",
+    "front_depth": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32\\front_depth.png",
+    "back_depth": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32\\back_depth.png",
+    "depth_debug_overlay": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32\\depth_debug_overlay.png"
+  },
+  "profile": "prototype_32",
+  "profile_validation": {
+    "thresholds": {
+      "max_black_side_face_percentage": 0.05,
+      "max_hollow_gap_ratio": 0.2,
+      "max_fallback_colour_count": 0,
+      "require_nonzero_faces": true,
+      "require_front_back_dimension_match": true
+    },
+    "target_face_budget": 4000,
+    "mesh_stats": {
+      "vertex_count": 7000,
+      "triangle_count": 3500,
+      "exposed_face_count": 1750,
+      "internal_faces_removed": 21254,
+      "black_side_face_count": 8,
+      "black_side_face_percentage": 0.004571428571428572,
+      "material_colour_count": 27,
+      "bounding_box_dimensions": [
+        1.2000000000000002,
+        1.6,
+        0.6
+      ]
+    },
+    "failures": [],
+    "passed": true
+  }
+}

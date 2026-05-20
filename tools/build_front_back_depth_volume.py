@@ -43,6 +43,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--cleanup-mode", choices=("raw_debug", "merged_faces", "low_poly_soften"), default="merged_faces")
     parser.add_argument("--debug-show-zones", action="store_true")
     parser.add_argument("--alpha-threshold", type=int, default=16)
+    parser.add_argument("--scene-path", type=Path, default=WORKSPACE_ROOT / "scenes" / "link_depth_volume_test.tscn")
     return parser.parse_args()
 
 
@@ -56,7 +57,7 @@ def main() -> int:
 
     print("Built Track C2 depth-field volume")
     print(f"  Model: {result['model_json']}")
-    print(f"  Scene: {WORKSPACE_ROOT / 'scenes' / 'link_depth_volume_test.tscn'}")
+    print(f"  Scene: {args.scene_path}")
     print(f"  Validation: {result['validation_report']}")
     print(f"  Vertices: {result['mesh_report']['vertex_count']}")
     print(f"  Triangles: {result['mesh_report']['triangle_count']}")
@@ -147,7 +148,9 @@ def build_depth_volume(args: argparse.Namespace) -> dict:
     validation_path = output_dir / "validation_report.json"
     _write_json(validation_path, validation_report)
 
-    _write_scene(WORKSPACE_ROOT / "scenes" / "link_depth_volume_test.tscn", model_json)
+    scene_path = getattr(args, "scene_path", WORKSPACE_ROOT / "scenes" / "link_depth_volume_test.tscn")
+    if scene_path:
+        _write_scene(scene_path.resolve(), model_json, output_dir / "captures")
     return {
         "model_json": model_json,
         "validation_report": validation_path,
@@ -205,7 +208,7 @@ def _alpha_coverage(image: Image.Image) -> float:
     return opaque / (rgba.width * rgba.height)
 
 
-def _write_scene(scene_path: Path, model_json: Path) -> None:
+def _write_scene(scene_path: Path, model_json: Path, capture_output_dir: Path) -> None:
     text = f"""[gd_scene load_steps=4 format=3]
 
 [ext_resource type="Script" path="res://scripts/depth_volume_viewer.gd" id="1_viewer"]
@@ -220,7 +223,7 @@ size = Vector2(4.5, 4.5)
 [node name="LinkDepthVolumeTest" type="Node3D"]
 script = ExtResource("1_viewer")
 model_data_path = "{_res_path(model_json)}"
-capture_output_dir = "res://outputs/link_depth_volume/captures"
+capture_output_dir = "{_res_path(capture_output_dir)}"
 
 [node name="Floor" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_floor")

@@ -1,5 +1,5 @@
 {
-  "total_faces": 766,
+  "total_faces": 534,
   "faces_with_fallback_material": 0,
   "fallback_face_percentage": 0.0,
   "number_of_materials": 11,
@@ -11,17 +11,17 @@
     "min": [
       -0.30000000000000004,
       0.050000000000000044,
-      -0.07500000000000001
+      -0.125
     ],
     "max": [
       0.3,
       1.1,
-      0.07500000000000001
+      0.025
     ],
     "size": [
       0.6000000000000001,
       1.05,
-      0.15000000000000002
+      0.15
     ]
   },
   "front_projection_coverage": 0.4583333333333333,

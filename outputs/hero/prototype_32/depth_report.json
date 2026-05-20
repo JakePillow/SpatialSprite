@@ -1,0 +1,28 @@
+{
+  "front": {
+    "dimensions_match": true,
+    "transparent_pixels_zero": true,
+    "opaque_coverage_ratio": 0.3528645833333333,
+    "depth_coverage_ratio": 0.3528645833333333,
+    "min_depth": 21,
+    "max_depth": 219,
+    "mean_depth": 103.01107011070111,
+    "unique_depth_levels": 67
+  },
+  "back": {
+    "dimensions_match": true,
+    "transparent_pixels_zero": true,
+    "opaque_coverage_ratio": 0.3463541666666667,
+    "depth_coverage_ratio": 0.3463541666666667,
+    "min_depth": 21,
+    "max_depth": 219,
+    "mean_depth": 100.22556390977444,
+    "unique_depth_levels": 60
+  },
+  "passed": true,
+  "files": {
+    "front_depth": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32\\front_depth.png",
+    "back_depth": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32\\back_depth.png",
+    "depth_debug_overlay": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32\\depth_debug_overlay.png"
+  }
+}

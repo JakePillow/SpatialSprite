@@ -1,0 +1,21 @@
+{
+  "name": "prototype_32",
+  "description": "Default deterministic depth-volume baseline for current SpriteSpatial builds.",
+  "pipeline": "link_depth_volume",
+  "depth_slices": 12,
+  "voxel_size": 0.05,
+  "model_depth_units": 0.6,
+  "semantic_mode": "none",
+  "primitive_mode": "depth_volume",
+  "smoothing_mode": "merged_faces",
+  "outline_policy": "nearest_valid_body_colour",
+  "target_face_budget": 4000,
+  "capture_angles": [0, 45, 90, 135, 180],
+  "validation_thresholds": {
+    "max_black_side_face_percentage": 0.05,
+    "max_hollow_gap_ratio": 0.2,
+    "max_fallback_colour_count": 0,
+    "require_nonzero_faces": true,
+    "require_front_back_dimension_match": true
+  }
+}
