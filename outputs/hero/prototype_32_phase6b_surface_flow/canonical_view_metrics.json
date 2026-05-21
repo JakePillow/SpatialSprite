@@ -1,0 +1,182 @@
+{
+  "schema": "spritespatial_canonical_view_metrics_v1",
+  "canonical_views": [
+    {
+      "yaw": 0,
+      "view": "front",
+      "authority": "source_sprite",
+      "target_type": "front_alpha"
+    },
+    {
+      "yaw": 45,
+      "view": "oblique",
+      "authority": "interpolated_prior",
+      "target_type": "front_to_side_transition"
+    },
+    {
+      "yaw": 90,
+      "view": "side",
+      "authority": "primitive_prior",
+      "target_type": "side_profile"
+    },
+    {
+      "yaw": 135,
+      "view": "side_135",
+      "authority": "interpolated_prior",
+      "target_type": "side_to_back_transition"
+    },
+    {
+      "yaw": 180,
+      "view": "back",
+      "authority": "authored",
+      "target_type": "back_alpha_or_inferred"
+    }
+  ],
+  "view_metrics": {
+    "front": {
+      "silhouette_iou": 0.45691967575534265,
+      "silhouette_precision": 0.4575130604173431,
+      "silhouette_recall": 0.9971695078803474,
+      "bounding_box_drift": {
+        "x": 44.0,
+        "y": 58.0,
+        "width": 88.0,
+        "height": 116.0
+      },
+      "centre_of_mass_drift": {
+        "x": 2.3716834161273255,
+        "y": 31.762845897674765
+      },
+      "rendered_pixel_count": 67762,
+      "target_pixel_count": 31090,
+      "canonical_view": {
+        "yaw": 0,
+        "view": "front",
+        "authority": "source_sprite",
+        "target_type": "front_alpha"
+      },
+      "capture": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase6b_surface_flow\\captures\\front.png",
+      "rendered_mask": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase6b_surface_flow\\silhouette_masks\\rendered_front.png",
+      "target_mask": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase6b_surface_flow\\silhouette_masks\\target_front.png",
+      "overlay": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase6b_surface_flow\\silhouette_overlay_0.png"
+    },
+    "oblique": {
+      "silhouette_iou": 0.2583711139896373,
+      "silhouette_precision": 0.25891611228297906,
+      "silhouette_recall": 0.9919189407596196,
+      "bounding_box_drift": {
+        "x": 83.0,
+        "y": 53.0,
+        "width": 166.0,
+        "height": 106.0
+      },
+      "centre_of_mass_drift": {
+        "x": 2.248000949243874,
+        "y": 32.66534182777707
+      },
+      "rendered_pixel_count": 61630,
+      "target_pixel_count": 16087,
+      "canonical_view": {
+        "yaw": 45,
+        "view": "oblique",
+        "authority": "interpolated_prior",
+        "target_type": "front_to_side_transition"
+      },
+      "capture": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase6b_surface_flow\\captures\\oblique.png",
+      "rendered_mask": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase6b_surface_flow\\silhouette_masks\\rendered_oblique.png",
+      "target_mask": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase6b_surface_flow\\silhouette_masks\\target_oblique.png",
+      "overlay": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase6b_surface_flow\\silhouette_overlay_45.png"
+    },
+    "side": {
+      "silhouette_iou": 0.3401172818213177,
+      "silhouette_precision": 0.34569344040603034,
+      "silhouette_recall": 0.9547215049797123,
+      "bounding_box_drift": {
+        "x": 110.5,
+        "y": 54.5,
+        "width": 221.0,
+        "height": 109.0
+      },
+      "centre_of_mass_drift": {
+        "x": 5.350541492238449,
+        "y": 50.093562726243306
+      },
+      "rendered_pixel_count": 59897,
+      "target_pixel_count": 21688,
+      "canonical_view": {
+        "yaw": 90,
+        "view": "side",
+        "authority": "primitive_prior",
+        "target_type": "side_profile"
+      },
+      "capture": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase6b_surface_flow\\captures\\side.png",
+      "rendered_mask": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase6b_surface_flow\\silhouette_masks\\rendered_side.png",
+      "target_mask": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase6b_surface_flow\\silhouette_masks\\target_side.png",
+      "overlay": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase6b_surface_flow\\silhouette_overlay_90.png"
+    },
+    "side_135": {
+      "silhouette_iou": 0.2572332279007824,
+      "silhouette_precision": 0.25813996224460817,
+      "silhouette_recall": 0.9865287620506927,
+      "bounding_box_drift": {
+        "x": 82.0,
+        "y": 53.0,
+        "width": 164.0,
+        "height": 106.0
+      },
+      "centre_of_mass_drift": {
+        "x": 5.042960729149399,
+        "y": 33.19276216557677
+      },
+      "rendered_pixel_count": 59859,
+      "target_pixel_count": 15663,
+      "canonical_view": {
+        "yaw": 135,
+        "view": "side_135",
+        "authority": "interpolated_prior",
+        "target_type": "side_to_back_transition"
+      },
+      "capture": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase6b_surface_flow\\captures\\side_135.png",
+      "rendered_mask": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase6b_surface_flow\\silhouette_masks\\rendered_side_135.png",
+      "target_mask": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase6b_surface_flow\\silhouette_masks\\target_side_135.png",
+      "overlay": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase6b_surface_flow\\silhouette_overlay_135.png"
+    },
+    "back": {
+      "silhouette_iou": 0.45145264556656195,
+      "silhouette_precision": 0.4518961894829124,
+      "silhouette_recall": 0.9978305854081837,
+      "bounding_box_drift": {
+        "x": 43.0,
+        "y": 57.5,
+        "width": 86.0,
+        "height": 115.0
+      },
+      "centre_of_mass_drift": {
+        "x": 2.838201996212547,
+        "y": 25.87130285623789
+      },
+      "rendered_pixel_count": 66159,
+      "target_pixel_count": 29962,
+      "canonical_view": {
+        "yaw": 180,
+        "view": "back",
+        "authority": "authored",
+        "target_type": "back_alpha_or_inferred"
+      },
+      "capture": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase6b_surface_flow\\captures\\back.png",
+      "rendered_mask": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase6b_surface_flow\\silhouette_masks\\rendered_back.png",
+      "target_mask": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase6b_surface_flow\\silhouette_masks\\target_back.png",
+      "overlay": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase6b_surface_flow\\silhouette_overlay_180.png"
+    }
+  },
+  "front_iou": 0.45691967575534265,
+  "oblique_iou": 0.2583711139896373,
+  "side_iou": 0.3401172818213177,
+  "side_135_iou": 0.2572332279007824,
+  "back_iou": 0.45145264556656195,
+  "worst_view": "side_135",
+  "front_back_similarity_warning": true,
+  "side_front_visual_similarity_warning": false,
+  "side_profile_authority": "primitive_prior",
+  "back_view_authority": "authored"
+}

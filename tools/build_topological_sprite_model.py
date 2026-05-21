@@ -6,10 +6,11 @@ import os
 import shutil
 import subprocess
 import sys
+import time
 from pathlib import Path
 from typing import Any, Sequence, cast
 
-from PIL import Image
+from PIL import Image, ImageDraw
 
 WORKSPACE_ROOT = Path(__file__).resolve().parent.parent
 TOOL_ROOT = WORKSPACE_ROOT / "tool"
@@ -22,6 +23,7 @@ from spritespatial.back_hemisphere import build_back_hemisphere  # noqa: E402
 from spritespatial.canonical_silhouette_optimizer import optimize_canonical_silhouette  # noqa: E402
 from spritespatial.canonical_views import canonical_view_records, write_canonical_view_records  # noqa: E402
 from spritespatial.continuity import apply_semantic_continuity  # noqa: E402
+from spritespatial.directional_morphology import load_morphology_profile  # noqa: E402
 from spritespatial.manifold_validation import build_phase5a_validation  # noqa: E402
 from spritespatial.metrics.silhouette_iou import compute_canonical_view_metrics  # noqa: E402
 from spritespatial.mylar_depth import build_mylar_front_depth  # noqa: E402
@@ -51,6 +53,7 @@ from spritespatial.semantic_overrides import (  # noqa: E402
     apply_semantic_overrides_to_parts,
     load_semantic_overrides,
 )
+from spritespatial.semantic_depth_profiles import load_profile_set  # noqa: E402
 from spritespatial.render_comparison import build_visual_mapping  # noqa: E402
 from spritespatial.render_diagnostics import analyze_phase5c_captures  # noqa: E402
 from spritespatial.smoothing import SmoothingConfig, smooth_mesh  # noqa: E402
@@ -63,6 +66,7 @@ from spritespatial.surface_nets import (  # noqa: E402
     write_surface_nets_debug,
     write_surface_nets_report,
 )
+from spritespatial.voxel_render_profile import apply_voxel_render_profile, load_render_profile  # noqa: E402
 from spritespatial.zfield import (  # noqa: E402
     build_semantic_zfield,
     reports_to_json as zfield_reports_to_json,
@@ -142,6 +146,17 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--silhouette-correction-iterations", type=int, default=1)
     parser.add_argument("--max-silhouette-displacement", type=float, default=0.15)
     parser.add_argument("--emit-silhouette-correction-debug", action="store_true")
+    parser.add_argument("--semantic-depth-profiles", action="store_true")
+    parser.add_argument("--semantic-depth-profile", default="humanoid_voxel")
+    parser.add_argument("--emit-semantic-depth-debug", action="store_true")
+    parser.add_argument("--directional-morphology", action="store_true")
+    parser.add_argument("--morphology-profile", default="fantasy_humanoid")
+    parser.add_argument("--emit-directional-debug", action="store_true")
+    parser.add_argument("--surface-flow", action="store_true")
+    parser.add_argument("--surface-flow-strength", type=float, default=0.45)
+    parser.add_argument("--surface-flow-iterations", type=int, default=2)
+    parser.add_argument("--emit-surface-flow-debug", action="store_true")
+    parser.add_argument("--render-profile")
     parser.add_argument("--find-view-candidates", action="store_true")
     parser.add_argument("--semantic-overrides", type=Path)
     parser.add_argument("--semantic-override-mode", choices=("none", "supplement", "replace", "strict"), default=None)
@@ -210,6 +225,20 @@ def _apply_profile_defaults(args: argparse.Namespace, profile: dict) -> None:
         args.smooth = True
     if profile.get("smoothing_mode") and args.smoothing_mode is None:
         args.smoothing_mode = profile["smoothing_mode"]
+    if profile.get("semantic_depth_profiles", False):
+        args.semantic_depth_profiles = True
+    if profile.get("semantic_depth_profile") and not getattr(args, "semantic_depth_profile", None):
+        args.semantic_depth_profile = profile["semantic_depth_profile"]
+    if profile.get("directional_morphology", False):
+        args.directional_morphology = True
+    if profile.get("morphology_profile") and not getattr(args, "morphology_profile", None):
+        args.morphology_profile = profile["morphology_profile"]
+    if profile.get("surface_flow", False):
+        args.surface_flow = True
+    if "surface_flow_strength" in profile:
+        args.surface_flow_strength = float(profile["surface_flow_strength"])
+    if "surface_flow_iterations" in profile:
+        args.surface_flow_iterations = int(profile["surface_flow_iterations"])
     if args.smoothing_mode is None:
         args.smoothing_mode = "none"
     if args.use_zfield or args.use_primitives or args.use_continuity:
@@ -1329,8 +1358,10 @@ def _rgba_float(colour: tuple[int, int, int, int]) -> list[float]:
 def _vibrant_side_colour(colour: tuple[int, int, int, int]) -> list[float]:
     red, green, blue, alpha = colour
     if max(red, green, blue) <= 72:
-        return [red / 255.0, green / 255.0, blue / 255.0, alpha / 255.0]
-    return [red / 255.0, green / 255.0, blue / 255.0, alpha / 255.0]
+        factor = 0.9
+    else:
+        factor = 0.75
+    return [red / 255.0 * factor, green / 255.0 * factor, blue / 255.0 * factor, alpha / 255.0]
 
 
 def _add_cuboid_front_sprite_shell(front: Image.Image, regions, vertices, normals, colors, indices, part_ids, args, z_front: float) -> int:
@@ -1827,6 +1858,18 @@ def _build_phase5a_closed_body(
         back["z_back"],
         output_dir / "seam",
     )
+    semantic_depth_profile: dict[str, Any] | None = None
+    semantic_depth_paths: dict[str, Path] = {}
+    directional_morphology: dict[str, Any] | None = None
+    directional_paths: dict[str, Path] = {}
+    surface_flow_paths: dict[str, Path] = {}
+    if getattr(args, "semantic_depth_profiles", False):
+        semantic_depth_profile = load_profile_set(getattr(args, "semantic_depth_profile", "humanoid_voxel"), WORKSPACE_ROOT)
+    if getattr(args, "directional_morphology", False):
+        directional_morphology = load_morphology_profile(getattr(args, "morphology_profile", "fantasy_humanoid"), WORKSPACE_ROOT)
+        if semantic_depth_profile is None:
+            args.semantic_depth_profiles = True
+            semantic_depth_profile = load_profile_set(getattr(args, "semantic_depth_profile", "humanoid_voxel"), WORKSPACE_ROOT)
     sdf = build_sdf_volume(
         mylar["z_front"],
         back["z_back"],
@@ -1834,13 +1877,44 @@ def _build_phase5a_closed_body(
         mylar["label_by_pixel"],
         output_dir / "sdf",
         z_samples=max(17, int(args.total_depth_slices) * 2 + 1),
+        semantic_depth_profile=semantic_depth_profile,
+        semantic_depth_output_dir=output_dir / "depth_profiles" if semantic_depth_profile else None,
+        emit_semantic_depth_debug=bool(getattr(args, "emit_semantic_depth_debug", False)),
+        directional_morphology=directional_morphology,
+        directional_output_dir=output_dir / "directional_debug" if directional_morphology else None,
+        emit_directional_debug=bool(getattr(args, "emit_directional_debug", False)),
+        surface_flow_enabled=bool(getattr(args, "surface_flow", False)),
+        surface_flow_strength=float(getattr(args, "surface_flow_strength", 0.45)),
+        surface_flow_iterations=int(getattr(args, "surface_flow_iterations", 2)),
+        surface_flow_output_dir=output_dir / "surface_flow" if getattr(args, "surface_flow", False) else None,
+        emit_surface_flow_debug=bool(getattr(args, "emit_surface_flow_debug", False)),
     )
+    if sdf.get("semantic_depth_profile"):
+        semantic_depth_paths = {
+            key: path
+            for key, path in sdf["semantic_depth_profile"].get("paths", {}).items()
+            if isinstance(path, Path)
+        }
+    if sdf.get("surface_flow"):
+        surface_flow_paths = {
+            key: path
+            for key, path in sdf["surface_flow"].get("paths", {}).items()
+            if isinstance(path, Path)
+        }
+    if sdf.get("directional_morphology"):
+        directional_paths = {
+            key: path
+            for key, path in sdf["directional_morphology"].get("paths", {}).items()
+            if isinstance(path, Path)
+        }
     meshing = emit_surface_nets_input(sdf["sdf"], sdf["semantic_volume"], output_dir / "meshing")
     mesh_backend = getattr(args, "mesh_backend", "greedy")
     surface_net_mesh: dict[str, Any] | None = None
     surface_net_report: dict[str, Any] = {}
     surface_net_paths: dict[str, Path] = {}
     surface_net_debug_paths: dict[str, Path] = {}
+    voxel_render_result: dict[str, Any] = {}
+    material_debug_paths: dict[str, Path] = {}
     if mesh_backend == "surface_nets":
         surface_net_input = meshing["paths"]["surface_nets_input"]
         surface_sdf, surface_semantic = load_surface_nets_input(surface_net_input)
@@ -1850,6 +1924,20 @@ def _build_phase5a_closed_body(
             iso_level=0.0,
             smoothing_alpha=float(getattr(args, "surface_net_smoothing_alpha", 0.65)),
         )
+        if getattr(args, "render_profile", None):
+            render_profile = load_render_profile(getattr(args, "render_profile"), WORKSPACE_ROOT)
+            voxel_render_result = apply_voxel_render_profile(
+                surface_net_mesh,
+                front,
+                output_dir / "material_debug",
+                render_profile,
+            )
+            surface_net_mesh = voxel_render_result["mesh"]
+            material_debug_paths = {
+                key: path
+                for key, path in voxel_render_result.get("paths", {}).items()
+                if isinstance(path, Path)
+            }
         mesh_path = write_mesh_json(surface_net_mesh, output_dir / "mesh.json")
         surface_net_report = write_surface_nets_report(surface_net_mesh, output_dir, surface_net_input)
         boundary_path = output_dir / "semantic_boundary_debug.json"
@@ -1889,9 +1977,14 @@ def _build_phase5a_closed_body(
             meshing,
             float(getattr(args, "surface_net_smoothing_alpha", 0.65)),
         )
+    if voxel_render_result:
+        validation_report = _extend_phase5f_validation(validation_report, voxel_render_result)
     if mesh_backend == "surface_nets" and getattr(args, "godot_preview", False):
         render_result = _run_phase5c_godot_preview(args, output_dir, surface_net_paths.get("mesh"))
         validation_report = _extend_phase5c_validation(validation_report, render_result)
+        if voxel_render_result:
+            contact_sheet = _write_before_after_render_contact_sheet(output_dir)
+            validation_report["before_after_render_contact_sheet"] = str(contact_sheet)
     if getattr(args, "emit_render_diagnostics", False) or getattr(args, "emit_canonical_view_metrics", False):
         phase5d_result = _run_phase5d_diagnostics(args, output_dir, source_coverage)
         validation_report = _extend_phase5d_validation(validation_report, phase5d_result)
@@ -1927,9 +2020,14 @@ def _build_phase5a_closed_body(
         "back": {key: _res_path(path) for key, path in back["paths"].items()},
         "seam": {key: _res_path(path) for key, path in seam["paths"].items()},
         "sdf": {key: _res_path(path) for key, path in sdf["paths"].items()},
+        "semantic_depth_profiles": {key: _res_path(path) for key, path in semantic_depth_paths.items()},
+        "directional_morphology": {key: _res_path(path) for key, path in directional_paths.items()},
+        "surface_flow": {key: _res_path(path) for key, path in surface_flow_paths.items()},
         "meshing": {key: _res_path(path) for key, path in meshing["paths"].items()},
         "surface_nets": {key: _res_path(path) for key, path in surface_net_paths.items()},
         "surface_net_debug": {key: _res_path(path) for key, path in surface_net_debug_paths.items()},
+        "material_debug": {key: _res_path(path) for key, path in material_debug_paths.items()},
+        "voxel_render_report": _res_path(output_dir / "voxel_render_report.json") if voxel_render_result else "",
         "silhouette_correction": {
             "mesh_corrected": _res_path(Path(silhouette_correction_result["mesh_corrected"]))
             if silhouette_correction_result.get("mesh_corrected")
@@ -1953,6 +2051,17 @@ def _build_phase5a_closed_body(
             "mesh_backend": mesh_backend,
             "surface_net_smoothing_alpha": float(getattr(args, "surface_net_smoothing_alpha", 0.65)),
             "emit_surface_net_debug": getattr(args, "emit_surface_net_debug", False),
+            "semantic_depth_profiles": getattr(args, "semantic_depth_profiles", False),
+            "semantic_depth_profile": getattr(args, "semantic_depth_profile", "humanoid_voxel"),
+            "emit_semantic_depth_debug": getattr(args, "emit_semantic_depth_debug", False),
+            "directional_morphology": getattr(args, "directional_morphology", False),
+            "morphology_profile": getattr(args, "morphology_profile", "fantasy_humanoid"),
+            "emit_directional_debug": getattr(args, "emit_directional_debug", False),
+            "surface_flow": getattr(args, "surface_flow", False),
+            "surface_flow_strength": float(getattr(args, "surface_flow_strength", 0.45)),
+            "surface_flow_iterations": int(getattr(args, "surface_flow_iterations", 2)),
+            "emit_surface_flow_debug": getattr(args, "emit_surface_flow_debug", False),
+            "render_profile": getattr(args, "render_profile", ""),
             "canonical_silhouette_correct": getattr(args, "canonical_silhouette_correct", False),
             "silhouette_correction_iterations": int(getattr(args, "silhouette_correction_iterations", 1)),
             "max_silhouette_displacement": float(getattr(args, "max_silhouette_displacement", 0.15)),
@@ -1986,7 +2095,12 @@ def _build_phase5a_closed_body(
             key for key, failed in validation_report.get("fail_conditions", {}).items()
             if failed
         ]
-        phase_name = "Phase 6A" if getattr(args, "canonical_silhouette_correct", False) else ("Phase 5B" if mesh_backend == "surface_nets" else "Phase 5A")
+        if getattr(args, "canonical_silhouette_correct", False):
+            phase_name = "Phase 6A"
+        elif getattr(args, "surface_flow", False):
+            phase_name = "Phase 6B"
+        else:
+            phase_name = "Phase 5B" if mesh_backend == "surface_nets" else "Phase 5A"
         raise ValueError(f"{phase_name} validation failed: {failures}")
     for warning in source_coverage.get("warnings", []):
         print(f"WARNING: {warning}")
@@ -2097,21 +2211,46 @@ def _run_godot_preview_for_mesh(
         "--surface-nets-output",
         _res_path(render_dir),
     ]
-    completed = subprocess.run(command, cwd=WORKSPACE_ROOT, text=True, capture_output=True, timeout=90)
     render_report_path = render_dir / "render_report.json"
     material_report_path = render_dir / "semantic_material_report.json"
-    render_report = _read_json_if_exists(render_report_path)
-    material_report = _read_json_if_exists(material_report_path)
+    completed: subprocess.CompletedProcess[str] | None = None
+    render_report: dict[str, Any] = {}
+    material_report: dict[str, Any] = {}
+    attempts: list[dict[str, Any]] = []
+    outputs_valid = False
+    for attempt in range(3):
+        completed = subprocess.run(command, cwd=WORKSPACE_ROOT, text=True, capture_output=True, timeout=90)
+        render_report = _read_json_if_exists(render_report_path)
+        material_report = _read_json_if_exists(material_report_path)
+        captures = render_report.get("captures", []) if isinstance(render_report, dict) else []
+        capture_names = {str(item.get("name", "")) for item in captures if isinstance(item, dict)}
+        outputs_valid = bool(
+            render_report.get("passed", False)
+            and render_report.get("mesh_loads_in_godot", False)
+            and {"front", "oblique", "side", "back", "wireframe"}.issubset(capture_names)
+        )
+        attempts.append(
+            {
+                "attempt": attempt + 1,
+                "exit_code": completed.returncode,
+                "outputs_valid": outputs_valid,
+                "stderr_tail": "\n".join((completed.stderr or "").splitlines()[-4:]),
+            }
+        )
+        if completed.returncode == 0 or outputs_valid:
+            break
+        time.sleep(1.5)
     for name in ("front", "oblique", "side", "side_135", "back", "wireframe"):
         source = captures_dir / f"{name}.png"
         if source.exists():
             shutil.copyfile(source, render_dir / f"{name}.png")
     result = {
         "godot_preview_requested": True,
-        "godot_preview_ran": completed.returncode == 0,
-        "godot_preview_exit_code": completed.returncode,
-        "godot_stdout_tail": "\n".join((completed.stdout or "").splitlines()[-8:]),
-        "godot_stderr_tail": "\n".join((completed.stderr or "").splitlines()[-8:]),
+        "godot_preview_ran": bool((completed and completed.returncode == 0) or outputs_valid),
+        "godot_preview_exit_code": completed.returncode if completed else -1,
+        "godot_stdout_tail": "\n".join(((completed.stdout if completed else "") or "").splitlines()[-8:]),
+        "godot_stderr_tail": "\n".join(((completed.stderr if completed else "") or "").splitlines()[-8:]),
+        "godot_preview_attempts": attempts,
         "render_report": render_report,
         "semantic_material_report": material_report,
         "captures_dir": str(captures_dir),
@@ -2166,6 +2305,69 @@ def _extend_phase5c_validation(
         }
     )
     return report
+
+
+def _extend_phase5f_validation(
+    validation_report: dict[str, Any],
+    voxel_render_result: dict[str, Any],
+) -> dict[str, Any]:
+    report = dict(validation_report)
+    fail_conditions = dict(report.get("fail_conditions", {}))
+    voxel_report = voxel_render_result.get("report", {})
+    fail_conditions.update(
+        {
+            "voxel_render_internal_black_faces_excessive": float(voxel_report.get("internal_black_face_ratio", 1.0)) > 0.18,
+            "voxel_render_outline_preservation_low": float(voxel_report.get("outer_outline_preservation_score", 0.0)) < 0.45,
+            "voxel_render_source_colour_match_low": float(voxel_report.get("source_colour_match_score", 0.0)) < 0.45,
+            "voxel_render_side_shading_low": float(voxel_report.get("side_face_shading_score", 0.0)) < 0.65,
+            "voxel_render_readability_low": float(voxel_report.get("voxel_face_readability_score", 0.0)) < 0.55,
+        }
+    )
+    report.update(
+        {
+            "render_profile": voxel_report.get("render_profile", ""),
+            "voxel_render_profile_enabled": True,
+            "internal_black_face_ratio": voxel_report.get("internal_black_face_ratio", 0.0),
+            "outer_outline_preservation_score": voxel_report.get("outer_outline_preservation_score", 0.0),
+            "source_colour_match_score": voxel_report.get("source_colour_match_score", 0.0),
+            "side_face_shading_score": voxel_report.get("side_face_shading_score", 0.0),
+            "voxel_face_readability_score": voxel_report.get("voxel_face_readability_score", 0.0),
+            "voxel_render_report": voxel_report,
+            "fail_conditions": fail_conditions,
+            "passed": not any(fail_conditions.values()),
+        }
+    )
+    return report
+
+
+def _write_before_after_render_contact_sheet(output_dir: Path) -> Path:
+    previous_dir = output_dir.parent / output_dir.name.replace("phase5f_voxel_render", "phase5e_semantic_depth")
+    views = ("front", "oblique", "side", "side_135", "back")
+    panel_size = (160, 132)
+    sheet = Image.new("RGBA", (panel_size[0] * 2, panel_size[1] * len(views)), (28, 28, 28, 255))
+    for row, view in enumerate(views):
+        before = _render_contact_panel(previous_dir / "captures" / f"{view}.png", f"before {view}", panel_size)
+        after = _render_contact_panel(output_dir / "captures" / f"{view}.png", f"after {view}", panel_size)
+        y = row * panel_size[1]
+        sheet.alpha_composite(before, (0, y))
+        sheet.alpha_composite(after, (panel_size[0], y))
+    path = output_dir / "before_after_render_contact_sheet.png"
+    sheet.save(path, format="PNG")
+    return path
+
+
+def _render_contact_panel(path: Path, title: str, size: tuple[int, int]) -> Image.Image:
+    panel = Image.new("RGBA", size, (20, 20, 20, 255))
+    draw = ImageDraw.Draw(panel)
+    draw.text((5, 5), title[:28], fill=(245, 245, 245, 255))
+    if path.exists():
+        image = Image.open(path).convert("RGBA")
+    else:
+        image = Image.new("RGBA", (64, 64), (0, 0, 0, 0))
+        ImageDraw.Draw(image).text((5, 24), "missing", fill=(255, 80, 80, 255))
+    image.thumbnail((size[0] - 12, size[1] - 28), Image.Resampling.NEAREST)
+    panel.alpha_composite(image, ((size[0] - image.width) // 2, 24 + (size[1] - 28 - image.height) // 2))
+    return panel
 
 
 def _run_phase5d_diagnostics(

@@ -1,0 +1,34 @@
+{
+  "schema": "spritespatial_render_diagnostics_v1",
+  "captures_dir": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_baseline\\captures",
+  "views": {
+    "front": {
+      "missing": true,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_baseline\\captures\\front.png"
+    },
+    "oblique": {
+      "missing": true,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_baseline\\captures\\oblique.png"
+    },
+    "side": {
+      "missing": true,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_baseline\\captures\\side.png"
+    },
+    "side_135": {
+      "missing": true,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_baseline\\captures\\side_135.png"
+    },
+    "back": {
+      "missing": true,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_baseline\\captures\\back.png"
+    },
+    "wireframe": {
+      "missing": true,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_baseline\\captures\\wireframe.png"
+    }
+  },
+  "front_back_aligned_iou": 0.0,
+  "side_front_aligned_iou": 0.0,
+  "front_back_visual_similarity_warning": false,
+  "side_front_visual_similarity_warning": false
+}

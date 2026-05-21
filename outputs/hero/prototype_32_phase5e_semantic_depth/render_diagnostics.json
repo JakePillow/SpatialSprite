@@ -1,0 +1,124 @@
+{
+  "schema": "spritespatial_render_diagnostics_v1",
+  "captures_dir": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5e_semantic_depth\\captures",
+  "views": {
+    "front": {
+      "path": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5e_semantic_depth\\captures\\front.png",
+      "silhouette_mask": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5e_semantic_depth\\silhouette_masks\\front_mask.png",
+      "visible_pixel_bounds": [
+        444,
+        187,
+        705,
+        524
+      ],
+      "visible_pixel_count": 67587,
+      "black_outline_pixel_ratio": 0.7385887818663353,
+      "semantic_colour_coverage": {
+        "ratio": 0.26141121813366475,
+        "approximate_colour_buckets": 14
+      },
+      "empty_background_ratio": 0.9094610018004116,
+      "fragmentation_count": 1,
+      "bounding_box_aspect_ratio": 0.7744807121661721
+    },
+    "oblique": {
+      "path": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5e_semantic_depth\\captures\\oblique.png",
+      "silhouette_mask": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5e_semantic_depth\\silhouette_masks\\oblique_mask.png",
+      "visible_pixel_bounds": [
+        439,
+        193,
+        709,
+        535
+      ],
+      "visible_pixel_count": 61895,
+      "black_outline_pixel_ratio": 0.43589950722998627,
+      "semantic_colour_coverage": {
+        "ratio": 0.5641004927700137,
+        "approximate_colour_buckets": 14
+      },
+      "empty_background_ratio": 0.9170859589334706,
+      "fragmentation_count": 1,
+      "bounding_box_aspect_ratio": 0.7894736842105263
+    },
+    "side": {
+      "path": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5e_semantic_depth\\captures\\side.png",
+      "silhouette_mask": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5e_semantic_depth\\silhouette_masks\\side_mask.png",
+      "visible_pixel_bounds": [
+        394,
+        191,
+        753,
+        538
+      ],
+      "visible_pixel_count": 60693,
+      "black_outline_pixel_ratio": 0.12078822928509053,
+      "semantic_colour_coverage": {
+        "ratio": 0.8792117707149094,
+        "approximate_colour_buckets": 16
+      },
+      "empty_background_ratio": 0.9186961484053497,
+      "fragmentation_count": 1,
+      "bounding_box_aspect_ratio": 1.0345821325648414
+    },
+    "side_135": {
+      "path": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5e_semantic_depth\\captures\\side_135.png",
+      "silhouette_mask": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5e_semantic_depth\\silhouette_masks\\side_135_mask.png",
+      "visible_pixel_bounds": [
+        443,
+        195,
+        709,
+        535
+      ],
+      "visible_pixel_count": 60537,
+      "black_outline_pixel_ratio": 0.09247237226819961,
+      "semantic_colour_coverage": {
+        "ratio": 0.9075276277318004,
+        "approximate_colour_buckets": 14
+      },
+      "empty_background_ratio": 0.9189051247427984,
+      "fragmentation_count": 1,
+      "bounding_box_aspect_ratio": 0.7823529411764706
+    },
+    "back": {
+      "path": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5e_semantic_depth\\captures\\back.png",
+      "silhouette_mask": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5e_semantic_depth\\silhouette_masks\\back_mask.png",
+      "visible_pixel_bounds": [
+        449,
+        191,
+        708,
+        525
+      ],
+      "visible_pixel_count": 66847,
+      "black_outline_pixel_ratio": 0.1968225948808473,
+      "semantic_colour_coverage": {
+        "ratio": 0.8031774051191527,
+        "approximate_colour_buckets": 13
+      },
+      "empty_background_ratio": 0.9104522998113854,
+      "fragmentation_count": 1,
+      "bounding_box_aspect_ratio": 0.7754491017964071
+    },
+    "wireframe": {
+      "path": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5e_semantic_depth\\captures\\wireframe.png",
+      "silhouette_mask": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5e_semantic_depth\\silhouette_masks\\wireframe_mask.png",
+      "visible_pixel_bounds": [
+        438,
+        192,
+        709,
+        536
+      ],
+      "visible_pixel_count": 44396,
+      "black_outline_pixel_ratio": 0.4999549508964772,
+      "semantic_colour_coverage": {
+        "ratio": 0.5000450491035229,
+        "approximate_colour_buckets": 15
+      },
+      "empty_background_ratio": 0.9405274777091907,
+      "fragmentation_count": 1,
+      "bounding_box_aspect_ratio": 0.7877906976744186
+    }
+  },
+  "front_back_aligned_iou": 0.9228450200982582,
+  "side_front_aligned_iou": 0.6187375275706334,
+  "front_back_visual_similarity_warning": true,
+  "side_front_visual_similarity_warning": false
+}

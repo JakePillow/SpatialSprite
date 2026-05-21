@@ -1,0 +1,104 @@
+{
+  "disconnected_body_parts": [
+    {
+      "label": "torso",
+      "region_ids": [
+        2,
+        3,
+        12,
+        23,
+        24,
+        30
+      ],
+      "message": "label is split across multiple disconnected regions"
+    },
+    {
+      "label": "left_arm",
+      "region_ids": [
+        17,
+        22,
+        51
+      ],
+      "message": "label is split across multiple disconnected regions"
+    },
+    {
+      "label": "right_arm",
+      "region_ids": [
+        25,
+        26,
+        52
+      ],
+      "message": "label is split across multiple disconnected regions"
+    },
+    {
+      "label": "left_leg",
+      "region_ids": [
+        34,
+        40,
+        55,
+        59
+      ],
+      "message": "label is split across multiple disconnected regions"
+    },
+    {
+      "label": "right_leg",
+      "region_ids": [
+        37,
+        45,
+        49
+      ],
+      "message": "label is split across multiple disconnected regions"
+    }
+  ],
+  "tiny_orphan_regions": [
+    {
+      "region_id": 17,
+      "assigned_label": "left_arm",
+      "bbox": [
+        6,
+        16,
+        8,
+        17
+      ],
+      "confidence_score": 0.51,
+      "message": "tiny non-outline region"
+    },
+    {
+      "region_id": 26,
+      "assigned_label": "right_arm",
+      "bbox": [
+        16,
+        17,
+        18,
+        18
+      ],
+      "confidence_score": 0.67,
+      "message": "tiny non-outline region"
+    }
+  ],
+  "ambiguous_assignment": [
+    {
+      "region_id": 17,
+      "assigned_label": "left_arm",
+      "bbox": [
+        6,
+        16,
+        8,
+        17
+      ],
+      "confidence_score": 0.51,
+      "message": "low semantic confidence"
+    }
+  ],
+  "outline_regions_merged_into_body": [],
+  "left_right_confusion": [],
+  "torso_head_overlap": [
+    {
+      "torso_region_id": 12,
+      "head_region_id": 13,
+      "message": "torso/head bounding boxes overlap unusually"
+    }
+  ],
+  "equipment_merged_into_body": [],
+  "depth_discontinuities": []
+}

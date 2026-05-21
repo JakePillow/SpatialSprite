@@ -1,0 +1,96 @@
+{
+  "name": "humanoid_voxel",
+  "description": "Deterministic semantic anatomical depth profiles for low-resolution humanoid voxel/SDF builds.",
+  "profiles": {
+    "head": {
+      "z_center_fraction": 0.02,
+      "half_thickness_fraction": 0.46,
+      "profile_type": "hemisphere",
+      "taper_curve": "round",
+      "asymmetry": 0.05,
+      "depth_priority": 90,
+      "silhouette_preservation_weight": 0.95
+    },
+    "face": {
+      "z_center_fraction": 0.28,
+      "half_thickness_fraction": 0.22,
+      "profile_type": "rounded_front",
+      "taper_curve": "front_pad",
+      "asymmetry": 0.35,
+      "depth_priority": 92,
+      "silhouette_preservation_weight": 0.98
+    },
+    "torso": {
+      "z_center_fraction": 0.0,
+      "half_thickness_fraction": 0.4,
+      "profile_type": "rounded_cuboid",
+      "taper_curve": "neck_waist",
+      "asymmetry": 0.0,
+      "depth_priority": 80,
+      "silhouette_preservation_weight": 0.92
+    },
+    "left_arm": {
+      "z_center_fraction": 0.0,
+      "half_thickness_fraction": 0.3,
+      "profile_type": "capsule_chain",
+      "taper_curve": "limb",
+      "asymmetry": 0.0,
+      "depth_priority": 70,
+      "silhouette_preservation_weight": 0.88
+    },
+    "right_arm": {
+      "z_center_fraction": 0.0,
+      "half_thickness_fraction": 0.3,
+      "profile_type": "capsule_chain",
+      "taper_curve": "limb",
+      "asymmetry": 0.0,
+      "depth_priority": 70,
+      "silhouette_preservation_weight": 0.88
+    },
+    "left_leg": {
+      "z_center_fraction": 0.0,
+      "half_thickness_fraction": 0.32,
+      "profile_type": "tapered_capsule_chain",
+      "taper_curve": "limb_taper",
+      "asymmetry": 0.0,
+      "depth_priority": 68,
+      "silhouette_preservation_weight": 0.88
+    },
+    "right_leg": {
+      "z_center_fraction": 0.0,
+      "half_thickness_fraction": 0.32,
+      "profile_type": "tapered_capsule_chain",
+      "taper_curve": "limb_taper",
+      "asymmetry": 0.0,
+      "depth_priority": 68,
+      "silhouette_preservation_weight": 0.88
+    },
+    "boots/feet": {
+      "z_center_fraction": 0.06,
+      "half_thickness_fraction": 0.18,
+      "profile_type": "flattened_rounded_box",
+      "taper_curve": "foot",
+      "asymmetry": 0.12,
+      "depth_priority": 74,
+      "silhouette_preservation_weight": 0.9
+    },
+    "hair/hat": {
+      "z_center_fraction": 0.22,
+      "half_thickness_fraction": 0.14,
+      "profile_type": "shell_offset",
+      "taper_curve": "layer",
+      "asymmetry": 0.2,
+      "depth_priority": 85,
+      "silhouette_preservation_weight": 0.96
+    },
+    "outline": {
+      "z_center_fraction": 0.0,
+      "half_thickness_fraction": 0.04,
+      "profile_type": "outline_shell",
+      "taper_curve": "shell",
+      "asymmetry": 0.0,
+      "depth_priority": 100,
+      "silhouette_preservation_weight": 1.0
+    }
+  }
+}

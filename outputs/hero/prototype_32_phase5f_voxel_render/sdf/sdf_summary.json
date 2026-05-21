@@ -1,0 +1,202 @@
+{
+  "schema": "spritespatial_closed_sdf_v1",
+  "shape": [
+    32,
+    24,
+    25
+  ],
+  "z_samples": 25,
+  "z_axis_min": -0.44999998807907104,
+  "z_axis_max": 0.44999998807907104,
+  "sdf_min": -3.605551242828369,
+  "sdf_max": 15.842979431152344,
+  "occupied_voxels": 1402,
+  "sdf_dtype": "float32",
+  "semantic_dtype": "int32",
+  "semantic_volume_labels": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "sdf_sign_consistency": true,
+  "closed_volume_connected": true,
+  "connected_component_count": 1,
+  "hollow_gap_ratio": 0.0,
+  "front_back_connected_through_seam": true,
+  "sdf_slice_contact_sheet": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5f_voxel_render\\sdf\\sdf_slice_contact_sheet.png",
+  "semantic_depth_profiles_enabled": true,
+  "semantic_depth_profile": "humanoid_voxel",
+  "semantic_depth_profile_report": {
+    "semantic_depth_profiles_enabled": true,
+    "uniform_slab_ratio": 0.014760147601476014,
+    "semantic_depth_variance": 20.39427947998047,
+    "head_depth_ratio": 0.49200000762939455,
+    "torso_depth_ratio": 0.2789873504638672,
+    "limb_depth_ratio": 0.19830535888671874,
+    "outline_shell_ratio": 1.0,
+    "side_projection_entropy": 0.8860441679122286,
+    "side_profile_readability_score": 0.9406017943796912,
+    "depth_ratio_by_label": {
+      "boots/feet": 0.04,
+      "hair/hat": 0.05,
+      "head": 0.49200000762939455,
+      "left_arm": 0.20266666412353515,
+      "left_leg": 0.21866666793823242,
+      "outline": 0.04,
+      "right_arm": 0.18461538314819337,
+      "right_leg": 0.18727272033691406,
+      "torso": 0.2789873504638672
+    },
+    "depth_variance_by_label": {
+      "boots/feet": 0.0,
+      "hair/hat": 0.1875,
+      "head": 32.310001373291016,
+      "left_arm": 7.062222480773926,
+      "left_leg": 7.182221412658691,
+      "outline": 0.0,
+      "right_arm": 5.8520708084106445,
+      "right_leg": 3.67148756980896,
+      "torso": 23.18922996520996
+    },
+    "z_axis_min": -0.44999998807907104,
+    "z_axis_max": 0.44999998807907104,
+    "outline_max_voxel_thickness": 1.0,
+    "schema": "spritespatial_semantic_depth_profiles_v1",
+    "profile_set": "humanoid_voxel",
+    "profile_assignment_counts": {
+      "hair/hat": 8,
+      "head": 20,
+      "outline": 50,
+      "torso": 79,
+      "left_arm": 30,
+      "right_arm": 26,
+      "left_leg": 30,
+      "right_leg": 22,
+      "boots/feet": 6
+    },
+    "profiles": {
+      "head": {
+        "z_center_fraction": 0.02,
+        "half_thickness_fraction": 0.46,
+        "profile_type": "hemisphere",
+        "taper_curve": "round",
+        "asymmetry": 0.05,
+        "depth_priority": 90,
+        "silhouette_preservation_weight": 0.95
+      },
+      "face": {
+        "z_center_fraction": 0.28,
+        "half_thickness_fraction": 0.22,
+        "profile_type": "rounded_front",
+        "taper_curve": "front_pad",
+        "asymmetry": 0.35,
+        "depth_priority": 92,
+        "silhouette_preservation_weight": 0.98
+      },
+      "torso": {
+        "z_center_fraction": 0.0,
+        "half_thickness_fraction": 0.4,
+        "profile_type": "rounded_cuboid",
+        "taper_curve": "neck_waist",
+        "asymmetry": 0.0,
+        "depth_priority": 80,
+        "silhouette_preservation_weight": 0.92
+      },
+      "left_arm": {
+        "z_center_fraction": 0.0,
+        "half_thickness_fraction": 0.3,
+        "profile_type": "capsule_chain",
+        "taper_curve": "limb",
+        "asymmetry": 0.0,
+        "depth_priority": 70,
+        "silhouette_preservation_weight": 0.88
+      },
+      "right_arm": {
+        "z_center_fraction": 0.0,
+        "half_thickness_fraction": 0.3,
+        "profile_type": "capsule_chain",
+        "taper_curve": "limb",
+        "asymmetry": 0.0,
+        "depth_priority": 70,
+        "silhouette_preservation_weight": 0.88
+      },
+      "left_leg": {
+        "z_center_fraction": 0.0,
+        "half_thickness_fraction": 0.32,
+        "profile_type": "tapered_capsule_chain",
+        "taper_curve": "limb_taper",
+        "asymmetry": 0.0,
+        "depth_priority": 68,
+        "silhouette_preservation_weight": 0.88
+      },
+      "right_leg": {
+        "z_center_fraction": 0.0,
+        "half_thickness_fraction": 0.32,
+        "profile_type": "tapered_capsule_chain",
+        "taper_curve": "limb_taper",
+        "asymmetry": 0.0,
+        "depth_priority": 68,
+        "silhouette_preservation_weight": 0.88
+      },
+      "boots/feet": {
+        "z_center_fraction": 0.06,
+        "half_thickness_fraction": 0.18,
+        "profile_type": "flattened_rounded_box",
+        "taper_curve": "foot",
+        "asymmetry": 0.12,
+        "depth_priority": 74,
+        "silhouette_preservation_weight": 0.9
+      },
+      "hair/hat": {
+        "z_center_fraction": 0.22,
+        "half_thickness_fraction": 0.14,
+        "profile_type": "shell_offset",
+        "taper_curve": "layer",
+        "asymmetry": 0.2,
+        "depth_priority": 85,
+        "silhouette_preservation_weight": 0.96
+      },
+      "outline": {
+        "z_center_fraction": 0.0,
+        "half_thickness_fraction": 0.04,
+        "profile_type": "outline_shell",
+        "taper_curve": "shell",
+        "asymmetry": 0.0,
+        "depth_priority": 100,
+        "silhouette_preservation_weight": 1.0
+      },
+      "equipment/shield/sword": {
+        "z_center_fraction": 0.18,
+        "half_thickness_fraction": 0.16,
+        "profile_type": "shell_offset",
+        "taper_curve": "rigid",
+        "asymmetry": 0.2,
+        "depth_priority": 88,
+        "silhouette_preservation_weight": 0.96
+      },
+      "unknown": {
+        "z_center_fraction": 0.0,
+        "half_thickness_fraction": 0.28,
+        "profile_type": "rounded_cuboid",
+        "taper_curve": "neutral",
+        "asymmetry": 0.0,
+        "depth_priority": 40,
+        "silhouette_preservation_weight": 0.85
+      }
+    }
+  },
+  "uniform_slab_ratio": 0.014760147601476014,
+  "semantic_depth_variance": 20.39427947998047,
+  "head_depth_ratio": 0.49200000762939455,
+  "torso_depth_ratio": 0.2789873504638672,
+  "limb_depth_ratio": 0.19830535888671874,
+  "outline_shell_ratio": 1.0,
+  "side_projection_entropy": 0.8860441679122286,
+  "side_profile_readability_score": 0.9406017943796912
+}

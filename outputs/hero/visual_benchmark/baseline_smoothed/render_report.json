@@ -1,0 +1,11 @@
+{
+  "godot_preview_requested": true,
+  "godot_preview_ran": false,
+  "godot_preview_exit_code": 3221225477,
+  "godot_stdout_tail": "",
+  "godot_stderr_tail": "[10] error(-1): no debug info in PE/COFF executable\n[11] error(-1): no debug info in PE/COFF executable\n[12] error(-1): no debug info in PE/COFF executable\n[13] error(-1): no debug info in PE/COFF executable\n[14] error(-1): no debug info in PE/COFF executable\n[15] error(-1): no debug info in PE/COFF executable\n-- END OF C++ BACKTRACE --\n================================================================",
+  "render_report": {},
+  "semantic_material_report": {},
+  "captures_dir": "C:\\dev\\SpatialSprite\\outputs\\hero\\visual_benchmark\\baseline_smoothed\\captures",
+  "scene": "C:\\dev\\SpatialSprite\\scenes\\surface_nets_preview.tscn"
+}

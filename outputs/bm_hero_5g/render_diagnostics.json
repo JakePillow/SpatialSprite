@@ -1,0 +1,124 @@
+{
+  "schema": "spritespatial_render_diagnostics_v1",
+  "captures_dir": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_5g\\captures",
+  "views": {
+    "front": {
+      "path": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_5g\\captures\\front.png",
+      "silhouette_mask": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_5g\\silhouette_masks\\front_mask.png",
+      "visible_pixel_bounds": [
+        444,
+        187,
+        705,
+        524
+      ],
+      "visible_pixel_count": 67732,
+      "black_outline_pixel_ratio": 0.673197307033603,
+      "semantic_colour_coverage": {
+        "ratio": 0.2602019724797732,
+        "approximate_colour_buckets": 64
+      },
+      "empty_background_ratio": 0.9092667609739369,
+      "fragmentation_count": 1,
+      "bounding_box_aspect_ratio": 0.7744807121661721
+    },
+    "oblique": {
+      "path": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_5g\\captures\\oblique.png",
+      "silhouette_mask": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_5g\\silhouette_masks\\oblique_mask.png",
+      "visible_pixel_bounds": [
+        439,
+        193,
+        709,
+        535
+      ],
+      "visible_pixel_count": 61354,
+      "black_outline_pixel_ratio": 0.4057763145027219,
+      "semantic_colour_coverage": {
+        "ratio": 0.5003748736838673,
+        "approximate_colour_buckets": 57
+      },
+      "empty_background_ratio": 0.9178106781550068,
+      "fragmentation_count": 1,
+      "bounding_box_aspect_ratio": 0.7894736842105263
+    },
+    "side": {
+      "path": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_5g\\captures\\side.png",
+      "silhouette_mask": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_5g\\silhouette_masks\\side_mask.png",
+      "visible_pixel_bounds": [
+        394,
+        191,
+        753,
+        538
+      ],
+      "visible_pixel_count": 59295,
+      "black_outline_pixel_ratio": 0.10613036512353487,
+      "semantic_colour_coverage": {
+        "ratio": 0.7587654945610929,
+        "approximate_colour_buckets": 55
+      },
+      "empty_background_ratio": 0.9205688978909465,
+      "fragmentation_count": 1,
+      "bounding_box_aspect_ratio": 1.0345821325648414
+    },
+    "side_135": {
+      "path": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_5g\\captures\\side_135.png",
+      "silhouette_mask": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_5g\\silhouette_masks\\side_135_mask.png",
+      "visible_pixel_bounds": [
+        443,
+        195,
+        709,
+        535
+      ],
+      "visible_pixel_count": 59607,
+      "black_outline_pixel_ratio": 0.05046387169292197,
+      "semantic_colour_coverage": {
+        "ratio": 0.8060965993926887,
+        "approximate_colour_buckets": 58
+      },
+      "empty_background_ratio": 0.9201509452160493,
+      "fragmentation_count": 1,
+      "bounding_box_aspect_ratio": 0.7823529411764706
+    },
+    "back": {
+      "path": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_5g\\captures\\back.png",
+      "silhouette_mask": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_5g\\silhouette_masks\\back_mask.png",
+      "visible_pixel_bounds": [
+        449,
+        191,
+        708,
+        525
+      ],
+      "visible_pixel_count": 66134,
+      "black_outline_pixel_ratio": 0.11898569570871262,
+      "semantic_colour_coverage": {
+        "ratio": 0.7301992923458432,
+        "approximate_colour_buckets": 64
+      },
+      "empty_background_ratio": 0.9114074288408779,
+      "fragmentation_count": 1,
+      "bounding_box_aspect_ratio": 0.7754491017964071
+    },
+    "wireframe": {
+      "path": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_5g\\captures\\wireframe.png",
+      "silhouette_mask": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_5g\\silhouette_masks\\wireframe_mask.png",
+      "visible_pixel_bounds": [
+        438,
+        192,
+        709,
+        536
+      ],
+      "visible_pixel_count": 47435,
+      "black_outline_pixel_ratio": 0.4412142932433857,
+      "semantic_colour_coverage": {
+        "ratio": 0.4812269421313376,
+        "approximate_colour_buckets": 65
+      },
+      "empty_background_ratio": 0.9364564579046639,
+      "fragmentation_count": 1,
+      "bounding_box_aspect_ratio": 0.7877906976744186
+    }
+  },
+  "front_back_aligned_iou": 0.9131017536021445,
+  "side_front_aligned_iou": 0.6097175379426644,
+  "front_back_visual_similarity_warning": true,
+  "side_front_visual_similarity_warning": false
+}

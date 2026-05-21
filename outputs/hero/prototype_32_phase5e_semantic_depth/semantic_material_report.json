@@ -1,0 +1,28 @@
+{
+  "material_groups": {
+    "1": 120.0,
+    "10": 6.0,
+    "2": 313.0,
+    "4": 27.0,
+    "5": 475.0,
+    "6": 216.0,
+    "7": 167.0,
+    "8": 196.0,
+    "9": 106.0
+  },
+  "outline_material_assigned": true,
+  "schema": "spritespatial_semantic_material_report_v1",
+  "semantic_labels": [
+    1.0,
+    2.0,
+    4.0,
+    5.0,
+    6.0,
+    7.0,
+    8.0,
+    9.0,
+    10.0
+  ],
+  "semantic_materials_assigned": true,
+  "surface_count": 9
+}

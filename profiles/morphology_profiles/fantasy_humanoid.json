@@ -1,0 +1,44 @@
+{
+  "name": "fantasy_humanoid",
+  "rules": {
+    "hair/hat": {
+      "profile_type": "HAT_POINTED_BACK",
+      "forward_bias": 0.0,
+      "backward_bias": 0.88,
+      "lateral_bias": -0.48,
+      "upward_bias": 0.06,
+      "downward_bias": 0.32,
+      "taper_direction": "back",
+      "asymmetry_strength": 0.82,
+      "curvature_bias": 0.34,
+      "trailing_profile": "curved_down_tail",
+      "compression_profile": "compressed_front"
+    },
+    "face": {
+      "profile_type": "NOSE_FORWARD",
+      "forward_bias": 0.46,
+      "backward_bias": 0.02,
+      "lateral_bias": -0.10,
+      "upward_bias": 0.0,
+      "downward_bias": 0.0,
+      "taper_direction": "front",
+      "asymmetry_strength": 0.52,
+      "curvature_bias": 0.16,
+      "trailing_profile": "none",
+      "compression_profile": "flat_back"
+    },
+    "equipment/shield/sword": {
+      "profile_type": "SHIELD_SIDE",
+      "forward_bias": 0.08,
+      "backward_bias": 0.12,
+      "lateral_bias": 0.44,
+      "upward_bias": 0.0,
+      "downward_bias": 0.0,
+      "taper_direction": "side",
+      "asymmetry_strength": 0.48,
+      "curvature_bias": 0.04,
+      "trailing_profile": "rigid_side",
+      "compression_profile": "rigid"
+    }
+  }
+}

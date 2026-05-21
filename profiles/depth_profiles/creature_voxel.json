@@ -1,0 +1,51 @@
+{
+  "name": "creature_voxel",
+  "description": "Generic creature/monster semantic depth profile fallback with heavier torso and shell-safe outlines.",
+  "profiles": {
+    "head": {
+      "z_center_fraction": 0.0,
+      "half_thickness_fraction": 0.48,
+      "profile_type": "hemisphere",
+      "taper_curve": "round",
+      "depth_priority": 86
+    },
+    "torso": {
+      "z_center_fraction": 0.0,
+      "half_thickness_fraction": 0.48,
+      "profile_type": "rounded_cuboid",
+      "taper_curve": "neutral",
+      "depth_priority": 88
+    },
+    "left_arm": {
+      "half_thickness_fraction": 0.32,
+      "profile_type": "capsule_chain",
+      "taper_curve": "limb"
+    },
+    "right_arm": {
+      "half_thickness_fraction": 0.32,
+      "profile_type": "capsule_chain",
+      "taper_curve": "limb"
+    },
+    "left_leg": {
+      "half_thickness_fraction": 0.34,
+      "profile_type": "tapered_capsule_chain",
+      "taper_curve": "limb"
+    },
+    "right_leg": {
+      "half_thickness_fraction": 0.34,
+      "profile_type": "tapered_capsule_chain",
+      "taper_curve": "limb"
+    },
+    "outline": {
+      "half_thickness_fraction": 0.04,
+      "profile_type": "outline_shell",
+      "taper_curve": "shell",
+      "silhouette_preservation_weight": 1.0
+    },
+    "unknown": {
+      "half_thickness_fraction": 0.34,
+      "profile_type": "rounded_cuboid",
+      "taper_curve": "neutral"
+    }
+  }
+}

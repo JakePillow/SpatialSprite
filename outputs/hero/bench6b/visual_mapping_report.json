@@ -1,0 +1,567 @@
+{
+  "schema": "spritespatial_visual_mapping_report_v1",
+  "captures_dir": "C:\\dev\\SpatialSprite\\outputs\\hero\\bench6b\\captures",
+  "comparison_contact_sheet": "C:\\dev\\SpatialSprite\\outputs\\hero\\bench6b\\comparison_contact_sheet.png",
+  "views": {
+    "front": {
+      "silhouette_iou": 0.4614065180102916,
+      "overfill_ratio": 0.5370051635111877,
+      "underfill_ratio": 0.007380073800738007,
+      "bounding_box_drift": [
+        4.0,
+        5.0
+      ],
+      "centre_drift": [
+        0.06980584435792814,
+        3.5698598294072426
+      ],
+      "view_angle": 0,
+      "view": "front",
+      "target_authority": "authored_front",
+      "semantic_match_ratio": 0.22717149220489977,
+      "worst_semantic_region": "boots_feet",
+      "semantic_regions": {
+        "boots_feet": {
+          "visible_area": 27,
+          "missing_area": 0,
+          "overflow_area": 554,
+          "semantic_match_ratio": 0.0,
+          "colour_confusion_ratio": 1.0
+        },
+        "face": {
+          "visible_area": 8,
+          "missing_area": 0,
+          "overflow_area": 573,
+          "semantic_match_ratio": 0.0,
+          "colour_confusion_ratio": 1.0
+        },
+        "hat_hair": {
+          "visible_area": 16,
+          "missing_area": 0,
+          "overflow_area": 565,
+          "semantic_match_ratio": 0.0,
+          "colour_confusion_ratio": 1.0
+        },
+        "head": {
+          "visible_area": 20,
+          "missing_area": 0,
+          "overflow_area": 561,
+          "semantic_match_ratio": 0.0,
+          "colour_confusion_ratio": 1.0
+        },
+        "left_arm": {
+          "visible_area": 47,
+          "missing_area": 1,
+          "overflow_area": 534,
+          "semantic_match_ratio": 0.1702127659574468,
+          "colour_confusion_ratio": 0.8297872340425532
+        },
+        "left_leg": {
+          "visible_area": 48,
+          "missing_area": 0,
+          "overflow_area": 533,
+          "semantic_match_ratio": 0.020833333333333332,
+          "colour_confusion_ratio": 0.9791666666666666
+        },
+        "outline": {
+          "visible_area": 118,
+          "missing_area": 2,
+          "overflow_area": 463,
+          "semantic_match_ratio": 0.7288135593220338,
+          "colour_confusion_ratio": 0.27118644067796616
+        },
+        "right_arm": {
+          "visible_area": 38,
+          "missing_area": 0,
+          "overflow_area": 543,
+          "semantic_match_ratio": 0.07894736842105263,
+          "colour_confusion_ratio": 0.9210526315789473
+        },
+        "right_leg": {
+          "visible_area": 47,
+          "missing_area": 0,
+          "overflow_area": 534,
+          "semantic_match_ratio": 0.0851063829787234,
+          "colour_confusion_ratio": 0.9148936170212766
+        },
+        "torso": {
+          "visible_area": 80,
+          "missing_area": 0,
+          "overflow_area": 501,
+          "semantic_match_ratio": 0.0,
+          "colour_confusion_ratio": 1.0
+        }
+      },
+      "front_back_similarity_warning": true,
+      "side_front_similarity_warning": false,
+      "recommended_next_action": "use this view as a Phase 6 silhouette correction target",
+      "compare_image": "C:\\dev\\SpatialSprite\\outputs\\hero\\bench6b\\compare_0.png",
+      "normalisation": {
+        "scale": 0.09195402298850575,
+        "offset": [
+          0,
+          0
+        ],
+        "source_bounds": [
+          444,
+          187,
+          705,
+          525
+        ]
+      },
+      "canonical_metric_reference": {
+        "silhouette_iou": 0.45691967575534265,
+        "target_type": "front_alpha"
+      }
+    },
+    "oblique": {
+      "silhouette_iou": 0.6456692913385826,
+      "overfill_ratio": 0.3138075313807531,
+      "underfill_ratio": 0.08379888268156424,
+      "bounding_box_drift": [
+        4.0,
+        1.0
+      ],
+      "centre_drift": [
+        0.18590028283583848,
+        2.070112900586709
+      ],
+      "view_angle": 45,
+      "view": "oblique",
+      "target_authority": "inferred_oblique",
+      "semantic_match_ratio": 0.2638888888888889,
+      "worst_semantic_region": "face",
+      "semantic_regions": {
+        "boots_feet": {
+          "visible_area": 23,
+          "missing_area": 4,
+          "overflow_area": 455,
+          "semantic_match_ratio": 0.17391304347826086,
+          "colour_confusion_ratio": 0.8260869565217391
+        },
+        "face": {
+          "visible_area": 8,
+          "missing_area": 0,
+          "overflow_area": 470,
+          "semantic_match_ratio": 0.0,
+          "colour_confusion_ratio": 1.0
+        },
+        "hat_hair": {
+          "visible_area": 16,
+          "missing_area": 0,
+          "overflow_area": 462,
+          "semantic_match_ratio": 0.0,
+          "colour_confusion_ratio": 1.0
+        },
+        "head": {
+          "visible_area": 20,
+          "missing_area": 0,
+          "overflow_area": 458,
+          "semantic_match_ratio": 0.0,
+          "colour_confusion_ratio": 1.0
+        },
+        "left_arm": {
+          "visible_area": 47,
+          "missing_area": 1,
+          "overflow_area": 431,
+          "semantic_match_ratio": 0.14893617021276595,
+          "colour_confusion_ratio": 0.851063829787234
+        },
+        "left_leg": {
+          "visible_area": 47,
+          "missing_area": 1,
+          "overflow_area": 431,
+          "semantic_match_ratio": 0.2553191489361702,
+          "colour_confusion_ratio": 0.7446808510638299
+        },
+        "outline": {
+          "visible_area": 109,
+          "missing_area": 11,
+          "overflow_area": 369,
+          "semantic_match_ratio": 0.5137614678899083,
+          "colour_confusion_ratio": 0.4862385321100917
+        },
+        "right_arm": {
+          "visible_area": 37,
+          "missing_area": 1,
+          "overflow_area": 441,
+          "semantic_match_ratio": 0.40540540540540543,
+          "colour_confusion_ratio": 0.5945945945945945
+        },
+        "right_leg": {
+          "visible_area": 45,
+          "missing_area": 2,
+          "overflow_area": 433,
+          "semantic_match_ratio": 0.4444444444444444,
+          "colour_confusion_ratio": 0.5555555555555556
+        },
+        "torso": {
+          "visible_area": 80,
+          "missing_area": 0,
+          "overflow_area": 398,
+          "semantic_match_ratio": 0.0,
+          "colour_confusion_ratio": 1.0
+        }
+      },
+      "front_back_similarity_warning": true,
+      "side_front_similarity_warning": false,
+      "recommended_next_action": "use this view as a Phase 6 silhouette correction target",
+      "compare_image": "C:\\dev\\SpatialSprite\\outputs\\hero\\bench6b\\compare_45.png",
+      "normalisation": {
+        "scale": 0.08888888888888889,
+        "offset": [
+          0,
+          1
+        ],
+        "source_bounds": [
+          439,
+          193,
+          709,
+          535
+        ]
+      },
+      "canonical_metric_reference": {
+        "silhouette_iou": 0.2583711139896373,
+        "target_type": "front_to_side_transition"
+      }
+    },
+    "side": {
+      "silhouette_iou": 0.4712328767123288,
+      "overfill_ratio": 0.36996336996337,
+      "underfill_ratio": 0.3484848484848485,
+      "bounding_box_drift": [
+        7.5,
+        4.5
+      ],
+      "centre_drift": [
+        0.3687978687978699,
+        2.628371628371628
+      ],
+      "view_angle": 90,
+      "view": "side",
+      "target_authority": "primitive_prior",
+      "semantic_match_ratio": 0.20075757575757575,
+      "worst_semantic_region": "boots_feet",
+      "semantic_regions": {
+        "boots_feet": {
+          "visible_area": 0,
+          "missing_area": 27,
+          "overflow_area": 273,
+          "semantic_match_ratio": 0.0,
+          "colour_confusion_ratio": 1.0
+        },
+        "face": {
+          "visible_area": 8,
+          "missing_area": 0,
+          "overflow_area": 265,
+          "semantic_match_ratio": 0.25,
+          "colour_confusion_ratio": 0.75
+        },
+        "hat_hair": {
+          "visible_area": 16,
+          "missing_area": 0,
+          "overflow_area": 257,
+          "semantic_match_ratio": 0.0,
+          "colour_confusion_ratio": 1.0
+        },
+        "head": {
+          "visible_area": 18,
+          "missing_area": 2,
+          "overflow_area": 255,
+          "semantic_match_ratio": 0.16666666666666666,
+          "colour_confusion_ratio": 0.8333333333333334
+        },
+        "left_arm": {
+          "visible_area": 24,
+          "missing_area": 24,
+          "overflow_area": 249,
+          "semantic_match_ratio": 0.125,
+          "colour_confusion_ratio": 0.875
+        },
+        "left_leg": {
+          "visible_area": 24,
+          "missing_area": 24,
+          "overflow_area": 249,
+          "semantic_match_ratio": 0.5416666666666666,
+          "colour_confusion_ratio": 0.45833333333333337
+        },
+        "outline": {
+          "visible_area": 64,
+          "missing_area": 56,
+          "overflow_area": 209,
+          "semantic_match_ratio": 0.171875,
+          "colour_confusion_ratio": 0.828125
+        },
+        "right_arm": {
+          "visible_area": 15,
+          "missing_area": 23,
+          "overflow_area": 258,
+          "semantic_match_ratio": 0.5333333333333333,
+          "colour_confusion_ratio": 0.4666666666666667
+        },
+        "right_leg": {
+          "visible_area": 17,
+          "missing_area": 30,
+          "overflow_area": 256,
+          "semantic_match_ratio": 0.7647058823529411,
+          "colour_confusion_ratio": 0.23529411764705888
+        },
+        "torso": {
+          "visible_area": 78,
+          "missing_area": 2,
+          "overflow_area": 195,
+          "semantic_match_ratio": 0.0,
+          "colour_confusion_ratio": 1.0
+        }
+      },
+      "front_back_similarity_warning": true,
+      "side_front_similarity_warning": false,
+      "recommended_next_action": "provide or promote authored side view before Phase 6 correction",
+      "compare_image": "C:\\dev\\SpatialSprite\\outputs\\hero\\bench6b\\compare_90.png",
+      "normalisation": {
+        "scale": 0.06685236768802229,
+        "offset": [
+          0,
+          4
+        ],
+        "source_bounds": [
+          394,
+          191,
+          753,
+          539
+        ]
+      },
+      "canonical_metric_reference": {
+        "silhouette_iou": 0.3401172818213177,
+        "target_type": "side_profile"
+      }
+    },
+    "side_135": {
+      "silhouette_iou": 0.484,
+      "overfill_ratio": 0.49372384937238495,
+      "underfill_ratio": 0.08333333333333333,
+      "bounding_box_drift": [
+        7.5,
+        1.0
+      ],
+      "centre_drift": [
+        0.3791048560923045,
+        1.085013313046785
+      ],
+      "view_angle": 135,
+      "view": "side_135",
+      "target_authority": "primitive_prior",
+      "semantic_match_ratio": 0.2311212814645309,
+      "worst_semantic_region": "face",
+      "semantic_regions": {
+        "boots_feet": {
+          "visible_area": 23,
+          "missing_area": 4,
+          "overflow_area": 455,
+          "semantic_match_ratio": 0.17391304347826086,
+          "colour_confusion_ratio": 0.8260869565217391
+        },
+        "face": {
+          "visible_area": 8,
+          "missing_area": 0,
+          "overflow_area": 470,
+          "semantic_match_ratio": 0.0,
+          "colour_confusion_ratio": 1.0
+        },
+        "hat_hair": {
+          "visible_area": 16,
+          "missing_area": 0,
+          "overflow_area": 462,
+          "semantic_match_ratio": 0.0,
+          "colour_confusion_ratio": 1.0
+        },
+        "head": {
+          "visible_area": 20,
+          "missing_area": 0,
+          "overflow_area": 458,
+          "semantic_match_ratio": 0.0,
+          "colour_confusion_ratio": 1.0
+        },
+        "left_arm": {
+          "visible_area": 47,
+          "missing_area": 1,
+          "overflow_area": 431,
+          "semantic_match_ratio": 0.2978723404255319,
+          "colour_confusion_ratio": 0.7021276595744681
+        },
+        "left_leg": {
+          "visible_area": 46,
+          "missing_area": 2,
+          "overflow_area": 432,
+          "semantic_match_ratio": 0.5217391304347826,
+          "colour_confusion_ratio": 0.4782608695652174
+        },
+        "outline": {
+          "visible_area": 112,
+          "missing_area": 8,
+          "overflow_area": 366,
+          "semantic_match_ratio": 0.07142857142857142,
+          "colour_confusion_ratio": 0.9285714285714286
+        },
+        "right_arm": {
+          "visible_area": 38,
+          "missing_area": 0,
+          "overflow_area": 440,
+          "semantic_match_ratio": 0.4473684210526316,
+          "colour_confusion_ratio": 0.5526315789473684
+        },
+        "right_leg": {
+          "visible_area": 47,
+          "missing_area": 0,
+          "overflow_area": 431,
+          "semantic_match_ratio": 0.723404255319149,
+          "colour_confusion_ratio": 0.276595744680851
+        },
+        "torso": {
+          "visible_area": 80,
+          "missing_area": 0,
+          "overflow_area": 398,
+          "semantic_match_ratio": 0.0,
+          "colour_confusion_ratio": 1.0
+        }
+      },
+      "front_back_similarity_warning": true,
+      "side_front_similarity_warning": false,
+      "recommended_next_action": "provide or promote authored side view before Phase 6 correction",
+      "compare_image": "C:\\dev\\SpatialSprite\\outputs\\hero\\bench6b\\compare_135.png",
+      "normalisation": {
+        "scale": 0.09022556390977443,
+        "offset": [
+          0,
+          1
+        ],
+        "source_bounds": [
+          443,
+          195,
+          709,
+          535
+        ]
+      },
+      "canonical_metric_reference": {
+        "silhouette_iou": 0.2572332279007824,
+        "target_type": "side_to_back_transition"
+      }
+    },
+    "back": {
+      "silhouette_iou": 0.46397188049209137,
+      "overfill_ratio": 0.5343915343915344,
+      "underfill_ratio": 0.007518796992481203,
+      "bounding_box_drift": [
+        4.0,
+        4.5
+      ],
+      "centre_drift": [
+        0.0755128562146119,
+        2.5893437296946047
+      ],
+      "view_angle": 180,
+      "view": "back",
+      "target_authority": "authored_back",
+      "semantic_match_ratio": 0.24107142857142858,
+      "worst_semantic_region": "boots_feet",
+      "semantic_regions": {
+        "boots_feet": {
+          "visible_area": 27,
+          "missing_area": 0,
+          "overflow_area": 540,
+          "semantic_match_ratio": 0.0,
+          "colour_confusion_ratio": 1.0
+        },
+        "face": {
+          "visible_area": 8,
+          "missing_area": 0,
+          "overflow_area": 559,
+          "semantic_match_ratio": 0.0,
+          "colour_confusion_ratio": 1.0
+        },
+        "hat_hair": {
+          "visible_area": 16,
+          "missing_area": 0,
+          "overflow_area": 551,
+          "semantic_match_ratio": 0.0,
+          "colour_confusion_ratio": 1.0
+        },
+        "head": {
+          "visible_area": 20,
+          "missing_area": 0,
+          "overflow_area": 547,
+          "semantic_match_ratio": 0.0,
+          "colour_confusion_ratio": 1.0
+        },
+        "left_arm": {
+          "visible_area": 48,
+          "missing_area": 0,
+          "overflow_area": 519,
+          "semantic_match_ratio": 0.5208333333333334,
+          "colour_confusion_ratio": 0.47916666666666663
+        },
+        "left_leg": {
+          "visible_area": 48,
+          "missing_area": 0,
+          "overflow_area": 519,
+          "semantic_match_ratio": 0.3333333333333333,
+          "colour_confusion_ratio": 0.6666666666666667
+        },
+        "outline": {
+          "visible_area": 119,
+          "missing_area": 1,
+          "overflow_area": 448,
+          "semantic_match_ratio": 0.09243697478991597,
+          "colour_confusion_ratio": 0.907563025210084
+        },
+        "right_arm": {
+          "visible_area": 37,
+          "missing_area": 1,
+          "overflow_area": 530,
+          "semantic_match_ratio": 0.7027027027027027,
+          "colour_confusion_ratio": 0.29729729729729726
+        },
+        "right_leg": {
+          "visible_area": 46,
+          "missing_area": 1,
+          "overflow_area": 521,
+          "semantic_match_ratio": 0.6521739130434783,
+          "colour_confusion_ratio": 0.34782608695652173
+        },
+        "torso": {
+          "visible_area": 79,
+          "missing_area": 1,
+          "overflow_area": 488,
+          "semantic_match_ratio": 0.0,
+          "colour_confusion_ratio": 1.0
+        }
+      },
+      "front_back_similarity_warning": true,
+      "side_front_similarity_warning": false,
+      "recommended_next_action": "use this view as a Phase 6 silhouette correction target",
+      "compare_image": "C:\\dev\\SpatialSprite\\outputs\\hero\\bench6b\\compare_180.png",
+      "normalisation": {
+        "scale": 0.09266409266409266,
+        "offset": [
+          0,
+          1
+        ],
+        "source_bounds": [
+          449,
+          191,
+          708,
+          525
+        ]
+      },
+      "canonical_metric_reference": {
+        "silhouette_iou": 0.45145264556656195,
+        "target_type": "back_alpha_or_inferred"
+      }
+    }
+  },
+  "front_visual_mapping_iou": 0.4614065180102916,
+  "worst_visual_mapping_view": "front",
+  "worst_visual_mapping_score": 0.4614065180102916,
+  "front_back_similarity_warning": true,
+  "side_front_similarity_warning": false
+}

@@ -1,0 +1,5 @@
+{
+  "schema": "spritespatial_visual_mapping_error_v1",
+  "ok": false,
+  "error": "Missing render capture: C:\\dev\\SpatialSprite\\outputs\\bm_hero_5e\\captures\\front.png"
+}

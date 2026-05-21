@@ -1,0 +1,19 @@
+{
+  "schema": "spritespatial_visual_benchmark_failures_v1",
+  "failed": true,
+  "reference_status": {
+    "reference_path": "C:\\dev\\SpatialSprite\\benchmarks\\reference_visual_benchmark.json",
+    "reference_phase": "phase6b_surface_flow",
+    "established": true,
+    "updated": false,
+    "regression_checks_run": false,
+    "reason": "previous reference did not contain a passing reference phase"
+  },
+  "failures": [
+    {
+      "phase": "hero::baseline_smoothed",
+      "gate": "validation_report_passed",
+      "value": false
+    }
+  ]
+}

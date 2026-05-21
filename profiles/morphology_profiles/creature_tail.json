@@ -1,0 +1,31 @@
+{
+  "name": "creature_tail",
+  "rules": {
+    "equipment/shield/sword": {
+      "profile_type": "TAIL",
+      "forward_bias": 0.0,
+      "backward_bias": 0.90,
+      "lateral_bias": -0.36,
+      "upward_bias": 0.08,
+      "downward_bias": 0.22,
+      "taper_direction": "tail",
+      "asymmetry_strength": 0.88,
+      "curvature_bias": 0.42,
+      "trailing_profile": "segmented_taper_chain",
+      "compression_profile": "thin_front"
+    },
+    "hair/hat": {
+      "profile_type": "HAIR_LONG_BACK",
+      "forward_bias": 0.0,
+      "backward_bias": 0.64,
+      "lateral_bias": -0.30,
+      "upward_bias": 0.02,
+      "downward_bias": 0.40,
+      "taper_direction": "back",
+      "asymmetry_strength": 0.68,
+      "curvature_bias": 0.24,
+      "trailing_profile": "gravity_rear_shell",
+      "compression_profile": "compressed_front"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "directional_morphology_enabled": true,
+  "morphology_profile": "fantasy_humanoid",
+  "directional_semantic_count": 1,
+  "directional_semantic_labels": [
+    "hair/hat"
+  ],
+  "directional_profile_types": [
+    "HAT_POINTED_BACK"
+  ],
+  "anisotropic_region_ratio": 0.02952029520295203,
+  "rearward_extension_score": 0.14691954851150513,
+  "front_compression_score": 0.25320443511009216,
+  "directional_readability_score": 0.16817652583122253,
+  "symmetric_volume_penalty": 0.8530803918838501,
+  "mean_center_shift": -0.013106461614370346,
+  "rules": {
+    "hair/hat": {
+      "profile_type": "HAT_POINTED_BACK",
+      "forward_bias": 0.0,
+      "backward_bias": 0.88,
+      "lateral_bias": -0.48,
+      "upward_bias": 0.06,
+      "downward_bias": 0.32,
+      "taper_direction": "back",
+      "asymmetry_strength": 0.82,
+      "curvature_bias": 0.34,
+      "trailing_profile": "curved_down_tail",
+      "compression_profile": "compressed_front"
+    },
+    "face": {
+      "profile_type": "NOSE_FORWARD",
+      "forward_bias": 0.46,
+      "backward_bias": 0.02,
+      "lateral_bias": -0.1,
+      "upward_bias": 0.0,
+      "downward_bias": 0.0,
+      "taper_direction": "front",
+      "asymmetry_strength": 0.52,
+      "curvature_bias": 0.16,
+      "trailing_profile": "none",
+      "compression_profile": "flat_back"
+    },
+    "equipment/shield/sword": {
+      "profile_type": "SHIELD_SIDE",
+      "forward_bias": 0.08,
+      "backward_bias": 0.12,
+      "lateral_bias": 0.44,
+      "upward_bias": 0.0,
+      "downward_bias": 0.0,
+      "taper_direction": "side",
+      "asymmetry_strength": 0.48,
+      "curvature_bias": 0.04,
+      "trailing_profile": "rigid_side",
+      "compression_profile": "rigid"
+    }
+  }
+}

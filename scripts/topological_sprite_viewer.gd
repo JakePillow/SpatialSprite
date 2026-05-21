@@ -69,7 +69,7 @@ func _load_model() -> void:
 func _build_view() -> void:
     if _model_data.is_empty():
         return
-    var canvas: Array = _model_data.get("canvas_size", [24, 32])
+    var canvas: Array = _as_array(_model_data.get("canvas_size", [24, 32]))
     var pixel_size: float = 1.9 / max(float(canvas[1]), 1.0)
     var y_offset: float = float(canvas[1]) * pixel_size * 0.5
 
@@ -128,14 +128,16 @@ func _build_array_mesh() -> ArrayMesh:
     var normals := PackedVector3Array()
     var colors := PackedColorArray()
     var indices := PackedInt32Array()
-    for value in _model_data.get("vertices", []):
+    for value in _as_array(_model_data.get("vertices", [])):
         vertices.append(Vector3(float(value[0]), float(value[1]), float(value[2])))
-    for value in _model_data.get("normals", []):
+    for value in _as_array(_model_data.get("normals", [])):
         normals.append(Vector3(float(value[0]), float(value[1]), float(value[2])))
-    for value in _model_data.get("colors", []):
+    for value in _as_array(_model_data.get("colors", [])):
         colors.append(Color(float(value[0]), float(value[1]), float(value[2]), float(value[3])))
-    for value in _model_data.get("indices", []):
+    for value in _as_array(_model_data.get("indices", [])):
         indices.append(int(value))
+    if vertices.is_empty() or indices.is_empty():
+        return ArrayMesh.new()
     var arrays := []
     arrays.resize(Mesh.ARRAY_MAX)
     arrays[Mesh.ARRAY_VERTEX] = vertices
@@ -163,13 +165,25 @@ func _create_card(card_name: String, texture_path: String, position: Vector3, pi
 
 func _load_texture(texture_path: String) -> Texture2D:
     if texture_path.is_empty():
-        return null
+        return _empty_texture()
     var image := Image.new()
     var error := image.load(ProjectSettings.globalize_path(texture_path))
     if error != OK:
         push_error("Failed to load texture %s: %s" % [texture_path, error])
-        return null
+        return _empty_texture()
     return ImageTexture.create_from_image(image)
+
+
+func _empty_texture() -> Texture2D:
+    var image := Image.create(1, 1, false, Image.FORMAT_RGBA8)
+    image.set_pixel(0, 0, Color(0, 0, 0, 0))
+    return ImageTexture.create_from_image(image)
+
+
+func _as_array(value: Variant) -> Array:
+    if typeof(value) == TYPE_ARRAY:
+        return value as Array
+    return []
 
 
 func _apply_toggles() -> void:

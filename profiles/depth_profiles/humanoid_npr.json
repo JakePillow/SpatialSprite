@@ -1,0 +1,44 @@
+{
+  "name": "humanoid_npr",
+  "description": "Slightly fuller humanoid profiles for stylised NPR rendering while preserving authored silhouettes.",
+  "profiles": {
+    "head": {
+      "half_thickness_fraction": 0.5,
+      "profile_type": "hemisphere",
+      "taper_curve": "round",
+      "silhouette_preservation_weight": 0.97
+    },
+    "torso": {
+      "half_thickness_fraction": 0.44,
+      "profile_type": "rounded_cuboid",
+      "taper_curve": "neck_waist",
+      "silhouette_preservation_weight": 0.94
+    },
+    "left_arm": {
+      "half_thickness_fraction": 0.34,
+      "profile_type": "capsule_chain",
+      "taper_curve": "limb"
+    },
+    "right_arm": {
+      "half_thickness_fraction": 0.34,
+      "profile_type": "capsule_chain",
+      "taper_curve": "limb"
+    },
+    "left_leg": {
+      "half_thickness_fraction": 0.35,
+      "profile_type": "tapered_capsule_chain",
+      "taper_curve": "limb_taper"
+    },
+    "right_leg": {
+      "half_thickness_fraction": 0.35,
+      "profile_type": "tapered_capsule_chain",
+      "taper_curve": "limb_taper"
+    },
+    "outline": {
+      "half_thickness_fraction": 0.04,
+      "profile_type": "outline_shell",
+      "taper_curve": "shell",
+      "silhouette_preservation_weight": 1.0
+    }
+  }
+}

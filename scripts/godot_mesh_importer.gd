@@ -52,6 +52,7 @@ const LABEL_COLORS := {
 var _camera: Camera3D
 var _light: DirectionalLight3D
 var _model_data := {}
+var _render_profile := {}
 var _mesh_instance: MeshInstance3D
 var _outline_instance: MeshInstance3D
 var _surface_report := {}
@@ -115,6 +116,7 @@ func _load_mesh_json() -> void:
 		push_error("Invalid surface nets mesh JSON: %s" % mesh_json_path)
 		return
 	_model_data = parsed
+	_render_profile = _model_data.get("render_profile", {})
 
 
 func _build_instances() -> void:
@@ -156,6 +158,9 @@ func _build_grouped_mesh(force_black: bool) -> ArrayMesh:
 		var packed_normals := PackedVector3Array()
 		var packed_colors := PackedColorArray()
 		for face_index in grouped[label]:
+			var metadata: Dictionary = face_metadata[int(face_index)] if int(face_index) < face_metadata.size() else {}
+			if bool(metadata.get("hidden_in_render", false)) and not force_black:
+				continue
 			var face: Array = faces[int(face_index)]
 			var triangles := _triangulate_face(face)
 			for triangle in triangles:
@@ -163,7 +168,7 @@ func _build_grouped_mesh(force_black: bool) -> ArrayMesh:
 				var b := _convert_vertex(vertices[int(triangle[1])], bounds)
 				var c := _convert_vertex(vertices[int(triangle[2])], bounds)
 				var normal := (b - a).cross(c - a).normalized()
-				var color := Color.BLACK if force_black else _label_color(int(label))
+				var color := Color.BLACK if force_black else _face_color(metadata, int(label))
 				packed_vertices.append(a)
 				packed_vertices.append(b)
 				packed_vertices.append(c)
@@ -182,7 +187,7 @@ func _build_grouped_mesh(force_black: bool) -> ArrayMesh:
 		arrays[Mesh.ARRAY_COLOR] = packed_colors
 		mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
 		if not force_black:
-			mesh.surface_set_material(mesh.get_surface_count() - 1, _make_npr_material(int(label)))
+			mesh.surface_set_material(mesh.get_surface_count() - 1, _make_render_material(int(label)))
 	return mesh
 
 
@@ -221,11 +226,28 @@ func _bounds(vertices: Array) -> Dictionary:
 	}
 
 
-func _make_npr_material(label: int) -> ShaderMaterial:
+func _make_render_material(label: int) -> Material:
+	if str(_render_profile.get("name", "")) == "voxel_sprite":
+		var material := StandardMaterial3D.new()
+		material.resource_name = "voxel_%s" % _label_name(label)
+		material.vertex_color_use_as_albedo = true
+		material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		material.texture_filter = BaseMaterial3D.TEXTURE_FILTER_NEAREST
+		material.cull_mode = BaseMaterial3D.CULL_DISABLED
+		return material
 	var material := ShaderMaterial.new()
 	material.shader = load("res://scripts/npr_sprite_material.gdshader")
 	material.resource_name = "semantic_%s" % _label_name(label)
 	return material
+
+
+func _face_color(metadata: Dictionary, label: int) -> Color:
+	var value: Variant = metadata.get("render_color", [])
+	if typeof(value) == TYPE_ARRAY:
+		var channels: Array = value as Array
+		if channels.size() >= 4:
+			return Color(float(channels[0]), float(channels[1]), float(channels[2]), float(channels[3]))
+	return _label_color(label)
 
 
 func _label_color(label: int) -> Color:

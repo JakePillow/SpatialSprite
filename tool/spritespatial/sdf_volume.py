@@ -8,6 +8,9 @@ from typing import Any
 import numpy as np
 from PIL import Image
 
+from spritespatial.semantic_depth_profiles import synthesize_semantic_occupancy
+from spritespatial.surface_flow import apply_surface_flow, smooth_surface_flow_sdf
+
 Pixel = tuple[int, int]
 
 SEMANTIC_LABEL_IDS = {
@@ -15,13 +18,18 @@ SEMANTIC_LABEL_IDS = {
     "head": 2,
     "face": 3,
     "hair/hat": 4,
+    "hat_hair": 4,
     "torso": 5,
     "left_arm": 6,
     "right_arm": 7,
     "left_leg": 8,
     "right_leg": 9,
     "boots/feet": 10,
+    "boots_feet": 10,
     "equipment/shield/sword": 11,
+    "equipment": 11,
+    "shield": 11,
+    "sword": 11,
     "unknown": 12,
 }
 
@@ -73,6 +81,17 @@ def build_sdf_volume(
     label_by_pixel: dict[Pixel, str],
     output_dir: Path,
     z_samples: int = 33,
+    semantic_depth_profile: dict[str, Any] | None = None,
+    semantic_depth_output_dir: Path | None = None,
+    emit_semantic_depth_debug: bool = False,
+    directional_morphology: dict[str, Any] | None = None,
+    directional_output_dir: Path | None = None,
+    emit_directional_debug: bool = False,
+    surface_flow_enabled: bool = False,
+    surface_flow_strength: float = 0.45,
+    surface_flow_iterations: int = 2,
+    surface_flow_output_dir: Path | None = None,
+    emit_surface_flow_debug: bool = False,
 ) -> dict[str, Any]:
     output_dir.mkdir(parents=True, exist_ok=True)
     slices_dir = output_dir / "sdf_slices"
@@ -81,7 +100,24 @@ def build_sdf_volume(
     max_front = max(float(z_front.max()), 0.01)
     max_back = max(float(np.abs(z_back.min())), 0.01)
     z_axis = np.linspace(-max_back, max_front, z_samples, dtype=np.float32)
-    occupancy = np.zeros((height, width, z_samples), dtype=bool)
+    semantic_depth_result: dict[str, Any] = {}
+    if semantic_depth_profile:
+        semantic_depth_result = synthesize_semantic_occupancy(
+            z_front,
+            z_back,
+            alpha_mask,
+            label_by_pixel,
+            z_axis,
+            semantic_depth_profile,
+            semantic_depth_output_dir,
+            emit_semantic_depth_debug,
+            directional_morphology=directional_morphology,
+            directional_output_dir=directional_output_dir,
+            emit_directional_debug=emit_directional_debug,
+        )
+        occupancy = semantic_depth_result["occupancy"].astype(bool, copy=False)
+    else:
+        occupancy = np.zeros((height, width, z_samples), dtype=bool)
     semantic_volume = np.zeros((height, width, z_samples), dtype=np.int32)
     for y in range(height):
         for x in range(width):
@@ -89,11 +125,38 @@ def build_sdf_volume(
                 continue
             label = label_by_pixel.get((x, y), "unknown")
             label_id = SEMANTIC_LABEL_IDS.get(label, SEMANTIC_LABEL_IDS["unknown"])
-            inside = (z_axis >= z_back[y, x] - 1e-6) & (z_axis <= z_front[y, x] + 1e-6)
-            occupancy[y, x, inside] = True
-            semantic_volume[y, x, inside] = label_id
+            if semantic_depth_profile:
+                semantic_volume[y, x, occupancy[y, x, :]] = label_id
+            else:
+                inside = (z_axis >= z_back[y, x] - 1e-6) & (z_axis <= z_front[y, x] + 1e-6)
+                occupancy[y, x, inside] = True
+                semantic_volume[y, x, inside] = label_id
+
+    surface_flow_result: dict[str, Any] = {}
+    if surface_flow_enabled:
+        surface_flow_result = apply_surface_flow(
+            occupancy,
+            semantic_volume,
+            alpha_mask,
+            label_by_pixel,
+            z_axis,
+            output_dir=surface_flow_output_dir,
+            strength=surface_flow_strength,
+            iterations=surface_flow_iterations,
+            emit_debug=emit_surface_flow_debug,
+        )
+        occupancy = surface_flow_result["occupancy"].astype(bool, copy=False)
+        semantic_volume = surface_flow_result["semantic_volume"].astype(np.int32, copy=False)
 
     sdf = _occupancy_signed_distance(occupancy).astype(np.float32)
+    if surface_flow_result:
+        sdf = smooth_surface_flow_sdf(
+            sdf,
+            occupancy,
+            surface_flow_result.get("transition_volume", np.zeros_like(occupancy, dtype=bool)),
+            surface_flow_strength,
+            surface_flow_iterations,
+        )
     np.save(output_dir / "sdf_volume.npy", sdf)
     np.save(output_dir / "semantic_volume.npy", semantic_volume)
     np.save(output_dir / "occupancy_volume.npy", occupancy)
@@ -122,6 +185,53 @@ def build_sdf_volume(
         "front_back_connected_through_seam": bool(occupancy[:, :, z_samples // 2].any()),
         "sdf_slice_contact_sheet": str(sheet),
     }
+    if semantic_depth_result:
+        depth_report = semantic_depth_result.get("report", {})
+        summary.update(
+            {
+                "semantic_depth_profiles_enabled": True,
+                "semantic_depth_profile": depth_report.get("profile_set", ""),
+                "semantic_depth_profile_report": depth_report,
+                "uniform_slab_ratio": depth_report.get("uniform_slab_ratio", 0.0),
+                "semantic_depth_variance": depth_report.get("semantic_depth_variance", 0.0),
+                "head_depth_ratio": depth_report.get("head_depth_ratio", 0.0),
+                "torso_depth_ratio": depth_report.get("torso_depth_ratio", 0.0),
+                "limb_depth_ratio": depth_report.get("limb_depth_ratio", 0.0),
+                "outline_shell_ratio": depth_report.get("outline_shell_ratio", 0.0),
+                "side_projection_entropy": depth_report.get("side_projection_entropy", 0.0),
+                "side_profile_readability_score": depth_report.get("side_profile_readability_score", 0.0),
+                "directional_morphology_enabled": depth_report.get("directional_morphology_enabled", False),
+                "morphology_profile": depth_report.get("morphology_profile", ""),
+                "directional_semantic_count": depth_report.get("directional_semantic_count", 0),
+                "anisotropic_region_ratio": depth_report.get("anisotropic_region_ratio", 0.0),
+                "rearward_extension_score": depth_report.get("rearward_extension_score", 0.0),
+                "front_compression_score": depth_report.get("front_compression_score", 0.0),
+                "directional_readability_score": depth_report.get("directional_readability_score", 0.0),
+                "symmetric_volume_penalty": depth_report.get("symmetric_volume_penalty", 0.0),
+            }
+        )
+    else:
+        summary["semantic_depth_profiles_enabled"] = False
+        summary["directional_morphology_enabled"] = False
+    if surface_flow_result:
+        flow_report = surface_flow_result.get("report", {})
+        summary.update(
+            {
+                "surface_flow_enabled": True,
+                "surface_flow_strength": flow_report.get("surface_flow_strength", surface_flow_strength),
+                "surface_flow_iterations": flow_report.get("surface_flow_iterations", surface_flow_iterations),
+                "semantic_transition_count": flow_report.get("semantic_transition_count", 0),
+                "surface_continuity_score": flow_report.get("surface_continuity_score", 0.0),
+                "semantic_seam_score": flow_report.get("semantic_seam_score", 0.0),
+                "oblique_surface_readability": flow_report.get("oblique_surface_readability", 0.0),
+                "surface_fragmentation_score": flow_report.get("surface_fragmentation_score", 0.0),
+                "staircase_artifact_score": flow_report.get("staircase_artifact_score", 0.0),
+                "anatomical_flow_score": flow_report.get("anatomical_flow_score", 0.0),
+                "surface_flow_report": flow_report,
+            }
+        )
+    else:
+        summary["surface_flow_enabled"] = False
     (output_dir / "sdf_summary.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
     return {
         "sdf": sdf,
@@ -129,6 +239,9 @@ def build_sdf_volume(
         "occupancy": occupancy,
         "z_axis": z_axis,
         "summary": summary,
+        "semantic_depth_profile": semantic_depth_result,
+        "directional_morphology": semantic_depth_result.get("directional_morphology", {}) if semantic_depth_result else {},
+        "surface_flow": surface_flow_result,
         "paths": {
             "sdf_volume": output_dir / "sdf_volume.npy",
             "semantic_volume": output_dir / "semantic_volume.npy",

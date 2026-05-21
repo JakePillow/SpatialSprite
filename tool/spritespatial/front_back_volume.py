@@ -5,6 +5,7 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Literal
 
+import numpy as np
 from PIL import Image, ImageDraw
 
 from spritespatial.alpha import has_alpha, load_rgba_png
@@ -12,6 +13,8 @@ from spritespatial.depth_annotation import (
     validate_depth_map,
     write_depth_assets_from_images,
 )
+from spritespatial.directional_morphology import load_morphology_profile
+from spritespatial.semantic_depth_profiles import load_profile_set, synthesize_semantic_occupancy
 from spritespatial.upscale import upscale_image
 
 SideColourMode = Literal["nearest_front", "nearest_back", "blended"]
@@ -31,6 +34,10 @@ class FrontBackConfig:
     alpha_threshold: int = 16
     front_depth_path: str | None = None
     back_depth_path: str | None = None
+    semantic_depth_profiles_enabled: bool = False
+    semantic_depth_profile: str = "humanoid_voxel"
+    directional_morphology_enabled: bool = False
+    morphology_profile: str = "fantasy_humanoid"
 
 
 @dataclass(frozen=True)
@@ -89,6 +96,16 @@ def build_front_back_model(
         config.depth_slices,
         front_depth=front_depth,
         back_depth=back_depth,
+        semantic_labels=[["unknown" if front_mask[y][x] or back_mask[y][x] else "transparent" for x in range(len(front_mask[0]))] for y in range(len(front_mask))],
+        semantic_profile=load_profile_set(config.semantic_depth_profile, Path(__file__).resolve().parents[2])
+        if config.semantic_depth_profiles_enabled
+        else None,
+        semantic_debug_dir=debug_dir / "semantic_depth_profiles" if config.semantic_depth_profiles_enabled else None,
+        directional_morphology=load_morphology_profile(config.morphology_profile, Path(__file__).resolve().parents[2])
+        if config.directional_morphology_enabled
+        else None,
+        directional_debug_dir=debug_dir / "directional_morphology" if config.directional_morphology_enabled else None,
+        emit_directional_debug=config.directional_morphology_enabled,
     )
     mesh = voxel_volume_to_mesh(front, back, occupied, config)
     _write_debug_images(front_mask, back_mask, occupied, debug_dir)
@@ -178,6 +195,12 @@ def interpolate_occupancy(
     depth_slices: int,
     front_depth: Image.Image | None = None,
     back_depth: Image.Image | None = None,
+    semantic_labels: list[list[str]] | None = None,
+    semantic_profile: dict | None = None,
+    semantic_debug_dir: Path | None = None,
+    directional_morphology: dict | None = None,
+    directional_debug_dir: Path | None = None,
+    emit_directional_debug: bool = False,
 ) -> list[list[list[bool]]]:
     if depth_slices < 2:
         raise ValueError("depth_slices must be at least 2.")
@@ -186,6 +209,46 @@ def interpolate_occupancy(
     width = len(front_mask[0])
     front_bounds = _mask_bounds(front_mask)
     back_bounds = _mask_bounds(back_mask)
+    if semantic_profile and semantic_labels:
+        z_axis = np.linspace(-1.0, 1.0, depth_slices, dtype=np.float32)
+        alpha = np.array(
+            [[front_mask[y][x] or back_mask[y][x] for x in range(width)] for y in range(height)],
+            dtype=bool,
+        )
+        z_front = np.zeros((height, width), dtype=np.float32)
+        z_back = np.zeros((height, width), dtype=np.float32)
+        for y in range(height):
+            for x in range(width):
+                if not alpha[y, x]:
+                    continue
+                front_value = _depth_value(front_depth, x, y, 1.0)
+                back_value = _depth_value(back_depth, x, y, 1.0)
+                z_front[y, x] = max(0.05, front_value)
+                z_back[y, x] = -max(0.05, back_value)
+        label_by_pixel = {
+            (x, y): semantic_labels[y][x]
+            for y in range(height)
+            for x in range(width)
+            if alpha[y, x]
+        }
+        semantic = synthesize_semantic_occupancy(
+            z_front,
+            z_back,
+            alpha,
+            label_by_pixel,
+            z_axis,
+            semantic_profile,
+            semantic_debug_dir,
+            emit_debug=semantic_debug_dir is not None,
+            directional_morphology=directional_morphology,
+            directional_output_dir=directional_debug_dir,
+            emit_directional_debug=emit_directional_debug,
+        )
+        sem_volume = semantic["occupancy"]
+        return [
+            [[bool(sem_volume[y, x, z]) for x in range(width)] for y in range(height)]
+            for z in range(depth_slices)
+        ]
     volume: list[list[list[bool]]] = []
 
     for z in range(depth_slices):
@@ -337,6 +400,13 @@ def _back_depth_occupies(
         return False
     relief = max(1, int(round((value / 255.0) * max(depth_slices // 2, 1))))
     return z < relief
+
+
+def _depth_value(depth: Image.Image | None, x: int, y: int, default: float) -> float:
+    if depth is None:
+        return default
+    value = int(depth.getpixel((x, y)))
+    return max(0.0, min(1.0, value / 255.0))
 
 
 def _load_and_optionally_upscale(path: Path, config: FrontBackConfig) -> Image.Image:

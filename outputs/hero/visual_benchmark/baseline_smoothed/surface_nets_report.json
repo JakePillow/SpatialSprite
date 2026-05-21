@@ -1,0 +1,50 @@
+{
+  "schema": "spritespatial_surface_nets_report_v1",
+  "meshing_backend_used": "surface_nets",
+  "surface_nets_input": "C:\\dev\\SpatialSprite\\outputs\\hero\\visual_benchmark\\baseline_smoothed\\meshing\\surface_nets_input.npz",
+  "surface_net_vertices": 2151,
+  "surface_net_faces": 2152,
+  "active_cell_count": 2151,
+  "semantic_boundary_edge_count": 434,
+  "silhouette_vertex_count": 2151,
+  "degenerate_face_count": 0,
+  "non_manifold_edge_count": 5,
+  "mesh_connected_components": 1,
+  "semantic_labels_in_mesh": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "semantic_labels_in_volume": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10
+  ],
+  "semantic_labels_missing_from_mesh": [],
+  "semantic_label_preservation_passed": true,
+  "material_groups": {
+    "1": 128,
+    "2": 336,
+    "4": 44,
+    "5": 550,
+    "6": 342,
+    "7": 273,
+    "8": 281,
+    "9": 192,
+    "10": 6
+  },
+  "surface_net_smoothing_alpha": 0.65,
+  "passed": true
+}

@@ -1,0 +1,31 @@
+{
+  "name": "platformer_humanoid",
+  "rules": {
+    "hair/hat": {
+      "profile_type": "HAT_POINTED_BACK",
+      "forward_bias": 0.04,
+      "backward_bias": 0.45,
+      "lateral_bias": -0.22,
+      "upward_bias": 0.04,
+      "downward_bias": 0.10,
+      "taper_direction": "back",
+      "asymmetry_strength": 0.45,
+      "curvature_bias": 0.10,
+      "trailing_profile": "short_tail",
+      "compression_profile": "compressed_front"
+    },
+    "face": {
+      "profile_type": "NOSE_FORWARD",
+      "forward_bias": 0.50,
+      "backward_bias": 0.02,
+      "lateral_bias": -0.08,
+      "upward_bias": 0.0,
+      "downward_bias": 0.0,
+      "taper_direction": "front",
+      "asymmetry_strength": 0.55,
+      "curvature_bias": 0.08,
+      "trailing_profile": "none",
+      "compression_profile": "flat_back"
+    }
+  }
+}

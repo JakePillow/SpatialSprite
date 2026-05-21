@@ -1,0 +1,761 @@
+{
+  "schema": "spritespatial_visual_benchmark_report_v1",
+  "generated_at": "2026-05-21T21:26:46.744501+00:00",
+  "config": "C:\\dev\\SpatialSprite\\benchmarks\\visual_benchmark_config.json",
+  "reference_status": {
+    "reference_path": "C:\\dev\\SpatialSprite\\benchmarks\\reference_visual_benchmark.json",
+    "reference_phase": "phase6b_surface_flow",
+    "established": true,
+    "updated": false,
+    "regression_checks_run": false,
+    "reason": "previous reference did not contain a passing reference phase"
+  },
+  "assets": [
+    {
+      "name": "hero",
+      "asset": "assets/samples/hero/spriteasset_v1.json",
+      "semantic_overrides": "assets/samples/hero/semantic_overrides",
+      "profile": "profiles/prototype_32.json"
+    }
+  ],
+  "phase_results": [
+    {
+      "asset": "hero",
+      "phase": "baseline_smoothed",
+      "output_dir": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_baseline",
+      "command": [
+        "C:\\Users\\jakep\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/build_topological_sprite_model.py",
+        "--asset",
+        "assets/samples/hero/spriteasset_v1.json",
+        "--profile",
+        "profiles/prototype_32.json",
+        "--semantic-overrides",
+        "assets/samples/hero/semantic_overrides",
+        "--semantic-override-mode",
+        "supplement",
+        "--closed-body",
+        "--mesh-backend",
+        "surface_nets",
+        "--surface-net-smoothing-alpha",
+        "0.65",
+        "--render-profile",
+        "voxel_sprite",
+        "--godot-preview",
+        "--emit-render-diagnostics",
+        "--emit-canonical-view-metrics",
+        "--emit-visual-mapping",
+        "--out",
+        "outputs/bm_hero_baseline"
+      ],
+      "build_exit_code": 1,
+      "build_stdout_tail": "",
+      "build_stderr_tail": "    result = build_topological_model(args)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\dev\\SpatialSprite\\tools\\build_topological_sprite_model.py\", line 342, in build_topological_model\n    return _build_phase5a_closed_body(\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\dev\\SpatialSprite\\tools\\build_topological_sprite_model.py\", line 2104, in _build_phase5a_closed_body\n    raise ValueError(f\"{phase_name} validation failed: {failures}\")\nValueError: Phase 5B validation failed: ['godot_preview_failed', 'godot_mesh_load_failed', 'godot_missing_surfaces', 'godot_semantic_materials_missing', 'godot_outline_pass_missing', 'godot_missing_required_captures', 'godot_mesh_not_visible_all_angles', 'godot_catastrophic_shading_artifacts', 'visual_mapping_outputs_missing', 'visual_mapping_contact_sheet_missing', 'visual_mapping_report_invalid']",
+      "build_attempts": [
+        {
+          "attempt": 1,
+          "exit_code": 1,
+          "stdout_tail": "",
+          "stderr_tail": "           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\dev\\SpatialSprite\\tools\\build_topological_sprite_model.py\", line 2104, in _build_phase5a_closed_body\n    raise ValueError(f\"{phase_name} validation failed: {failures}\")\nValueError: Phase 5B validation failed: ['godot_preview_failed', 'godot_mesh_load_failed', 'godot_missing_surfaces', 'godot_semantic_materials_missing', 'godot_outline_pass_missing', 'godot_missing_required_captures', 'godot_mesh_not_visible_all_angles', 'godot_catastrophic_shading_artifacts', 'visual_mapping_outputs_missing', 'visual_mapping_contact_sheet_missing', 'visual_mapping_report_invalid']"
+        },
+        {
+          "attempt": 2,
+          "exit_code": 1,
+          "stdout_tail": "",
+          "stderr_tail": "           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\dev\\SpatialSprite\\tools\\build_topological_sprite_model.py\", line 2104, in _build_phase5a_closed_body\n    raise ValueError(f\"{phase_name} validation failed: {failures}\")\nValueError: Phase 5B validation failed: ['godot_preview_failed', 'godot_mesh_load_failed', 'godot_missing_surfaces', 'godot_semantic_materials_missing', 'godot_outline_pass_missing', 'godot_missing_required_captures', 'godot_mesh_not_visible_all_angles', 'godot_catastrophic_shading_artifacts', 'visual_mapping_outputs_missing', 'visual_mapping_contact_sheet_missing', 'visual_mapping_report_invalid']"
+        },
+        {
+          "attempt": 3,
+          "exit_code": 1,
+          "stdout_tail": "",
+          "stderr_tail": "           ^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\dev\\SpatialSprite\\tools\\build_topological_sprite_model.py\", line 2104, in _build_phase5a_closed_body\n    raise ValueError(f\"{phase_name} validation failed: {failures}\")\nValueError: Phase 5B validation failed: ['godot_preview_failed', 'godot_mesh_load_failed', 'godot_missing_surfaces', 'godot_semantic_materials_missing', 'godot_outline_pass_missing', 'godot_missing_required_captures', 'godot_mesh_not_visible_all_angles', 'godot_catastrophic_shading_artifacts', 'visual_mapping_outputs_missing', 'visual_mapping_contact_sheet_missing', 'visual_mapping_report_invalid']"
+        }
+      ],
+      "validation_report": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_baseline\\validation_report.json",
+      "visual_mapping_report": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_baseline\\visual_mapping_report.json",
+      "validation_loaded": true,
+      "visual_mapping_loaded": false,
+      "validation_passed": false
+    },
+    {
+      "asset": "hero",
+      "phase": "phase5e_semantic_depth",
+      "output_dir": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_5e",
+      "command": [
+        "C:\\Users\\jakep\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/build_topological_sprite_model.py",
+        "--asset",
+        "assets/samples/hero/spriteasset_v1.json",
+        "--profile",
+        "profiles/prototype_32.json",
+        "--semantic-overrides",
+        "assets/samples/hero/semantic_overrides",
+        "--semantic-override-mode",
+        "supplement",
+        "--semantic-depth-profiles",
+        "--semantic-depth-profile",
+        "humanoid_voxel",
+        "--closed-body",
+        "--mesh-backend",
+        "surface_nets",
+        "--surface-net-smoothing-alpha",
+        "0.65",
+        "--render-profile",
+        "voxel_sprite",
+        "--godot-preview",
+        "--emit-render-diagnostics",
+        "--emit-canonical-view-metrics",
+        "--emit-visual-mapping",
+        "--out",
+        "outputs/bm_hero_5e"
+      ],
+      "build_exit_code": 0,
+      "build_stdout_tail": "WARNING: Side profile is generated from primitive/SDF priors. Provide side sprite for higher fidelity.\nBuilt Track C3 topological sprite model\n  Regions: 64\n  Model: C:\\dev\\SpatialSprite\\outputs\\bm_hero_5e\\topological_model.json\n  Part graph: C:\\dev\\SpatialSprite\\outputs\\bm_hero_5e\\part_graph.json\n  Validation: C:\\dev\\SpatialSprite\\outputs\\bm_hero_5e\\validation_report.json",
+      "build_stderr_tail": "",
+      "build_attempts": [
+        {
+          "attempt": 1,
+          "exit_code": 0,
+          "stdout_tail": "  Regions: 64\n  Model: C:\\dev\\SpatialSprite\\outputs\\bm_hero_5e\\topological_model.json\n  Part graph: C:\\dev\\SpatialSprite\\outputs\\bm_hero_5e\\part_graph.json\n  Validation: C:\\dev\\SpatialSprite\\outputs\\bm_hero_5e\\validation_report.json",
+          "stderr_tail": ""
+        }
+      ],
+      "validation_report": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_5e\\validation_report.json",
+      "visual_mapping_report": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_5e\\visual_mapping_report.json",
+      "validation_loaded": true,
+      "visual_mapping_loaded": true,
+      "validation_passed": true
+    },
+    {
+      "asset": "hero",
+      "phase": "phase5g_directional_morphology",
+      "output_dir": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_5g",
+      "command": [
+        "C:\\Users\\jakep\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/build_topological_sprite_model.py",
+        "--asset",
+        "assets/samples/hero/spriteasset_v1.json",
+        "--profile",
+        "profiles/prototype_32.json",
+        "--semantic-overrides",
+        "assets/samples/hero/semantic_overrides",
+        "--semantic-override-mode",
+        "supplement",
+        "--semantic-depth-profiles",
+        "--semantic-depth-profile",
+        "humanoid_voxel",
+        "--directional-morphology",
+        "--morphology-profile",
+        "fantasy_humanoid",
+        "--closed-body",
+        "--mesh-backend",
+        "surface_nets",
+        "--surface-net-smoothing-alpha",
+        "0.65",
+        "--render-profile",
+        "voxel_sprite",
+        "--godot-preview",
+        "--emit-directional-debug",
+        "--emit-render-diagnostics",
+        "--emit-canonical-view-metrics",
+        "--emit-visual-mapping",
+        "--out",
+        "outputs/bm_hero_5g"
+      ],
+      "build_exit_code": 0,
+      "build_stdout_tail": "WARNING: Side profile is generated from primitive/SDF priors. Provide side sprite for higher fidelity.\nBuilt Track C3 topological sprite model\n  Regions: 64\n  Model: C:\\dev\\SpatialSprite\\outputs\\bm_hero_5g\\topological_model.json\n  Part graph: C:\\dev\\SpatialSprite\\outputs\\bm_hero_5g\\part_graph.json\n  Validation: C:\\dev\\SpatialSprite\\outputs\\bm_hero_5g\\validation_report.json",
+      "build_stderr_tail": "",
+      "build_attempts": [
+        {
+          "attempt": 1,
+          "exit_code": 0,
+          "stdout_tail": "  Regions: 64\n  Model: C:\\dev\\SpatialSprite\\outputs\\bm_hero_5g\\topological_model.json\n  Part graph: C:\\dev\\SpatialSprite\\outputs\\bm_hero_5g\\part_graph.json\n  Validation: C:\\dev\\SpatialSprite\\outputs\\bm_hero_5g\\validation_report.json",
+          "stderr_tail": ""
+        }
+      ],
+      "validation_report": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_5g\\validation_report.json",
+      "visual_mapping_report": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_5g\\visual_mapping_report.json",
+      "validation_loaded": true,
+      "visual_mapping_loaded": true,
+      "validation_passed": true
+    },
+    {
+      "asset": "hero",
+      "phase": "phase6b_surface_flow",
+      "output_dir": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_6b",
+      "command": [
+        "C:\\Users\\jakep\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/build_topological_sprite_model.py",
+        "--asset",
+        "assets/samples/hero/spriteasset_v1.json",
+        "--profile",
+        "profiles/prototype_32.json",
+        "--semantic-overrides",
+        "assets/samples/hero/semantic_overrides",
+        "--semantic-override-mode",
+        "supplement",
+        "--semantic-depth-profiles",
+        "--semantic-depth-profile",
+        "humanoid_voxel",
+        "--directional-morphology",
+        "--morphology-profile",
+        "fantasy_humanoid",
+        "--surface-flow",
+        "--surface-flow-strength",
+        "0.45",
+        "--surface-flow-iterations",
+        "2",
+        "--closed-body",
+        "--mesh-backend",
+        "surface_nets",
+        "--surface-net-smoothing-alpha",
+        "0.65",
+        "--render-profile",
+        "voxel_sprite",
+        "--godot-preview",
+        "--emit-surface-flow-debug",
+        "--emit-directional-debug",
+        "--emit-render-diagnostics",
+        "--emit-canonical-view-metrics",
+        "--emit-visual-mapping",
+        "--out",
+        "outputs/bm_hero_6b"
+      ],
+      "build_exit_code": 0,
+      "build_stdout_tail": "WARNING: Side profile is generated from primitive/SDF priors. Provide side sprite for higher fidelity.\nBuilt Track C3 topological sprite model\n  Regions: 64\n  Model: C:\\dev\\SpatialSprite\\outputs\\bm_hero_6b\\topological_model.json\n  Part graph: C:\\dev\\SpatialSprite\\outputs\\bm_hero_6b\\part_graph.json\n  Validation: C:\\dev\\SpatialSprite\\outputs\\bm_hero_6b\\validation_report.json",
+      "build_stderr_tail": "",
+      "build_attempts": [
+        {
+          "attempt": 1,
+          "exit_code": 0,
+          "stdout_tail": "  Regions: 64\n  Model: C:\\dev\\SpatialSprite\\outputs\\bm_hero_6b\\topological_model.json\n  Part graph: C:\\dev\\SpatialSprite\\outputs\\bm_hero_6b\\part_graph.json\n  Validation: C:\\dev\\SpatialSprite\\outputs\\bm_hero_6b\\validation_report.json",
+          "stderr_tail": ""
+        }
+      ],
+      "validation_report": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_6b\\validation_report.json",
+      "visual_mapping_report": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_6b\\visual_mapping_report.json",
+      "validation_loaded": true,
+      "visual_mapping_loaded": true,
+      "validation_passed": true
+    }
+  ],
+  "metrics": {
+    "hero::baseline_smoothed": {
+      "asset": "hero",
+      "phase": "baseline_smoothed",
+      "output_dir": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_baseline",
+      "metrics": {
+        "front_iou": 0.0,
+        "side_iou": null,
+        "back_iou": null,
+        "worst_view_iou": 0.0,
+        "semantic_match_ratio": null,
+        "source_colour_match_score": 0.7826129523321708,
+        "voxel_face_readability_score": 0.8745072111313699,
+        "side_profile_readability_score": 0.0,
+        "directional_readability_score": 0.0,
+        "oblique_surface_readability": 0.0,
+        "staircase_artifact_score": 0.0,
+        "surface_fragmentation_score": 0.0,
+        "internal_black_face_ratio": 0.015799256505576207,
+        "non_manifold_edge_count": 5,
+        "degenerate_face_count": 0,
+        "validation_passed": false
+      },
+      "validation_passed": false
+    },
+    "hero::phase5e_semantic_depth": {
+      "asset": "hero",
+      "phase": "phase5e_semantic_depth",
+      "output_dir": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_5e",
+      "metrics": {
+        "front_iou": 0.4787985865724382,
+        "side_iou": 0.4613259668508287,
+        "back_iou": 0.46397188049209137,
+        "worst_view_iou": 0.4613259668508287,
+        "semantic_match_ratio": 0.2394259928947228,
+        "source_colour_match_score": 0.7757156863597992,
+        "voxel_face_readability_score": 0.8758938662393962,
+        "side_profile_readability_score": 0.9406017943796912,
+        "directional_readability_score": 0.0,
+        "oblique_surface_readability": 0.0,
+        "staircase_artifact_score": 0.0,
+        "surface_fragmentation_score": 0.0,
+        "internal_black_face_ratio": 0.01845018450184502,
+        "non_manifold_edge_count": 4,
+        "degenerate_face_count": 0,
+        "validation_passed": true
+      },
+      "validation_passed": true
+    },
+    "hero::phase5g_directional_morphology": {
+      "asset": "hero",
+      "phase": "phase5g_directional_morphology",
+      "output_dir": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_5g",
+      "metrics": {
+        "front_iou": 0.4787985865724382,
+        "side_iou": 0.4613259668508287,
+        "back_iou": 0.46397188049209137,
+        "worst_view_iou": 0.4613259668508287,
+        "semantic_match_ratio": 0.2394259928947228,
+        "source_colour_match_score": 0.7760426436133646,
+        "voxel_face_readability_score": 0.8754571952910519,
+        "side_profile_readability_score": 0.9406017943796912,
+        "directional_readability_score": 0.16817652583122253,
+        "oblique_surface_readability": 0.0,
+        "staircase_artifact_score": 0.0,
+        "surface_fragmentation_score": 0.0,
+        "internal_black_face_ratio": 0.018427518427518427,
+        "non_manifold_edge_count": 4,
+        "degenerate_face_count": 0,
+        "validation_passed": true
+      },
+      "validation_passed": true
+    },
+    "hero::phase6b_surface_flow": {
+      "asset": "hero",
+      "phase": "phase6b_surface_flow",
+      "output_dir": "C:\\dev\\SpatialSprite\\outputs\\bm_hero_6b",
+      "metrics": {
+        "front_iou": 0.4614065180102916,
+        "side_iou": 0.4712328767123288,
+        "back_iou": 0.46397188049209137,
+        "worst_view_iou": 0.4614065180102916,
+        "semantic_match_ratio": 0.23280213337746475,
+        "source_colour_match_score": 0.773665961990151,
+        "voxel_face_readability_score": 0.8745471245693484,
+        "side_profile_readability_score": 0.9406017943796912,
+        "directional_readability_score": 0.16817652583122253,
+        "oblique_surface_readability": 0.8290383152797385,
+        "staircase_artifact_score": 0.07310621242484969,
+        "surface_fragmentation_score": 0.0,
+        "internal_black_face_ratio": 0.01948051948051948,
+        "non_manifold_edge_count": 5,
+        "degenerate_face_count": 0,
+        "validation_passed": true
+      },
+      "validation_passed": true
+    }
+  },
+  "metric_deltas": [
+    {
+      "asset": "hero",
+      "from_phase": "baseline_smoothed",
+      "to_phase": "phase5e_semantic_depth",
+      "metric": "front_iou",
+      "from_value": 0.0,
+      "to_value": 0.4787985865724382,
+      "delta": 0.4787985865724382
+    },
+    {
+      "asset": "hero",
+      "from_phase": "baseline_smoothed",
+      "to_phase": "phase5e_semantic_depth",
+      "metric": "side_iou",
+      "from_value": null,
+      "to_value": 0.4613259668508287,
+      "delta": null
+    },
+    {
+      "asset": "hero",
+      "from_phase": "baseline_smoothed",
+      "to_phase": "phase5e_semantic_depth",
+      "metric": "back_iou",
+      "from_value": null,
+      "to_value": 0.46397188049209137,
+      "delta": null
+    },
+    {
+      "asset": "hero",
+      "from_phase": "baseline_smoothed",
+      "to_phase": "phase5e_semantic_depth",
+      "metric": "worst_view_iou",
+      "from_value": 0.0,
+      "to_value": 0.4613259668508287,
+      "delta": 0.4613259668508287
+    },
+    {
+      "asset": "hero",
+      "from_phase": "baseline_smoothed",
+      "to_phase": "phase5e_semantic_depth",
+      "metric": "semantic_match_ratio",
+      "from_value": null,
+      "to_value": 0.2394259928947228,
+      "delta": null
+    },
+    {
+      "asset": "hero",
+      "from_phase": "baseline_smoothed",
+      "to_phase": "phase5e_semantic_depth",
+      "metric": "source_colour_match_score",
+      "from_value": 0.7826129523321708,
+      "to_value": 0.7757156863597992,
+      "delta": -0.006897265972371613
+    },
+    {
+      "asset": "hero",
+      "from_phase": "baseline_smoothed",
+      "to_phase": "phase5e_semantic_depth",
+      "metric": "voxel_face_readability_score",
+      "from_value": 0.8745072111313699,
+      "to_value": 0.8758938662393962,
+      "delta": 0.00138665510802638
+    },
+    {
+      "asset": "hero",
+      "from_phase": "baseline_smoothed",
+      "to_phase": "phase5e_semantic_depth",
+      "metric": "side_profile_readability_score",
+      "from_value": 0.0,
+      "to_value": 0.9406017943796912,
+      "delta": 0.9406017943796912
+    },
+    {
+      "asset": "hero",
+      "from_phase": "baseline_smoothed",
+      "to_phase": "phase5e_semantic_depth",
+      "metric": "directional_readability_score",
+      "from_value": 0.0,
+      "to_value": 0.0,
+      "delta": 0.0
+    },
+    {
+      "asset": "hero",
+      "from_phase": "baseline_smoothed",
+      "to_phase": "phase5e_semantic_depth",
+      "metric": "oblique_surface_readability",
+      "from_value": 0.0,
+      "to_value": 0.0,
+      "delta": 0.0
+    },
+    {
+      "asset": "hero",
+      "from_phase": "baseline_smoothed",
+      "to_phase": "phase5e_semantic_depth",
+      "metric": "staircase_artifact_score",
+      "from_value": 0.0,
+      "to_value": 0.0,
+      "delta": 0.0
+    },
+    {
+      "asset": "hero",
+      "from_phase": "baseline_smoothed",
+      "to_phase": "phase5e_semantic_depth",
+      "metric": "surface_fragmentation_score",
+      "from_value": 0.0,
+      "to_value": 0.0,
+      "delta": 0.0
+    },
+    {
+      "asset": "hero",
+      "from_phase": "baseline_smoothed",
+      "to_phase": "phase5e_semantic_depth",
+      "metric": "internal_black_face_ratio",
+      "from_value": 0.015799256505576207,
+      "to_value": 0.01845018450184502,
+      "delta": 0.0026509279962688113
+    },
+    {
+      "asset": "hero",
+      "from_phase": "baseline_smoothed",
+      "to_phase": "phase5e_semantic_depth",
+      "metric": "non_manifold_edge_count",
+      "from_value": 5.0,
+      "to_value": 4.0,
+      "delta": -1.0
+    },
+    {
+      "asset": "hero",
+      "from_phase": "baseline_smoothed",
+      "to_phase": "phase5e_semantic_depth",
+      "metric": "degenerate_face_count",
+      "from_value": 0.0,
+      "to_value": 0.0,
+      "delta": 0.0
+    },
+    {
+      "asset": "hero",
+      "from_phase": "phase5e_semantic_depth",
+      "to_phase": "phase5g_directional_morphology",
+      "metric": "front_iou",
+      "from_value": 0.4787985865724382,
+      "to_value": 0.4787985865724382,
+      "delta": 0.0
+    },
+    {
+      "asset": "hero",
+      "from_phase": "phase5e_semantic_depth",
+      "to_phase": "phase5g_directional_morphology",
+      "metric": "side_iou",
+      "from_value": 0.4613259668508287,
+      "to_value": 0.4613259668508287,
+      "delta": 0.0
+    },
+    {
+      "asset": "hero",
+      "from_phase": "phase5e_semantic_depth",
+      "to_phase": "phase5g_directional_morphology",
+      "metric": "back_iou",
+      "from_value": 0.46397188049209137,
+      "to_value": 0.46397188049209137,
+      "delta": 0.0
+    },
+    {
+      "asset": "hero",
+      "from_phase": "phase5e_semantic_depth",
+      "to_phase": "phase5g_directional_morphology",
+      "metric": "worst_view_iou",
+      "from_value": 0.4613259668508287,
+      "to_value": 0.4613259668508287,
+      "delta": 0.0
+    },
+    {
+      "asset": "hero",
+      "from_phase": "phase5e_semantic_depth",
+      "to_phase": "phase5g_directional_morphology",
+      "metric": "semantic_match_ratio",
+      "from_value": 0.2394259928947228,
+      "to_value": 0.2394259928947228,
+      "delta": 0.0
+    },
+    {
+      "asset": "hero",
+      "from_phase": "phase5e_semantic_depth",
+      "to_phase": "phase5g_directional_morphology",
+      "metric": "source_colour_match_score",
+      "from_value": 0.7757156863597992,
+      "to_value": 0.7760426436133646,
+      "delta": 0.000326957253565463
+    },
+    {
+      "asset": "hero",
+      "from_phase": "phase5e_semantic_depth",
+      "to_phase": "phase5g_directional_morphology",
+      "metric": "voxel_face_readability_score",
+      "from_value": 0.8758938662393962,
+      "to_value": 0.8754571952910519,
+      "delta": -0.00043667094834431985
+    },
+    {
+      "asset": "hero",
+      "from_phase": "phase5e_semantic_depth",
+      "to_phase": "phase5g_directional_morphology",
+      "metric": "side_profile_readability_score",
+      "from_value": 0.9406017943796912,
+      "to_value": 0.9406017943796912,
+      "delta": 0.0
+    },
+    {
+      "asset": "hero",
+      "from_phase": "phase5e_semantic_depth",
+      "to_phase": "phase5g_directional_morphology",
+      "metric": "directional_readability_score",
+      "from_value": 0.0,
+      "to_value": 0.16817652583122253,
+      "delta": 0.16817652583122253
+    },
+    {
+      "asset": "hero",
+      "from_phase": "phase5e_semantic_depth",
+      "to_phase": "phase5g_directional_morphology",
+      "metric": "oblique_surface_readability",
+      "from_value": 0.0,
+      "to_value": 0.0,
+      "delta": 0.0
+    },
+    {
+      "asset": "hero",
+      "from_phase": "phase5e_semantic_depth",
+      "to_phase": "phase5g_directional_morphology",
+      "metric": "staircase_artifact_score",
+      "from_value": 0.0,
+      "to_value": 0.0,
+      "delta": 0.0
+    },
+    {
+      "asset": "hero",
+      "from_phase": "phase5e_semantic_depth",
+      "to_phase": "phase5g_directional_morphology",
+      "metric": "surface_fragmentation_score",
+      "from_value": 0.0,
+      "to_value": 0.0,
+      "delta": 0.0
+    },
+    {
+      "asset": "hero",
+      "from_phase": "phase5e_semantic_depth",
+      "to_phase": "phase5g_directional_morphology",
+      "metric": "internal_black_face_ratio",
+      "from_value": 0.01845018450184502,
+      "to_value": 0.018427518427518427,
+      "delta": -2.2666074326591068e-05
+    },
+    {
+      "asset": "hero",
+      "from_phase": "phase5e_semantic_depth",
+      "to_phase": "phase5g_directional_morphology",
+      "metric": "non_manifold_edge_count",
+      "from_value": 4.0,
+      "to_value": 4.0,
+      "delta": 0.0
+    },
+    {
+      "asset": "hero",
+      "from_phase": "phase5e_semantic_depth",
+      "to_phase": "phase5g_directional_morphology",
+      "metric": "degenerate_face_count",
+      "from_value": 0.0,
+      "to_value": 0.0,
+      "delta": 0.0
+    },
+    {
+      "asset": "hero",
+      "from_phase": "phase5g_directional_morphology",
+      "to_phase": "phase6b_surface_flow",
+      "metric": "front_iou",
+      "from_value": 0.4787985865724382,
+      "to_value": 0.4614065180102916,
+      "delta": -0.01739206856214659
+    },
+    {
+      "asset": "hero",
+      "from_phase": "phase5g_directional_morphology",
+      "to_phase": "phase6b_surface_flow",
+      "metric": "side_iou",
+      "from_value": 0.4613259668508287,
+      "to_value": 0.4712328767123288,
+      "delta": 0.009906909861500057
+    },
+    {
+      "asset": "hero",
+      "from_phase": "phase5g_directional_morphology",
+      "to_phase": "phase6b_surface_flow",
+      "metric": "back_iou",
+      "from_value": 0.46397188049209137,
+      "to_value": 0.46397188049209137,
+      "delta": 0.0
+    },
+    {
+      "asset": "hero",
+      "from_phase": "phase5g_directional_morphology",
+      "to_phase": "phase6b_surface_flow",
+      "metric": "worst_view_iou",
+      "from_value": 0.4613259668508287,
+      "to_value": 0.4614065180102916,
+      "delta": 8.055115946287161e-05
+    },
+    {
+      "asset": "hero",
+      "from_phase": "phase5g_directional_morphology",
+      "to_phase": "phase6b_surface_flow",
+      "metric": "semantic_match_ratio",
+      "from_value": 0.2394259928947228,
+      "to_value": 0.23280213337746475,
+      "delta": -0.006623859517258052
+    },
+    {
+      "asset": "hero",
+      "from_phase": "phase5g_directional_morphology",
+      "to_phase": "phase6b_surface_flow",
+      "metric": "source_colour_match_score",
+      "from_value": 0.7760426436133646,
+      "to_value": 0.773665961990151,
+      "delta": -0.0023766816232135834
+    },
+    {
+      "asset": "hero",
+      "from_phase": "phase5g_directional_morphology",
+      "to_phase": "phase6b_surface_flow",
+      "metric": "voxel_face_readability_score",
+      "from_value": 0.8754571952910519,
+      "to_value": 0.8745471245693484,
+      "delta": -0.0009100707217035708
+    },
+    {
+      "asset": "hero",
+      "from_phase": "phase5g_directional_morphology",
+      "to_phase": "phase6b_surface_flow",
+      "metric": "side_profile_readability_score",
+      "from_value": 0.9406017943796912,
+      "to_value": 0.9406017943796912,
+      "delta": 0.0
+    },
+    {
+      "asset": "hero",
+      "from_phase": "phase5g_directional_morphology",
+      "to_phase": "phase6b_surface_flow",
+      "metric": "directional_readability_score",
+      "from_value": 0.16817652583122253,
+      "to_value": 0.16817652583122253,
+      "delta": 0.0
+    },
+    {
+      "asset": "hero",
+      "from_phase": "phase5g_directional_morphology",
+      "to_phase": "phase6b_surface_flow",
+      "metric": "oblique_surface_readability",
+      "from_value": 0.0,
+      "to_value": 0.8290383152797385,
+      "delta": 0.8290383152797385
+    },
+    {
+      "asset": "hero",
+      "from_phase": "phase5g_directional_morphology",
+      "to_phase": "phase6b_surface_flow",
+      "metric": "staircase_artifact_score",
+      "from_value": 0.0,
+      "to_value": 0.07310621242484969,
+      "delta": 0.07310621242484969
+    },
+    {
+      "asset": "hero",
+      "from_phase": "phase5g_directional_morphology",
+      "to_phase": "phase6b_surface_flow",
+      "metric": "surface_fragmentation_score",
+      "from_value": 0.0,
+      "to_value": 0.0,
+      "delta": 0.0
+    },
+    {
+      "asset": "hero",
+      "from_phase": "phase5g_directional_morphology",
+      "to_phase": "phase6b_surface_flow",
+      "metric": "internal_black_face_ratio",
+      "from_value": 0.018427518427518427,
+      "to_value": 0.01948051948051948,
+      "delta": 0.0010530010530010528
+    },
+    {
+      "asset": "hero",
+      "from_phase": "phase5g_directional_morphology",
+      "to_phase": "phase6b_surface_flow",
+      "metric": "non_manifold_edge_count",
+      "from_value": 4.0,
+      "to_value": 5.0,
+      "delta": 1.0
+    },
+    {
+      "asset": "hero",
+      "from_phase": "phase5g_directional_morphology",
+      "to_phase": "phase6b_surface_flow",
+      "metric": "degenerate_face_count",
+      "from_value": 0.0,
+      "to_value": 0.0,
+      "delta": 0.0
+    }
+  ],
+  "contact_sheets": {
+    "hero_baseline_vs_5e": "C:\\dev\\SpatialSprite\\benchmarks\\reports\\latest_visual_benchmark\\contact_sheets\\hero_baseline_vs_5e.png",
+    "hero_5e_vs_5g": "C:\\dev\\SpatialSprite\\benchmarks\\reports\\latest_visual_benchmark\\contact_sheets\\hero_5e_vs_5g.png",
+    "hero_5g_vs_6b": "C:\\dev\\SpatialSprite\\benchmarks\\reports\\latest_visual_benchmark\\contact_sheets\\hero_5g_vs_6b.png",
+    "hero_full_progression": "C:\\dev\\SpatialSprite\\benchmarks\\reports\\latest_visual_benchmark\\contact_sheets\\hero_full_progression.png"
+  },
+  "failures": [
+    {
+      "phase": "hero::baseline_smoothed",
+      "gate": "validation_report_passed",
+      "value": false
+    }
+  ],
+  "passed": false
+}
