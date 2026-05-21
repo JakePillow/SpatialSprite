@@ -204,7 +204,7 @@ def _validation_report(
 def _alpha_coverage(image: Image.Image) -> float:
     rgba = image.convert("RGBA")
     alpha = rgba.getchannel("A")
-    opaque = sum(1 for value in alpha.getdata() if value > 0)
+    opaque = sum(1 for value in alpha.tobytes() if value > 0)
     return opaque / (rgba.width * rgba.height)
 
 

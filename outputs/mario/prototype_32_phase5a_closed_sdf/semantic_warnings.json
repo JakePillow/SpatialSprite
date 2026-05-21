@@ -1,0 +1,87 @@
+{
+  "disconnected_body_parts": [
+    {
+      "label": "torso",
+      "region_ids": [
+        5,
+        11,
+        13,
+        16,
+        17,
+        18,
+        19
+      ],
+      "message": "label is split across multiple disconnected regions"
+    },
+    {
+      "label": "left_arm",
+      "region_ids": [
+        9,
+        10
+      ],
+      "message": "label is split across multiple disconnected regions"
+    },
+    {
+      "label": "left_leg",
+      "region_ids": [
+        21,
+        22,
+        23,
+        25
+      ],
+      "message": "label is split across multiple disconnected regions"
+    },
+    {
+      "label": "right_leg",
+      "region_ids": [
+        20,
+        24
+      ],
+      "message": "label is split across multiple disconnected regions"
+    }
+  ],
+  "tiny_orphan_regions": [
+    {
+      "region_id": 1,
+      "assigned_label": "hair/hat",
+      "bbox": [
+        7,
+        5,
+        8,
+        6
+      ],
+      "confidence_score": 0.63,
+      "message": "tiny non-outline region"
+    }
+  ],
+  "ambiguous_assignment": [
+    {
+      "region_id": 7,
+      "assigned_label": "unknown",
+      "bbox": [
+        8,
+        10,
+        10,
+        12
+      ],
+      "confidence_score": 0.24,
+      "message": "low semantic confidence"
+    }
+  ],
+  "outline_regions_merged_into_body": [],
+  "left_right_confusion": [],
+  "torso_head_overlap": [
+    {
+      "torso_region_id": 11,
+      "head_region_id": 6,
+      "message": "torso/head bounding boxes overlap unusually"
+    },
+    {
+      "torso_region_id": 13,
+      "head_region_id": 12,
+      "message": "torso/head bounding boxes overlap unusually"
+    }
+  ],
+  "equipment_merged_into_body": [],
+  "depth_discontinuities": []
+}

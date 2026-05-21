@@ -1,0 +1,39 @@
+{
+  "bridges": [
+    {
+      "source_part_id": 1,
+      "target_part_id": 2,
+      "policy": "bridge",
+      "added_voxels": 86,
+      "contact_pixels": 8
+    },
+    {
+      "source_part_id": 2,
+      "target_part_id": 3,
+      "policy": "bridge",
+      "added_voxels": 40,
+      "contact_pixels": 6
+    },
+    {
+      "source_part_id": 2,
+      "target_part_id": 4,
+      "policy": "bridge",
+      "added_voxels": 28,
+      "contact_pixels": 4
+    },
+    {
+      "source_part_id": 2,
+      "target_part_id": 5,
+      "policy": "bridge",
+      "added_voxels": 40,
+      "contact_pixels": 1
+    },
+    {
+      "source_part_id": 2,
+      "target_part_id": 6,
+      "policy": "bridge",
+      "added_voxels": 42,
+      "contact_pixels": 1
+    }
+  ]
+}

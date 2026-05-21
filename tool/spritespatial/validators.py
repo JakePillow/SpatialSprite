@@ -306,7 +306,7 @@ def _transparent_ratio(image: Image.Image) -> float:
     total = alpha.width * alpha.height
     if total == 0:
         return 0.0
-    transparent = sum(1 for value in alpha.getdata() if value == 0)
+    transparent = alpha.tobytes().count(0)
     return transparent / total
 
 
@@ -336,8 +336,8 @@ def _corner_opacity(image: Image.Image) -> float:
 def _alpha_area_drift(baseline_alpha: Image.Image, output_alpha: Image.Image) -> float:
     if baseline_alpha.size != output_alpha.size:
         return 1.0
-    baseline_area = sum(1 for value in baseline_alpha.getdata() if value != 0)
-    output_area = sum(1 for value in output_alpha.getdata() if value != 0)
+    baseline_area = sum(1 for value in baseline_alpha.tobytes() if value != 0)
+    output_area = sum(1 for value in output_alpha.tobytes() if value != 0)
     if baseline_area == 0:
         return 0.0 if output_area == 0 else 1.0
     return abs(output_area - baseline_area) / baseline_area
@@ -368,4 +368,8 @@ def _optional_mask_metrics(baseline_alpha: Image.Image, output_alpha: Image.Imag
 
 
 def _palette(image: Image.Image) -> set[tuple[int, int, int, int]]:
-    return set(image.convert("RGBA").getdata())
+    data = image.convert("RGBA").tobytes()
+    return {
+        (data[index], data[index + 1], data[index + 2], data[index + 3])
+        for index in range(0, len(data), 4)
+    }

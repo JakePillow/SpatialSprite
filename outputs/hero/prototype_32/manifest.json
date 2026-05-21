@@ -19,7 +19,6 @@
     "model_depth_units": 0.6,
     "semantic_mode": "none",
     "primitive_mode": "depth_volume",
-    "smoothing_mode": "merged_faces",
     "outline_policy": "nearest_valid_body_colour",
     "target_face_budget": 4000,
     "capture_angles": [
@@ -35,7 +34,24 @@
       "max_fallback_colour_count": 0,
       "require_nonzero_faces": true,
       "require_front_back_dimension_match": true
-    }
+    },
+    "use_zfield": true,
+    "use_primitives": true,
+    "zfield_resolution": "native",
+    "max_depth_slices": 18,
+    "semantic_override_mode": "supplement",
+    "semantic_override_dir": "assets/samples/hero/semantic_overrides",
+    "require_semantic_overrides": false,
+    "smoothing_enabled": true,
+    "smoothing_mode": "hybrid_lowpoly",
+    "smoothing_iterations": 1,
+    "bevel_strength": 0.15,
+    "silhouette_preservation_weight": 1.0,
+    "semantic_boundary_weight": 0.85,
+    "outline_preservation_weight": 1.0,
+    "max_silhouette_drift_px": 1,
+    "allow_inferred_back": true,
+    "source_coverage_warning_level": "warn"
   },
   "generated_artefacts": {
     "cleaned_sprite": "res://outputs/hero/prototype_32/cleaned_sprite.png",
@@ -67,6 +83,6 @@
     ]
   },
   "validation_passed": true,
-  "timestamp": "2026-05-20T19:00:50.429055+00:00",
+  "timestamp": "2026-05-21T17:29:35.574906+00:00",
   "command": "python tools/build_profiled_asset.py --asset C:\\dev\\SpatialSprite\\assets\\samples\\hero\\spriteasset_v1.json --profile C:\\dev\\SpatialSprite\\profiles\\prototype_32.json --out C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32"
 }

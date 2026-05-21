@@ -1,0 +1,221 @@
+{
+  "rankings": [
+    {
+      "candidate_id": 256,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.8,
+      "reason": "Standing pose, complete but not clearly deemed front-view."
+    },
+    {
+      "candidate_id": 258,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.8,
+      "reason": "Standing pose, complete but slightly ambiguous."
+    },
+    {
+      "candidate_id": 259,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing pose, complete, confidence high."
+    },
+    {
+      "candidate_id": 260,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing pose, complete with high confidence."
+    },
+    {
+      "candidate_id": 261,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Full-body standing, complete."
+    },
+    {
+      "candidate_id": 262,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing pose, complete, looks good."
+    },
+    {
+      "candidate_id": 263,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Complete and clear standing pose."
+    },
+    {
+      "candidate_id": 264,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Full-body standing, complete."
+    },
+    {
+      "candidate_id": 265,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing pose, complete and clear."
+    },
+    {
+      "candidate_id": 266,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Complete and clear standing pose."
+    },
+    {
+      "candidate_id": 267,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing, high quality."
+    },
+    {
+      "candidate_id": 268,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Full standing, confident classification."
+    },
+    {
+      "candidate_id": 269,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Complete standing pose."
+    },
+    {
+      "candidate_id": 270,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.85,
+      "reason": "Complete pose with good visibility."
+    },
+    {
+      "candidate_id": 271,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.85,
+      "reason": "Complete posture, with minor ambiguity."
+    },
+    {
+      "candidate_id": 291,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.85,
+      "reason": "Standing pose, complete."
+    },
+    {
+      "candidate_id": 292,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.85,
+      "reason": "Complete and stable stance."
+    },
+    {
+      "candidate_id": 293,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.85,
+      "reason": "Good quality standing sprite."
+    },
+    {
+      "candidate_id": 294,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.85,
+      "reason": "Standing pose but slight visibility issues."
+    },
+    {
+      "candidate_id": 295,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.85,
+      "reason": "Complete and visually clear."
+    },
+    {
+      "candidate_id": 296,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.85,
+      "reason": "Complete standing posture."
+    },
+    {
+      "candidate_id": 297,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.85,
+      "reason": "Clear standing pose."
+    },
+    {
+      "candidate_id": 298,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.85,
+      "reason": "Complete and adequate clarity."
+    },
+    {
+      "candidate_id": 299,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.85,
+      "reason": "Good quality standing sprite."
+    },
+    {
+      "candidate_id": 300,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.85,
+      "reason": "Standing, slightly cropped but acceptable."
+    },
+    {
+      "candidate_id": 301,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.85,
+      "reason": "Solid standing sprite."
+    },
+    {
+      "candidate_id": 302,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.85,
+      "reason": "Clear standing pose."
+    },
+    {
+      "candidate_id": 303,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.85,
+      "reason": "Standing, minor cropping."
+    },
+    {
+      "candidate_id": 275,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.8,
+      "reason": "Good quality stance."
+    },
+    {
+      "candidate_id": 276,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.8,
+      "reason": "Solid quality standing sprite."
+    },
+    {
+      "candidate_id": 274,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.8,
+      "reason": "Standing, well-presented."
+    }
+  ]
+}

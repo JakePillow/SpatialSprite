@@ -1,0 +1,55 @@
+{
+  "captures": [
+    {
+      "angle_degrees": 0,
+      "name": "front",
+      "path": "res://outputs/hero/prototype_32_phase5c_render/captures/front.png",
+      "visible": true,
+      "wireframe": false
+    },
+    {
+      "angle_degrees": 45,
+      "name": "oblique",
+      "path": "res://outputs/hero/prototype_32_phase5c_render/captures/oblique.png",
+      "visible": true,
+      "wireframe": false
+    },
+    {
+      "angle_degrees": 90,
+      "name": "side",
+      "path": "res://outputs/hero/prototype_32_phase5c_render/captures/side.png",
+      "visible": true,
+      "wireframe": false
+    },
+    {
+      "angle_degrees": 135,
+      "name": "side_135",
+      "path": "res://outputs/hero/prototype_32_phase5c_render/captures/side_135.png",
+      "visible": true,
+      "wireframe": false
+    },
+    {
+      "angle_degrees": 180,
+      "name": "back",
+      "path": "res://outputs/hero/prototype_32_phase5c_render/captures/back.png",
+      "visible": true,
+      "wireframe": false
+    },
+    {
+      "angle_degrees": 45,
+      "name": "wireframe",
+      "path": "res://outputs/hero/prototype_32_phase5c_render/captures/wireframe.png",
+      "visible": true,
+      "wireframe": true
+    }
+  ],
+  "catastrophic_shading_artifacts": false,
+  "mesh_json": "res://outputs/hero/prototype_32_phase5c_render/mesh.json",
+  "mesh_loads_in_godot": true,
+  "mesh_visible_from_all_orbit_angles": true,
+  "no_missing_surfaces": true,
+  "outline_pass_renders": true,
+  "passed": true,
+  "schema": "spritespatial_phase5c_render_report_v1",
+  "semantic_materials_assigned": true
+}

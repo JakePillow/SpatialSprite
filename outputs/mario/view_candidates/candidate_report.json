@@ -1,0 +1,7 @@
+{
+  "schema": "spritespatial_view_candidate_report_v1",
+  "asset_name": "mario",
+  "source_sheet": "C:\\dev\\SpatialSprite\\assets\\raw\\SNES - Super Mario World - Playable Characters - Mario.png",
+  "candidate_count": 24,
+  "note": "Candidate extraction is heuristic; user selection is still authoritative."
+}

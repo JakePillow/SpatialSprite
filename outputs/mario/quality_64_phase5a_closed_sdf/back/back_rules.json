@@ -1,0 +1,19 @@
+{
+  "mode": "semantic_rules",
+  "front_back_sprite_deferred": false,
+  "back_sprite_path": "C:\\dev\\SpatialSprite\\assets\\samples\\mario\\mario_back.png",
+  "scales": {
+    "outline": 0.12,
+    "head": 1.0,
+    "hair/hat": 1.2,
+    "torso": 0.85,
+    "left_arm": 1.0,
+    "left_leg": 0.9,
+    "right_leg": 0.9
+  },
+  "z_back_min": -0.4487932026386261,
+  "z_back_max": 0.0,
+  "same_silhouette_seam": true,
+  "missing_critical_back_regions": [],
+  "back_region_exceeds_configured_max_depth": false
+}

@@ -1,0 +1,354 @@
+{
+  "rankings": [
+    {
+      "candidate_id": 128,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, but unclear view."
+    },
+    {
+      "candidate_id": 129,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, but unclear view."
+    },
+    {
+      "candidate_id": 130,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, but unclear view."
+    },
+    {
+      "candidate_id": 131,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, but unclear view."
+    },
+    {
+      "candidate_id": 133,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 134,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 135,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 136,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 137,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 138,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 139,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 140,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 141,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 142,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 143,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 144,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 145,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 146,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 147,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 148,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 150,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 151,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 152,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 154,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 155,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 156,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 157,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 158,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 159,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 160,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 161,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 162,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 163,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 164,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 167,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 168,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 169,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 170,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 171,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 172,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 173,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 174,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 175,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 181,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 182,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 183,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 184,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 185,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 186,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 187,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    }
+  ]
+}

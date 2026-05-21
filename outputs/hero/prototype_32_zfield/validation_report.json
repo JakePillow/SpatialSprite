@@ -1,0 +1,90 @@
+{
+  "total_faces": 1798,
+  "faces_with_fallback_material": 0,
+  "fallback_face_percentage": 0.0,
+  "number_of_materials": 49,
+  "occupied_voxels": 727,
+  "transparent_pixels_ignored": 497,
+  "alpha_coverage": 0.3528645833333333,
+  "regions_generated": 64,
+  "final_mesh_bounds": {
+    "min": [
+      -0.4000000000000001,
+      0.10000000000000009,
+      -0.25
+    ],
+    "max": [
+      0.39999999999999997,
+      1.1500000000000001,
+      0.29999999999999993
+    ],
+    "size": [
+      0.8,
+      1.05,
+      0.5499999999999999
+    ]
+  },
+  "front_projection_coverage": 0.3528645833333333,
+  "part_count": 7,
+  "zfield_enabled": true,
+  "primitive_enabled": true,
+  "primitive_count_by_type": {
+    "shell": 1,
+    "ellipsoid": 1,
+    "rounded_cuboid": 1,
+    "tapered_prism": 4
+  },
+  "average_region_depth": 0.3610424949098699,
+  "min_max_depth_by_region": {
+    "0": {
+      "min": 0.030975000000000003,
+      "max": 0.05600000000000001
+    },
+    "1": {
+      "min": 0.5923507953899576,
+      "max": 0.7986485004974666
+    },
+    "2": {
+      "min": 0.279,
+      "max": 0.6176319444444445
+    },
+    "3": {
+      "min": 0.16091653722811114,
+      "max": 0.52
+    },
+    "4": {
+      "min": 0.1758165401554459,
+      "max": 0.4744999999999999
+    },
+    "5": {
+      "min": 0.14351972491901807,
+      "max": 0.4992000000000001
+    },
+    "6": {
+      "min": 0.18750157610387846,
+      "max": 0.4890666666666667
+    }
+  },
+  "outline_shell_voxel_count": 146,
+  "malformed_region_count": 0,
+  "fallback_primitive_count": 0,
+  "semantic_warning_counts": {
+    "disconnected_body_parts": 5,
+    "tiny_orphan_regions": 2,
+    "ambiguous_assignment": 1,
+    "outline_regions_merged_into_body": 0,
+    "left_right_confusion": 0,
+    "torso_head_overlap": 1,
+    "equipment_merged_into_body": 0,
+    "depth_discontinuities": 0
+  },
+  "fail_conditions": {
+    "fallback_faces_above_1_percent": false,
+    "generated_mesh_has_zero_faces": false,
+    "no_regions_generated": false,
+    "opaque_regions_receive_zero_depth": false,
+    "outline_becomes_full_depth_slab": false,
+    "fallback_primitives_above_10_percent": false
+  },
+  "passed": true
+}

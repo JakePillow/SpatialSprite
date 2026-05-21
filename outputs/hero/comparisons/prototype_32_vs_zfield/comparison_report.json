@@ -1,0 +1,219 @@
+{
+  "schema": "spritespatial_phase2_comparison_v1",
+  "baseline_dir": "res://outputs/hero/prototype_32",
+  "zfield_dir": "res://outputs/hero/prototype_32_zfield",
+  "comparison_images": {
+    "0": "res://outputs/hero/comparisons/prototype_32_vs_zfield/side_by_side_0.png",
+    "45": "res://outputs/hero/comparisons/prototype_32_vs_zfield/side_by_side_45.png",
+    "90": "res://outputs/hero/comparisons/prototype_32_vs_zfield/side_by_side_90.png",
+    "135": "res://outputs/hero/comparisons/prototype_32_vs_zfield/side_by_side_135.png",
+    "180": "res://outputs/hero/comparisons/prototype_32_vs_zfield/side_by_side_180.png"
+  },
+  "metrics": {
+    "baseline": {
+      "passed": true,
+      "faces": 3500,
+      "voxels": 3834,
+      "fallback_or_black_face_percentage": 0.004571428571428572,
+      "front_coverage": 0.3528645833333333,
+      "bounds": [
+        1.2000000000000002,
+        1.6,
+        0.6
+      ]
+    },
+    "zfield": {
+      "passed": true,
+      "faces": 1798,
+      "voxels": 727,
+      "fallback_or_black_face_percentage": 0.0,
+      "front_coverage": 0.3528645833333333,
+      "bounds": [
+        0.8,
+        1.05,
+        0.5499999999999999
+      ],
+      "average_region_depth": 0.3610424949098699,
+      "outline_shell_voxel_count": 146
+    }
+  },
+  "primitive_counts": {
+    "shell": 1,
+    "ellipsoid": 1,
+    "rounded_cuboid": 1,
+    "tapered_prism": 4
+  },
+  "semantic_warning_counts": {
+    "disconnected_body_parts": 5,
+    "tiny_orphan_regions": 2,
+    "ambiguous_assignment": 1,
+    "outline_regions_merged_into_body": 0,
+    "left_right_confusion": 0,
+    "torso_head_overlap": 1,
+    "equipment_merged_into_body": 0,
+    "depth_discontinuities": 0
+  },
+  "primitive_assignments": [
+    {
+      "part_id": 0,
+      "name": "outline",
+      "semantic_label": "outline",
+      "primitive_type": "shell",
+      "zfield_profile": "shell",
+      "local_depth": 0.14,
+      "z_offset": 0.42,
+      "smoothing_policy": "rim_only",
+      "boundary_policy": "outline_shell",
+      "fallback": false,
+      "pixel_count": 146,
+      "bbox": [
+        4,
+        9,
+        20,
+        30
+      ]
+    },
+    {
+      "part_id": 1,
+      "name": "head",
+      "semantic_label": "head",
+      "primitive_type": "ellipsoid",
+      "zfield_profile": "ellipsoid",
+      "local_depth": 0.82,
+      "z_offset": 0.12,
+      "smoothing_policy": "semantic_blend",
+      "boundary_policy": "soft_boundary",
+      "fallback": false,
+      "pixel_count": 4,
+      "bbox": [
+        10,
+        13,
+        14,
+        14
+      ]
+    },
+    {
+      "part_id": 2,
+      "name": "torso",
+      "semantic_label": "torso",
+      "primitive_type": "rounded_cuboid",
+      "zfield_profile": "rounded",
+      "local_depth": 0.62,
+      "z_offset": 0.0,
+      "smoothing_policy": "semantic_blend",
+      "boundary_policy": "soft_boundary",
+      "fallback": false,
+      "pixel_count": 47,
+      "bbox": [
+        7,
+        10,
+        16,
+        22
+      ]
+    },
+    {
+      "part_id": 3,
+      "name": "left_arm",
+      "semantic_label": "left_arm",
+      "primitive_type": "tapered_prism",
+      "zfield_profile": "tapered",
+      "local_depth": 0.52,
+      "z_offset": 0.08,
+      "smoothing_policy": "limb_taper",
+      "boundary_policy": "soft_boundary",
+      "fallback": false,
+      "pixel_count": 11,
+      "bbox": [
+        5,
+        16,
+        10,
+        26
+      ]
+    },
+    {
+      "part_id": 4,
+      "name": "right_arm",
+      "semantic_label": "right_arm",
+      "primitive_type": "tapered_prism",
+      "zfield_profile": "tapered",
+      "local_depth": 0.52,
+      "z_offset": 0.08,
+      "smoothing_policy": "limb_taper",
+      "boundary_policy": "soft_boundary",
+      "fallback": false,
+      "pixel_count": 10,
+      "bbox": [
+        15,
+        17,
+        19,
+        26
+      ]
+    },
+    {
+      "part_id": 5,
+      "name": "left_leg",
+      "semantic_label": "left_leg",
+      "primitive_type": "tapered_prism",
+      "zfield_profile": "tapered",
+      "local_depth": 0.56,
+      "z_offset": -0.04,
+      "smoothing_policy": "limb_taper",
+      "boundary_policy": "soft_boundary",
+      "fallback": false,
+      "pixel_count": 28,
+      "bbox": [
+        5,
+        20,
+        14,
+        28
+      ]
+    },
+    {
+      "part_id": 6,
+      "name": "right_leg",
+      "semantic_label": "right_leg",
+      "primitive_type": "tapered_prism",
+      "zfield_profile": "tapered",
+      "local_depth": 0.56,
+      "z_offset": -0.04,
+      "smoothing_policy": "limb_taper",
+      "boundary_policy": "soft_boundary",
+      "fallback": false,
+      "pixel_count": 25,
+      "bbox": [
+        10,
+        20,
+        19,
+        27
+      ]
+    }
+  ],
+  "assessment": {
+    "side_profile": {
+      "improved": true,
+      "reason": "Phase 2 reduced occupied voxels from 3834 to 727 while keeping depth span 0.550 vs baseline 0.600."
+    },
+    "head_torso_limb_volume": {
+      "improved": true,
+      "reason": "Primitive mix is {'shell': 1, 'ellipsoid': 1, 'rounded_cuboid': 1, 'tapered_prism': 4}; head/torso/limbs are no longer all cuboid/flat."
+    },
+    "outline_shell": {
+      "controlled": true,
+      "reason": "Outline shell voxels 146; outline source pixels 146."
+    },
+    "budget": {
+      "within_budget": true,
+      "reason": "Phase 2 faces 1798; baseline faces 3500; profile budget treated as 4000."
+    },
+    "front_readability": {
+      "preserved": true,
+      "reason": "Baseline alpha coverage 0.3529; Phase 2 front projection 0.3529."
+    },
+    "worsened_parts": [
+      "semantic labels remain disconnected in source decomposition",
+      "torso/head semantic overlap remains"
+    ],
+    "overall_verdict": "better_with_caveats"
+  },
+  "verdict": "better_with_caveats"
+}

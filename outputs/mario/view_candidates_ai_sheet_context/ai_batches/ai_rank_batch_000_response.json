@@ -1,0 +1,72 @@
+{
+  "id": "resp_0cdca412c55a2a93006a0ebe2e217c81a2a82b9865d8cd7e3c",
+  "object": "response",
+  "created_at": 1779351086,
+  "status": "completed",
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1779351137,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "model": "gpt-4o-mini-2024-07-18",
+  "moderation": null,
+  "output": [
+    {
+      "id": "msg_0cdca412c55a2a93006a0ebe30c65481a2ab5763b712ea76eb",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\n  \"rankings\": [\n    {\n      \"candidate_id\": 0,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 1,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 29,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 30,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 46,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 47,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 48,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 49,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 50,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 51,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 52,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 53,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 54,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 55,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 56,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 57,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 58,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 59,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 60,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 61,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 62,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 3,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 4,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 5,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 6,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 7,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 8,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 2,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 36,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 37,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 38,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 39,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 40,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 41,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 42,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 43,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 44,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.65,\n      \"reason\": \"Less confident but still clear standing pose.\"\n    },\n    {\n      \"candidate_id\": 9,\n      \"view\": \"unknown\",\n      \"pose\": \"other\",\n      \"confidence\": 0.65,\n      \"reason\": \"Pose is unclear, possibly special or a duplicate.\"\n    },\n    {\n      \"candidate_id\": 10,\n      \"view\": \"unknown\",\n      \"pose\": \"other\",\n      \"confidence\": 0.65,\n      \"reason\": \"Pose is unclear, possibly special or a duplicate.\"\n    },\n    {\n      \"candidate_id\": 11,\n      \"view\": \"unknown\",\n      \"pose\": \"other\",\n      \"confidence\": 0.65,\n      \"reason\": \"Pose is unclear, possibly special or a duplicate.\"\n    },\n    {\n      \"candidate_id\": 12,\n      \"view\": \"unknown\",\n      \"pose\": \"other\",\n      \"confidence\": 0.65,\n      \"reason\": \"Pose is unclear, possibly special or a duplicate.\"\n    },\n    {\n      \"candidate_id\": 13,\n      \"view\": \"unknown\",\n      \"pose\": \"other\",\n      \"confidence\": 0.65,\n      \"reason\": \"Pose is unclear, possibly special or a duplicate.\"\n    },\n    {\n      \"candidate_id\": 14,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    },\n    {\n      \"candidate_id\": 15,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body stance, front view.\"\n    }\n  ]\n}"
+        }
+      ],
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "in_memory",
+  "reasoning": {
+    "effort": null,
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "json_object"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 1.0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 54583,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 2095,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 56678
+  },
+  "user": null,
+  "metadata": {}
+}

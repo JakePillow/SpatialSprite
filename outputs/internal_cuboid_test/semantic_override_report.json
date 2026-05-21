@@ -1,0 +1,17 @@
+{
+  "schema": "spritespatial_semantic_override_report_v1",
+  "mode": "supplement",
+  "override_dir": "",
+  "loaded_masks": {},
+  "missing_masks": [],
+  "dimension_mismatches": [],
+  "override_pixels_applied": 0,
+  "override_overlap_count": 0,
+  "overlap_pixels": [],
+  "passed": true,
+  "failures": [],
+  "unlabelled_opaque_pixel_ratio": 0.0,
+  "critical_label_coverage": {},
+  "torso_head_overlap_count_after_override": 0,
+  "disconnected_critical_labels_after_override": 0
+}

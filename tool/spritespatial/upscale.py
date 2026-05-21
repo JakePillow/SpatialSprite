@@ -299,7 +299,11 @@ def _get_pixel(pixels: Any, width: int, height: int, x: int, y: int) -> tuple[in
 
 
 def _palette(image: Image.Image) -> set[tuple[int, int, int, int]]:
-    return set(image.convert("RGBA").getdata())
+    data = image.convert("RGBA").tobytes()
+    return {
+        (data[index], data[index + 1], data[index + 2], data[index + 3])
+        for index in range(0, len(data), 4)
+    }
 
 
 def _alpha_silhouette_similarity(

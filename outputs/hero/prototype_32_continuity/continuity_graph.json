@@ -1,0 +1,167 @@
+{
+  "schema": "spritespatial_continuity_graph_v1",
+  "edges": [
+    {
+      "source_part_id": 0,
+      "target_part_id": 1,
+      "source_name": "outline",
+      "target_name": "head",
+      "contact_length": 12,
+      "overlap_zones": 0,
+      "semantic_compatibility": 0.48,
+      "continuity_strength": 0.48,
+      "policy": "shell_attach"
+    },
+    {
+      "source_part_id": 0,
+      "target_part_id": 2,
+      "source_name": "outline",
+      "target_name": "torso",
+      "contact_length": 142,
+      "overlap_zones": 0,
+      "semantic_compatibility": 0.48,
+      "continuity_strength": 0.48,
+      "policy": "shell_attach"
+    },
+    {
+      "source_part_id": 0,
+      "target_part_id": 3,
+      "source_name": "outline",
+      "target_name": "left_arm",
+      "contact_length": 48,
+      "overlap_zones": 0,
+      "semantic_compatibility": 0.48,
+      "continuity_strength": 0.48,
+      "policy": "shell_attach"
+    },
+    {
+      "source_part_id": 0,
+      "target_part_id": 4,
+      "source_name": "outline",
+      "target_name": "right_arm",
+      "contact_length": 38,
+      "overlap_zones": 0,
+      "semantic_compatibility": 0.48,
+      "continuity_strength": 0.48,
+      "policy": "shell_attach"
+    },
+    {
+      "source_part_id": 0,
+      "target_part_id": 5,
+      "source_name": "outline",
+      "target_name": "left_leg",
+      "contact_length": 72,
+      "overlap_zones": 0,
+      "semantic_compatibility": 0.48,
+      "continuity_strength": 0.48,
+      "policy": "shell_attach"
+    },
+    {
+      "source_part_id": 0,
+      "target_part_id": 6,
+      "source_name": "outline",
+      "target_name": "right_leg",
+      "contact_length": 60,
+      "overlap_zones": 0,
+      "semantic_compatibility": 0.48,
+      "continuity_strength": 0.48,
+      "policy": "shell_attach"
+    },
+    {
+      "source_part_id": 1,
+      "target_part_id": 2,
+      "source_name": "head",
+      "target_name": "torso",
+      "contact_length": 8,
+      "overlap_zones": 4,
+      "semantic_compatibility": 0.82,
+      "continuity_strength": 0.72,
+      "policy": "bridge"
+    },
+    {
+      "source_part_id": 2,
+      "target_part_id": 3,
+      "source_name": "torso",
+      "target_name": "left_arm",
+      "contact_length": 6,
+      "overlap_zones": 3,
+      "semantic_compatibility": 0.82,
+      "continuity_strength": 0.72,
+      "policy": "bridge"
+    },
+    {
+      "source_part_id": 2,
+      "target_part_id": 4,
+      "source_name": "torso",
+      "target_name": "right_arm",
+      "contact_length": 4,
+      "overlap_zones": 2,
+      "semantic_compatibility": 0.82,
+      "continuity_strength": 0.72,
+      "policy": "bridge"
+    },
+    {
+      "source_part_id": 2,
+      "target_part_id": 5,
+      "source_name": "torso",
+      "target_name": "left_leg",
+      "contact_length": 1,
+      "overlap_zones": 0,
+      "semantic_compatibility": 0.82,
+      "continuity_strength": 0.72,
+      "policy": "bridge"
+    },
+    {
+      "source_part_id": 2,
+      "target_part_id": 6,
+      "source_name": "torso",
+      "target_name": "right_leg",
+      "contact_length": 1,
+      "overlap_zones": 0,
+      "semantic_compatibility": 0.82,
+      "continuity_strength": 0.72,
+      "policy": "bridge"
+    },
+    {
+      "source_part_id": 3,
+      "target_part_id": 5,
+      "source_name": "left_arm",
+      "target_name": "left_leg",
+      "contact_length": 2,
+      "overlap_zones": 1,
+      "semantic_compatibility": 0.15,
+      "continuity_strength": 0.024999999999999998,
+      "policy": "preserve_gap"
+    },
+    {
+      "source_part_id": 4,
+      "target_part_id": 6,
+      "source_name": "right_arm",
+      "target_name": "right_leg",
+      "contact_length": 2,
+      "overlap_zones": 1,
+      "semantic_compatibility": 0.15,
+      "continuity_strength": 0.024999999999999998,
+      "policy": "preserve_gap"
+    },
+    {
+      "source_part_id": 5,
+      "target_part_id": 6,
+      "source_name": "left_leg",
+      "target_name": "right_leg",
+      "contact_length": 14,
+      "overlap_zones": 7,
+      "semantic_compatibility": 0.15,
+      "continuity_strength": 0.15,
+      "policy": "preserve_gap"
+    }
+  ],
+  "summary": {
+    "edge_count": 14,
+    "policy_counts": {
+      "shell_attach": 6,
+      "bridge": 5,
+      "preserve_gap": 3
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "spritespatial_surface_nets_bridge_v1",
+  "meshing_backend_used": "placeholder",
+  "surface_nets_input_loadable": true,
+  "surface_nets_input_shape_valid": true,
+  "sdf_dtype": "float32",
+  "semantic_dtype": "int32",
+  "grid_dimensions": [
+    32,
+    24,
+    25
+  ],
+  "semantic_label_count": 9,
+  "sdf_min": -4.690415859222412,
+  "sdf_max": 15.68438720703125,
+  "estimated_cell_crossings": 2160
+}

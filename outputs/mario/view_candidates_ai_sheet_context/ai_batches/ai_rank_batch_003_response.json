@@ -1,0 +1,72 @@
+{
+  "id": "resp_0bcfa5291c785d4b006a0ebeccd4d88190a688e93d383b776d",
+  "object": "response",
+  "created_at": 1779351244,
+  "status": "completed",
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1779351312,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "model": "gpt-4o-mini-2024-07-18",
+  "moderation": null,
+  "output": [
+    {
+      "id": "msg_0bcfa5291c785d4b006a0ebed2d38c8190bd90e93c7fbb3718",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\n  \"rankings\": [\n    {\n      \"candidate_id\": 201,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear front-facing idle pose.\"\n    },\n    {\n      \"candidate_id\": 202,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear front-facing idle pose.\"\n    },\n    {\n      \"candidate_id\": 203,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear front-facing idle pose.\"\n    },\n    {\n      \"candidate_id\": 204,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear front-facing idle pose.\"\n    },\n    {\n      \"candidate_id\": 205,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear front-facing idle pose.\"\n    },\n    {\n      \"candidate_id\": 206,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear front-facing idle pose.\"\n    },\n    {\n      \"candidate_id\": 207,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear front-facing idle pose.\"\n    },\n    {\n      \"candidate_id\": 208,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear front-facing idle pose.\"\n    },\n    {\n      \"candidate_id\": 209,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear front-facing idle pose.\"\n    },\n    {\n      \"candidate_id\": 210,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear front-facing idle pose.\"\n    },\n    {\n      \"candidate_id\": 211,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear front-facing idle pose.\"\n    },\n    {\n      \"candidate_id\": 212,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear front-facing idle pose.\"\n    },\n    {\n      \"candidate_id\": 213,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear front-facing idle pose.\"\n    },\n    {\n      \"candidate_id\": 214,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear front-facing idle pose.\"\n    },\n    {\n      \"candidate_id\": 215,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear front-facing idle pose.\"\n    },\n    {\n      \"candidate_id\": 216,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear front-facing idle pose.\"\n    },\n    {\n      \"candidate_id\": 217,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear front-facing idle pose.\"\n    },\n    {\n      \"candidate_id\": 218,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear front-facing idle pose.\"\n    },\n    {\n      \"candidate_id\": 219,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear front-facing idle pose.\"\n    },\n    {\n      \"candidate_id\": 220,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear front-facing idle pose.\"\n    },\n    {\n      \"candidate_id\": 221,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear front-facing idle pose.\"\n    },\n    {\n      \"candidate_id\": 222,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear front-facing idle pose.\"\n    },\n    {\n      \"candidate_id\": 223,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear front-facing idle pose.\"\n    },\n    {\n      \"candidate_id\": 230,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear front-facing idle pose.\"\n    },\n    {\n      \"candidate_id\": 231,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear front-facing idle pose.\"\n    },\n    {\n      \"candidate_id\": 232,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear front-facing idle pose.\"\n    },\n    {\n      \"candidate_id\": 253,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear front-facing idle pose.\"\n    },\n    {\n      \"candidate_id\": 242,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear front-facing idle pose.\"\n    },\n    {\n      \"candidate_id\": 243,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear front-facing idle pose.\"\n    },\n    {\n      \"candidate_id\": 250,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear front-facing idle pose.\"\n    },\n    {\n      \"candidate_id\": 194,\n      \"view\": \"unknown\",\n      \"pose\": \"other\",\n      \"confidence\": 0.4,\n      \"reason\": \"Incomplete crop with unclear pose.\"\n    },\n    {\n      \"candidate_id\": 193,\n      \"view\": \"unknown\",\n      \"pose\": \"other\",\n      \"confidence\": 0.4,\n      \"reason\": \"Incomplete crop with unclear pose.\"\n    },\n    {\n      \"candidate_id\": 195,\n      \"view\": \"unknown\",\n      \"pose\": \"other\",\n      \"confidence\": 0.4,\n      \"reason\": \"Incomplete crop with unclear pose.\"\n    },\n    {\n      \"candidate_id\": 196,\n      \"view\": \"unknown\",\n      \"pose\": \"other\",\n      \"confidence\": 0.4,\n      \"reason\": \"Incomplete crop with unclear pose.\"\n    },\n    {\n      \"candidate_id\": 197,\n      \"view\": \"unknown\",\n      \"pose\": \"other\",\n      \"confidence\": 0.4,\n      \"reason\": \"Incomplete crop with unclear pose.\"\n    },\n    {\n      \"candidate_id\": 198,\n      \"view\": \"unknown\",\n      \"pose\": \"other\",\n      \"confidence\": 0.75,\n      \"reason\": \"Clear standing pose but lacks full context.\"\n    },\n    {\n      \"candidate_id\": 199,\n      \"view\": \"unknown\",\n      \"pose\": \"other\",\n      \"confidence\": 0.75,\n      \"reason\": \"Clear standing pose but lacks full context.\"\n    }\n  ]\n}"
+        }
+      ],
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "in_memory",
+  "reasoning": {
+    "effort": null,
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "json_object"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 1.0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 54711,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 1717,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 56428
+  },
+  "user": null,
+  "metadata": {}
+}

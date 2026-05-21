@@ -1,0 +1,72 @@
+{
+  "id": "resp_030e725bdbef777a006a0eb9e0b15c81a2833461ea2f0dff6a",
+  "object": "response",
+  "created_at": 1779349984,
+  "status": "completed",
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1779350030,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "model": "gpt-4o-mini-2024-07-18",
+  "moderation": null,
+  "output": [
+    {
+      "id": "msg_030e725bdbef777a006a0eb9e5f26881a2971320f7ee74b541",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\n  \"rankings\": [\n    {\n      \"candidate_id\": 256,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 258,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 259,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 260,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 261,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 262,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 263,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 264,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 265,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 266,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 267,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 268,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 269,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 270,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 271,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 274,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 275,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 276,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 291,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 292,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 293,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 294,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 295,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 296,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 297,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 298,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 299,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 300,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 301,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 302,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 303,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 308,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 309,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 310,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 311,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 312,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 313,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 314,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 315,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 316,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 317,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 318,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    },\n    {\n      \"candidate_id\": 319,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Full-body standing frame, clear view.\"\n    }\n  ]\n}"
+        }
+      ],
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "in_memory",
+  "reasoning": {
+    "effort": null,
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "json_object"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 1.0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 29094,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 2075,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 31169
+  },
+  "user": null,
+  "metadata": {}
+}

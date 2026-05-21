@@ -1,7 +1,7 @@
 extends Node3D
 
 @export var model_data_path := "res://outputs/link_topological/topological_model.json"
-@export_enum("final_model", "semantic_regions", "semantic_depth", "occupancy", "raw_voxels", "merged_cuboids", "outline_only", "unknown_regions") var render_mode := "final_model"
+@export_enum("final_mesh", "final_model", "semantic_regions", "semantic_depth", "zfield_heatmap", "primitive_assignment", "occupancy_slices", "outline_shell", "continuity_overlay", "bridge_debug", "side_silhouette_debug", "shell_overlap_debug", "smoothing_before", "smoothing_after", "silhouette_drift", "boundary_preservation", "occupancy", "raw_voxels", "merged_cuboids", "outline_only", "unknown_regions") var render_mode := "final_mesh"
 @export var show_source_reference := true
 @export var show_region_debug := false
 @export var show_depth_debug := false
@@ -26,6 +26,18 @@ var _semantic_depth_card: Sprite3D
 var _occupancy_card: Sprite3D
 var _outline_card: Sprite3D
 var _unknown_card: Sprite3D
+var _zfield_card: Sprite3D
+var _primitive_card: Sprite3D
+var _occupancy_slices_card: Sprite3D
+var _outline_shell_card: Sprite3D
+var _continuity_card: Sprite3D
+var _bridge_card: Sprite3D
+var _side_silhouette_card: Sprite3D
+var _shell_overlap_card: Sprite3D
+var _smoothing_before_card: Sprite3D
+var _smoothing_after_card: Sprite3D
+var _silhouette_drift_card: Sprite3D
+var _boundary_preservation_card: Sprite3D
 
 
 func _ready() -> void:
@@ -69,6 +81,18 @@ func _build_view() -> void:
     _occupancy_card = _create_card("SemanticOccupancy", str(_model_data.get("semantic_occupancy", "")), Vector3(1.25, y_offset, 0.0), pixel_size)
     _outline_card = _create_card("SemanticOutlineOnly", str(_model_data.get("semantic_outline_only", "")), Vector3(1.25, y_offset, 0.0), pixel_size)
     _unknown_card = _create_card("SemanticUnknownRegions", str(_model_data.get("semantic_unknown_regions", "")), Vector3(1.25, y_offset, 0.0), pixel_size)
+    _zfield_card = _create_card("ZFieldHeatmap", str(_model_data.get("zfield_heatmap", "")), Vector3(1.25, y_offset, 0.0), pixel_size)
+    _primitive_card = _create_card("PrimitiveAssignment", str(_model_data.get("primitive_assignment", "")), Vector3(1.25, y_offset, 0.0), pixel_size)
+    _occupancy_slices_card = _create_card("OccupancySlices", str(_model_data.get("occupancy_slices", "")), Vector3(1.25, y_offset, 0.0), pixel_size)
+    _outline_shell_card = _create_card("OutlineShell", str(_model_data.get("outline_shell", "")), Vector3(1.25, y_offset, 0.0), pixel_size)
+    _continuity_card = _create_card("ContinuityOverlay", str(_model_data.get("continuity_overlay", "")), Vector3(1.25, y_offset, 0.0), pixel_size)
+    _bridge_card = _create_card("BridgeDebug", str(_model_data.get("bridge_debug", "")), Vector3(1.25, y_offset, 0.0), pixel_size)
+    _side_silhouette_card = _create_card("SideSilhouetteDebug", str(_model_data.get("side_silhouette_debug", "")), Vector3(1.25, y_offset, 0.0), pixel_size)
+    _shell_overlap_card = _create_card("ShellOverlapDebug", str(_model_data.get("shell_overlap_debug", "")), Vector3(1.25, y_offset, 0.0), pixel_size)
+    _smoothing_before_card = _create_card("SmoothingBefore", str(_model_data.get("smoothing_before", "")), Vector3(1.25, y_offset, 0.0), pixel_size)
+    _smoothing_after_card = _create_card("SmoothingAfter", str(_model_data.get("smoothing_after", "")), Vector3(1.25, y_offset, 0.0), pixel_size)
+    _silhouette_drift_card = _create_card("SilhouetteDrift", str(_model_data.get("silhouette_drift", "")), Vector3(1.25, y_offset, 0.0), pixel_size)
+    _boundary_preservation_card = _create_card("BoundaryPreservation", str(_model_data.get("boundary_preservation", "")), Vector3(1.25, y_offset, 0.0), pixel_size)
 
     _raw_voxels = _create_mesh_instance("Stage3RawPartVolumes", Vector3(0.0, 0.0, 0.0), 0.42)
     _generated_model = Node3D.new()
@@ -165,14 +189,38 @@ func _apply_toggles() -> void:
         _outline_card.visible = render_mode == "outline_only"
     if _unknown_card:
         _unknown_card.visible = render_mode == "unknown_regions"
+    if _zfield_card:
+        _zfield_card.visible = render_mode == "zfield_heatmap"
+    if _primitive_card:
+        _primitive_card.visible = render_mode == "primitive_assignment"
+    if _occupancy_slices_card:
+        _occupancy_slices_card.visible = render_mode == "occupancy_slices"
+    if _outline_shell_card:
+        _outline_shell_card.visible = render_mode == "outline_shell"
+    if _continuity_card:
+        _continuity_card.visible = render_mode == "continuity_overlay"
+    if _bridge_card:
+        _bridge_card.visible = render_mode == "bridge_debug"
+    if _side_silhouette_card:
+        _side_silhouette_card.visible = render_mode == "side_silhouette_debug"
+    if _shell_overlap_card:
+        _shell_overlap_card.visible = render_mode == "shell_overlap_debug"
+    if _smoothing_before_card:
+        _smoothing_before_card.visible = render_mode == "smoothing_before"
+    if _smoothing_after_card:
+        _smoothing_after_card.visible = render_mode == "smoothing_after"
+    if _silhouette_drift_card:
+        _silhouette_drift_card.visible = render_mode == "silhouette_drift"
+    if _boundary_preservation_card:
+        _boundary_preservation_card.visible = render_mode == "boundary_preservation"
     if _raw_voxels:
         _raw_voxels.visible = show_raw_voxels or render_mode == "raw_voxels"
         _raw_voxels.rotation.y = _angle
     if _generated_model:
-        _generated_model.visible = show_final_model and render_mode in ["final_model", "merged_cuboids"]
+        _generated_model.visible = show_final_model and render_mode in ["final_mesh", "final_model", "merged_cuboids"]
         _generated_model.rotation.y = _angle
     if _final_mesh:
-        _final_mesh.visible = show_final_model and render_mode in ["final_model", "merged_cuboids"]
+        _final_mesh.visible = show_final_model and render_mode in ["final_mesh", "final_model", "merged_cuboids"]
 
 
 func _update_camera() -> void:

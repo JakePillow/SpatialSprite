@@ -1,0 +1,5781 @@
+{
+  "schema": "spritespatial_view_candidates_v2",
+  "asset": "C:\\dev\\SpatialSprite\\assets\\samples\\mario\\spriteasset_v1.json",
+  "sheet": "C:\\dev\\SpatialSprite\\assets\\raw\\SNES - Super Mario World - Playable Characters - Mario.png",
+  "candidate_count": 320,
+  "candidate_dir": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates",
+  "candidate_contact_sheet": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidate_contact_sheet.png",
+  "ai_rank_requested": true,
+  "ai_rank_completed": true,
+  "copy_performed": false,
+  "validation": {
+    "candidate_files_exist": true,
+    "candidate_files_have_alpha": true,
+    "no_source_overwrite_without_confirm_copy": true
+  },
+  "ai_sheet_context_enabled": true,
+  "candidates": [
+    {
+      "candidate_id": 0,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_000.png",
+      "bbox": [
+        74,
+        48,
+        95,
+        75
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1125,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 1,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_001.png",
+      "bbox": [
+        698,
+        48,
+        719,
+        75
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.11458333333333333,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 2,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_002.png",
+      "bbox": [
+        22,
+        49,
+        42,
+        75
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.10260416666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 3,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_003.png",
+      "bbox": [
+        177,
+        49,
+        198,
+        74
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.10885416666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 4,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_004.png",
+      "bbox": [
+        229,
+        49,
+        250,
+        74
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.10885416666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 5,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_005.png",
+      "bbox": [
+        282,
+        49,
+        302,
+        75
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.10260416666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 6,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_006.png",
+      "bbox": [
+        333,
+        49,
+        355,
+        74
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.11302083333333333,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 7,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_007.png",
+      "bbox": [
+        385,
+        49,
+        407,
+        74
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.11302083333333333,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 8,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_008.png",
+      "bbox": [
+        438,
+        49,
+        459,
+        75
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1078125,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 9,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_009.png",
+      "bbox": [
+        495,
+        51,
+        522,
+        78
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.12708333333333333,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 10,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_010.png",
+      "bbox": [
+        125,
+        55,
+        146,
+        75
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.08229166666666667,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 11,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_011.png",
+      "bbox": [
+        548,
+        60,
+        573,
+        82
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1203125,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 12,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_012.png",
+      "bbox": [
+        600,
+        60,
+        625,
+        82
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1203125,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 13,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_013.png",
+      "bbox": [
+        651,
+        61,
+        677,
+        82
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.11614583333333334,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 14,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_014.png",
+      "bbox": [
+        73,
+        110,
+        95,
+        138
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.12552083333333333,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 15,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_015.png",
+      "bbox": [
+        125,
+        111,
+        147,
+        137
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.12395833333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 16,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_016.png",
+      "bbox": [
+        697,
+        112,
+        719,
+        139
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1359375,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 17,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_017.png",
+      "bbox": [
+        22,
+        113,
+        42,
+        139
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.11354166666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 18,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_018.png",
+      "bbox": [
+        178,
+        113,
+        199,
+        139
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.10416666666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 19,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_019.png",
+      "bbox": [
+        230,
+        113,
+        250,
+        139
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.10260416666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 20,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_020.png",
+      "bbox": [
+        282,
+        113,
+        302,
+        139
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.11354166666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 21,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_021.png",
+      "bbox": [
+        334,
+        113,
+        354,
+        139
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.10260416666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 22,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_022.png",
+      "bbox": [
+        386,
+        113,
+        406,
+        139
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.109375,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 23,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_023.png",
+      "bbox": [
+        437,
+        113,
+        458,
+        138
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.10885416666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 24,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_024.png",
+      "bbox": [
+        489,
+        113,
+        511,
+        139
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.11510416666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 25,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_025.png",
+      "bbox": [
+        541,
+        113,
+        563,
+        137
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.103125,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 26,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_026.png",
+      "bbox": [
+        594,
+        113,
+        615,
+        138
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.10260416666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 27,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_027.png",
+      "bbox": [
+        646,
+        113,
+        667,
+        139
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.10416666666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 28,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_028.png",
+      "bbox": [
+        473,
+        145,
+        505,
+        163
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1328125,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "jump_or_special"
+    },
+    {
+      "candidate_id": 29,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_029.png",
+      "bbox": [
+        73,
+        189,
+        95,
+        216
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.121875,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 30,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_030.png",
+      "bbox": [
+        489,
+        189,
+        510,
+        215
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1109375,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 31,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_031.png",
+      "bbox": [
+        542,
+        189,
+        562,
+        216
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.10208333333333333,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 32,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_032.png",
+      "bbox": [
+        593,
+        189,
+        614,
+        213
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.10729166666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 33,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_033.png",
+      "bbox": [
+        697,
+        189,
+        718,
+        215
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1109375,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 34,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_034.png",
+      "bbox": [
+        749,
+        189,
+        773,
+        215
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.11614583333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 35,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_035.png",
+      "bbox": [
+        801,
+        189,
+        823,
+        215
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.11614583333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 36,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_036.png",
+      "bbox": [
+        21,
+        190,
+        42,
+        216
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.10989583333333333,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 37,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_037.png",
+      "bbox": [
+        177,
+        190,
+        198,
+        215
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.11302083333333333,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 38,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_038.png",
+      "bbox": [
+        229,
+        190,
+        250,
+        215
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.11302083333333333,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 39,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_039.png",
+      "bbox": [
+        281,
+        190,
+        302,
+        216
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.10989583333333333,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 40,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_040.png",
+      "bbox": [
+        333,
+        190,
+        355,
+        214
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1046875,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 41,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_041.png",
+      "bbox": [
+        385,
+        190,
+        407,
+        215
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.109375,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 42,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_042.png",
+      "bbox": [
+        437,
+        190,
+        459,
+        216
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.11302083333333333,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 43,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_043.png",
+      "bbox": [
+        645,
+        190,
+        666,
+        216
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1109375,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 44,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_044.png",
+      "bbox": [
+        125,
+        194,
+        147,
+        216
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.10052083333333334,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 45,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_045.png",
+      "bbox": [
+        5,
+        222,
+        45,
+        240
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.16458333333333333,
+      "complete_score": 0.4,
+      "deterministic_pose_hint": "jump_or_special"
+    },
+    {
+      "candidate_id": 46,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_046.png",
+      "bbox": [
+        698,
+        258,
+        719,
+        292
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.15520833333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 47,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_047.png",
+      "bbox": [
+        541,
+        263,
+        563,
+        293
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.13958333333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 48,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_048.png",
+      "bbox": [
+        646,
+        263,
+        667,
+        293
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1234375,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 49,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_049.png",
+      "bbox": [
+        333,
+        266,
+        354,
+        292
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1109375,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 50,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_050.png",
+      "bbox": [
+        489,
+        266,
+        511,
+        292
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.14479166666666668,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 51,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_051.png",
+      "bbox": [
+        21,
+        267,
+        43,
+        293
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1140625,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 52,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_052.png",
+      "bbox": [
+        73,
+        267,
+        95,
+        293
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1171875,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 53,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_053.png",
+      "bbox": [
+        125,
+        267,
+        147,
+        293
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.11666666666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 54,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_054.png",
+      "bbox": [
+        177,
+        267,
+        199,
+        293
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.11822916666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 55,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_055.png",
+      "bbox": [
+        229,
+        267,
+        251,
+        293
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1140625,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 56,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_056.png",
+      "bbox": [
+        281,
+        267,
+        302,
+        293
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1078125,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 57,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_057.png",
+      "bbox": [
+        385,
+        267,
+        406,
+        293
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1109375,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 58,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_058.png",
+      "bbox": [
+        437,
+        267,
+        459,
+        293
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1171875,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 59,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_059.png",
+      "bbox": [
+        594,
+        267,
+        614,
+        293
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.10260416666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 60,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_060.png",
+      "bbox": [
+        74,
+        343,
+        94,
+        370
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.10208333333333333,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 61,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_061.png",
+      "bbox": [
+        125,
+        343,
+        146,
+        367
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.10729166666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 62,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_062.png",
+      "bbox": [
+        178,
+        343,
+        198,
+        370
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1125,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 63,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_063.png",
+      "bbox": [
+        333,
+        343,
+        354,
+        370
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.109375,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 64,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_064.png",
+      "bbox": [
+        385,
+        343,
+        406,
+        370
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.109375,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 65,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_065.png",
+      "bbox": [
+        21,
+        344,
+        42,
+        369
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.10885416666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 66,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_066.png",
+      "bbox": [
+        230,
+        344,
+        250,
+        370
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.10416666666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 67,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_067.png",
+      "bbox": [
+        282,
+        344,
+        302,
+        370
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.10260416666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 68,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_068.png",
+      "bbox": [
+        438,
+        344,
+        458,
+        370
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.109375,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 69,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_069.png",
+      "bbox": [
+        490,
+        344,
+        510,
+        370
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.11458333333333333,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 70,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_070.png",
+      "bbox": [
+        594,
+        344,
+        614,
+        370
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.10260416666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 71,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_071.png",
+      "bbox": [
+        542,
+        348,
+        562,
+        370
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.09270833333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 72,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_072.png",
+      "bbox": [
+        654,
+        402,
+        703,
+        451
+      ],
+      "size": [
+        43,
+        43
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2828555976203353,
+      "complete_score": 0.4,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 73,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_073.png",
+      "bbox": [
+        701,
+        402,
+        765,
+        461
+      ],
+      "size": [
+        58,
+        53
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.3588158750813273,
+      "complete_score": 0.4,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 74,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_074.png",
+      "bbox": [
+        591,
+        404,
+        640,
+        452
+      ],
+      "size": [
+        43,
+        42
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2929125138427464,
+      "complete_score": 0.4,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 75,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_075.png",
+      "bbox": [
+        777,
+        404,
+        826,
+        452
+      ],
+      "size": [
+        43,
+        42
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.28294573643410853,
+      "complete_score": 0.4,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 76,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_076.png",
+      "bbox": [
+        386,
+        413,
+        409,
+        452
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.18854166666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 77,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_077.png",
+      "bbox": [
+        334,
+        416,
+        367,
+        452
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.17916666666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 78,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_078.png",
+      "bbox": [
+        427,
+        417,
+        458,
+        449
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.17708333333333334,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 79,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_079.png",
+      "bbox": [
+        22,
+        420,
+        49,
+        452
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1578125,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 80,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_080.png",
+      "bbox": [
+        178,
+        420,
+        205,
+        452
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1546875,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 81,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_081.png",
+      "bbox": [
+        73,
+        422,
+        102,
+        451
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1609375,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 82,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_082.png",
+      "bbox": [
+        125,
+        422,
+        154,
+        451
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1609375,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 83,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_083.png",
+      "bbox": [
+        475,
+        425,
+        510,
+        449
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1984375,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "jump_or_special"
+    },
+    {
+      "candidate_id": 84,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_084.png",
+      "bbox": [
+        528,
+        425,
+        562,
+        454
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.178125,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 85,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_085.png",
+      "bbox": [
+        229,
+        426,
+        264,
+        457
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.18697916666666667,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 86,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_086.png",
+      "bbox": [
+        281,
+        426,
+        302,
+        451
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.11302083333333333,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 87,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_087.png",
+      "bbox": [
+        297,
+        428,
+        319,
+        448
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1046875,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 88,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_088.png",
+      "bbox": [
+        20,
+        458,
+        42,
+        533
+      ],
+      "size": [
+        16,
+        69
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.5407608695652174,
+      "complete_score": 0.4,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 89,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_089.png",
+      "bbox": [
+        72,
+        458,
+        94,
+        533
+      ],
+      "size": [
+        16,
+        69
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.5543478260869565,
+      "complete_score": 0.4,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 90,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_090.png",
+      "bbox": [
+        125,
+        458,
+        147,
+        533
+      ],
+      "size": [
+        16,
+        69
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.5398550724637681,
+      "complete_score": 0.4,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 91,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_091.png",
+      "bbox": [
+        177,
+        462,
+        199,
+        533
+      ],
+      "size": [
+        16,
+        65
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.5576923076923077,
+      "complete_score": 0.4,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 92,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_092.png",
+      "bbox": [
+        229,
+        466,
+        251,
+        533
+      ],
+      "size": [
+        16,
+        61
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.5778688524590164,
+      "complete_score": 0.4,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 93,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_093.png",
+      "bbox": [
+        281,
+        470,
+        303,
+        533
+      ],
+      "size": [
+        16,
+        57
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.6008771929824561,
+      "complete_score": 0.4,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 94,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_094.png",
+      "bbox": [
+        333,
+        474,
+        355,
+        533
+      ],
+      "size": [
+        16,
+        53
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.6273584905660378,
+      "complete_score": 0.75,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 95,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_095.png",
+      "bbox": [
+        385,
+        478,
+        407,
+        533
+      ],
+      "size": [
+        16,
+        49
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.6581632653061225,
+      "complete_score": 0.75,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 96,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_096.png",
+      "bbox": [
+        437,
+        482,
+        459,
+        533
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.253125,
+      "complete_score": 0.75,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 97,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_097.png",
+      "bbox": [
+        489,
+        486,
+        511,
+        533
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.24479166666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 98,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_098.png",
+      "bbox": [
+        541,
+        490,
+        563,
+        533
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.23645833333333333,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 99,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_099.png",
+      "bbox": [
+        593,
+        494,
+        615,
+        533
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.228125,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 100,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_100.png",
+      "bbox": [
+        645,
+        498,
+        667,
+        533
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.21510416666666668,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 101,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_101.png",
+      "bbox": [
+        697,
+        502,
+        719,
+        533
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.190625,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 102,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_102.png",
+      "bbox": [
+        749,
+        506,
+        771,
+        533
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.16354166666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 103,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_103.png",
+      "bbox": [
+        801,
+        510,
+        823,
+        533
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.13958333333333334,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 104,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_104.png",
+      "bbox": [
+        721,
+        583,
+        743,
+        618
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1609375,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 105,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_105.png",
+      "bbox": [
+        22,
+        584,
+        43,
+        618
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.15520833333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 106,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_106.png",
+      "bbox": [
+        177,
+        584,
+        199,
+        617
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.17604166666666668,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 107,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_107.png",
+      "bbox": [
+        229,
+        584,
+        251,
+        618
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.16979166666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 108,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_108.png",
+      "bbox": [
+        282,
+        584,
+        303,
+        618
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.15520833333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 109,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_109.png",
+      "bbox": [
+        333,
+        584,
+        357,
+        617
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.175,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 110,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_110.png",
+      "bbox": [
+        385,
+        584,
+        409,
+        618
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.178125,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 111,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_111.png",
+      "bbox": [
+        437,
+        584,
+        461,
+        618
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.16666666666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 112,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_112.png",
+      "bbox": [
+        73,
+        585,
+        94,
+        618
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.14947916666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 113,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_113.png",
+      "bbox": [
+        495,
+        593,
+        524,
+        620
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.153125,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 114,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_114.png",
+      "bbox": [
+        125,
+        597,
+        147,
+        618
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.09947916666666666,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 115,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_115.png",
+      "bbox": [
+        555,
+        604,
+        586,
+        630
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1796875,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 116,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_116.png",
+      "bbox": [
+        612,
+        604,
+        644,
+        630
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.190625,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 117,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_117.png",
+      "bbox": [
+        670,
+        604,
+        702,
+        630
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.17916666666666667,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 118,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_118.png",
+      "bbox": [
+        73,
+        652,
+        95,
+        689
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.18697916666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 119,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_119.png",
+      "bbox": [
+        125,
+        652,
+        147,
+        687
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.18541666666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 120,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_120.png",
+      "bbox": [
+        21,
+        655,
+        43,
+        689
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.17708333333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 121,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_121.png",
+      "bbox": [
+        177,
+        655,
+        202,
+        687
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.17239583333333333,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 122,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_122.png",
+      "bbox": [
+        229,
+        655,
+        250,
+        689
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.15520833333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 123,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_123.png",
+      "bbox": [
+        281,
+        655,
+        303,
+        689
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.17708333333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 124,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_124.png",
+      "bbox": [
+        334,
+        655,
+        355,
+        689
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.15520833333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 125,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_125.png",
+      "bbox": [
+        385,
+        655,
+        407,
+        689
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.17291666666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 126,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_126.png",
+      "bbox": [
+        437,
+        655,
+        459,
+        686
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.15104166666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 127,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_127.png",
+      "bbox": [
+        489,
+        655,
+        511,
+        689
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.16770833333333332,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 128,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_128.png",
+      "bbox": [
+        541,
+        655,
+        567,
+        687
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.17135416666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 129,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_129.png",
+      "bbox": [
+        594,
+        655,
+        619,
+        688
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.18072916666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 130,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_130.png",
+      "bbox": [
+        646,
+        655,
+        671,
+        688
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1734375,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 131,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_131.png",
+      "bbox": [
+        697,
+        655,
+        719,
+        689
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.18333333333333332,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 132,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_132.png",
+      "bbox": [
+        473,
+        695,
+        505,
+        713
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1328125,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "jump_or_special"
+    },
+    {
+      "candidate_id": 133,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_133.png",
+      "bbox": [
+        21,
+        732,
+        43,
+        766
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.15833333333333333,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 134,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_134.png",
+      "bbox": [
+        177,
+        732,
+        199,
+        765
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1671875,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 135,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_135.png",
+      "bbox": [
+        229,
+        732,
+        251,
+        766
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.17447916666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 136,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_136.png",
+      "bbox": [
+        281,
+        732,
+        303,
+        766
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.15833333333333333,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 137,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_137.png",
+      "bbox": [
+        333,
+        732,
+        359,
+        764
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.17083333333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 138,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_138.png",
+      "bbox": [
+        385,
+        732,
+        411,
+        765
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1828125,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 139,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_139.png",
+      "bbox": [
+        437,
+        732,
+        463,
+        765
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.178125,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 140,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_140.png",
+      "bbox": [
+        489,
+        732,
+        511,
+        767
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.17083333333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 141,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_141.png",
+      "bbox": [
+        541,
+        732,
+        563,
+        767
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.16145833333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 142,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_142.png",
+      "bbox": [
+        587,
+        732,
+        615,
+        766
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.18697916666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 143,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_143.png",
+      "bbox": [
+        640,
+        732,
+        667,
+        766
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.18697916666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 144,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_144.png",
+      "bbox": [
+        697,
+        732,
+        719,
+        767
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.16614583333333333,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 145,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_145.png",
+      "bbox": [
+        801,
+        732,
+        825,
+        766
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1734375,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 146,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_146.png",
+      "bbox": [
+        73,
+        733,
+        94,
+        766
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.15260416666666668,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 147,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_147.png",
+      "bbox": [
+        749,
+        736,
+        771,
+        767
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.14427083333333332,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 148,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_148.png",
+      "bbox": [
+        125,
+        739,
+        147,
+        766
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.13645833333333332,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 149,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_149.png",
+      "bbox": [
+        5,
+        772,
+        45,
+        790
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.16458333333333333,
+      "complete_score": 0.4,
+      "deterministic_pose_hint": "jump_or_special"
+    },
+    {
+      "candidate_id": 150,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_150.png",
+      "bbox": [
+        748,
+        805,
+        778,
+        843
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.21666666666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 151,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_151.png",
+      "bbox": [
+        694,
+        806,
+        716,
+        843
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.22083333333333333,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 152,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_152.png",
+      "bbox": [
+        801,
+        806,
+        823,
+        844
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2390625,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 153,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_153.png",
+      "bbox": [
+        484,
+        807,
+        516,
+        841
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.253125,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 154,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_154.png",
+      "bbox": [
+        21,
+        809,
+        43,
+        844
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.18697916666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 155,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_155.png",
+      "bbox": [
+        73,
+        809,
+        95,
+        844
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.18541666666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 156,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_156.png",
+      "bbox": [
+        125,
+        809,
+        151,
+        844
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.20416666666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 157,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_157.png",
+      "bbox": [
+        177,
+        809,
+        204,
+        844
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.20364583333333333,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 158,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_158.png",
+      "bbox": [
+        229,
+        809,
+        251,
+        844
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.18697916666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 159,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_159.png",
+      "bbox": [
+        281,
+        809,
+        303,
+        844
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.18645833333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 160,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_160.png",
+      "bbox": [
+        333,
+        809,
+        355,
+        844
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.17083333333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 161,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_161.png",
+      "bbox": [
+        385,
+        809,
+        407,
+        844
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.16614583333333333,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 162,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_162.png",
+      "bbox": [
+        437,
+        809,
+        459,
+        844
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.18541666666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 163,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_163.png",
+      "bbox": [
+        853,
+        809,
+        875,
+        843
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.15416666666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 164,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_164.png",
+      "bbox": [
+        539,
+        810,
+        568,
+        843
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.16666666666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 165,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_165.png",
+      "bbox": [
+        590,
+        817,
+        621,
+        843
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.15052083333333333,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 166,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_166.png",
+      "bbox": [
+        643,
+        821,
+        676,
+        843
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.18229166666666666,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "jump_or_special"
+    },
+    {
+      "candidate_id": 167,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_167.png",
+      "bbox": [
+        177,
+        886,
+        199,
+        920
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1703125,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 168,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_168.png",
+      "bbox": [
+        229,
+        886,
+        251,
+        920
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.16197916666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 169,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_169.png",
+      "bbox": [
+        437,
+        886,
+        459,
+        920
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.17291666666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 170,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_170.png",
+      "bbox": [
+        489,
+        886,
+        511,
+        920
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.17708333333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 171,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_171.png",
+      "bbox": [
+        594,
+        886,
+        615,
+        920
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.15520833333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 172,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_172.png",
+      "bbox": [
+        74,
+        887,
+        95,
+        921
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.15885416666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 173,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_173.png",
+      "bbox": [
+        281,
+        887,
+        303,
+        920
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.16666666666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 174,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_174.png",
+      "bbox": [
+        21,
+        889,
+        43,
+        921
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.15729166666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 175,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_175.png",
+      "bbox": [
+        125,
+        890,
+        147,
+        918
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.13802083333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 176,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_176.png",
+      "bbox": [
+        541,
+        894,
+        563,
+        920
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.134375,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 177,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_177.png",
+      "bbox": [
+        592,
+        952,
+        641,
+        1005
+      ],
+      "size": [
+        43,
+        47
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2963879267689263,
+      "complete_score": 0.4,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 178,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_178.png",
+      "bbox": [
+        778,
+        952,
+        827,
+        1005
+      ],
+      "size": [
+        43,
+        47
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2978723404255319,
+      "complete_score": 0.4,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 179,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_179.png",
+      "bbox": [
+        712,
+        954,
+        761,
+        1005
+      ],
+      "size": [
+        43,
+        45
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.3271317829457364,
+      "complete_score": 0.4,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 180,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_180.png",
+      "bbox": [
+        653,
+        956,
+        702,
+        1004
+      ],
+      "size": [
+        43,
+        42
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.34606866002214837,
+      "complete_score": 0.4,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 181,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_181.png",
+      "bbox": [
+        386,
+        957,
+        407,
+        1006
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2526041666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 182,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_182.png",
+      "bbox": [
+        334,
+        962,
+        367,
+        1006
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2375,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 183,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_183.png",
+      "bbox": [
+        424,
+        964,
+        459,
+        1003
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.21614583333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 184,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_184.png",
+      "bbox": [
+        21,
+        967,
+        48,
+        1005
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1953125,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 185,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_185.png",
+      "bbox": [
+        125,
+        967,
+        152,
+        1005
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.20729166666666668,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 186,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_186.png",
+      "bbox": [
+        73,
+        969,
+        101,
+        1004
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2140625,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 187,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_187.png",
+      "bbox": [
+        178,
+        970,
+        205,
+        1005
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.19322916666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 188,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_188.png",
+      "bbox": [
+        229,
+        974,
+        267,
+        1006
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.23802083333333332,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 189,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_189.png",
+      "bbox": [
+        281,
+        974,
+        319,
+        1006
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2520833333333333,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 190,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_190.png",
+      "bbox": [
+        473,
+        974,
+        511,
+        1003
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2328125,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "jump_or_special"
+    },
+    {
+      "candidate_id": 191,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_191.png",
+      "bbox": [
+        527,
+        975,
+        563,
+        1004
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2140625,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 192,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_192.png",
+      "bbox": [
+        20,
+        1011,
+        43,
+        1086
+      ],
+      "size": [
+        17,
+        69
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.587382779198636,
+      "complete_score": 0.4,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 193,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_193.png",
+      "bbox": [
+        72,
+        1011,
+        95,
+        1086
+      ],
+      "size": [
+        17,
+        69
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.6018755328218244,
+      "complete_score": 0.4,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 194,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_194.png",
+      "bbox": [
+        125,
+        1011,
+        147,
+        1086
+      ],
+      "size": [
+        16,
+        69
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.6231884057971014,
+      "complete_score": 0.4,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 195,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_195.png",
+      "bbox": [
+        177,
+        1015,
+        199,
+        1086
+      ],
+      "size": [
+        16,
+        65
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.6461538461538462,
+      "complete_score": 0.4,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 196,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_196.png",
+      "bbox": [
+        229,
+        1019,
+        251,
+        1086
+      ],
+      "size": [
+        16,
+        61
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.6721311475409836,
+      "complete_score": 0.4,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 197,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_197.png",
+      "bbox": [
+        281,
+        1023,
+        303,
+        1086
+      ],
+      "size": [
+        16,
+        57
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.7017543859649122,
+      "complete_score": 0.4,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 198,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_198.png",
+      "bbox": [
+        333,
+        1027,
+        355,
+        1086
+      ],
+      "size": [
+        16,
+        53
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.7358490566037735,
+      "complete_score": 0.75,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 199,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_199.png",
+      "bbox": [
+        385,
+        1031,
+        407,
+        1086
+      ],
+      "size": [
+        16,
+        49
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.7755102040816326,
+      "complete_score": 0.75,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 200,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_200.png",
+      "bbox": [
+        437,
+        1035,
+        459,
+        1086
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2947916666666667,
+      "complete_score": 0.75,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 201,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_201.png",
+      "bbox": [
+        489,
+        1039,
+        511,
+        1086
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2864583333333333,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 202,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_202.png",
+      "bbox": [
+        541,
+        1043,
+        563,
+        1086
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.278125,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 203,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_203.png",
+      "bbox": [
+        593,
+        1047,
+        615,
+        1086
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2630208333333333,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 204,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_204.png",
+      "bbox": [
+        645,
+        1051,
+        667,
+        1086
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.234375,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 205,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_205.png",
+      "bbox": [
+        697,
+        1055,
+        719,
+        1086
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.203125,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 206,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_206.png",
+      "bbox": [
+        749,
+        1059,
+        771,
+        1086
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.17083333333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 207,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_207.png",
+      "bbox": [
+        801,
+        1060,
+        823,
+        1086
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.15520833333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 208,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_208.png",
+      "bbox": [
+        386,
+        1132,
+        415,
+        1171
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.22916666666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 209,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_209.png",
+      "bbox": [
+        438,
+        1132,
+        467,
+        1171
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.21510416666666668,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 210,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_210.png",
+      "bbox": [
+        490,
+        1132,
+        519,
+        1171
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.21197916666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 211,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_211.png",
+      "bbox": [
+        542,
+        1132,
+        569,
+        1171
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.22604166666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 212,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_212.png",
+      "bbox": [
+        22,
+        1137,
+        45,
+        1171
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1765625,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 213,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_213.png",
+      "bbox": [
+        74,
+        1137,
+        105,
+        1171
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.21666666666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 214,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_214.png",
+      "bbox": [
+        126,
+        1137,
+        157,
+        1171
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.18958333333333333,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 215,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_215.png",
+      "bbox": [
+        178,
+        1137,
+        209,
+        1171
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.20572916666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 216,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_216.png",
+      "bbox": [
+        230,
+        1137,
+        261,
+        1171
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.18802083333333333,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 217,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_217.png",
+      "bbox": [
+        282,
+        1137,
+        312,
+        1171
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.19270833333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 218,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_218.png",
+      "bbox": [
+        334,
+        1137,
+        365,
+        1171
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.19270833333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 219,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_219.png",
+      "bbox": [
+        385,
+        1196,
+        415,
+        1235
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.225,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 220,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_220.png",
+      "bbox": [
+        437,
+        1196,
+        467,
+        1235
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2109375,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 221,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_221.png",
+      "bbox": [
+        489,
+        1196,
+        519,
+        1235
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.20833333333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 222,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_222.png",
+      "bbox": [
+        541,
+        1196,
+        569,
+        1235
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.221875,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 223,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_223.png",
+      "bbox": [
+        21,
+        1202,
+        45,
+        1235
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.17083333333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 224,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_224.png",
+      "bbox": [
+        73,
+        1202,
+        105,
+        1235
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2109375,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 225,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_225.png",
+      "bbox": [
+        125,
+        1202,
+        157,
+        1235
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.18385416666666668,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 226,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_226.png",
+      "bbox": [
+        177,
+        1202,
+        209,
+        1235
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.20104166666666667,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 227,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_227.png",
+      "bbox": [
+        229,
+        1202,
+        261,
+        1235
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.18229166666666666,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 228,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_228.png",
+      "bbox": [
+        281,
+        1202,
+        312,
+        1235
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.18697916666666667,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 229,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_229.png",
+      "bbox": [
+        333,
+        1202,
+        365,
+        1235
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.18697916666666667,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 230,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_230.png",
+      "bbox": [
+        385,
+        1265,
+        415,
+        1299
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.18541666666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 231,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_231.png",
+      "bbox": [
+        437,
+        1265,
+        467,
+        1299
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.17708333333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 232,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_232.png",
+      "bbox": [
+        489,
+        1265,
+        519,
+        1299
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1796875,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 233,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_233.png",
+      "bbox": [
+        549,
+        1265,
+        569,
+        1287
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.10364583333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 234,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_234.png",
+      "bbox": [
+        177,
+        1272,
+        209,
+        1299
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.15104166666666666,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 235,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_235.png",
+      "bbox": [
+        281,
+        1272,
+        312,
+        1299
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.13802083333333334,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 236,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_236.png",
+      "bbox": [
+        73,
+        1275,
+        105,
+        1299
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.16614583333333333,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "jump_or_special"
+    },
+    {
+      "candidate_id": 237,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_237.png",
+      "bbox": [
+        125,
+        1275,
+        157,
+        1299
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.134375,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "jump_or_special"
+    },
+    {
+      "candidate_id": 238,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_238.png",
+      "bbox": [
+        21,
+        1278,
+        45,
+        1299
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.109375,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 239,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_239.png",
+      "bbox": [
+        229,
+        1278,
+        261,
+        1299
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.13229166666666667,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "jump_or_special"
+    },
+    {
+      "candidate_id": 240,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_240.png",
+      "bbox": [
+        333,
+        1278,
+        365,
+        1299
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.13541666666666666,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "jump_or_special"
+    },
+    {
+      "candidate_id": 241,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_241.png",
+      "bbox": [
+        541,
+        1278,
+        563,
+        1299
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.11510416666666666,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 242,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_242.png",
+      "bbox": [
+        21,
+        1329,
+        45,
+        1363
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.18958333333333333,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 243,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_243.png",
+      "bbox": [
+        73,
+        1329,
+        97,
+        1363
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.18333333333333332,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 244,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_244.png",
+      "bbox": [
+        126,
+        1329,
+        149,
+        1363
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.1765625,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 245,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_245.png",
+      "bbox": [
+        177,
+        1329,
+        209,
+        1362
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.23020833333333332,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 246,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_246.png",
+      "bbox": [
+        229,
+        1329,
+        261,
+        1363
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2296875,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 247,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_247.png",
+      "bbox": [
+        282,
+        1329,
+        313,
+        1363
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.21666666666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 248,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_248.png",
+      "bbox": [
+        333,
+        1329,
+        365,
+        1362
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.20572916666666666,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 249,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_249.png",
+      "bbox": [
+        385,
+        1329,
+        417,
+        1363
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.203125,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 250,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_250.png",
+      "bbox": [
+        438,
+        1329,
+        469,
+        1363
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.18958333333333333,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 251,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_251.png",
+      "bbox": [
+        489,
+        1329,
+        521,
+        1362
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.21979166666666666,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 252,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_252.png",
+      "bbox": [
+        541,
+        1329,
+        573,
+        1363
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.21822916666666667,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 253,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_253.png",
+      "bbox": [
+        594,
+        1329,
+        625,
+        1363
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.20572916666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 254,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_254.png",
+      "bbox": [
+        645,
+        1329,
+        677,
+        1362
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.20364583333333333,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 255,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_255.png",
+      "bbox": [
+        697,
+        1329,
+        729,
+        1363
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.20052083333333334,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 256,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_256.png",
+      "bbox": [
+        750,
+        1329,
+        781,
+        1363
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.18802083333333333,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 257,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_257.png",
+      "bbox": [
+        801,
+        1329,
+        832,
+        1362
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2078125,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 258,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_258.png",
+      "bbox": [
+        853,
+        1329,
+        884,
+        1363
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.20572916666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 259,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_259.png",
+      "bbox": [
+        906,
+        1329,
+        936,
+        1363
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.19270833333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 260,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_260.png",
+      "bbox": [
+        177,
+        1375,
+        207,
+        1413
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.25,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 261,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_261.png",
+      "bbox": [
+        229,
+        1375,
+        259,
+        1414
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.24375,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 262,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_262.png",
+      "bbox": [
+        282,
+        1375,
+        311,
+        1414
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.22916666666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 263,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_263.png",
+      "bbox": [
+        333,
+        1375,
+        363,
+        1413
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2359375,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 264,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_264.png",
+      "bbox": [
+        385,
+        1375,
+        415,
+        1414
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2296875,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 265,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_265.png",
+      "bbox": [
+        438,
+        1375,
+        467,
+        1414
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.21510416666666668,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 266,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_266.png",
+      "bbox": [
+        489,
+        1375,
+        519,
+        1413
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2328125,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 267,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_267.png",
+      "bbox": [
+        541,
+        1375,
+        571,
+        1414
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2265625,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 268,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_268.png",
+      "bbox": [
+        594,
+        1375,
+        623,
+        1414
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.21197916666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 269,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_269.png",
+      "bbox": [
+        645,
+        1375,
+        673,
+        1413
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.246875,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 270,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_270.png",
+      "bbox": [
+        697,
+        1375,
+        725,
+        1414
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.240625,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 271,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_271.png",
+      "bbox": [
+        750,
+        1375,
+        777,
+        1414
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.22604166666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 272,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_272.png",
+      "bbox": [
+        21,
+        1380,
+        53,
+        1413
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.20625,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 273,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_273.png",
+      "bbox": [
+        73,
+        1380,
+        105,
+        1414
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2046875,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 274,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_274.png",
+      "bbox": [
+        126,
+        1380,
+        157,
+        1414
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.19270833333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 275,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_275.png",
+      "bbox": [
+        21,
+        1444,
+        45,
+        1478
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.190625,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 276,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_276.png",
+      "bbox": [
+        73,
+        1444,
+        97,
+        1478
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.19270833333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 277,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_277.png",
+      "bbox": [
+        125,
+        1444,
+        149,
+        1478
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.18802083333333333,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 278,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_278.png",
+      "bbox": [
+        177,
+        1444,
+        209,
+        1477
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.22708333333333333,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 279,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_279.png",
+      "bbox": [
+        229,
+        1444,
+        261,
+        1478
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.23020833333333332,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 280,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_280.png",
+      "bbox": [
+        281,
+        1444,
+        313,
+        1478
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.21875,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 281,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_281.png",
+      "bbox": [
+        333,
+        1444,
+        365,
+        1477
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2015625,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 282,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_282.png",
+      "bbox": [
+        385,
+        1444,
+        417,
+        1478
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2046875,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 283,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_283.png",
+      "bbox": [
+        437,
+        1444,
+        469,
+        1478
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.19322916666666667,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 284,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_284.png",
+      "bbox": [
+        489,
+        1444,
+        521,
+        1477
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.215625,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 285,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_285.png",
+      "bbox": [
+        541,
+        1444,
+        573,
+        1478
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.21875,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 286,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_286.png",
+      "bbox": [
+        593,
+        1444,
+        625,
+        1478
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.20729166666666668,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 287,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_287.png",
+      "bbox": [
+        645,
+        1444,
+        677,
+        1477
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.20104166666666667,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 288,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_288.png",
+      "bbox": [
+        697,
+        1444,
+        729,
+        1478
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.20416666666666666,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 289,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_289.png",
+      "bbox": [
+        749,
+        1444,
+        781,
+        1478
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.19270833333333334,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 290,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_290.png",
+      "bbox": [
+        801,
+        1444,
+        832,
+        1477
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.203125,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 291,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_291.png",
+      "bbox": [
+        853,
+        1444,
+        884,
+        1478
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.20625,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 292,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_292.png",
+      "bbox": [
+        905,
+        1444,
+        936,
+        1478
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.19479166666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 293,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_293.png",
+      "bbox": [
+        177,
+        1490,
+        207,
+        1528
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.24895833333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 294,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_294.png",
+      "bbox": [
+        229,
+        1490,
+        259,
+        1529
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2520833333333333,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 295,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_295.png",
+      "bbox": [
+        281,
+        1490,
+        311,
+        1529
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.240625,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 296,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_296.png",
+      "bbox": [
+        333,
+        1490,
+        363,
+        1528
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.23489583333333333,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 297,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_297.png",
+      "bbox": [
+        385,
+        1490,
+        415,
+        1529
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.23802083333333332,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 298,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_298.png",
+      "bbox": [
+        437,
+        1490,
+        467,
+        1529
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2265625,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 299,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_299.png",
+      "bbox": [
+        489,
+        1490,
+        519,
+        1528
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.23177083333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 300,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_300.png",
+      "bbox": [
+        541,
+        1490,
+        571,
+        1529
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.23489583333333333,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 301,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_301.png",
+      "bbox": [
+        593,
+        1490,
+        623,
+        1529
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2234375,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 302,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_302.png",
+      "bbox": [
+        645,
+        1490,
+        673,
+        1528
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.24583333333333332,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 303,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_303.png",
+      "bbox": [
+        697,
+        1490,
+        725,
+        1529
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.24895833333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 304,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_304.png",
+      "bbox": [
+        749,
+        1490,
+        777,
+        1529
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2375,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 305,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_305.png",
+      "bbox": [
+        21,
+        1495,
+        53,
+        1528
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2078125,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 306,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_306.png",
+      "bbox": [
+        73,
+        1495,
+        105,
+        1529
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.21145833333333333,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 307,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_307.png",
+      "bbox": [
+        125,
+        1495,
+        157,
+        1529
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2,
+      "complete_score": 0.65,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 308,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_308.png",
+      "bbox": [
+        721,
+        1554,
+        751,
+        1593
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2609375,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 309,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_309.png",
+      "bbox": [
+        773,
+        1554,
+        803,
+        1593
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.246875,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 310,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_310.png",
+      "bbox": [
+        825,
+        1554,
+        855,
+        1593
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.24375,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 311,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_311.png",
+      "bbox": [
+        877,
+        1554,
+        905,
+        1593
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2578125,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 312,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_312.png",
+      "bbox": [
+        357,
+        1556,
+        381,
+        1593
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.20052083333333334,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 313,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_313.png",
+      "bbox": [
+        409,
+        1556,
+        441,
+        1593
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.2421875,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 314,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_314.png",
+      "bbox": [
+        461,
+        1556,
+        493,
+        1593
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.21666666666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 315,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_315.png",
+      "bbox": [
+        513,
+        1556,
+        545,
+        1593
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.23072916666666668,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 316,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_316.png",
+      "bbox": [
+        565,
+        1556,
+        597,
+        1593
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.21510416666666668,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 317,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_317.png",
+      "bbox": [
+        617,
+        1556,
+        648,
+        1593
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.21875,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 318,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_318.png",
+      "bbox": [
+        669,
+        1556,
+        701,
+        1593
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.21979166666666666,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    {
+      "candidate_id": 319,
+      "path": "C:\\dev\\SpatialSprite\\outputs\\mario\\view_candidates_ai_sheet_context\\candidates\\candidate_319.png",
+      "bbox": [
+        253,
+        1558,
+        285,
+        1593
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "has_alpha": true,
+      "alpha_coverage": 0.21666666666666667,
+      "complete_score": 1.0,
+      "deterministic_pose_hint": "standing_or_unknown"
+    }
+  ],
+  "ai_ranking_warning": "",
+  "copy_note": "No asset source images were overwritten because --confirm-copy was not provided."
+}

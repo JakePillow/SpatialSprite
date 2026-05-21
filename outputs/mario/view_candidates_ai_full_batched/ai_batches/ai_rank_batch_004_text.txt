@@ -1,0 +1,305 @@
+{
+  "rankings": [
+    {
+      "candidate_id": 256,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 258,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 259,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 260,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 261,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 262,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 263,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 264,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 265,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 266,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 267,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 268,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 269,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 270,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 271,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 274,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 275,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 276,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 291,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 292,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 293,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 294,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 295,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 296,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 297,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 298,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 299,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 300,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 301,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 302,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 303,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 308,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 309,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 310,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 311,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 312,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 313,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 314,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 315,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 316,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 317,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 318,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    },
+    {
+      "candidate_id": 319,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame, clear view."
+    }
+  ]
+}

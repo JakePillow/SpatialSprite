@@ -1,0 +1,72 @@
+{
+  "id": "resp_06feec8ee89ab935006a0ebe91bfd4819c87928336951204a8",
+  "object": "response",
+  "created_at": 1779351185,
+  "status": "completed",
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1779351244,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "model": "gpt-4o-mini-2024-07-18",
+  "moderation": null,
+  "output": [
+    {
+      "id": "msg_06feec8ee89ab935006a0ebe9487c0819cb34aa9633d305016",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\n  \"rankings\": [\n    {\n      \"candidate_id\": 128,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, but unclear view.\"\n    },\n    {\n      \"candidate_id\": 129,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, but unclear view.\"\n    },\n    {\n      \"candidate_id\": 130,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, but unclear view.\"\n    },\n    {\n      \"candidate_id\": 131,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, but unclear view.\"\n    },\n    {\n      \"candidate_id\": 133,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 134,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 135,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 136,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 137,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 138,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 139,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 140,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 141,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 142,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 143,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 144,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 145,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 146,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 147,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 148,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 150,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 151,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 152,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 154,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 155,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 156,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 157,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 158,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 159,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 160,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 161,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 162,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 163,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 164,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 167,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 168,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 169,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 170,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 171,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 172,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 173,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 174,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 175,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 181,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 182,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 183,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 184,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 185,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 186,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    },\n    {\n      \"candidate_id\": 187,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing frame, clearly visible.\"\n    }\n  ]\n}"
+        }
+      ],
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "in_memory",
+  "reasoning": {
+    "effort": null,
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "json_object"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 1.0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 54598,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 2315,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 56913
+  },
+  "user": null,
+  "metadata": {}
+}

@@ -88,7 +88,7 @@ def run_semantic_rule_passes(
 
     width, height = image.size
     mid_x = width * 0.5
-    opaque_count = sum(1 for value in image.getchannel("A").getdata() if value > 0)
+    opaque_count = sum(1 for value in image.getchannel("A").tobytes() if value > 0)
     largest_region = max((region.pixel_count for region in graph), default=1)
     body_candidates = _body_candidate_scores(graph, width, height)
     semantic_regions: list[SemanticRegion] = []

@@ -1,0 +1,194 @@
+{
+  "assignments": [
+    {
+      "part_id": 0,
+      "name": "outline",
+      "semantic_label": "outline",
+      "primitive_type": "shell",
+      "zfield_profile": "shell",
+      "local_depth": 0.14,
+      "z_offset": 0.42,
+      "smoothing_policy": "rim_only",
+      "boundary_policy": "outline_shell",
+      "fallback": false,
+      "pixel_count": 50,
+      "bbox": [
+        4,
+        10,
+        20,
+        28
+      ]
+    },
+    {
+      "part_id": 1,
+      "name": "head",
+      "semantic_label": "head",
+      "primitive_type": "ellipsoid",
+      "zfield_profile": "ellipsoid",
+      "local_depth": 0.82,
+      "z_offset": 0.12,
+      "smoothing_policy": "semantic_blend",
+      "boundary_policy": "soft_boundary",
+      "fallback": false,
+      "pixel_count": 20,
+      "bbox": [
+        10,
+        10,
+        14,
+        15
+      ]
+    },
+    {
+      "part_id": 2,
+      "name": "hair",
+      "semantic_label": "hair/hat",
+      "primitive_type": "ellipsoid",
+      "zfield_profile": "ellipsoid",
+      "local_depth": 0.72,
+      "z_offset": 0.14,
+      "smoothing_policy": "semantic_blend",
+      "boundary_policy": "soft_boundary",
+      "fallback": false,
+      "pixel_count": 8,
+      "bbox": [
+        9,
+        9,
+        15,
+        12
+      ]
+    },
+    {
+      "part_id": 3,
+      "name": "torso",
+      "semantic_label": "torso",
+      "primitive_type": "rounded_cuboid",
+      "zfield_profile": "rounded",
+      "local_depth": 0.62,
+      "z_offset": 0.0,
+      "smoothing_policy": "semantic_blend",
+      "boundary_policy": "soft_boundary",
+      "fallback": false,
+      "pixel_count": 79,
+      "bbox": [
+        7,
+        11,
+        17,
+        22
+      ]
+    },
+    {
+      "part_id": 4,
+      "name": "left_arm",
+      "semantic_label": "left_arm",
+      "primitive_type": "tapered_prism",
+      "zfield_profile": "tapered",
+      "local_depth": 0.52,
+      "z_offset": 0.08,
+      "smoothing_policy": "limb_taper",
+      "boundary_policy": "soft_boundary",
+      "fallback": false,
+      "pixel_count": 30,
+      "bbox": [
+        5,
+        16,
+        10,
+        26
+      ]
+    },
+    {
+      "part_id": 5,
+      "name": "right_arm",
+      "semantic_label": "right_arm",
+      "primitive_type": "tapered_prism",
+      "zfield_profile": "tapered",
+      "local_depth": 0.52,
+      "z_offset": 0.08,
+      "smoothing_policy": "limb_taper",
+      "boundary_policy": "soft_boundary",
+      "fallback": false,
+      "pixel_count": 26,
+      "bbox": [
+        15,
+        16,
+        19,
+        26
+      ]
+    },
+    {
+      "part_id": 6,
+      "name": "left_leg",
+      "semantic_label": "left_leg",
+      "primitive_type": "tapered_prism",
+      "zfield_profile": "tapered",
+      "local_depth": 0.56,
+      "z_offset": -0.04,
+      "smoothing_policy": "limb_taper",
+      "boundary_policy": "soft_boundary",
+      "fallback": false,
+      "pixel_count": 30,
+      "bbox": [
+        7,
+        22,
+        13,
+        29
+      ]
+    },
+    {
+      "part_id": 7,
+      "name": "right_leg",
+      "semantic_label": "right_leg",
+      "primitive_type": "tapered_prism",
+      "zfield_profile": "tapered",
+      "local_depth": 0.56,
+      "z_offset": -0.04,
+      "smoothing_policy": "limb_taper",
+      "boundary_policy": "soft_boundary",
+      "fallback": false,
+      "pixel_count": 22,
+      "bbox": [
+        13,
+        22,
+        18,
+        29
+      ]
+    },
+    {
+      "part_id": 8,
+      "name": "left_foot",
+      "semantic_label": "boots/feet",
+      "primitive_type": "rounded_cuboid",
+      "zfield_profile": "rounded_cuboid",
+      "local_depth": 0.72,
+      "z_offset": -0.02,
+      "smoothing_policy": "foot_rounding",
+      "boundary_policy": "soft_boundary",
+      "fallback": false,
+      "pixel_count": 3,
+      "bbox": [
+        8,
+        29,
+        11,
+        30
+      ]
+    },
+    {
+      "part_id": 9,
+      "name": "right_foot",
+      "semantic_label": "boots/feet",
+      "primitive_type": "rounded_cuboid",
+      "zfield_profile": "rounded_cuboid",
+      "local_depth": 0.72,
+      "z_offset": -0.02,
+      "smoothing_policy": "foot_rounding",
+      "boundary_policy": "soft_boundary",
+      "fallback": false,
+      "pixel_count": 3,
+      "bbox": [
+        13,
+        29,
+        16,
+        30
+      ]
+    }
+  ]
+}

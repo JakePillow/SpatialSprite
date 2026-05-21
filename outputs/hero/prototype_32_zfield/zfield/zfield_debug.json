@@ -1,0 +1,225 @@
+{
+  "schema": "spritespatial_zfield_debug_v1",
+  "regions": [
+    {
+      "part_id": 0,
+      "name": "outline",
+      "primitive_type": "shell",
+      "zfield_profile": "shell",
+      "pixel_count": 146,
+      "min_depth": 0.030975000000000003,
+      "max_depth": 0.05600000000000001,
+      "average_depth": 0.0487211815674636,
+      "occupied_voxels": 146,
+      "malformed": false
+    },
+    {
+      "part_id": 1,
+      "name": "head",
+      "primitive_type": "ellipsoid",
+      "zfield_profile": "ellipsoid",
+      "pixel_count": 4,
+      "min_depth": 0.5923507953899576,
+      "max_depth": 0.7986485004974666,
+      "average_depth": 0.6954996479437121,
+      "occupied_voxels": 34,
+      "malformed": false
+    },
+    {
+      "part_id": 2,
+      "name": "torso",
+      "primitive_type": "rounded_cuboid",
+      "zfield_profile": "rounded",
+      "pixel_count": 47,
+      "min_depth": 0.279,
+      "max_depth": 0.6176319444444445,
+      "average_depth": 0.4308522622800105,
+      "occupied_voxels": 240,
+      "malformed": false
+    },
+    {
+      "part_id": 3,
+      "name": "left_arm",
+      "primitive_type": "tapered_prism",
+      "zfield_profile": "tapered",
+      "pixel_count": 11,
+      "min_depth": 0.16091653722811114,
+      "max_depth": 0.52,
+      "average_depth": 0.32954624315728087,
+      "occupied_voxels": 43,
+      "malformed": false
+    },
+    {
+      "part_id": 4,
+      "name": "right_arm",
+      "primitive_type": "tapered_prism",
+      "zfield_profile": "tapered",
+      "pixel_count": 10,
+      "min_depth": 0.1758165401554459,
+      "max_depth": 0.4744999999999999,
+      "average_depth": 0.3095864814766882,
+      "occupied_voxels": 36,
+      "malformed": false
+    },
+    {
+      "part_id": 5,
+      "name": "left_leg",
+      "primitive_type": "tapered_prism",
+      "zfield_profile": "tapered",
+      "pixel_count": 28,
+      "min_depth": 0.14351972491901807,
+      "max_depth": 0.4992000000000001,
+      "average_depth": 0.34825038813928355,
+      "occupied_voxels": 120,
+      "malformed": false
+    },
+    {
+      "part_id": 6,
+      "name": "right_leg",
+      "primitive_type": "tapered_prism",
+      "zfield_profile": "tapered",
+      "pixel_count": 25,
+      "min_depth": 0.18750157610387846,
+      "max_depth": 0.4890666666666667,
+      "average_depth": 0.3648412598046506,
+      "occupied_voxels": 108,
+      "malformed": false
+    }
+  ],
+  "primitive_assignments": [
+    {
+      "part_id": 0,
+      "name": "outline",
+      "semantic_label": "outline",
+      "primitive_type": "shell",
+      "zfield_profile": "shell",
+      "local_depth": 0.14,
+      "z_offset": 0.42,
+      "smoothing_policy": "rim_only",
+      "boundary_policy": "outline_shell",
+      "fallback": false,
+      "pixel_count": 146,
+      "bbox": [
+        4,
+        9,
+        20,
+        30
+      ]
+    },
+    {
+      "part_id": 1,
+      "name": "head",
+      "semantic_label": "head",
+      "primitive_type": "ellipsoid",
+      "zfield_profile": "ellipsoid",
+      "local_depth": 0.82,
+      "z_offset": 0.12,
+      "smoothing_policy": "semantic_blend",
+      "boundary_policy": "soft_boundary",
+      "fallback": false,
+      "pixel_count": 4,
+      "bbox": [
+        10,
+        13,
+        14,
+        14
+      ]
+    },
+    {
+      "part_id": 2,
+      "name": "torso",
+      "semantic_label": "torso",
+      "primitive_type": "rounded_cuboid",
+      "zfield_profile": "rounded",
+      "local_depth": 0.62,
+      "z_offset": 0.0,
+      "smoothing_policy": "semantic_blend",
+      "boundary_policy": "soft_boundary",
+      "fallback": false,
+      "pixel_count": 47,
+      "bbox": [
+        7,
+        10,
+        16,
+        22
+      ]
+    },
+    {
+      "part_id": 3,
+      "name": "left_arm",
+      "semantic_label": "left_arm",
+      "primitive_type": "tapered_prism",
+      "zfield_profile": "tapered",
+      "local_depth": 0.52,
+      "z_offset": 0.08,
+      "smoothing_policy": "limb_taper",
+      "boundary_policy": "soft_boundary",
+      "fallback": false,
+      "pixel_count": 11,
+      "bbox": [
+        5,
+        16,
+        10,
+        26
+      ]
+    },
+    {
+      "part_id": 4,
+      "name": "right_arm",
+      "semantic_label": "right_arm",
+      "primitive_type": "tapered_prism",
+      "zfield_profile": "tapered",
+      "local_depth": 0.52,
+      "z_offset": 0.08,
+      "smoothing_policy": "limb_taper",
+      "boundary_policy": "soft_boundary",
+      "fallback": false,
+      "pixel_count": 10,
+      "bbox": [
+        15,
+        17,
+        19,
+        26
+      ]
+    },
+    {
+      "part_id": 5,
+      "name": "left_leg",
+      "semantic_label": "left_leg",
+      "primitive_type": "tapered_prism",
+      "zfield_profile": "tapered",
+      "local_depth": 0.56,
+      "z_offset": -0.04,
+      "smoothing_policy": "limb_taper",
+      "boundary_policy": "soft_boundary",
+      "fallback": false,
+      "pixel_count": 28,
+      "bbox": [
+        5,
+        20,
+        14,
+        28
+      ]
+    },
+    {
+      "part_id": 6,
+      "name": "right_leg",
+      "semantic_label": "right_leg",
+      "primitive_type": "tapered_prism",
+      "zfield_profile": "tapered",
+      "local_depth": 0.56,
+      "z_offset": -0.04,
+      "smoothing_policy": "limb_taper",
+      "boundary_policy": "soft_boundary",
+      "fallback": false,
+      "pixel_count": 25,
+      "bbox": [
+        10,
+        20,
+        19,
+        27
+      ]
+    }
+  ],
+  "total_occupied_voxels": 727
+}

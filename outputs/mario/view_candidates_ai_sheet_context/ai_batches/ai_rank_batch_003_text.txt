@@ -1,0 +1,263 @@
+{
+  "rankings": [
+    {
+      "candidate_id": 201,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 202,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 203,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 204,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 205,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 206,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 207,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 208,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 209,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 210,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 211,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 212,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 213,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 214,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 215,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 216,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 217,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 218,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 219,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 220,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 221,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 222,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 223,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 230,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 231,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 232,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 253,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 242,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 243,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 250,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 194,
+      "view": "unknown",
+      "pose": "other",
+      "confidence": 0.4,
+      "reason": "Incomplete crop with unclear pose."
+    },
+    {
+      "candidate_id": 193,
+      "view": "unknown",
+      "pose": "other",
+      "confidence": 0.4,
+      "reason": "Incomplete crop with unclear pose."
+    },
+    {
+      "candidate_id": 195,
+      "view": "unknown",
+      "pose": "other",
+      "confidence": 0.4,
+      "reason": "Incomplete crop with unclear pose."
+    },
+    {
+      "candidate_id": 196,
+      "view": "unknown",
+      "pose": "other",
+      "confidence": 0.4,
+      "reason": "Incomplete crop with unclear pose."
+    },
+    {
+      "candidate_id": 197,
+      "view": "unknown",
+      "pose": "other",
+      "confidence": 0.4,
+      "reason": "Incomplete crop with unclear pose."
+    },
+    {
+      "candidate_id": 198,
+      "view": "unknown",
+      "pose": "other",
+      "confidence": 0.75,
+      "reason": "Clear standing pose but lacks full context."
+    },
+    {
+      "candidate_id": 199,
+      "view": "unknown",
+      "pose": "other",
+      "confidence": 0.75,
+      "reason": "Clear standing pose but lacks full context."
+    }
+  ]
+}

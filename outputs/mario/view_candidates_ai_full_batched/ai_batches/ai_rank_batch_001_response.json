@@ -1,0 +1,72 @@
+{
+  "id": "resp_07ef1b2bc9a0e37e006a0eb981c49c8190a281b0cf72527ea0",
+  "object": "response",
+  "created_at": 1779349889,
+  "status": "completed",
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1779349914,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "model": "gpt-4o-mini-2024-07-18",
+  "moderation": null,
+  "output": [
+    {
+      "id": "msg_07ef1b2bc9a0e37e006a0eb982d5a48190be6f47a56ad60a35",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\n  \"rankings\": [\n    {\"candidate_id\": 64, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Standing upright with no distinct pose.\"},\n    {\"candidate_id\": 65, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Standing neutral.\"},\n    {\"candidate_id\": 66, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Full-body standing pose.\"},\n    {\"candidate_id\": 67, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Neutral stance.\"},\n    {\"candidate_id\": 68, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Neutral standing position.\"},\n    {\"candidate_id\": 69, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Full-body standing.\"},\n    {\"candidate_id\": 70, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Stable pose.\"},\n    {\"candidate_id\": 71, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Standard standing.\"},\n    {\"candidate_id\": 76, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Full body perspective.\"},\n    {\"candidate_id\": 77, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Standing neutral.\"},\n    {\"candidate_id\": 79, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Fully body stance.\"},\n    {\"candidate_id\": 80, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Neutral standing.\"},\n    {\"candidate_id\": 84, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 0.65, \"reason\": \"Looked neutral.\"},\n    {\"candidate_id\": 85, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 0.65, \"reason\": \"Standing posture.\"},\n    {\"candidate_id\": 94, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 0.75, \"reason\": \"Standing variant.\"},\n    {\"candidate_id\": 95, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 0.75, \"reason\": \"Neutral look.\"},\n    {\"candidate_id\": 96, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 0.75, \"reason\": \"Standard standing position.\"},\n    {\"candidate_id\": 97, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Neutral frame.\"},\n    {\"candidate_id\": 98, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Standing orientation.\"},\n    {\"candidate_id\": 99, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Full-body stance.\"},\n    {\"candidate_id\": 100, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Full-body upright.\"},\n    {\"candidate_id\": 101, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Standing still.\"},\n    {\"candidate_id\": 102, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Neutral standing.\"},\n    {\"candidate_id\": 104, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Standard pose.\"},\n    {\"candidate_id\": 105, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Full-body stance.\"},\n    {\"candidate_id\": 106, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Staying upright.\"},\n    {\"candidate_id\": 107, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Neutral stance.\"},\n    {\"candidate_id\": 108, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Standing upright.\"},\n    {\"candidate_id\": 109, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Neutral posture.\"},\n    {\"candidate_id\": 110, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Full-body standing.\"},\n    {\"candidate_id\": 111, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Neutral stance.\"},\n    {\"candidate_id\": 118, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Standard stance.\"},\n    {\"candidate_id\": 119, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Neutral pose.\"},\n    {\"candidate_id\": 120, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Full-body stance.\"},\n    {\"candidate_id\": 121, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Standing tall.\"},\n    {\"candidate_id\": 122, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Neutral stance.\"},\n    {\"candidate_id\": 123, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Standing position.\"},\n    {\"candidate_id\": 124, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Standard upright.\"},\n    {\"candidate_id\": 125, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Neutral pose.\"},\n    {\"candidate_id\": 126, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Full-body upright.\"},\n    {\"candidate_id\": 127, \"view\": \"unknown\", \"pose\": \"idle\", \"confidence\": 1.0, \"reason\": \"Standing still.\"}\n  ]\n}"
+        }
+      ],
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "in_memory",
+  "reasoning": {
+    "effort": null,
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "json_object"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 1.0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 28966,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 1506,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 30472
+  },
+  "user": null,
+  "metadata": {}
+}

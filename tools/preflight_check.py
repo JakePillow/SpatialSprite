@@ -3,11 +3,13 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
-import sys
-from pathlib import Path as _P
-sys.path.insert(0, str(_P(__file__).resolve().parent.parent / "tool"))
-from spritespatial.asset_schema import AssetSchema
-from spritespatial.validators import inspect_png
+WORKSPACE_ROOT = Path(__file__).resolve().parent.parent
+TOOL_ROOT = WORKSPACE_ROOT / "tool"
+if str(TOOL_ROOT) not in sys.path:
+    sys.path.insert(0, str(TOOL_ROOT))
+
+from spritespatial.asset_schema import AssetSchema  # noqa: E402
+from spritespatial.validators import inspect_png  # noqa: E402
 
 
 def main(argv: list[str] | None = None) -> int:

@@ -31,38 +31,33 @@ $ErrorActionPreference = 'Stop'
 
 # --- Configuration ---
 $RepoRoot = $PSScriptRoot | Split-Path | Resolve-Path
-$GodotExe = $env:GODOT_EXE -or "$env:LOCALAPPDATA\Programs\Godot\godot.exe" # Check env var, then common path.
+$GodotPath = $env:GODOT_EXE # Check env var first.
 $PythonExe = "python" # Assumes 'python' is in your system's PATH.
+
+# --- Godot Path Resolution ---
+if (-not $GodotPath -or -not (Test-Path $GodotPath)) {
+    $GodotPath = (Get-Command godot -ErrorAction SilentlyContinue).Source
+}
+if (-not $GodotPath -or -not (Test-Path $GodotPath)) {
+    $GodotPath = "$env:LOCALAPPDATA\Programs\Godot\godot.exe" # Fallback to common install path
+}
 
 # --- Asset Generation ---
 # Ensure the test sprite exists by running the creation script first.
-$CreateSpriteScript = Join-Path $RepoRoot "tools\create_internal_test_sprite.py"
+$CreateHumanoidSpriteScript = Join-Path $RepoRoot "tools\create_humanoid_test_sprite.py"
+$CreateEnemySpriteScript = Join-Path $RepoRoot "tools\create_enemy_test_sprite.py"
 
-if ($FrontSprite -match "topology_humanoid_front.png" -and -not (Test-Path $FrontSprite)) {
-    Write-Verbose "Default test sprite not found. Generating a new one at '$FrontSprite'..."
-    try {
-        & $PythonExe $CreateSpriteScript "--output" $FrontSprite
-    }
-    catch {
-        Write-Error "Failed to create the internal test sprite. Aborting. Error: $_"
-        exit 1
-    }
+if ($FrontSprite -like "*topology_humanoid_front.png*" -and -not (Test-Path $FrontSprite)) {
+    Write-Verbose "Default humanoid test sprite not found. Generating it..."
+    & $PythonExe $CreateHumanoidSpriteScript "--output" $FrontSprite
+}
+elseif ($FrontSprite -like "*topology_enemy_front.png*" -and -not (Test-Path $FrontSprite)) {
+    Write-Verbose "Default enemy test sprite not found. Generating it..."
+    & $PythonExe $CreateEnemySpriteScript "--output" $FrontSprite
 }
 
 # --- Build Arguments ---
 $BuildScript = Join-Path $RepoRoot "tools\build_topological_sprite_model.py"
-
-Write-Verbose "Using build script: $BuildScript"
-$BuildScriptText = Get-Content -LiteralPath $BuildScript -Raw
-if ($BuildScriptText -notmatch "cuboid_parts") {
-    Write-Error "Stale build script detected: --representation-style does not include cuboid_parts."
-    exit 1
-}
-if ($BuildScriptText -match "colour = _paper_face_colour\(pixels\[x, y\], label, face\)") {
-    Write-Error "Stale build script detected: paper_cutout might be using an old pixel access method. Please verify the build script."
-    exit 1
-}
-Write-Verbose "Build script sanity check passed."
 
 # 1. Run the Python build script to generate the cuboid model.
 Write-Host "Building cuboid model from '$(Split-Path $FrontSprite -Leaf)'..." -ForegroundColor Cyan
@@ -85,14 +80,14 @@ catch {
 }
 
 # 2. Launch Godot to view the generated scene.
-if (-not (Test-Path $GodotExe)) {
-    Write-Error "Godot executable not found at '$GodotExe'. Please update the path in the script."
+if (-not (Test-Path $GodotPath)) {
+    Write-Error "Godot executable not found. Please update the path in the script, install Godot to a standard location, or add it to your PATH."
     Write-Error "You can also set a 'GODOT_EXE' environment variable."
     exit 1
 }
 
 Write-Host "Launching Godot to open scene: $ScenePath" -ForegroundColor Green
 
-& $GodotExe --path $RepoRoot $ScenePath
+& $GodotPath --path $RepoRoot $ScenePath
 
 Write-Verbose "Script finished."

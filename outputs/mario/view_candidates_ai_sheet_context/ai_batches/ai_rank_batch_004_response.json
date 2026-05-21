@@ -1,0 +1,72 @@
+{
+  "id": "resp_05de3528cd803259006a0ebf110a0c8196bf5afe0a8c196fbe",
+  "object": "response",
+  "created_at": 1779351313,
+  "status": "completed",
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1779351350,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "model": "gpt-4o-mini-2024-07-18",
+  "moderation": null,
+  "output": [
+    {
+      "id": "msg_05de3528cd803259006a0ebf151b548196855bc6305529718e",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\n  \"rankings\": [\n    {\n      \"candidate_id\": 256,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.8,\n      \"reason\": \"Standing pose, complete but not clearly deemed front-view.\"\n    },\n    {\n      \"candidate_id\": 258,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.8,\n      \"reason\": \"Standing pose, complete but slightly ambiguous.\"\n    },\n    {\n      \"candidate_id\": 259,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing pose, complete, confidence high.\"\n    },\n    {\n      \"candidate_id\": 260,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing pose, complete with high confidence.\"\n    },\n    {\n      \"candidate_id\": 261,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Full-body standing, complete.\"\n    },\n    {\n      \"candidate_id\": 262,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing pose, complete, looks good.\"\n    },\n    {\n      \"candidate_id\": 263,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Complete and clear standing pose.\"\n    },\n    {\n      \"candidate_id\": 264,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Full-body standing, complete.\"\n    },\n    {\n      \"candidate_id\": 265,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing pose, complete and clear.\"\n    },\n    {\n      \"candidate_id\": 266,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Complete and clear standing pose.\"\n    },\n    {\n      \"candidate_id\": 267,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Standing, high quality.\"\n    },\n    {\n      \"candidate_id\": 268,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Full standing, confident classification.\"\n    },\n    {\n      \"candidate_id\": 269,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.9,\n      \"reason\": \"Complete standing pose.\"\n    },\n    {\n      \"candidate_id\": 270,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.85,\n      \"reason\": \"Complete pose with good visibility.\"\n    },\n    {\n      \"candidate_id\": 271,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.85,\n      \"reason\": \"Complete posture, with minor ambiguity.\"\n    },\n    {\n      \"candidate_id\": 291,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.85,\n      \"reason\": \"Standing pose, complete.\"\n    },\n    {\n      \"candidate_id\": 292,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.85,\n      \"reason\": \"Complete and stable stance.\"\n    },\n    {\n      \"candidate_id\": 293,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.85,\n      \"reason\": \"Good quality standing sprite.\"\n    },\n    {\n      \"candidate_id\": 294,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.85,\n      \"reason\": \"Standing pose but slight visibility issues.\"\n    },\n    {\n      \"candidate_id\": 295,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.85,\n      \"reason\": \"Complete and visually clear.\"\n    },\n    {\n      \"candidate_id\": 296,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.85,\n      \"reason\": \"Complete standing posture.\"\n    },\n    {\n      \"candidate_id\": 297,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.85,\n      \"reason\": \"Clear standing pose.\"\n    },\n    {\n      \"candidate_id\": 298,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.85,\n      \"reason\": \"Complete and adequate clarity.\"\n    },\n    {\n      \"candidate_id\": 299,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.85,\n      \"reason\": \"Good quality standing sprite.\"\n    },\n    {\n      \"candidate_id\": 300,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.85,\n      \"reason\": \"Standing, slightly cropped but acceptable.\"\n    },\n    {\n      \"candidate_id\": 301,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.85,\n      \"reason\": \"Solid standing sprite.\"\n    },\n    {\n      \"candidate_id\": 302,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.85,\n      \"reason\": \"Clear standing pose.\"\n    },\n    {\n      \"candidate_id\": 303,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.85,\n      \"reason\": \"Standing, minor cropping.\"\n    },\n    {\n      \"candidate_id\": 275,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.8,\n      \"reason\": \"Good quality stance.\"\n    },\n    {\n      \"candidate_id\": 276,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.8,\n      \"reason\": \"Solid quality standing sprite.\"\n    },\n    {\n      \"candidate_id\": 274,\n      \"view\": \"unknown\",\n      \"pose\": \"idle\",\n      \"confidence\": 0.8,\n      \"reason\": \"Standing, well-presented.\"\n    }\n  ]\n}"
+        }
+      ],
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "in_memory",
+  "reasoning": {
+    "effort": null,
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "json_object"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 1.0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 54711,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 1433,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 56144
+  },
+  "user": null,
+  "metadata": {}
+}

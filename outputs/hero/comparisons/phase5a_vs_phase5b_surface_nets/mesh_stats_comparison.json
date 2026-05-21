@@ -1,0 +1,39 @@
+{
+  "phase5a": {
+    "surface_nets_ready": true,
+    "sdf_volume_shape": [
+      32,
+      24,
+      25
+    ],
+    "semantic_volume_labels": [
+      1,
+      2,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
+  },
+  "phase5b": {
+    "surface_net_vertices": 2151,
+    "surface_net_faces": 2152,
+    "active_cell_count": 2151,
+    "semantic_labels_in_mesh": [
+      1,
+      2,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "mesh_connected_components": 1,
+    "degenerate_face_count": 0
+  }
+}

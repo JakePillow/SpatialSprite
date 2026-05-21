@@ -1,0 +1,25 @@
+{
+  "schema_version": "spriteasset_v1",
+  "asset_name": "mario",
+  "asset_type": "character",
+  "source_sprites": {
+    "front": "mario_front.png",
+    "back": "mario_back.png",
+    "left": "mario_left.png",
+    "right": "mario_right.png"
+  },
+  "render_mode": "directional_sprite_3d",
+  "pixel_scale": 0.06,
+  "upscaling": {
+    "method": "nearest_integer",
+    "scale_factor": 2,
+    "generates_new_art_content": false,
+    "deterministic": true,
+    "output_format": "png"
+  },
+  "collision": {
+    "type": "capsule",
+    "height": 1.5,
+    "radius": 0.32
+  }
+}

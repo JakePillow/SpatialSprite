@@ -7,7 +7,6 @@
   "model_depth_units": 0.6,
   "semantic_mode": "debug_maps",
   "primitive_mode": "depth_volume",
-  "smoothing_mode": "raw_debug",
   "outline_policy": "preserve_outline_debug",
   "target_face_budget": 5000,
   "capture_angles": [0, 30, 45, 60, 90, 135, 180],
@@ -17,5 +16,23 @@
     "max_fallback_colour_count": 0,
     "require_nonzero_faces": true,
     "require_front_back_dimension_match": true
-  }
+  },
+  "use_zfield": true,
+  "use_primitives": true,
+  "emit_all_debug": true,
+  "preserve_region_boundaries": true,
+  "semantic_override_mode": "supplement",
+  "semantic_override_dir": "assets/samples/hero/semantic_overrides",
+  "require_semantic_overrides": false,
+  "emit_override_debug": true,
+  "smoothing_enabled": false,
+  "smoothing_mode": "hybrid_lowpoly",
+  "smoothing_iterations": 1,
+  "bevel_strength": 0.15,
+  "silhouette_preservation_weight": 1.0,
+  "semantic_boundary_weight": 0.85,
+  "outline_preservation_weight": 1.0,
+  "max_silhouette_drift_px": 1,
+  "allow_inferred_back": true,
+  "source_coverage_warning_level": "detailed"
 }

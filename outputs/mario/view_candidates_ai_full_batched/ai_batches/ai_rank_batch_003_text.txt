@@ -1,0 +1,228 @@
+{
+  "rankings": [
+    {
+      "candidate_id": 201,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with clear front view."
+    },
+    {
+      "candidate_id": 202,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with clear front view."
+    },
+    {
+      "candidate_id": 203,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with clear front view."
+    },
+    {
+      "candidate_id": 204,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with clear front view."
+    },
+    {
+      "candidate_id": 205,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with clear front view."
+    },
+    {
+      "candidate_id": 206,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with clear front view."
+    },
+    {
+      "candidate_id": 207,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with clear front view."
+    },
+    {
+      "candidate_id": 230,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with clear front view."
+    },
+    {
+      "candidate_id": 231,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with clear front view."
+    },
+    {
+      "candidate_id": 242,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with clear front view."
+    },
+    {
+      "candidate_id": 243,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with clear front view."
+    },
+    {
+      "candidate_id": 244,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with clear front view."
+    },
+    {
+      "candidate_id": 247,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with clear front view."
+    },
+    {
+      "candidate_id": 250,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with clear front view."
+    },
+    {
+      "candidate_id": 253,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with clear front view."
+    },
+    {
+      "candidate_id": 198,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 0.75,
+      "reason": "Good standing pose, but slight size reduction."
+    },
+    {
+      "candidate_id": 199,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 0.75,
+      "reason": "Good standing pose, but slight size reduction."
+    },
+    {
+      "candidate_id": 200,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 0.75,
+      "reason": "Good standing pose, but slight size reduction."
+    },
+    {
+      "candidate_id": 224,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 0.65,
+      "reason": "Has a clear front view but less polish."
+    },
+    {
+      "candidate_id": 225,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 0.65,
+      "reason": "Has a clear front view but less polish."
+    },
+    {
+      "candidate_id": 226,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 0.65,
+      "reason": "Has a clear front view but less polish."
+    },
+    {
+      "candidate_id": 227,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 0.65,
+      "reason": "Has a clear front view but less polish."
+    },
+    {
+      "candidate_id": 228,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 0.65,
+      "reason": "Has a clear front view but less polish."
+    },
+    {
+      "candidate_id": 229,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 0.65,
+      "reason": "Has a clear front view but less polish."
+    },
+    {
+      "candidate_id": 192,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.4,
+      "reason": "Incomplete and unclear view."
+    },
+    {
+      "candidate_id": 193,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.4,
+      "reason": "Incomplete and unclear view."
+    },
+    {
+      "candidate_id": 194,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.4,
+      "reason": "Incomplete and unclear view."
+    },
+    {
+      "candidate_id": 195,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.4,
+      "reason": "Incomplete and unclear view."
+    },
+    {
+      "candidate_id": 196,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.4,
+      "reason": "Incomplete and unclear view."
+    },
+    {
+      "candidate_id": 197,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.4,
+      "reason": "Incomplete and unclear view."
+    },
+    {
+      "candidate_id": 236,
+      "view": "unknown",
+      "pose": "jump",
+      "confidence": 0.65,
+      "reason": "Jumping pose, low score due to non-idle stance."
+    },
+    {
+      "candidate_id": 237,
+      "view": "unknown",
+      "pose": "jump",
+      "confidence": 0.65,
+      "reason": "Jumping pose, low score due to non-idle stance."
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "total_faces": 1518,
+  "faces_with_fallback_material": 0,
+  "fallback_face_percentage": 0.0,
+  "number_of_materials": 47,
+  "occupied_voxels": 1751,
+  "transparent_pixels_ignored": 497,
+  "alpha_coverage": 0.3528645833333333,
+  "regions_generated": 64,
+  "final_mesh_bounds": {
+    "min": [
+      -0.4000000000000001,
+      0.10000000000000009,
+      -0.2538
+    ],
+    "max": [
+      0.39999999999999997,
+      1.1500000000000001,
+      0.29999999999999993
+    ],
+    "size": [
+      0.8,
+      1.05,
+      0.5538
+    ]
+  },
+  "front_projection_coverage": 0.3528645833333333,
+  "part_count": 10,
+  "zfield_enabled": true,
+  "primitive_enabled": true,
+  "primitive_count_by_type": {
+    "shell": 1,
+    "ellipsoid": 2,
+    "rounded_cuboid": 3,
+    "tapered_prism": 4
+  },
+  "average_region_depth": 0.3797391678354039,
+  "min_max_depth_by_region": {
+    "0": {
+      "min": 0.04634040383679357,
+      "max": 0.05600000000000001
+    },
+    "1": {
+      "min": 0.14759999999999998,
+      "max": 0.7986485004974666
+    },
+    "2": {
+      "min": 0.1296,
+      "max": 0.5585156560444021
+    },
+    "3": {
+      "min": 0.279,
+      "max": 0.61659
+    },
+    "4": {
+      "min": 0.16091653722811114,
+      "max": 0.4279144745358968
+    },
+    "5": {
+      "min": 0.1758165401554459,
+      "max": 0.4744999999999999
+    },
+    "6": {
+      "min": 0.16231320781103392,
+      "max": 0.5333277783563609
+    },
+    "7": {
+      "min": 0.17329473239950433,
+      "max": 0.4608309725771197
+    },
+    "8": {
+      "min": 0.5439999999999999,
+      "max": 0.72
+    },
+    "9": {
+      "min": 0.5439999999999999,
+      "max": 0.72
+    }
+  },
+  "outline_shell_voxel_count": 50,
+  "malformed_region_count": 0,
+  "fallback_primitive_count": 0,
+  "continuity_enabled": true,
+  "disconnected_mass_count": 1,
+  "floating_fragment_count": 0,
+  "side_silhouette_continuity_score": 1.0,
+  "semantic_bridge_count": 9,
+  "shell_dominance_ratio": 0.028555111364934323,
+  "phase2_side_silhouette_continuity_score": null,
+  "semantic_override_mode": "supplement",
+  "override_pixels_applied": 271,
+  "override_overlap_count": 145,
+  "unlabelled_opaque_pixel_ratio": 0.0,
+  "critical_label_coverage": {
+    "head": 20,
+    "torso": 79,
+    "left_leg": 30,
+    "right_leg": 22
+  },
+  "torso_head_overlap_count_after_override": 0,
+  "disconnected_critical_labels_after_override": 0,
+  "missing_critical_labels_after_override": [],
+  "smoothing_enabled": true,
+  "smoothing_mode": "hybrid_lowpoly",
+  "silhouette_drift_px": 0.0,
+  "outline_preservation_score": 1.0,
+  "semantic_boundary_violation_count": 0,
+  "face_count_before_smoothing": 3036,
+  "face_count_after_smoothing": 3036,
+  "degenerate_faces_removed": 0,
+  "smoothing_passed": true,
+  "semantic_warning_counts": {
+    "disconnected_body_parts": 5,
+    "tiny_orphan_regions": 2,
+    "ambiguous_assignment": 1,
+    "outline_regions_merged_into_body": 0,
+    "left_right_confusion": 0,
+    "torso_head_overlap": 1,
+    "equipment_merged_into_body": 0,
+    "depth_discontinuities": 0
+  },
+  "fail_conditions": {
+    "fallback_faces_above_1_percent": false,
+    "generated_mesh_has_zero_faces": false,
+    "no_regions_generated": false,
+    "opaque_regions_receive_zero_depth": false,
+    "outline_becomes_full_depth_slab": false,
+    "fallback_primitives_above_10_percent": false,
+    "critical_body_regions_float_disconnected": false,
+    "shell_occupies_too_much_side_area": false,
+    "side_continuity_worsened_vs_phase2": false,
+    "semantic_override_dimensions_mismatch": false,
+    "semantic_override_overlap_in_strict_mode": false,
+    "torso_head_overlap_after_override": false,
+    "critical_labels_missing_after_override": false,
+    "smoothing_silhouette_drift_above_max": false,
+    "smoothing_outline_preservation_below_threshold": false,
+    "smoothing_semantic_boundary_violations": false,
+    "smoothing_face_count_zero": false,
+    "front_readability_worsened_after_smoothing": false
+  },
+  "passed": true
+}

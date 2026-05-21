@@ -1,0 +1,72 @@
+{
+  "id": "resp_076c3a5ddbac0692006a0eb955447c8190b5018c7418ebacdc",
+  "object": "response",
+  "created_at": 1779349845,
+  "status": "completed",
+  "background": false,
+  "billing": {
+    "payer": "developer"
+  },
+  "completed_at": 1779349888,
+  "error": null,
+  "frequency_penalty": 0.0,
+  "incomplete_details": null,
+  "instructions": null,
+  "max_output_tokens": null,
+  "max_tool_calls": null,
+  "model": "gpt-4o-mini-2024-07-18",
+  "moderation": null,
+  "output": [
+    {
+      "id": "msg_076c3a5ddbac0692006a0eb956ed44819082b5a35017d32c1a",
+      "type": "message",
+      "status": "completed",
+      "content": [
+        {
+          "type": "output_text",
+          "annotations": [],
+          "logprobs": [],
+          "text": "{\n  \"rankings\": [\n    {\n      \"candidate_id\": 0,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 1,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 2,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 3,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 4,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 5,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 6,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 7,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 8,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 9,\n      \"view\": \"unknown\",\n      \"pose\": \"other\",\n      \"confidence\": 0.65,\n      \"reason\": \"Incomplete view with low clarity.\"\n    },\n    {\n      \"candidate_id\": 10,\n      \"view\": \"unknown\",\n      \"pose\": \"other\",\n      \"confidence\": 0.65,\n      \"reason\": \"Incomplete view with low clarity.\"\n    },\n    {\n      \"candidate_id\": 11,\n      \"view\": \"unknown\",\n      \"pose\": \"other\",\n      \"confidence\": 0.65,\n      \"reason\": \"Incomplete view with low clarity.\"\n    },\n    {\n      \"candidate_id\": 12,\n      \"view\": \"unknown\",\n      \"pose\": \"other\",\n      \"confidence\": 0.65,\n      \"reason\": \"Incomplete view with low clarity.\"\n    },\n    {\n      \"candidate_id\": 13,\n      \"view\": \"unknown\",\n      \"pose\": \"other\",\n      \"confidence\": 0.65,\n      \"reason\": \"Incomplete view with low clarity.\"\n    },\n    {\n      \"candidate_id\": 14,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 15,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 16,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 17,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 18,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 19,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 20,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 21,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 22,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 23,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 24,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 25,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 26,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 27,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 28,\n      \"view\": \"unknown\",\n      \"pose\": \"other\",\n      \"confidence\": 0.65,\n      \"reason\": \"Contains jump or special pose.\"\n    },\n    {\n      \"candidate_id\": 29,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 30,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 31,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 32,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 33,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 34,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 35,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 36,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 37,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 38,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 39,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 40,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 41,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 42,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 43,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 44,\n      \"view\": \"unknown\",\n      \"pose\": \"other\",\n      \"confidence\": 0.65,\n      \"reason\": \"Incomplete view with low clarity.\"\n    },\n    {\n      \"candidate_id\": 45,\n      \"view\": \"unknown\",\n      \"pose\": \"other\",\n      \"confidence\": 0.4,\n      \"reason\": \"Contains jump or special pose.\"\n    },\n    {\n      \"candidate_id\": 46,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 47,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 48,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 49,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 50,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 51,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 52,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 53,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 54,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 55,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 56,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 57,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 58,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 59,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 60,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 61,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 62,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    },\n    {\n      \"candidate_id\": 63,\n      \"view\": \"front\",\n      \"pose\": \"idle\",\n      \"confidence\": 1.0,\n      \"reason\": \"Clear view, full body, and neutral pose.\"\n    }\n  ]\n}"
+        }
+      ],
+      "role": "assistant"
+    }
+  ],
+  "parallel_tool_calls": true,
+  "presence_penalty": 0.0,
+  "previous_response_id": null,
+  "prompt_cache_key": null,
+  "prompt_cache_retention": "in_memory",
+  "reasoning": {
+    "effort": null,
+    "summary": null
+  },
+  "safety_identifier": null,
+  "service_tier": "default",
+  "store": true,
+  "temperature": 1.0,
+  "text": {
+    "format": {
+      "type": "json_object"
+    },
+    "verbosity": "medium"
+  },
+  "tool_choice": "auto",
+  "tools": [],
+  "top_logprobs": 0,
+  "top_p": 1.0,
+  "truncation": "disabled",
+  "usage": {
+    "input_tokens": 28966,
+    "input_tokens_details": {
+      "cached_tokens": 0
+    },
+    "output_tokens": 3179,
+    "output_tokens_details": {
+      "reasoning_tokens": 0
+    },
+    "total_tokens": 32145
+  },
+  "user": null,
+  "metadata": {}
+}

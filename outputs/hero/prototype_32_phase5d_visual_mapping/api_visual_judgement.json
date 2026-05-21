@@ -1,0 +1,25 @@
+{
+  "overall_readability_score": 0.51,
+  "front_readability_score": 0.47,
+  "side_readability_score": 0.4,
+  "back_readability_score": 0.45,
+  "does_front_read_like_source_sprite": false,
+  "does_side_read_like_valid_constructed_view": false,
+  "does_back_read_like_authored_or_inferred_view": false,
+  "main_shape_failures": [
+    "Inaccurate front shape representation",
+    "Inconsistent side silhouette rendering"
+  ],
+  "semantic_failures": [
+    "Low semantic match ratio across views"
+  ],
+  "silhouette_failures": [
+    "Low silhouette IOUs indicating misaligned shapes"
+  ],
+  "likely_cause": "Insufficient reference geometry leading to inaccuracies in flattening process",
+  "recommended_next_engineering_step": "Provide or promote authored side and back views for silhouette correction and validation",
+  "confidence": 0.78,
+  "schema": "spritespatial_api_visual_judgement_v1",
+  "advisory_only": true,
+  "model": "gpt-4o-mini"
+}

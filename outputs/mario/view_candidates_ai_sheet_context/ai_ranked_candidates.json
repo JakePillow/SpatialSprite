@@ -1,0 +1,1832 @@
+{
+  "rankings": [
+    {
+      "candidate_id": 0,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body stance, front view."
+    },
+    {
+      "candidate_id": 1,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body stance, front view."
+    },
+    {
+      "candidate_id": 2,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body stance, front view."
+    },
+    {
+      "candidate_id": 3,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body stance, front view."
+    },
+    {
+      "candidate_id": 4,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body stance, front view."
+    },
+    {
+      "candidate_id": 5,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body stance, front view."
+    },
+    {
+      "candidate_id": 6,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body stance, front view."
+    },
+    {
+      "candidate_id": 7,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body stance, front view."
+    },
+    {
+      "candidate_id": 8,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.707,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 9,
+      "view": "unknown",
+      "pose": "other",
+      "confidence": 0.65,
+      "reason": "Pose is unclear, possibly special or a duplicate."
+    },
+    {
+      "candidate_id": 10,
+      "view": "unknown",
+      "pose": "other",
+      "confidence": 0.65,
+      "reason": "Pose is unclear, possibly special or a duplicate."
+    },
+    {
+      "candidate_id": 11,
+      "view": "unknown",
+      "pose": "other",
+      "confidence": 0.65,
+      "reason": "Pose is unclear, possibly special or a duplicate."
+    },
+    {
+      "candidate_id": 12,
+      "view": "unknown",
+      "pose": "other",
+      "confidence": 0.65,
+      "reason": "Pose is unclear, possibly special or a duplicate."
+    },
+    {
+      "candidate_id": 13,
+      "view": "unknown",
+      "pose": "other",
+      "confidence": 0.65,
+      "reason": "Pose is unclear, possibly special or a duplicate."
+    },
+    {
+      "candidate_id": 14,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body stance, front view."
+    },
+    {
+      "candidate_id": 15,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body stance, front view."
+    },
+    {
+      "candidate_id": 22,
+      "view": "back",
+      "pose": "idle",
+      "confidence": 0.802,
+      "reason": "Deterministic rear-facing fallback: strong back-of-head/cap colors with reduced visible face cues.",
+      "source": "deterministic_back_fallback"
+    },
+    {
+      "candidate_id": 28,
+      "view": "left",
+      "pose": "other",
+      "confidence": 0.771,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 29,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body stance, front view."
+    },
+    {
+      "candidate_id": 30,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body stance, front view."
+    },
+    {
+      "candidate_id": 31,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.704,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 34,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.719,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 36,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.705,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 37,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body stance, front view."
+    },
+    {
+      "candidate_id": 38,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body stance, front view."
+    },
+    {
+      "candidate_id": 39,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.705,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 40,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.715,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 41,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body stance, front view."
+    },
+    {
+      "candidate_id": 42,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body stance, front view."
+    },
+    {
+      "candidate_id": 43,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.701,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 44,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.73,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 46,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body stance, front view."
+    },
+    {
+      "candidate_id": 47,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body stance, front view."
+    },
+    {
+      "candidate_id": 48,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body stance, front view."
+    },
+    {
+      "candidate_id": 49,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body stance, front view."
+    },
+    {
+      "candidate_id": 50,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body stance, front view."
+    },
+    {
+      "candidate_id": 51,
+      "view": "back",
+      "pose": "idle",
+      "confidence": 0.835,
+      "reason": "Deterministic rear-facing fallback: strong back-of-head/cap colors with reduced visible face cues.",
+      "source": "deterministic_back_fallback"
+    },
+    {
+      "candidate_id": 52,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body stance, front view."
+    },
+    {
+      "candidate_id": 53,
+      "view": "back",
+      "pose": "idle",
+      "confidence": 0.75,
+      "reason": "Deterministic rear-facing fallback: strong back-of-head/cap colors with reduced visible face cues.",
+      "source": "deterministic_back_fallback"
+    },
+    {
+      "candidate_id": 54,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body stance, front view."
+    },
+    {
+      "candidate_id": 55,
+      "view": "back",
+      "pose": "idle",
+      "confidence": 0.835,
+      "reason": "Deterministic rear-facing fallback: strong back-of-head/cap colors with reduced visible face cues.",
+      "source": "deterministic_back_fallback"
+    },
+    {
+      "candidate_id": 56,
+      "view": "back",
+      "pose": "idle",
+      "confidence": 0.82,
+      "reason": "Deterministic rear-facing fallback: strong back-of-head/cap colors with reduced visible face cues.",
+      "source": "deterministic_back_fallback"
+    },
+    {
+      "candidate_id": 57,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.701,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 58,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body stance, front view."
+    },
+    {
+      "candidate_id": 59,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body stance, front view."
+    },
+    {
+      "candidate_id": 60,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.704,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 61,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body stance, front view."
+    },
+    {
+      "candidate_id": 62,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body stance, front view."
+    },
+    {
+      "candidate_id": 64,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 65,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 66,
+      "view": "back",
+      "pose": "idle",
+      "confidence": 0.818,
+      "reason": "Deterministic rear-facing fallback: strong back-of-head/cap colors with reduced visible face cues.",
+      "source": "deterministic_back_fallback"
+    },
+    {
+      "candidate_id": 67,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 68,
+      "view": "back",
+      "pose": "idle",
+      "confidence": 0.802,
+      "reason": "Deterministic rear-facing fallback: strong back-of-head/cap colors with reduced visible face cues.",
+      "source": "deterministic_back_fallback"
+    },
+    {
+      "candidate_id": 69,
+      "view": "back",
+      "pose": "idle",
+      "confidence": 0.796,
+      "reason": "Deterministic rear-facing fallback: strong back-of-head/cap colors with reduced visible face cues.",
+      "source": "deterministic_back_fallback"
+    },
+    {
+      "candidate_id": 70,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 71,
+      "view": "back",
+      "pose": "idle",
+      "confidence": 0.879,
+      "reason": "Deterministic rear-facing fallback: strong back-of-head/cap colors with reduced visible face cues.",
+      "source": "deterministic_back_fallback"
+    },
+    {
+      "candidate_id": 73,
+      "view": "right",
+      "pose": "idle",
+      "confidence": 0.781,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 74,
+      "view": "right",
+      "pose": "idle",
+      "confidence": 0.768,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 75,
+      "view": "right",
+      "pose": "idle",
+      "confidence": 0.765,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 76,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 77,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 78,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.809,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 79,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 80,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 83,
+      "view": "left",
+      "pose": "other",
+      "confidence": 0.851,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 84,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.821,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 85,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 0.65,
+      "reason": "Complete standing pose but less clear than top candidates."
+    },
+    {
+      "candidate_id": 86,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 0.65,
+      "reason": "Complete standing pose but less clear than top candidates."
+    },
+    {
+      "candidate_id": 87,
+      "view": "right",
+      "pose": "idle",
+      "confidence": 0.777,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 88,
+      "view": "unknown",
+      "pose": "other",
+      "confidence": 0.4,
+      "reason": "Incomplete or unclear perspective."
+    },
+    {
+      "candidate_id": 94,
+      "view": "unknown",
+      "pose": "other",
+      "confidence": 0.75,
+      "reason": "Could be front-facing, confidence reduced."
+    },
+    {
+      "candidate_id": 97,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 98,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 99,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 100,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 101,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 102,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 104,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 105,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 106,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 107,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 108,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 109,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 110,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 111,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 115,
+      "view": "right",
+      "pose": "idle",
+      "confidence": 0.746,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 116,
+      "view": "right",
+      "pose": "idle",
+      "confidence": 0.748,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 117,
+      "view": "right",
+      "pose": "idle",
+      "confidence": 0.757,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 118,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 119,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 120,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 121,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 122,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 123,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 124,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 125,
+      "view": "back",
+      "pose": "idle",
+      "confidence": 0.845,
+      "reason": "Deterministic rear-facing fallback: strong back-of-head/cap colors with reduced visible face cues.",
+      "source": "deterministic_back_fallback"
+    },
+    {
+      "candidate_id": 126,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 127,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 128,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.714,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 129,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.717,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 130,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, but unclear view."
+    },
+    {
+      "candidate_id": 131,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.703,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 132,
+      "view": "left",
+      "pose": "other",
+      "confidence": 0.771,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 133,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 134,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 135,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 136,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 137,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.724,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 138,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.714,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 139,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.715,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 140,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 141,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 142,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 143,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 144,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 145,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 146,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.725,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 147,
+      "view": "back",
+      "pose": "idle",
+      "confidence": 0.747,
+      "reason": "Deterministic rear-facing fallback: strong back-of-head/cap colors with reduced visible face cues.",
+      "source": "deterministic_back_fallback"
+    },
+    {
+      "candidate_id": 148,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.743,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 150,
+      "view": "back",
+      "pose": "idle",
+      "confidence": 0.756,
+      "reason": "Deterministic rear-facing fallback: strong back-of-head/cap colors with reduced visible face cues.",
+      "source": "deterministic_back_fallback"
+    },
+    {
+      "candidate_id": 151,
+      "view": "right",
+      "pose": "idle",
+      "confidence": 0.758,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 152,
+      "view": "right",
+      "pose": "idle",
+      "confidence": 0.783,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 154,
+      "view": "back",
+      "pose": "idle",
+      "confidence": 0.828,
+      "reason": "Deterministic rear-facing fallback: strong back-of-head/cap colors with reduced visible face cues.",
+      "source": "deterministic_back_fallback"
+    },
+    {
+      "candidate_id": 155,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 156,
+      "view": "back",
+      "pose": "idle",
+      "confidence": 0.752,
+      "reason": "Deterministic rear-facing fallback: strong back-of-head/cap colors with reduced visible face cues.",
+      "source": "deterministic_back_fallback"
+    },
+    {
+      "candidate_id": 157,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.723,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 158,
+      "view": "back",
+      "pose": "idle",
+      "confidence": 0.828,
+      "reason": "Deterministic rear-facing fallback: strong back-of-head/cap colors with reduced visible face cues.",
+      "source": "deterministic_back_fallback"
+    },
+    {
+      "candidate_id": 159,
+      "view": "back",
+      "pose": "idle",
+      "confidence": 0.829,
+      "reason": "Deterministic rear-facing fallback: strong back-of-head/cap colors with reduced visible face cues.",
+      "source": "deterministic_back_fallback"
+    },
+    {
+      "candidate_id": 160,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 161,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 162,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 163,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 164,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.748,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 165,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.765,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 167,
+      "view": "back",
+      "pose": "idle",
+      "confidence": 0.846,
+      "reason": "Deterministic rear-facing fallback: strong back-of-head/cap colors with reduced visible face cues.",
+      "source": "deterministic_back_fallback"
+    },
+    {
+      "candidate_id": 168,
+      "view": "back",
+      "pose": "idle",
+      "confidence": 0.903,
+      "reason": "Deterministic rear-facing fallback: strong back-of-head/cap colors with reduced visible face cues.",
+      "source": "deterministic_back_fallback"
+    },
+    {
+      "candidate_id": 169,
+      "view": "back",
+      "pose": "idle",
+      "confidence": 0.845,
+      "reason": "Deterministic rear-facing fallback: strong back-of-head/cap colors with reduced visible face cues.",
+      "source": "deterministic_back_fallback"
+    },
+    {
+      "candidate_id": 170,
+      "view": "back",
+      "pose": "idle",
+      "confidence": 0.835,
+      "reason": "Deterministic rear-facing fallback: strong back-of-head/cap colors with reduced visible face cues.",
+      "source": "deterministic_back_fallback"
+    },
+    {
+      "candidate_id": 171,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 172,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 173,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 174,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 175,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 176,
+      "view": "back",
+      "pose": "idle",
+      "confidence": 0.814,
+      "reason": "Deterministic rear-facing fallback: strong back-of-head/cap colors with reduced visible face cues.",
+      "source": "deterministic_back_fallback"
+    },
+    {
+      "candidate_id": 181,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 182,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 183,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.8,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 184,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 185,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 186,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 187,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing frame, clearly visible."
+    },
+    {
+      "candidate_id": 188,
+      "view": "right",
+      "pose": "idle",
+      "confidence": 0.754,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 189,
+      "view": "right",
+      "pose": "idle",
+      "confidence": 0.782,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 190,
+      "view": "left",
+      "pose": "other",
+      "confidence": 0.835,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 191,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.804,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 193,
+      "view": "unknown",
+      "pose": "other",
+      "confidence": 0.4,
+      "reason": "Incomplete crop with unclear pose."
+    },
+    {
+      "candidate_id": 194,
+      "view": "unknown",
+      "pose": "other",
+      "confidence": 0.4,
+      "reason": "Incomplete crop with unclear pose."
+    },
+    {
+      "candidate_id": 195,
+      "view": "unknown",
+      "pose": "other",
+      "confidence": 0.4,
+      "reason": "Incomplete crop with unclear pose."
+    },
+    {
+      "candidate_id": 196,
+      "view": "unknown",
+      "pose": "other",
+      "confidence": 0.4,
+      "reason": "Incomplete crop with unclear pose."
+    },
+    {
+      "candidate_id": 197,
+      "view": "unknown",
+      "pose": "other",
+      "confidence": 0.4,
+      "reason": "Incomplete crop with unclear pose."
+    },
+    {
+      "candidate_id": 198,
+      "view": "unknown",
+      "pose": "other",
+      "confidence": 0.75,
+      "reason": "Clear standing pose but lacks full context."
+    },
+    {
+      "candidate_id": 199,
+      "view": "unknown",
+      "pose": "other",
+      "confidence": 0.75,
+      "reason": "Clear standing pose but lacks full context."
+    },
+    {
+      "candidate_id": 201,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 202,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 203,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 204,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 205,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 206,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 207,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 208,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 209,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 210,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 211,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 212,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.729,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 213,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.808,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 214,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.765,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 215,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 216,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.762,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 217,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.747,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 218,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.789,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 219,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 220,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 221,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 222,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 223,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.756,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 225,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.768,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 227,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.764,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 228,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.748,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 229,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.798,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 230,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 231,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 232,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 233,
+      "view": "right",
+      "pose": "idle",
+      "confidence": 0.775,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 242,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 243,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 244,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.729,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 245,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.766,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 246,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.766,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 247,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.808,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 248,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.733,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 249,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.727,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 250,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.765,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 253,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Clear front-facing idle pose."
+    },
+    {
+      "candidate_id": 254,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.728,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 255,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.724,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 256,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.762,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 258,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.8,
+      "reason": "Standing pose, complete but slightly ambiguous."
+    },
+    {
+      "candidate_id": 259,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.747,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 260,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing pose, complete with high confidence."
+    },
+    {
+      "candidate_id": 261,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Full-body standing, complete."
+    },
+    {
+      "candidate_id": 262,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing pose, complete, looks good."
+    },
+    {
+      "candidate_id": 263,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Complete and clear standing pose."
+    },
+    {
+      "candidate_id": 264,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Full-body standing, complete."
+    },
+    {
+      "candidate_id": 265,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing pose, complete and clear."
+    },
+    {
+      "candidate_id": 266,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Complete and clear standing pose."
+    },
+    {
+      "candidate_id": 267,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Standing, high quality."
+    },
+    {
+      "candidate_id": 268,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Full standing, confident classification."
+    },
+    {
+      "candidate_id": 269,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.9,
+      "reason": "Complete standing pose."
+    },
+    {
+      "candidate_id": 270,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.85,
+      "reason": "Complete pose with good visibility."
+    },
+    {
+      "candidate_id": 271,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.85,
+      "reason": "Complete posture, with minor ambiguity."
+    },
+    {
+      "candidate_id": 272,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.751,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 273,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.749,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 274,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.789,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 275,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.8,
+      "reason": "Good quality stance."
+    },
+    {
+      "candidate_id": 276,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.8,
+      "reason": "Solid quality standing sprite."
+    },
+    {
+      "candidate_id": 282,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.703,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 283,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.707,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 291,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.85,
+      "reason": "Standing pose, complete."
+    },
+    {
+      "candidate_id": 292,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.85,
+      "reason": "Complete and stable stance."
+    },
+    {
+      "candidate_id": 293,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.85,
+      "reason": "Good quality standing sprite."
+    },
+    {
+      "candidate_id": 294,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.85,
+      "reason": "Standing pose but slight visibility issues."
+    },
+    {
+      "candidate_id": 295,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.85,
+      "reason": "Complete and visually clear."
+    },
+    {
+      "candidate_id": 296,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.85,
+      "reason": "Complete standing posture."
+    },
+    {
+      "candidate_id": 297,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.85,
+      "reason": "Clear standing pose."
+    },
+    {
+      "candidate_id": 298,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.85,
+      "reason": "Complete and adequate clarity."
+    },
+    {
+      "candidate_id": 299,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.85,
+      "reason": "Good quality standing sprite."
+    },
+    {
+      "candidate_id": 300,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.85,
+      "reason": "Standing, slightly cropped but acceptable."
+    },
+    {
+      "candidate_id": 301,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.85,
+      "reason": "Solid standing sprite."
+    },
+    {
+      "candidate_id": 302,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.85,
+      "reason": "Clear standing pose."
+    },
+    {
+      "candidate_id": 303,
+      "view": "unknown",
+      "pose": "idle",
+      "confidence": 0.85,
+      "reason": "Standing, minor cropping."
+    },
+    {
+      "candidate_id": 305,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.721,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 307,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.726,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 313,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.776,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 314,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.741,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 316,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.736,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 317,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.723,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    },
+    {
+      "candidate_id": 318,
+      "view": "left",
+      "pose": "idle",
+      "confidence": 0.759,
+      "reason": "Deterministic side-facing fallback: profile face/nose is offset to one side, matching Mario sheet side-view frames.",
+      "source": "deterministic_side_fallback"
+    }
+  ],
+  "deterministic_suggestion_count": 96,
+  "deterministic_back_suggestion_count": 21,
+  "deterministic_side_suggestion_count": 75
+}

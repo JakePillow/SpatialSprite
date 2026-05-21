@@ -1,0 +1,467 @@
+{
+  "schema": "spritespatial_semantic_override_report_v1",
+  "mode": "supplement",
+  "override_dir": "C:\\dev\\SpatialSprite\\assets\\samples\\mario\\semantic_overrides",
+  "loaded_masks": {
+    "head": {
+      "file": "C:\\dev\\SpatialSprite\\assets\\samples\\mario\\semantic_overrides\\head.png",
+      "pixel_count": 72,
+      "coverage": 0.09375
+    },
+    "face": {
+      "file": "C:\\dev\\SpatialSprite\\assets\\samples\\mario\\semantic_overrides\\face.png",
+      "pixel_count": 24,
+      "coverage": 0.03125
+    },
+    "hair": {
+      "file": "C:\\dev\\SpatialSprite\\assets\\samples\\mario\\semantic_overrides\\hat_hair.png",
+      "pixel_count": 28,
+      "coverage": 0.036458333333333336
+    },
+    "torso": {
+      "file": "C:\\dev\\SpatialSprite\\assets\\samples\\mario\\semantic_overrides\\torso.png",
+      "pixel_count": 121,
+      "coverage": 0.15755208333333334
+    },
+    "left_arm": {
+      "file": "C:\\dev\\SpatialSprite\\assets\\samples\\mario\\semantic_overrides\\left_arm.png",
+      "pixel_count": 7,
+      "coverage": 0.009114583333333334
+    },
+    "right_arm": {
+      "file": "C:\\dev\\SpatialSprite\\assets\\samples\\mario\\semantic_overrides\\right_arm.png",
+      "pixel_count": 4,
+      "coverage": 0.005208333333333333
+    },
+    "left_leg": {
+      "file": "C:\\dev\\SpatialSprite\\assets\\samples\\mario\\semantic_overrides\\left_leg.png",
+      "pixel_count": 39,
+      "coverage": 0.05078125
+    },
+    "right_leg": {
+      "file": "C:\\dev\\SpatialSprite\\assets\\samples\\mario\\semantic_overrides\\right_leg.png",
+      "pixel_count": 31,
+      "coverage": 0.040364583333333336
+    },
+    "boots_feet": {
+      "file": "C:\\dev\\SpatialSprite\\assets\\samples\\mario\\semantic_overrides\\boots_feet.png",
+      "pixel_count": 0,
+      "coverage": 0.0
+    },
+    "equipment": {
+      "file": "C:\\dev\\SpatialSprite\\assets\\samples\\mario\\semantic_overrides\\equipment.png",
+      "pixel_count": 0,
+      "coverage": 0.0
+    },
+    "outline": {
+      "file": "C:\\dev\\SpatialSprite\\assets\\samples\\mario\\semantic_overrides\\outline.png",
+      "pixel_count": 79,
+      "coverage": 0.10286458333333333
+    }
+  },
+  "missing_masks": [],
+  "dimension_mismatches": [],
+  "override_pixels_applied": 298,
+  "override_overlap_count": 97,
+  "overlap_pixels": [
+    [
+      12,
+      4
+    ],
+    [
+      12,
+      10
+    ],
+    [
+      14,
+      7
+    ],
+    [
+      17,
+      9
+    ],
+    [
+      9,
+      5
+    ],
+    [
+      8,
+      3
+    ],
+    [
+      8,
+      9
+    ],
+    [
+      11,
+      5
+    ],
+    [
+      10,
+      3
+    ],
+    [
+      10,
+      9
+    ],
+    [
+      9,
+      11
+    ],
+    [
+      13,
+      5
+    ],
+    [
+      13,
+      11
+    ],
+    [
+      11,
+      11
+    ],
+    [
+      10,
+      12
+    ],
+    [
+      16,
+      7
+    ],
+    [
+      7,
+      4
+    ],
+    [
+      13,
+      14
+    ],
+    [
+      16,
+      10
+    ],
+    [
+      15,
+      8
+    ],
+    [
+      6,
+      5
+    ],
+    [
+      6,
+      11
+    ],
+    [
+      16,
+      13
+    ],
+    [
+      7,
+      10
+    ],
+    [
+      15,
+      14
+    ],
+    [
+      7,
+      13
+    ],
+    [
+      12,
+      9
+    ],
+    [
+      14,
+      6
+    ],
+    [
+      18,
+      11
+    ],
+    [
+      12,
+      6
+    ],
+    [
+      17,
+      11
+    ],
+    [
+      17,
+      8
+    ],
+    [
+      8,
+      5
+    ],
+    [
+      11,
+      4
+    ],
+    [
+      9,
+      4
+    ],
+    [
+      9,
+      10
+    ],
+    [
+      10,
+      5
+    ],
+    [
+      13,
+      4
+    ],
+    [
+      9,
+      13
+    ],
+    [
+      11,
+      10
+    ],
+    [
+      16,
+      9
+    ],
+    [
+      15,
+      7
+    ],
+    [
+      6,
+      4
+    ],
+    [
+      13,
+      10
+    ],
+    [
+      7,
+      3
+    ],
+    [
+      7,
+      9
+    ],
+    [
+      16,
+      12
+    ],
+    [
+      6,
+      13
+    ],
+    [
+      15,
+      13
+    ],
+    [
+      18,
+      12
+    ],
+    [
+      12,
+      5
+    ],
+    [
+      12,
+      11
+    ],
+    [
+      14,
+      5
+    ],
+    [
+      14,
+      14
+    ],
+    [
+      8,
+      4
+    ],
+    [
+      5,
+      11
+    ],
+    [
+      9,
+      3
+    ],
+    [
+      9,
+      9
+    ],
+    [
+      17,
+      10
+    ],
+    [
+      10,
+      4
+    ],
+    [
+      11,
+      3
+    ],
+    [
+      11,
+      9
+    ],
+    [
+      9,
+      12
+    ],
+    [
+      17,
+      13
+    ],
+    [
+      8,
+      13
+    ],
+    [
+      15,
+      6
+    ],
+    [
+      13,
+      6
+    ],
+    [
+      15,
+      9
+    ],
+    [
+      16,
+      8
+    ],
+    [
+      7,
+      5
+    ],
+    [
+      7,
+      11
+    ],
+    [
+      16,
+      11
+    ],
+    [
+      15,
+      21
+    ],
+    [
+      16,
+      20
+    ],
+    [
+      14,
+      22
+    ],
+    [
+      11,
+      17
+    ],
+    [
+      11,
+      23
+    ],
+    [
+      13,
+      23
+    ],
+    [
+      16,
+      19
+    ],
+    [
+      12,
+      18
+    ],
+    [
+      10,
+      17
+    ],
+    [
+      11,
+      22
+    ],
+    [
+      12,
+      23
+    ],
+    [
+      14,
+      17
+    ],
+    [
+      10,
+      22
+    ],
+    [
+      15,
+      18
+    ],
+    [
+      14,
+      15
+    ],
+    [
+      11,
+      16
+    ],
+    [
+      7,
+      16
+    ],
+    [
+      9,
+      16
+    ],
+    [
+      13,
+      16
+    ],
+    [
+      10,
+      16
+    ],
+    [
+      12,
+      16
+    ],
+    [
+      8,
+      16
+    ],
+    [
+      13,
+      15
+    ],
+    [
+      9,
+      29
+    ],
+    [
+      7,
+      29
+    ]
+  ],
+  "passed": true,
+  "failures": [],
+  "unlabelled_opaque_pixel_ratio": 0.0,
+  "critical_label_coverage": {
+    "head": 72,
+    "torso": 69,
+    "left_leg": 34,
+    "right_leg": 28
+  },
+  "torso_head_overlap_count_after_override": 0,
+  "disconnected_critical_labels_after_override": 2
+}

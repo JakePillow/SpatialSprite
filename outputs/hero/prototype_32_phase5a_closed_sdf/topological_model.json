@@ -1,0 +1,3155 @@
+{
+  "schema": "spritespatial_phase5a_closed_sdf_v1",
+  "pipeline": "phase5a_closed_sdf",
+  "front_texture": "res://outputs/hero/prototype_32_phase5a_closed_sdf/stage_1_cleaned_sprite.png",
+  "region_overlay": "res://outputs/hero/prototype_32_phase5a_closed_sdf/region_overlay.png",
+  "region_id_map": "res://outputs/hero/prototype_32_phase5a_closed_sdf/region_id_map.png",
+  "depth_debug": "res://outputs/hero/prototype_32_phase5a_closed_sdf/depth_debug.png",
+  "semantic_region_overlay": "res://outputs/hero/prototype_32_phase5a_closed_sdf/semantic_region_overlay.png",
+  "semantic_override_overlay": {
+    "semantic_override_overlay": "res://outputs/hero/prototype_32_phase5a_closed_sdf/semantic_overrides/semantic_override_overlay.png",
+    "semantic_override_conflicts": "res://outputs/hero/prototype_32_phase5a_closed_sdf/semantic_overrides/semantic_override_conflicts.png",
+    "semantic_before_after_override": "res://outputs/hero/prototype_32_phase5a_closed_sdf/semantic_overrides/semantic_before_after_override.png",
+    "unlabelled_pixels": "res://outputs/hero/prototype_32_phase5a_closed_sdf/semantic_overrides/unlabelled_pixels.png",
+    "overlap_pixels": "res://outputs/hero/prototype_32_phase5a_closed_sdf/semantic_overrides/overlap_pixels.png"
+  },
+  "mylar": {
+    "z_front": "res://outputs/hero/prototype_32_phase5a_closed_sdf/mylar/z_front.npy",
+    "z_front_png": "res://outputs/hero/prototype_32_phase5a_closed_sdf/mylar/z_front.png",
+    "z_body": "res://outputs/hero/prototype_32_phase5a_closed_sdf/mylar/z_body.png",
+    "z_regions": "res://outputs/hero/prototype_32_phase5a_closed_sdf/mylar/z_regions",
+    "silhouette_pin_debug": "res://outputs/hero/prototype_32_phase5a_closed_sdf/mylar/silhouette_pin_debug.png",
+    "mylar_depth_report": "res://outputs/hero/prototype_32_phase5a_closed_sdf/mylar/mylar_depth_report.json"
+  },
+  "back": {
+    "z_back": "res://outputs/hero/prototype_32_phase5a_closed_sdf/back/z_back.npy",
+    "z_back_png": "res://outputs/hero/prototype_32_phase5a_closed_sdf/back/z_back.png",
+    "back_rules": "res://outputs/hero/prototype_32_phase5a_closed_sdf/back/back_rules.json",
+    "back_hemisphere_debug": "res://outputs/hero/prototype_32_phase5a_closed_sdf/back/back_hemisphere_debug.png",
+    "seam_debug": "res://outputs/hero/prototype_32_phase5a_closed_sdf/back/seam_debug.png"
+  },
+  "seam": {
+    "seam_mask": "res://outputs/hero/prototype_32_phase5a_closed_sdf/seam/seam_mask.png",
+    "seam_rings": "res://outputs/hero/prototype_32_phase5a_closed_sdf/seam/seam_rings.json",
+    "seam_components": "res://outputs/hero/prototype_32_phase5a_closed_sdf/seam/seam_components.json",
+    "seam_validation": "res://outputs/hero/prototype_32_phase5a_closed_sdf/seam/seam_validation.json"
+  },
+  "sdf": {
+    "sdf_volume": "res://outputs/hero/prototype_32_phase5a_closed_sdf/sdf/sdf_volume.npy",
+    "semantic_volume": "res://outputs/hero/prototype_32_phase5a_closed_sdf/sdf/semantic_volume.npy",
+    "occupancy_volume": "res://outputs/hero/prototype_32_phase5a_closed_sdf/sdf/occupancy_volume.npy",
+    "sdf_slices": "res://outputs/hero/prototype_32_phase5a_closed_sdf/sdf/sdf_slices",
+    "sdf_slice_contact_sheet": "res://outputs/hero/prototype_32_phase5a_closed_sdf/sdf/sdf_slice_contact_sheet.png",
+    "sdf_summary": "res://outputs/hero/prototype_32_phase5a_closed_sdf/sdf/sdf_summary.json"
+  },
+  "meshing": {
+    "surface_nets_input": "res://outputs/hero/prototype_32_phase5a_closed_sdf/meshing/surface_nets_input.npz",
+    "meshing_backend_report": "res://outputs/hero/prototype_32_phase5a_closed_sdf/meshing/meshing_backend_report.json",
+    "optional_closed_preview_mesh": "res://outputs/hero/prototype_32_phase5a_closed_sdf/meshing/optional_closed_preview_mesh.json"
+  },
+  "source_coverage": {
+    "front": "authored",
+    "back": "authored",
+    "left": "mirrored_placeholder",
+    "right": "mirrored_placeholder",
+    "back_reference_recommended": false,
+    "side_reference_recommended": true,
+    "fidelity_limit": "side_inferred",
+    "warnings": [
+      "Side profile is generated from primitive/SDF priors. Provide side sprite for higher fidelity."
+    ],
+    "details": {
+      "front": {
+        "exists": true,
+        "path": "C:\\dev\\SpatialSprite\\assets\\samples\\hero\\hero_front.png",
+        "sha256": "166ee20fb5827967ac60b4e9a59ef046f855443e6653c5e95e4a23a6fd16e7e1",
+        "alpha_sha256": "99c7775d35387f2b0948a59d869bd10267847e101d5076f2b68ced2b3f3f1419",
+        "mirror_sha256": "a65ae16f0f2ec92d1d4f1c227630729492f99230fd2cf605bec182afd45a4ded",
+        "mirror_alpha_sha256": "030dbaf2e28775c85aa646ed89a118fa54cee36bd0cab4d48d0b2e393e5f9ba6",
+        "alpha_coverage": 0.3528645833333333,
+        "size": [
+          24,
+          32
+        ]
+      },
+      "back": {
+        "exists": true,
+        "path": "C:\\dev\\SpatialSprite\\assets\\samples\\hero\\hero_back.png",
+        "sha256": "bcf0cf48481828deeab7c7a6132b2f773e4116c69c303655e1121e1a297a4275",
+        "alpha_sha256": "f15bdabd4805a99773afe973b0703e1308852c1cdcc910bd8b8f64188a40a160",
+        "mirror_sha256": "d4573a013a5080a8b2cb016345e5feab92e0dd797fe10ecb10dced6ca1a89382",
+        "mirror_alpha_sha256": "6acbb67d8e37ffaccb49071e09bcc5312b0ccceec949311f9425ad4649005d33",
+        "alpha_coverage": 0.3463541666666667,
+        "size": [
+          24,
+          32
+        ]
+      },
+      "left": {
+        "exists": true,
+        "path": "C:\\dev\\SpatialSprite\\assets\\samples\\hero\\hero_left.png",
+        "sha256": "79fdad01ed8546a6fe44066fae1a76a34c7c337b37fe4820fd357e54f5ba598e",
+        "alpha_sha256": "d1e3fd946e610f08cc02fe9e209025527ad16d4b1116221d71ce2e91db07047a",
+        "mirror_sha256": "21bb7b36c0b3e754c66d5b6ef6987165232a168bee7c54db669db1e11ee8647b",
+        "mirror_alpha_sha256": "7c9a8138f9a91df54778638bde884328e37e08d3c59d32a4bd7a5e330db7c732",
+        "alpha_coverage": 0.2994791666666667,
+        "size": [
+          24,
+          32
+        ]
+      },
+      "right": {
+        "exists": true,
+        "path": "C:\\dev\\SpatialSprite\\assets\\samples\\hero\\hero_right.png",
+        "sha256": "21bb7b36c0b3e754c66d5b6ef6987165232a168bee7c54db669db1e11ee8647b",
+        "alpha_sha256": "7c9a8138f9a91df54778638bde884328e37e08d3c59d32a4bd7a5e330db7c732",
+        "mirror_sha256": "79fdad01ed8546a6fe44066fae1a76a34c7c337b37fe4820fd357e54f5ba598e",
+        "mirror_alpha_sha256": "d1e3fd946e610f08cc02fe9e209025527ad16d4b1116221d71ce2e91db07047a",
+        "alpha_coverage": 0.2994791666666667,
+        "size": [
+          24,
+          32
+        ]
+      }
+    },
+    "fail_conditions": {
+      "quality_requires_authored_back": false,
+      "quality_requires_authored_sides": false
+    },
+    "passed": true
+  },
+  "view_candidates": {},
+  "canvas_size": [
+    24,
+    32
+  ],
+  "config": {
+    "depth_mode": "mylar_edt",
+    "closed_body": true,
+    "back_mode": "semantic_rules",
+    "emit_sdf_debug": true,
+    "emit_closure_debug": true,
+    "semantic_override_mode": "supplement",
+    "model_depth_units": 0.6,
+    "total_depth_slices": 12
+  },
+  "vertices": [],
+  "normals": [],
+  "colors": [],
+  "indices": [],
+  "part_ids": [],
+  "parts": [
+    {
+      "index": 0,
+      "name": "outline",
+      "semantic_label": "outline",
+      "pixel_count": 50,
+      "bbox": [
+        4,
+        10,
+        20,
+        28
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ]
+    },
+    {
+      "index": 1,
+      "name": "head",
+      "semantic_label": "head",
+      "pixel_count": 20,
+      "bbox": [
+        10,
+        10,
+        14,
+        15
+      ],
+      "dominant_colour": [
+        80,
+        144,
+        16,
+        255
+      ]
+    },
+    {
+      "index": 2,
+      "name": "hair",
+      "semantic_label": "hair/hat",
+      "pixel_count": 8,
+      "bbox": [
+        9,
+        9,
+        15,
+        12
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ]
+    },
+    {
+      "index": 3,
+      "name": "torso",
+      "semantic_label": "torso",
+      "pixel_count": 79,
+      "bbox": [
+        7,
+        11,
+        17,
+        22
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ]
+    },
+    {
+      "index": 4,
+      "name": "left_arm",
+      "semantic_label": "left_arm",
+      "pixel_count": 30,
+      "bbox": [
+        5,
+        16,
+        10,
+        26
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ]
+    },
+    {
+      "index": 5,
+      "name": "right_arm",
+      "semantic_label": "right_arm",
+      "pixel_count": 26,
+      "bbox": [
+        15,
+        16,
+        19,
+        26
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ]
+    },
+    {
+      "index": 6,
+      "name": "left_leg",
+      "semantic_label": "left_leg",
+      "pixel_count": 30,
+      "bbox": [
+        7,
+        22,
+        13,
+        29
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ]
+    },
+    {
+      "index": 7,
+      "name": "right_leg",
+      "semantic_label": "right_leg",
+      "pixel_count": 22,
+      "bbox": [
+        13,
+        22,
+        18,
+        29
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ]
+    },
+    {
+      "index": 8,
+      "name": "left_foot",
+      "semantic_label": "boots/feet",
+      "pixel_count": 3,
+      "bbox": [
+        8,
+        29,
+        11,
+        30
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ]
+    },
+    {
+      "index": 9,
+      "name": "right_foot",
+      "semantic_label": "boots/feet",
+      "pixel_count": 3,
+      "bbox": [
+        13,
+        29,
+        16,
+        30
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ]
+    }
+  ],
+  "semantic_regions": [
+    {
+      "region_id": 0,
+      "pixel_count": 4,
+      "bbox": [
+        10,
+        9,
+        14,
+        10
+      ],
+      "centroid": [
+        11.5,
+        9.0
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        2,
+        3
+      ],
+      "vertical_rank": 0.2903,
+      "horizontal_rank": 0.5,
+      "confidence_score": 0.96,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_000",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.960",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 1,
+      "pixel_count": 1,
+      "bbox": [
+        9,
+        10,
+        10,
+        11
+      ],
+      "centroid": [
+        9.0,
+        10.0
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        2
+      ],
+      "vertical_rank": 0.3226,
+      "horizontal_rank": 0.3913,
+      "confidence_score": 0.81,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_001",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.810",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 2,
+      "pixel_count": 6,
+      "bbox": [
+        9,
+        10,
+        12,
+        13
+      ],
+      "centroid": [
+        10.167,
+        11.0
+      ],
+      "dominant_colour": [
+        80,
+        144,
+        16,
+        255
+      ],
+      "neighbour_regions": [
+        0,
+        1,
+        3,
+        5,
+        13
+      ],
+      "vertical_rank": 0.3548,
+      "horizontal_rank": 0.442,
+      "confidence_score": 0.82,
+      "assigned_label": "torso",
+      "assignment_reason": "central middle high-area component classified as torso",
+      "pass_labels": {
+        "A_connected_component": "region_002",
+        "B_colour_region": "green",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "torso",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "torso",
+        "G_confidence_scoring": "0.820",
+        "H_unknown_fallback": "torso"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 3,
+      "pixel_count": 10,
+      "bbox": [
+        11,
+        10,
+        16,
+        13
+      ],
+      "centroid": [
+        12.9,
+        11.1
+      ],
+      "dominant_colour": [
+        120,
+        184,
+        32,
+        255
+      ],
+      "neighbour_regions": [
+        0,
+        2,
+        4,
+        6,
+        8,
+        13
+      ],
+      "vertical_rank": 0.3581,
+      "horizontal_rank": 0.5609,
+      "confidence_score": 0.9,
+      "assigned_label": "torso",
+      "assignment_reason": "central middle high-area component classified as torso",
+      "pass_labels": {
+        "A_connected_component": "region_003",
+        "B_colour_region": "green",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "torso",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "torso",
+        "G_confidence_scoring": "0.900",
+        "H_unknown_fallback": "torso"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 4,
+      "pixel_count": 2,
+      "bbox": [
+        14,
+        10,
+        16,
+        11
+      ],
+      "centroid": [
+        14.5,
+        10.0
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        3
+      ],
+      "vertical_rank": 0.3226,
+      "horizontal_rank": 0.6304,
+      "confidence_score": 0.81,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_004",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.810",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 5,
+      "pixel_count": 6,
+      "bbox": [
+        7,
+        11,
+        10,
+        14
+      ],
+      "centroid": [
+        8.167,
+        12.167
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        2,
+        12,
+        13
+      ],
+      "vertical_rank": 0.3925,
+      "horizontal_rank": 0.3551,
+      "confidence_score": 0.96,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_005",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.960",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 6,
+      "pixel_count": 1,
+      "bbox": [
+        16,
+        11,
+        17,
+        12
+      ],
+      "centroid": [
+        16.0,
+        11.0
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        3,
+        9
+      ],
+      "vertical_rank": 0.3548,
+      "horizontal_rank": 0.6957,
+      "confidence_score": 0.81,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_006",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.810",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 7,
+      "pixel_count": 1,
+      "bbox": [
+        5,
+        12,
+        6,
+        13
+      ],
+      "centroid": [
+        5.0,
+        12.0
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        10
+      ],
+      "vertical_rank": 0.3871,
+      "horizontal_rank": 0.2174,
+      "confidence_score": 0.81,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_007",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.810",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 8,
+      "pixel_count": 3,
+      "bbox": [
+        14,
+        12,
+        16,
+        14
+      ],
+      "centroid": [
+        14.667,
+        12.667
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        3,
+        9,
+        12,
+        13
+      ],
+      "vertical_rank": 0.4086,
+      "horizontal_rank": 0.6377,
+      "confidence_score": 0.96,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_008",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.960",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 9,
+      "pixel_count": 13,
+      "bbox": [
+        16,
+        12,
+        19,
+        17
+      ],
+      "centroid": [
+        17.077,
+        13.692
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        6,
+        8,
+        12,
+        14,
+        18,
+        19,
+        27
+      ],
+      "vertical_rank": 0.4417,
+      "horizontal_rank": 0.7425,
+      "confidence_score": 1.0,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_009",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "1.000",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 10,
+      "pixel_count": 9,
+      "bbox": [
+        4,
+        13,
+        7,
+        17
+      ],
+      "centroid": [
+        4.667,
+        14.556
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        7,
+        11,
+        16,
+        17,
+        20
+      ],
+      "vertical_rank": 0.4695,
+      "horizontal_rank": 0.2029,
+      "confidence_score": 1.0,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_010",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "1.000",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 11,
+      "pixel_count": 2,
+      "bbox": [
+        6,
+        13,
+        7,
+        15
+      ],
+      "centroid": [
+        6.0,
+        13.5
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        10,
+        12
+      ],
+      "vertical_rank": 0.4355,
+      "horizontal_rank": 0.2609,
+      "confidence_score": 0.81,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_011",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.810",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 12,
+      "pixel_count": 14,
+      "bbox": [
+        7,
+        13,
+        16,
+        16
+      ],
+      "centroid": [
+        10.857,
+        14.5
+      ],
+      "dominant_colour": [
+        232,
+        96,
+        176,
+        255
+      ],
+      "neighbour_regions": [
+        5,
+        8,
+        9,
+        11,
+        15,
+        16,
+        18
+      ],
+      "vertical_rank": 0.4677,
+      "horizontal_rank": 0.472,
+      "confidence_score": 0.9,
+      "assigned_label": "torso",
+      "assignment_reason": "central middle high-area component classified as torso",
+      "pass_labels": {
+        "A_connected_component": "region_012",
+        "B_colour_region": "mixed",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "torso",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "torso",
+        "G_confidence_scoring": "0.900",
+        "H_unknown_fallback": "torso"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 13,
+      "pixel_count": 4,
+      "bbox": [
+        10,
+        13,
+        14,
+        14
+      ],
+      "centroid": [
+        11.5,
+        13.0
+      ],
+      "dominant_colour": [
+        248,
+        120,
+        0,
+        255
+      ],
+      "neighbour_regions": [
+        2,
+        3,
+        5,
+        8,
+        15
+      ],
+      "vertical_rank": 0.4194,
+      "horizontal_rank": 0.5,
+      "confidence_score": 0.76,
+      "assigned_label": "head",
+      "assignment_reason": "upper skin region classified as head",
+      "pass_labels": {
+        "A_connected_component": "region_013",
+        "B_colour_region": "skin",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "head",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "head",
+        "G_confidence_scoring": "0.760",
+        "H_unknown_fallback": "head"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 14,
+      "pixel_count": 4,
+      "bbox": [
+        19,
+        13,
+        20,
+        17
+      ],
+      "centroid": [
+        19.0,
+        14.5
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        9
+      ],
+      "vertical_rank": 0.4677,
+      "horizontal_rank": 0.8261,
+      "confidence_score": 0.96,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_014",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.960",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 15,
+      "pixel_count": 4,
+      "bbox": [
+        10,
+        14,
+        14,
+        15
+      ],
+      "centroid": [
+        11.5,
+        14.0
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        12,
+        13
+      ],
+      "vertical_rank": 0.4516,
+      "horizontal_rank": 0.5,
+      "confidence_score": 0.96,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_015",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.960",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 16,
+      "pixel_count": 1,
+      "bbox": [
+        7,
+        15,
+        8,
+        16
+      ],
+      "centroid": [
+        7.0,
+        15.0
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        10,
+        12,
+        17
+      ],
+      "vertical_rank": 0.4839,
+      "horizontal_rank": 0.3043,
+      "confidence_score": 0.81,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_016",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.810",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 17,
+      "pixel_count": 2,
+      "bbox": [
+        6,
+        16,
+        8,
+        17
+      ],
+      "centroid": [
+        6.5,
+        16.0
+      ],
+      "dominant_colour": [
+        232,
+        96,
+        176,
+        255
+      ],
+      "neighbour_regions": [
+        10,
+        16,
+        18,
+        20,
+        21
+      ],
+      "vertical_rank": 0.5161,
+      "horizontal_rank": 0.2826,
+      "confidence_score": 0.51,
+      "assigned_label": "left_arm",
+      "assignment_reason": "side component classified as left arm by position",
+      "pass_labels": {
+        "A_connected_component": "region_017",
+        "B_colour_region": "mixed",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "left_arm",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "left_arm",
+        "G_confidence_scoring": "0.510",
+        "H_unknown_fallback": "left_arm"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 18,
+      "pixel_count": 11,
+      "bbox": [
+        8,
+        16,
+        17,
+        18
+      ],
+      "centroid": [
+        11.909,
+        16.182
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        9,
+        12,
+        17,
+        19,
+        22,
+        23,
+        24,
+        25,
+        26,
+        30
+      ],
+      "vertical_rank": 0.522,
+      "horizontal_rank": 0.5178,
+      "confidence_score": 1.0,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_018",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "1.000",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 19,
+      "pixel_count": 1,
+      "bbox": [
+        17,
+        16,
+        18,
+        17
+      ],
+      "centroid": [
+        17.0,
+        16.0
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        9,
+        18,
+        26
+      ],
+      "vertical_rank": 0.5161,
+      "horizontal_rank": 0.7391,
+      "confidence_score": 0.81,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_019",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.810",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 20,
+      "pixel_count": 2,
+      "bbox": [
+        5,
+        17,
+        7,
+        18
+      ],
+      "centroid": [
+        5.5,
+        17.0
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        10,
+        17,
+        21,
+        28
+      ],
+      "vertical_rank": 0.5484,
+      "horizontal_rank": 0.2391,
+      "confidence_score": 0.81,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_020",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.810",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 21,
+      "pixel_count": 1,
+      "bbox": [
+        7,
+        17,
+        8,
+        18
+      ],
+      "centroid": [
+        7.0,
+        17.0
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        17,
+        20,
+        22
+      ],
+      "vertical_rank": 0.5484,
+      "horizontal_rank": 0.3043,
+      "confidence_score": 0.81,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_021",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.810",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 22,
+      "pixel_count": 5,
+      "bbox": [
+        7,
+        17,
+        10,
+        20
+      ],
+      "centroid": [
+        8.0,
+        18.2
+      ],
+      "dominant_colour": [
+        184,
+        104,
+        32,
+        255
+      ],
+      "neighbour_regions": [
+        18,
+        21,
+        23,
+        28,
+        29,
+        35
+      ],
+      "vertical_rank": 0.5871,
+      "horizontal_rank": 0.3478,
+      "confidence_score": 0.82,
+      "assigned_label": "left_arm",
+      "assignment_reason": "side skin region left of centre classified as left arm",
+      "pass_labels": {
+        "A_connected_component": "region_022",
+        "B_colour_region": "skin",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "left_arm",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "left_arm",
+        "G_confidence_scoring": "0.820",
+        "H_unknown_fallback": "left_arm"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 23,
+      "pixel_count": 3,
+      "bbox": [
+        9,
+        17,
+        11,
+        19
+      ],
+      "centroid": [
+        9.333,
+        17.333
+      ],
+      "dominant_colour": [
+        248,
+        248,
+        248,
+        255
+      ],
+      "neighbour_regions": [
+        18,
+        22,
+        29
+      ],
+      "vertical_rank": 0.5591,
+      "horizontal_rank": 0.4058,
+      "confidence_score": 0.82,
+      "assigned_label": "torso",
+      "assignment_reason": "central middle high-area component classified as torso",
+      "pass_labels": {
+        "A_connected_component": "region_023",
+        "B_colour_region": "mixed",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "torso",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "torso",
+        "G_confidence_scoring": "0.820",
+        "H_unknown_fallback": "torso"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 24,
+      "pixel_count": 3,
+      "bbox": [
+        13,
+        17,
+        15,
+        19
+      ],
+      "centroid": [
+        13.667,
+        17.333
+      ],
+      "dominant_colour": [
+        248,
+        248,
+        248,
+        255
+      ],
+      "neighbour_regions": [
+        18,
+        25,
+        31
+      ],
+      "vertical_rank": 0.5591,
+      "horizontal_rank": 0.5942,
+      "confidence_score": 0.82,
+      "assigned_label": "torso",
+      "assignment_reason": "central middle high-area component classified as torso",
+      "pass_labels": {
+        "A_connected_component": "region_024",
+        "B_colour_region": "mixed",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "torso",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "torso",
+        "G_confidence_scoring": "0.820",
+        "H_unknown_fallback": "torso"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 25,
+      "pixel_count": 4,
+      "bbox": [
+        15,
+        17,
+        17,
+        20
+      ],
+      "centroid": [
+        15.25,
+        18.0
+      ],
+      "dominant_colour": [
+        184,
+        104,
+        32,
+        255
+      ],
+      "neighbour_regions": [
+        18,
+        24,
+        26,
+        31,
+        32,
+        36
+      ],
+      "vertical_rank": 0.5806,
+      "horizontal_rank": 0.663,
+      "confidence_score": 0.82,
+      "assigned_label": "right_arm",
+      "assignment_reason": "side skin region right of centre classified as right arm",
+      "pass_labels": {
+        "A_connected_component": "region_025",
+        "B_colour_region": "skin",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "right_arm",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "right_arm",
+        "G_confidence_scoring": "0.820",
+        "H_unknown_fallback": "right_arm"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 26,
+      "pixel_count": 2,
+      "bbox": [
+        16,
+        17,
+        18,
+        18
+      ],
+      "centroid": [
+        16.5,
+        17.0
+      ],
+      "dominant_colour": [
+        184,
+        104,
+        32,
+        255
+      ],
+      "neighbour_regions": [
+        18,
+        19,
+        25,
+        27,
+        32
+      ],
+      "vertical_rank": 0.5484,
+      "horizontal_rank": 0.7174,
+      "confidence_score": 0.67,
+      "assigned_label": "right_arm",
+      "assignment_reason": "side skin region right of centre classified as right arm",
+      "pass_labels": {
+        "A_connected_component": "region_026",
+        "B_colour_region": "skin",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "right_arm",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "right_arm",
+        "G_confidence_scoring": "0.670",
+        "H_unknown_fallback": "right_arm"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 27,
+      "pixel_count": 1,
+      "bbox": [
+        18,
+        17,
+        19,
+        18
+      ],
+      "centroid": [
+        18.0,
+        17.0
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        9,
+        26
+      ],
+      "vertical_rank": 0.5484,
+      "horizontal_rank": 0.7826,
+      "confidence_score": 0.81,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_027",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.810",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 28,
+      "pixel_count": 3,
+      "bbox": [
+        6,
+        18,
+        8,
+        20
+      ],
+      "centroid": [
+        6.333,
+        18.667
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        20,
+        22,
+        33,
+        34
+      ],
+      "vertical_rank": 0.6022,
+      "horizontal_rank": 0.2753,
+      "confidence_score": 0.96,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_028",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.960",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 29,
+      "pixel_count": 2,
+      "bbox": [
+        10,
+        18,
+        11,
+        20
+      ],
+      "centroid": [
+        10.0,
+        18.5
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        22,
+        23,
+        30
+      ],
+      "vertical_rank": 0.5968,
+      "horizontal_rank": 0.4348,
+      "confidence_score": 0.81,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_029",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.810",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 30,
+      "pixel_count": 11,
+      "bbox": [
+        10,
+        18,
+        15,
+        22
+      ],
+      "centroid": [
+        11.727,
+        19.636
+      ],
+      "dominant_colour": [
+        240,
+        160,
+        104,
+        255
+      ],
+      "neighbour_regions": [
+        18,
+        29,
+        31,
+        35,
+        36,
+        42,
+        43,
+        48
+      ],
+      "vertical_rank": 0.6334,
+      "horizontal_rank": 0.5099,
+      "confidence_score": 0.9,
+      "assigned_label": "torso",
+      "assignment_reason": "central middle high-area component classified as torso",
+      "pass_labels": {
+        "A_connected_component": "region_030",
+        "B_colour_region": "skin",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "torso",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "torso",
+        "G_confidence_scoring": "0.900",
+        "H_unknown_fallback": "torso"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 31,
+      "pixel_count": 3,
+      "bbox": [
+        13,
+        18,
+        15,
+        20
+      ],
+      "centroid": [
+        13.333,
+        18.667
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        24,
+        25,
+        30
+      ],
+      "vertical_rank": 0.6022,
+      "horizontal_rank": 0.5797,
+      "confidence_score": 0.96,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_031",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.960",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 32,
+      "pixel_count": 3,
+      "bbox": [
+        16,
+        18,
+        18,
+        20
+      ],
+      "centroid": [
+        16.667,
+        18.667
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        25,
+        26,
+        37
+      ],
+      "vertical_rank": 0.6022,
+      "horizontal_rank": 0.7247,
+      "confidence_score": 0.96,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_032",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.960",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 33,
+      "pixel_count": 2,
+      "bbox": [
+        5,
+        20,
+        7,
+        21
+      ],
+      "centroid": [
+        5.5,
+        20.0
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        28,
+        34,
+        40,
+        41
+      ],
+      "vertical_rank": 0.6452,
+      "horizontal_rank": 0.2391,
+      "confidence_score": 0.81,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_033",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.810",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 34,
+      "pixel_count": 15,
+      "bbox": [
+        7,
+        20,
+        11,
+        27
+      ],
+      "centroid": [
+        8.467,
+        23.2
+      ],
+      "dominant_colour": [
+        56,
+        144,
+        104,
+        255
+      ],
+      "neighbour_regions": [
+        28,
+        33,
+        35,
+        41,
+        42,
+        47,
+        48,
+        49,
+        53,
+        54,
+        55,
+        58
+      ],
+      "vertical_rank": 0.7484,
+      "horizontal_rank": 0.3681,
+      "confidence_score": 0.84,
+      "assigned_label": "left_leg",
+      "assignment_reason": "lower component left of centre classified as left leg",
+      "pass_labels": {
+        "A_connected_component": "region_034",
+        "B_colour_region": "green",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "left_leg",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "left_leg",
+        "G_confidence_scoring": "0.840",
+        "H_unknown_fallback": "left_leg"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 35,
+      "pixel_count": 2,
+      "bbox": [
+        8,
+        20,
+        10,
+        21
+      ],
+      "centroid": [
+        8.5,
+        20.0
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        22,
+        30,
+        34,
+        42
+      ],
+      "vertical_rank": 0.6452,
+      "horizontal_rank": 0.3696,
+      "confidence_score": 0.81,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_035",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.810",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 36,
+      "pixel_count": 1,
+      "bbox": [
+        15,
+        20,
+        16,
+        21
+      ],
+      "centroid": [
+        15.0,
+        20.0
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        25,
+        30,
+        37
+      ],
+      "vertical_rank": 0.6452,
+      "horizontal_rank": 0.6522,
+      "confidence_score": 0.81,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_036",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.810",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 37,
+      "pixel_count": 13,
+      "bbox": [
+        13,
+        20,
+        18,
+        27
+      ],
+      "centroid": [
+        14.923,
+        23.154
+      ],
+      "dominant_colour": [
+        56,
+        144,
+        104,
+        255
+      ],
+      "neighbour_regions": [
+        32,
+        36,
+        38,
+        43,
+        44,
+        49,
+        50,
+        55,
+        56,
+        57,
+        60
+      ],
+      "vertical_rank": 0.7469,
+      "horizontal_rank": 0.6488,
+      "confidence_score": 0.84,
+      "assigned_label": "right_leg",
+      "assignment_reason": "lower component right of centre classified as right leg",
+      "pass_labels": {
+        "A_connected_component": "region_037",
+        "B_colour_region": "green",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "right_leg",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "right_leg",
+        "G_confidence_scoring": "0.840",
+        "H_unknown_fallback": "right_leg"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 38,
+      "pixel_count": 1,
+      "bbox": [
+        18,
+        20,
+        19,
+        21
+      ],
+      "centroid": [
+        18.0,
+        20.0
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        37,
+        45
+      ],
+      "vertical_rank": 0.6452,
+      "horizontal_rank": 0.7826,
+      "confidence_score": 0.81,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_038",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.810",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 39,
+      "pixel_count": 5,
+      "bbox": [
+        4,
+        21,
+        5,
+        26
+      ],
+      "centroid": [
+        4.0,
+        23.0
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        40,
+        51
+      ],
+      "vertical_rank": 0.7419,
+      "horizontal_rank": 0.1739,
+      "confidence_score": 0.96,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_039",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.960",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 40,
+      "pixel_count": 3,
+      "bbox": [
+        5,
+        21,
+        7,
+        23
+      ],
+      "centroid": [
+        5.333,
+        21.667
+      ],
+      "dominant_colour": [
+        136,
+        88,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        33,
+        39,
+        41,
+        47,
+        51
+      ],
+      "vertical_rank": 0.6989,
+      "horizontal_rank": 0.2319,
+      "confidence_score": 0.76,
+      "assigned_label": "left_leg",
+      "assignment_reason": "lower component left of centre classified as left leg",
+      "pass_labels": {
+        "A_connected_component": "region_040",
+        "B_colour_region": "brown",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "left_leg",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "left_leg",
+        "G_confidence_scoring": "0.760",
+        "H_unknown_fallback": "left_leg"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 41,
+      "pixel_count": 1,
+      "bbox": [
+        6,
+        21,
+        7,
+        22
+      ],
+      "centroid": [
+        6.0,
+        21.0
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        33,
+        34,
+        40
+      ],
+      "vertical_rank": 0.6774,
+      "horizontal_rank": 0.2609,
+      "confidence_score": 0.81,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_041",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.810",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 42,
+      "pixel_count": 2,
+      "bbox": [
+        9,
+        21,
+        11,
+        22
+      ],
+      "centroid": [
+        9.5,
+        21.0
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        30,
+        34,
+        35
+      ],
+      "vertical_rank": 0.6774,
+      "horizontal_rank": 0.413,
+      "confidence_score": 0.81,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_042",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.810",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 43,
+      "pixel_count": 2,
+      "bbox": [
+        13,
+        21,
+        15,
+        22
+      ],
+      "centroid": [
+        13.5,
+        21.0
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        30,
+        37,
+        49
+      ],
+      "vertical_rank": 0.6774,
+      "horizontal_rank": 0.587,
+      "confidence_score": 0.81,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_043",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.810",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 44,
+      "pixel_count": 1,
+      "bbox": [
+        17,
+        21,
+        18,
+        22
+      ],
+      "centroid": [
+        17.0,
+        21.0
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        37,
+        45
+      ],
+      "vertical_rank": 0.6774,
+      "horizontal_rank": 0.7391,
+      "confidence_score": 0.81,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_044",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.810",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 45,
+      "pixel_count": 3,
+      "bbox": [
+        17,
+        21,
+        19,
+        23
+      ],
+      "centroid": [
+        17.667,
+        21.667
+      ],
+      "dominant_colour": [
+        136,
+        88,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        38,
+        44,
+        46,
+        50,
+        52
+      ],
+      "vertical_rank": 0.6989,
+      "horizontal_rank": 0.7681,
+      "confidence_score": 0.76,
+      "assigned_label": "right_leg",
+      "assignment_reason": "lower component right of centre classified as right leg",
+      "pass_labels": {
+        "A_connected_component": "region_045",
+        "B_colour_region": "brown",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "right_leg",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "right_leg",
+        "G_confidence_scoring": "0.760",
+        "H_unknown_fallback": "right_leg"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 46,
+      "pixel_count": 5,
+      "bbox": [
+        19,
+        21,
+        20,
+        26
+      ],
+      "centroid": [
+        19.0,
+        23.0
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        45,
+        52
+      ],
+      "vertical_rank": 0.7419,
+      "horizontal_rank": 0.8261,
+      "confidence_score": 0.96,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_046",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.960",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 47,
+      "pixel_count": 4,
+      "bbox": [
+        6,
+        22,
+        8,
+        25
+      ],
+      "centroid": [
+        6.75,
+        23.0
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        34,
+        40,
+        51,
+        53
+      ],
+      "vertical_rank": 0.7419,
+      "horizontal_rank": 0.2935,
+      "confidence_score": 0.96,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_047",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.960",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 48,
+      "pixel_count": 2,
+      "bbox": [
+        11,
+        22,
+        13,
+        23
+      ],
+      "centroid": [
+        11.5,
+        22.0
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        30,
+        34,
+        49
+      ],
+      "vertical_rank": 0.7097,
+      "horizontal_rank": 0.5,
+      "confidence_score": 0.81,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_048",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.810",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 49,
+      "pixel_count": 9,
+      "bbox": [
+        10,
+        22,
+        15,
+        25
+      ],
+      "centroid": [
+        12.222,
+        23.0
+      ],
+      "dominant_colour": [
+        64,
+        216,
+        112,
+        255
+      ],
+      "neighbour_regions": [
+        34,
+        37,
+        43,
+        48,
+        55
+      ],
+      "vertical_rank": 0.7419,
+      "horizontal_rank": 0.5314,
+      "confidence_score": 0.84,
+      "assigned_label": "right_leg",
+      "assignment_reason": "lower component right of centre classified as right leg",
+      "pass_labels": {
+        "A_connected_component": "region_049",
+        "B_colour_region": "green",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "right_leg",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "right_leg",
+        "G_confidence_scoring": "0.840",
+        "H_unknown_fallback": "right_leg"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 50,
+      "pixel_count": 4,
+      "bbox": [
+        16,
+        22,
+        18,
+        25
+      ],
+      "centroid": [
+        16.25,
+        23.0
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        37,
+        45,
+        52,
+        57
+      ],
+      "vertical_rank": 0.7419,
+      "horizontal_rank": 0.7065,
+      "confidence_score": 0.96,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_050",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.960",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 51,
+      "pixel_count": 4,
+      "bbox": [
+        5,
+        23,
+        7,
+        26
+      ],
+      "centroid": [
+        5.25,
+        24.0
+      ],
+      "dominant_colour": [
+        224,
+        144,
+        80,
+        255
+      ],
+      "neighbour_regions": [
+        39,
+        40,
+        47,
+        53
+      ],
+      "vertical_rank": 0.7742,
+      "horizontal_rank": 0.2283,
+      "confidence_score": 0.82,
+      "assigned_label": "left_arm",
+      "assignment_reason": "side skin region left of centre classified as left arm",
+      "pass_labels": {
+        "A_connected_component": "region_051",
+        "B_colour_region": "skin",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "left_arm",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "left_arm",
+        "G_confidence_scoring": "0.820",
+        "H_unknown_fallback": "left_arm"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 52,
+      "pixel_count": 4,
+      "bbox": [
+        17,
+        23,
+        19,
+        26
+      ],
+      "centroid": [
+        17.75,
+        24.0
+      ],
+      "dominant_colour": [
+        224,
+        144,
+        80,
+        255
+      ],
+      "neighbour_regions": [
+        45,
+        46,
+        50,
+        57
+      ],
+      "vertical_rank": 0.7742,
+      "horizontal_rank": 0.7717,
+      "confidence_score": 0.82,
+      "assigned_label": "right_arm",
+      "assignment_reason": "side skin region right of centre classified as right arm",
+      "pass_labels": {
+        "A_connected_component": "region_052",
+        "B_colour_region": "skin",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "right_arm",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "right_arm",
+        "G_confidence_scoring": "0.820",
+        "H_unknown_fallback": "right_arm"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 53,
+      "pixel_count": 7,
+      "bbox": [
+        5,
+        25,
+        8,
+        28
+      ],
+      "centroid": [
+        6.286,
+        26.0
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        34,
+        47,
+        51,
+        58,
+        61
+      ],
+      "vertical_rank": 0.8387,
+      "horizontal_rank": 0.2733,
+      "confidence_score": 0.96,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_053",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.960",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 54,
+      "pixel_count": 1,
+      "bbox": [
+        10,
+        25,
+        11,
+        26
+      ],
+      "centroid": [
+        10.0,
+        25.0
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        34,
+        55
+      ],
+      "vertical_rank": 0.8065,
+      "horizontal_rank": 0.4348,
+      "confidence_score": 0.81,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_054",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.810",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 55,
+      "pixel_count": 6,
+      "bbox": [
+        10,
+        25,
+        14,
+        27
+      ],
+      "centroid": [
+        11.5,
+        25.667
+      ],
+      "dominant_colour": [
+        240,
+        216,
+        64,
+        255
+      ],
+      "neighbour_regions": [
+        34,
+        37,
+        49,
+        54,
+        56,
+        59
+      ],
+      "vertical_rank": 0.828,
+      "horizontal_rank": 0.5,
+      "confidence_score": 0.76,
+      "assigned_label": "left_leg",
+      "assignment_reason": "lower component right of centre classified as right leg; leg side corrected using horizontal centreline",
+      "pass_labels": {
+        "A_connected_component": "region_055",
+        "B_colour_region": "skin",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "right_leg",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "left_leg",
+        "G_confidence_scoring": "0.760",
+        "H_unknown_fallback": "left_leg"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 56,
+      "pixel_count": 1,
+      "bbox": [
+        13,
+        25,
+        14,
+        26
+      ],
+      "centroid": [
+        13.0,
+        25.0
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        37,
+        55
+      ],
+      "vertical_rank": 0.8065,
+      "horizontal_rank": 0.5652,
+      "confidence_score": 0.81,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_056",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.810",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 57,
+      "pixel_count": 7,
+      "bbox": [
+        16,
+        25,
+        19,
+        28
+      ],
+      "centroid": [
+        16.714,
+        26.0
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        37,
+        50,
+        52,
+        60,
+        63
+      ],
+      "vertical_rank": 0.8387,
+      "horizontal_rank": 0.7267,
+      "confidence_score": 0.96,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_057",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.960",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 58,
+      "pixel_count": 2,
+      "bbox": [
+        8,
+        27,
+        10,
+        28
+      ],
+      "centroid": [
+        8.5,
+        27.0
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        34,
+        53,
+        59,
+        61,
+        62
+      ],
+      "vertical_rank": 0.871,
+      "horizontal_rank": 0.3696,
+      "confidence_score": 0.81,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_058",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.810",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 59,
+      "pixel_count": 4,
+      "bbox": [
+        10,
+        27,
+        14,
+        28
+      ],
+      "centroid": [
+        11.5,
+        27.0
+      ],
+      "dominant_colour": [
+        56,
+        144,
+        104,
+        255
+      ],
+      "neighbour_regions": [
+        55,
+        58,
+        60,
+        62
+      ],
+      "vertical_rank": 0.871,
+      "horizontal_rank": 0.5,
+      "confidence_score": 0.76,
+      "assigned_label": "left_leg",
+      "assignment_reason": "lower component right of centre classified as right leg; leg side corrected using horizontal centreline",
+      "pass_labels": {
+        "A_connected_component": "region_059",
+        "B_colour_region": "green",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "right_leg",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "left_leg",
+        "G_confidence_scoring": "0.760",
+        "H_unknown_fallback": "left_leg"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 60,
+      "pixel_count": 2,
+      "bbox": [
+        14,
+        27,
+        16,
+        28
+      ],
+      "centroid": [
+        14.5,
+        27.0
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        37,
+        57,
+        59,
+        62
+      ],
+      "vertical_rank": 0.871,
+      "horizontal_rank": 0.6304,
+      "confidence_score": 0.81,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_060",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.810",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 61,
+      "pixel_count": 2,
+      "bbox": [
+        7,
+        28,
+        9,
+        29
+      ],
+      "centroid": [
+        7.5,
+        28.0
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        53,
+        58,
+        62
+      ],
+      "vertical_rank": 0.9032,
+      "horizontal_rank": 0.3261,
+      "confidence_score": 0.81,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_061",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.810",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 62,
+      "pixel_count": 13,
+      "bbox": [
+        8,
+        28,
+        16,
+        30
+      ],
+      "centroid": [
+        11.769,
+        28.462
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        58,
+        59,
+        60,
+        61,
+        63
+      ],
+      "vertical_rank": 0.9181,
+      "horizontal_rank": 0.5117,
+      "confidence_score": 1.0,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_062",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "1.000",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 63,
+      "pixel_count": 1,
+      "bbox": [
+        16,
+        28,
+        17,
+        29
+      ],
+      "centroid": [
+        16.0,
+        28.0
+      ],
+      "dominant_colour": [
+        40,
+        40,
+        40,
+        255
+      ],
+      "neighbour_regions": [
+        57,
+        62
+      ],
+      "vertical_rank": 0.9032,
+      "horizontal_rank": 0.6957,
+      "confidence_score": 0.81,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_063",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.810",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    }
+  ],
+  "validation_report": {
+    "mylar_depth_enabled": true,
+    "closed_body_enabled": true,
+    "back_mode": "semantic_rules",
+    "front_max_depth": 0.44999998807907104,
+    "back_max_depth": 0.44999998807907104,
+    "silhouette_pin_confirmed": true,
+    "seam_ring_count": 1,
+    "seam_discontinuity_max": 0.0,
+    "inner_holes_detected": 0,
+    "inner_holes_seamed": 0,
+    "sdf_volume_shape": [
+      32,
+      24,
+      25
+    ],
+    "sdf_sign_consistency": true,
+    "sdf_dtype": "float32",
+    "semantic_dtype": "int32",
+    "closed_volume_connected": true,
+    "hollow_gap_ratio": 0.0,
+    "semantic_volume_labels": [
+      1,
+      2,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "required_semantic_volume_labels": [
+      1,
+      2,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "missing_semantic_volume_labels": [],
+    "surface_nets_input_loadable": true,
+    "surface_nets_input_shape_valid": true,
+    "surface_nets_ready": true,
+    "manifold_ready_estimate": true,
+    "front_back_sprite_deferred": false,
+    "source_coverage": {
+      "front": "authored",
+      "back": "authored",
+      "left": "mirrored_placeholder",
+      "right": "mirrored_placeholder",
+      "back_reference_recommended": false,
+      "side_reference_recommended": true,
+      "fidelity_limit": "side_inferred",
+      "warnings": [
+        "Side profile is generated from primitive/SDF priors. Provide side sprite for higher fidelity."
+      ],
+      "details": {
+        "front": {
+          "exists": true,
+          "path": "C:\\dev\\SpatialSprite\\assets\\samples\\hero\\hero_front.png",
+          "sha256": "166ee20fb5827967ac60b4e9a59ef046f855443e6653c5e95e4a23a6fd16e7e1",
+          "alpha_sha256": "99c7775d35387f2b0948a59d869bd10267847e101d5076f2b68ced2b3f3f1419",
+          "mirror_sha256": "a65ae16f0f2ec92d1d4f1c227630729492f99230fd2cf605bec182afd45a4ded",
+          "mirror_alpha_sha256": "030dbaf2e28775c85aa646ed89a118fa54cee36bd0cab4d48d0b2e393e5f9ba6",
+          "alpha_coverage": 0.3528645833333333,
+          "size": [
+            24,
+            32
+          ]
+        },
+        "back": {
+          "exists": true,
+          "path": "C:\\dev\\SpatialSprite\\assets\\samples\\hero\\hero_back.png",
+          "sha256": "bcf0cf48481828deeab7c7a6132b2f773e4116c69c303655e1121e1a297a4275",
+          "alpha_sha256": "f15bdabd4805a99773afe973b0703e1308852c1cdcc910bd8b8f64188a40a160",
+          "mirror_sha256": "d4573a013a5080a8b2cb016345e5feab92e0dd797fe10ecb10dced6ca1a89382",
+          "mirror_alpha_sha256": "6acbb67d8e37ffaccb49071e09bcc5312b0ccceec949311f9425ad4649005d33",
+          "alpha_coverage": 0.3463541666666667,
+          "size": [
+            24,
+            32
+          ]
+        },
+        "left": {
+          "exists": true,
+          "path": "C:\\dev\\SpatialSprite\\assets\\samples\\hero\\hero_left.png",
+          "sha256": "79fdad01ed8546a6fe44066fae1a76a34c7c337b37fe4820fd357e54f5ba598e",
+          "alpha_sha256": "d1e3fd946e610f08cc02fe9e209025527ad16d4b1116221d71ce2e91db07047a",
+          "mirror_sha256": "21bb7b36c0b3e754c66d5b6ef6987165232a168bee7c54db669db1e11ee8647b",
+          "mirror_alpha_sha256": "7c9a8138f9a91df54778638bde884328e37e08d3c59d32a4bd7a5e330db7c732",
+          "alpha_coverage": 0.2994791666666667,
+          "size": [
+            24,
+            32
+          ]
+        },
+        "right": {
+          "exists": true,
+          "path": "C:\\dev\\SpatialSprite\\assets\\samples\\hero\\hero_right.png",
+          "sha256": "21bb7b36c0b3e754c66d5b6ef6987165232a168bee7c54db669db1e11ee8647b",
+          "alpha_sha256": "7c9a8138f9a91df54778638bde884328e37e08d3c59d32a4bd7a5e330db7c732",
+          "mirror_sha256": "79fdad01ed8546a6fe44066fae1a76a34c7c337b37fe4820fd357e54f5ba598e",
+          "mirror_alpha_sha256": "d1e3fd946e610f08cc02fe9e209025527ad16d4b1116221d71ce2e91db07047a",
+          "alpha_coverage": 0.2994791666666667,
+          "size": [
+            24,
+            32
+          ]
+        }
+      },
+      "fail_conditions": {
+        "quality_requires_authored_back": false,
+        "quality_requires_authored_sides": false
+      },
+      "passed": true
+    },
+    "build_warnings": [
+      "Side profile is generated from primitive/SDF priors. Provide side sprite for higher fidelity."
+    ],
+    "fail_conditions": {
+      "silhouette_pin_fails": false,
+      "front_back_seam_mismatch_exceeds_tolerance": false,
+      "sdf_volume_empty": false,
+      "critical_semantic_labels_disappear": false,
+      "hollow_gap_ratio_exceeds_threshold": false,
+      "closed_volume_disconnected": false,
+      "z_front_contains_negative_values": false,
+      "z_back_contains_positive_values": false,
+      "semantic_volume_loses_labels_present_in_phase_1_4": false,
+      "surface_nets_input_not_loadable": false,
+      "inner_holes_detected_not_seamed": false,
+      "mylar_isolated_spikes": false,
+      "outline_full_depth_slab": false,
+      "missing_critical_back_regions": false,
+      "source_coverage_policy_failed": false
+    },
+    "passed": true
+  }
+}

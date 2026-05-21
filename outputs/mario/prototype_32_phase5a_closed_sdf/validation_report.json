@@ -1,0 +1,140 @@
+{
+  "mylar_depth_enabled": true,
+  "closed_body_enabled": true,
+  "back_mode": "semantic_rules",
+  "front_max_depth": 0.41915464401245117,
+  "back_max_depth": 0.41915464401245117,
+  "silhouette_pin_confirmed": true,
+  "seam_ring_count": 1,
+  "seam_discontinuity_max": 0.0,
+  "inner_holes_detected": 0,
+  "inner_holes_seamed": 0,
+  "sdf_volume_shape": [
+    32,
+    24,
+    25
+  ],
+  "sdf_sign_consistency": true,
+  "sdf_dtype": "float32",
+  "semantic_dtype": "int32",
+  "closed_volume_connected": true,
+  "hollow_gap_ratio": 0.0,
+  "semantic_volume_labels": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    8,
+    9
+  ],
+  "required_semantic_volume_labels": [
+    1,
+    2,
+    4,
+    5,
+    6,
+    8,
+    9
+  ],
+  "missing_semantic_volume_labels": [],
+  "surface_nets_input_loadable": true,
+  "surface_nets_input_shape_valid": true,
+  "surface_nets_ready": true,
+  "manifold_ready_estimate": true,
+  "front_back_sprite_deferred": false,
+  "source_coverage": {
+    "front": "authored",
+    "back": "inferred",
+    "left": "mirrored_placeholder",
+    "right": "inferred",
+    "back_reference_recommended": true,
+    "side_reference_recommended": true,
+    "fidelity_limit": "front_only_inferred_back",
+    "warnings": [
+      "Back view is inferred from semantic rules. This is structurally valid but not artistically authoritative.",
+      "Side profile is generated from primitive/SDF priors. Provide side sprite for higher fidelity."
+    ],
+    "details": {
+      "front": {
+        "exists": true,
+        "path": "C:\\dev\\SpatialSprite\\assets\\samples\\mario\\mario_front.png",
+        "sha256": "0c614f41f014be7ea0308c48f22e6359d67501c79505a0b6bea881ee89583886",
+        "alpha_sha256": "45b44f26d9215db970efcd8860cdbc0bdf0f8295241bdfaddab41616b246e709",
+        "mirror_sha256": "3c5097ac7b45d53e4b3064bacfba1334be63c03a0559c44bc40f71285c177522",
+        "mirror_alpha_sha256": "2d7ba22acdbd5f19e7c90600d5839e065dddb81670d058c13cf0e73635af6c20",
+        "alpha_coverage": 0.3880208333333333,
+        "size": [
+          24,
+          32
+        ]
+      },
+      "back": {
+        "exists": true,
+        "path": "C:\\dev\\SpatialSprite\\assets\\samples\\mario\\mario_back.png",
+        "sha256": "0c614f41f014be7ea0308c48f22e6359d67501c79505a0b6bea881ee89583886",
+        "alpha_sha256": "45b44f26d9215db970efcd8860cdbc0bdf0f8295241bdfaddab41616b246e709",
+        "mirror_sha256": "3c5097ac7b45d53e4b3064bacfba1334be63c03a0559c44bc40f71285c177522",
+        "mirror_alpha_sha256": "2d7ba22acdbd5f19e7c90600d5839e065dddb81670d058c13cf0e73635af6c20",
+        "alpha_coverage": 0.3880208333333333,
+        "size": [
+          24,
+          32
+        ]
+      },
+      "left": {
+        "exists": true,
+        "path": "C:\\dev\\SpatialSprite\\assets\\samples\\mario\\mario_left.png",
+        "sha256": "3c5097ac7b45d53e4b3064bacfba1334be63c03a0559c44bc40f71285c177522",
+        "alpha_sha256": "2d7ba22acdbd5f19e7c90600d5839e065dddb81670d058c13cf0e73635af6c20",
+        "mirror_sha256": "0c614f41f014be7ea0308c48f22e6359d67501c79505a0b6bea881ee89583886",
+        "mirror_alpha_sha256": "45b44f26d9215db970efcd8860cdbc0bdf0f8295241bdfaddab41616b246e709",
+        "alpha_coverage": 0.3880208333333333,
+        "size": [
+          24,
+          32
+        ]
+      },
+      "right": {
+        "exists": true,
+        "path": "C:\\dev\\SpatialSprite\\assets\\samples\\mario\\mario_right.png",
+        "sha256": "0c614f41f014be7ea0308c48f22e6359d67501c79505a0b6bea881ee89583886",
+        "alpha_sha256": "45b44f26d9215db970efcd8860cdbc0bdf0f8295241bdfaddab41616b246e709",
+        "mirror_sha256": "3c5097ac7b45d53e4b3064bacfba1334be63c03a0559c44bc40f71285c177522",
+        "mirror_alpha_sha256": "2d7ba22acdbd5f19e7c90600d5839e065dddb81670d058c13cf0e73635af6c20",
+        "alpha_coverage": 0.3880208333333333,
+        "size": [
+          24,
+          32
+        ]
+      }
+    },
+    "fail_conditions": {
+      "quality_requires_authored_back": false,
+      "quality_requires_authored_sides": false
+    },
+    "passed": true
+  },
+  "build_warnings": [
+    "Back view is inferred from semantic rules. This is structurally valid but not artistically authoritative.",
+    "Side profile is generated from primitive/SDF priors. Provide side sprite for higher fidelity."
+  ],
+  "fail_conditions": {
+    "silhouette_pin_fails": false,
+    "front_back_seam_mismatch_exceeds_tolerance": false,
+    "sdf_volume_empty": false,
+    "critical_semantic_labels_disappear": false,
+    "hollow_gap_ratio_exceeds_threshold": false,
+    "closed_volume_disconnected": false,
+    "z_front_contains_negative_values": false,
+    "z_back_contains_positive_values": false,
+    "semantic_volume_loses_labels_present_in_phase_1_4": false,
+    "surface_nets_input_not_loadable": false,
+    "inner_holes_detected_not_seamed": false,
+    "mylar_isolated_spikes": false,
+    "outline_full_depth_slab": false,
+    "missing_critical_back_regions": false,
+    "source_coverage_policy_failed": false
+  },
+  "passed": true
+}

@@ -1,0 +1,165 @@
+{
+  "rankings": [
+    {
+      "candidate_id": 15,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with high confidence."
+    },
+    {
+      "candidate_id": 41,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with high confidence."
+    },
+    {
+      "candidate_id": 42,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with high confidence."
+    },
+    {
+      "candidate_id": 43,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with high confidence."
+    },
+    {
+      "candidate_id": 44,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with high confidence."
+    },
+    {
+      "candidate_id": 45,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with high confidence."
+    },
+    {
+      "candidate_id": 46,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with high confidence."
+    },
+    {
+      "candidate_id": 47,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with high confidence."
+    },
+    {
+      "candidate_id": 48,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with high confidence."
+    },
+    {
+      "candidate_id": 49,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with high confidence."
+    },
+    {
+      "candidate_id": 50,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with high confidence."
+    },
+    {
+      "candidate_id": 70,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with high confidence."
+    },
+    {
+      "candidate_id": 71,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with high confidence."
+    },
+    {
+      "candidate_id": 72,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with high confidence."
+    },
+    {
+      "candidate_id": 73,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with high confidence."
+    },
+    {
+      "candidate_id": 74,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with high confidence."
+    },
+    {
+      "candidate_id": 75,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with high confidence."
+    },
+    {
+      "candidate_id": 76,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with high confidence."
+    },
+    {
+      "candidate_id": 77,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with high confidence."
+    },
+    {
+      "candidate_id": 78,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with high confidence."
+    },
+    {
+      "candidate_id": 79,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with high confidence."
+    },
+    {
+      "candidate_id": 80,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with high confidence."
+    },
+    {
+      "candidate_id": 81,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Full-body standing frame with high confidence."
+    }
+  ]
+}

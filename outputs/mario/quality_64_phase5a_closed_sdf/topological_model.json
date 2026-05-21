@@ -1,0 +1,1666 @@
+{
+  "schema": "spritespatial_phase5a_closed_sdf_v1",
+  "pipeline": "phase5a_closed_sdf",
+  "front_texture": "res://outputs/mario/quality_64_phase5a_closed_sdf/stage_1_cleaned_sprite.png",
+  "region_overlay": "res://outputs/mario/quality_64_phase5a_closed_sdf/region_overlay.png",
+  "region_id_map": "res://outputs/mario/quality_64_phase5a_closed_sdf/region_id_map.png",
+  "depth_debug": "res://outputs/mario/quality_64_phase5a_closed_sdf/depth_debug.png",
+  "semantic_region_overlay": "res://outputs/mario/quality_64_phase5a_closed_sdf/semantic_region_overlay.png",
+  "semantic_override_overlay": {
+    "semantic_override_overlay": "res://outputs/mario/quality_64_phase5a_closed_sdf/semantic_overrides/semantic_override_overlay.png",
+    "semantic_override_conflicts": "res://outputs/mario/quality_64_phase5a_closed_sdf/semantic_overrides/semantic_override_conflicts.png",
+    "semantic_before_after_override": "res://outputs/mario/quality_64_phase5a_closed_sdf/semantic_overrides/semantic_before_after_override.png",
+    "unlabelled_pixels": "res://outputs/mario/quality_64_phase5a_closed_sdf/semantic_overrides/unlabelled_pixels.png",
+    "overlap_pixels": "res://outputs/mario/quality_64_phase5a_closed_sdf/semantic_overrides/overlap_pixels.png"
+  },
+  "mylar": {
+    "z_front": "res://outputs/mario/quality_64_phase5a_closed_sdf/mylar/z_front.npy",
+    "z_front_png": "res://outputs/mario/quality_64_phase5a_closed_sdf/mylar/z_front.png",
+    "z_body": "res://outputs/mario/quality_64_phase5a_closed_sdf/mylar/z_body.png",
+    "z_regions": "res://outputs/mario/quality_64_phase5a_closed_sdf/mylar/z_regions",
+    "silhouette_pin_debug": "res://outputs/mario/quality_64_phase5a_closed_sdf/mylar/silhouette_pin_debug.png",
+    "mylar_depth_report": "res://outputs/mario/quality_64_phase5a_closed_sdf/mylar/mylar_depth_report.json"
+  },
+  "back": {
+    "z_back": "res://outputs/mario/quality_64_phase5a_closed_sdf/back/z_back.npy",
+    "z_back_png": "res://outputs/mario/quality_64_phase5a_closed_sdf/back/z_back.png",
+    "back_rules": "res://outputs/mario/quality_64_phase5a_closed_sdf/back/back_rules.json",
+    "back_hemisphere_debug": "res://outputs/mario/quality_64_phase5a_closed_sdf/back/back_hemisphere_debug.png",
+    "seam_debug": "res://outputs/mario/quality_64_phase5a_closed_sdf/back/seam_debug.png"
+  },
+  "seam": {
+    "seam_mask": "res://outputs/mario/quality_64_phase5a_closed_sdf/seam/seam_mask.png",
+    "seam_rings": "res://outputs/mario/quality_64_phase5a_closed_sdf/seam/seam_rings.json",
+    "seam_components": "res://outputs/mario/quality_64_phase5a_closed_sdf/seam/seam_components.json",
+    "seam_validation": "res://outputs/mario/quality_64_phase5a_closed_sdf/seam/seam_validation.json"
+  },
+  "sdf": {
+    "sdf_volume": "res://outputs/mario/quality_64_phase5a_closed_sdf/sdf/sdf_volume.npy",
+    "semantic_volume": "res://outputs/mario/quality_64_phase5a_closed_sdf/sdf/semantic_volume.npy",
+    "occupancy_volume": "res://outputs/mario/quality_64_phase5a_closed_sdf/sdf/occupancy_volume.npy",
+    "sdf_slices": "res://outputs/mario/quality_64_phase5a_closed_sdf/sdf/sdf_slices",
+    "sdf_slice_contact_sheet": "res://outputs/mario/quality_64_phase5a_closed_sdf/sdf/sdf_slice_contact_sheet.png",
+    "sdf_summary": "res://outputs/mario/quality_64_phase5a_closed_sdf/sdf/sdf_summary.json"
+  },
+  "meshing": {
+    "surface_nets_input": "res://outputs/mario/quality_64_phase5a_closed_sdf/meshing/surface_nets_input.npz",
+    "meshing_backend_report": "res://outputs/mario/quality_64_phase5a_closed_sdf/meshing/meshing_backend_report.json",
+    "optional_closed_preview_mesh": "res://outputs/mario/quality_64_phase5a_closed_sdf/meshing/optional_closed_preview_mesh.json"
+  },
+  "source_coverage": {
+    "front": "authored",
+    "back": "inferred",
+    "left": "mirrored_placeholder",
+    "right": "inferred",
+    "back_reference_recommended": true,
+    "side_reference_recommended": true,
+    "fidelity_limit": "front_only_inferred_back",
+    "warnings": [
+      "Back view is inferred from semantic rules. This is structurally valid but not artistically authoritative.",
+      "Side profile is generated from primitive/SDF priors. Provide side sprite for higher fidelity."
+    ],
+    "details": {
+      "front": {
+        "exists": true,
+        "path": "C:\\dev\\SpatialSprite\\assets\\samples\\mario\\mario_front.png",
+        "sha256": "0c614f41f014be7ea0308c48f22e6359d67501c79505a0b6bea881ee89583886",
+        "alpha_sha256": "45b44f26d9215db970efcd8860cdbc0bdf0f8295241bdfaddab41616b246e709",
+        "mirror_sha256": "3c5097ac7b45d53e4b3064bacfba1334be63c03a0559c44bc40f71285c177522",
+        "mirror_alpha_sha256": "2d7ba22acdbd5f19e7c90600d5839e065dddb81670d058c13cf0e73635af6c20",
+        "alpha_coverage": 0.3880208333333333,
+        "size": [
+          24,
+          32
+        ]
+      },
+      "back": {
+        "exists": true,
+        "path": "C:\\dev\\SpatialSprite\\assets\\samples\\mario\\mario_back.png",
+        "sha256": "0c614f41f014be7ea0308c48f22e6359d67501c79505a0b6bea881ee89583886",
+        "alpha_sha256": "45b44f26d9215db970efcd8860cdbc0bdf0f8295241bdfaddab41616b246e709",
+        "mirror_sha256": "3c5097ac7b45d53e4b3064bacfba1334be63c03a0559c44bc40f71285c177522",
+        "mirror_alpha_sha256": "2d7ba22acdbd5f19e7c90600d5839e065dddb81670d058c13cf0e73635af6c20",
+        "alpha_coverage": 0.3880208333333333,
+        "size": [
+          24,
+          32
+        ]
+      },
+      "left": {
+        "exists": true,
+        "path": "C:\\dev\\SpatialSprite\\assets\\samples\\mario\\mario_left.png",
+        "sha256": "3c5097ac7b45d53e4b3064bacfba1334be63c03a0559c44bc40f71285c177522",
+        "alpha_sha256": "2d7ba22acdbd5f19e7c90600d5839e065dddb81670d058c13cf0e73635af6c20",
+        "mirror_sha256": "0c614f41f014be7ea0308c48f22e6359d67501c79505a0b6bea881ee89583886",
+        "mirror_alpha_sha256": "45b44f26d9215db970efcd8860cdbc0bdf0f8295241bdfaddab41616b246e709",
+        "alpha_coverage": 0.3880208333333333,
+        "size": [
+          24,
+          32
+        ]
+      },
+      "right": {
+        "exists": true,
+        "path": "C:\\dev\\SpatialSprite\\assets\\samples\\mario\\mario_right.png",
+        "sha256": "0c614f41f014be7ea0308c48f22e6359d67501c79505a0b6bea881ee89583886",
+        "alpha_sha256": "45b44f26d9215db970efcd8860cdbc0bdf0f8295241bdfaddab41616b246e709",
+        "mirror_sha256": "3c5097ac7b45d53e4b3064bacfba1334be63c03a0559c44bc40f71285c177522",
+        "mirror_alpha_sha256": "2d7ba22acdbd5f19e7c90600d5839e065dddb81670d058c13cf0e73635af6c20",
+        "alpha_coverage": 0.3880208333333333,
+        "size": [
+          24,
+          32
+        ]
+      }
+    },
+    "fail_conditions": {
+      "quality_requires_authored_back": true,
+      "quality_requires_authored_sides": true
+    },
+    "passed": false
+  },
+  "view_candidates": {},
+  "canvas_size": [
+    24,
+    32
+  ],
+  "config": {
+    "depth_mode": "mylar_edt",
+    "closed_body": true,
+    "back_mode": "semantic_rules",
+    "emit_sdf_debug": false,
+    "emit_closure_debug": false,
+    "semantic_override_mode": "supplement",
+    "model_depth_units": 0.72,
+    "total_depth_slices": 24
+  },
+  "vertices": [],
+  "normals": [],
+  "colors": [],
+  "indices": [],
+  "part_ids": [],
+  "parts": [
+    {
+      "index": 0,
+      "name": "outline",
+      "semantic_label": "outline",
+      "pixel_count": 79,
+      "bbox": [
+        4,
+        6,
+        18,
+        31
+      ],
+      "dominant_colour": [
+        0,
+        0,
+        0,
+        255
+      ]
+    },
+    {
+      "index": 1,
+      "name": "head",
+      "semantic_label": "head",
+      "pixel_count": 72,
+      "bbox": [
+        5,
+        3,
+        19,
+        15
+      ],
+      "dominant_colour": [
+        248,
+        112,
+        104,
+        255
+      ]
+    },
+    {
+      "index": 2,
+      "name": "hair",
+      "semantic_label": "hair/hat",
+      "pixel_count": 14,
+      "bbox": [
+        10,
+        17,
+        17,
+        24
+      ],
+      "dominant_colour": [
+        80,
+        0,
+        0,
+        255
+      ]
+    },
+    {
+      "index": 3,
+      "name": "torso",
+      "semantic_label": "torso",
+      "pixel_count": 69,
+      "bbox": [
+        5,
+        12,
+        18,
+        22
+      ],
+      "dominant_colour": [
+        136,
+        88,
+        24,
+        255
+      ]
+    },
+    {
+      "index": 4,
+      "name": "left_arm",
+      "semantic_label": "left_arm",
+      "pixel_count": 2,
+      "bbox": [
+        7,
+        29,
+        10,
+        30
+      ],
+      "dominant_colour": [
+        248,
+        216,
+        112,
+        255
+      ]
+    },
+    {
+      "index": 5,
+      "name": "left_leg",
+      "semantic_label": "left_leg",
+      "pixel_count": 34,
+      "bbox": [
+        6,
+        22,
+        12,
+        30
+      ],
+      "dominant_colour": [
+        32,
+        48,
+        136,
+        255
+      ]
+    },
+    {
+      "index": 6,
+      "name": "right_leg",
+      "semantic_label": "right_leg",
+      "pixel_count": 28,
+      "bbox": [
+        12,
+        22,
+        17,
+        30
+      ],
+      "dominant_colour": [
+        32,
+        48,
+        136,
+        255
+      ]
+    }
+  ],
+  "semantic_regions": [
+    {
+      "region_id": 0,
+      "pixel_count": 14,
+      "bbox": [
+        7,
+        3,
+        12,
+        6
+      ],
+      "centroid": [
+        9.143,
+        3.929
+      ],
+      "dominant_colour": [
+        80,
+        0,
+        0,
+        255
+      ],
+      "neighbour_regions": [
+        1,
+        2
+      ],
+      "vertical_rank": 0.1267,
+      "horizontal_rank": 0.3975,
+      "confidence_score": 0.78,
+      "assigned_label": "hair/hat",
+      "assignment_reason": "upper non-skin region classified as hair/hat",
+      "pass_labels": {
+        "A_connected_component": "region_000",
+        "B_colour_region": "mixed",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "hair/hat",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "hair/hat",
+        "G_confidence_scoring": "0.780",
+        "H_unknown_fallback": "hair/hat"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 1,
+      "pixel_count": 1,
+      "bbox": [
+        7,
+        5,
+        8,
+        6
+      ],
+      "centroid": [
+        7.0,
+        5.0
+      ],
+      "dominant_colour": [
+        176,
+        40,
+        96,
+        255
+      ],
+      "neighbour_regions": [
+        0,
+        2
+      ],
+      "vertical_rank": 0.1613,
+      "horizontal_rank": 0.3043,
+      "confidence_score": 0.63,
+      "assigned_label": "hair/hat",
+      "assignment_reason": "upper non-skin region classified as hair/hat",
+      "pass_labels": {
+        "A_connected_component": "region_001",
+        "B_colour_region": "brown",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "hair/hat",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "hair/hat",
+        "G_confidence_scoring": "0.630",
+        "H_unknown_fallback": "hair/hat"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 2,
+      "pixel_count": 54,
+      "bbox": [
+        4,
+        6,
+        19,
+        14
+      ],
+      "centroid": [
+        11.296,
+        8.315
+      ],
+      "dominant_colour": [
+        0,
+        0,
+        0,
+        255
+      ],
+      "neighbour_regions": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        6,
+        11,
+        13
+      ],
+      "vertical_rank": 0.2682,
+      "horizontal_rank": 0.4911,
+      "confidence_score": 1.0,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_002",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "1.000",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 3,
+      "pixel_count": 6,
+      "bbox": [
+        15,
+        8,
+        18,
+        10
+      ],
+      "centroid": [
+        16.0,
+        8.5
+      ],
+      "dominant_colour": [
+        176,
+        40,
+        96,
+        255
+      ],
+      "neighbour_regions": [
+        2
+      ],
+      "vertical_rank": 0.2742,
+      "horizontal_rank": 0.6957,
+      "confidence_score": 0.78,
+      "assigned_label": "hair/hat",
+      "assignment_reason": "upper non-skin region classified as hair/hat",
+      "pass_labels": {
+        "A_connected_component": "region_003",
+        "B_colour_region": "brown",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "hair/hat",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "hair/hat",
+        "G_confidence_scoring": "0.780",
+        "H_unknown_fallback": "hair/hat"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 4,
+      "pixel_count": 5,
+      "bbox": [
+        7,
+        9,
+        10,
+        12
+      ],
+      "centroid": [
+        7.6,
+        9.6
+      ],
+      "dominant_colour": [
+        248,
+        248,
+        248,
+        255
+      ],
+      "neighbour_regions": [
+        2,
+        5,
+        7,
+        10
+      ],
+      "vertical_rank": 0.3097,
+      "horizontal_rank": 0.3304,
+      "confidence_score": 0.78,
+      "assigned_label": "hair/hat",
+      "assignment_reason": "upper non-skin region classified as hair/hat",
+      "pass_labels": {
+        "A_connected_component": "region_004",
+        "B_colour_region": "mixed",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "hair/hat",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "hair/hat",
+        "G_confidence_scoring": "0.780",
+        "H_unknown_fallback": "hair/hat"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 5,
+      "pixel_count": 4,
+      "bbox": [
+        10,
+        9,
+        12,
+        12
+      ],
+      "centroid": [
+        10.75,
+        9.75
+      ],
+      "dominant_colour": [
+        248,
+        248,
+        248,
+        255
+      ],
+      "neighbour_regions": [
+        2,
+        4,
+        6,
+        8,
+        11
+      ],
+      "vertical_rank": 0.3145,
+      "horizontal_rank": 0.4674,
+      "confidence_score": 0.82,
+      "assigned_label": "torso",
+      "assignment_reason": "central middle high-area component classified as torso",
+      "pass_labels": {
+        "A_connected_component": "region_005",
+        "B_colour_region": "mixed",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "torso",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "torso",
+        "G_confidence_scoring": "0.820",
+        "H_unknown_fallback": "torso"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 6,
+      "pixel_count": 4,
+      "bbox": [
+        12,
+        9,
+        14,
+        12
+      ],
+      "centroid": [
+        12.5,
+        10.0
+      ],
+      "dominant_colour": [
+        248,
+        112,
+        104,
+        255
+      ],
+      "neighbour_regions": [
+        2,
+        5,
+        11
+      ],
+      "vertical_rank": 0.3226,
+      "horizontal_rank": 0.5435,
+      "confidence_score": 0.88,
+      "assigned_label": "face",
+      "assignment_reason": "upper central skin region classified as face",
+      "pass_labels": {
+        "A_connected_component": "region_006",
+        "B_colour_region": "skin",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "face",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "face",
+        "G_confidence_scoring": "0.880",
+        "H_unknown_fallback": "face"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 7,
+      "pixel_count": 4,
+      "bbox": [
+        8,
+        10,
+        10,
+        12
+      ],
+      "centroid": [
+        8.5,
+        10.5
+      ],
+      "dominant_colour": [
+        248,
+        208,
+        192,
+        255
+      ],
+      "neighbour_regions": [
+        4,
+        8,
+        10,
+        12
+      ],
+      "vertical_rank": 0.3387,
+      "horizontal_rank": 0.3696,
+      "confidence_score": 0.24,
+      "assigned_label": "unknown",
+      "assignment_reason": "no anatomical rule matched; confidence below fallback threshold",
+      "pass_labels": {
+        "A_connected_component": "region_007",
+        "B_colour_region": "mixed",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "unknown",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "unknown",
+        "G_confidence_scoring": "0.240",
+        "H_unknown_fallback": "unknown"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 8,
+      "pixel_count": 2,
+      "bbox": [
+        10,
+        10,
+        11,
+        12
+      ],
+      "centroid": [
+        10.0,
+        10.5
+      ],
+      "dominant_colour": [
+        0,
+        0,
+        0,
+        255
+      ],
+      "neighbour_regions": [
+        5,
+        7,
+        12
+      ],
+      "vertical_rank": 0.3387,
+      "horizontal_rank": 0.4348,
+      "confidence_score": 0.81,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_008",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.810",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 9,
+      "pixel_count": 3,
+      "bbox": [
+        5,
+        11,
+        6,
+        14
+      ],
+      "centroid": [
+        5.0,
+        12.0
+      ],
+      "dominant_colour": [
+        136,
+        88,
+        24,
+        255
+      ],
+      "neighbour_regions": [
+        10,
+        12,
+        14
+      ],
+      "vertical_rank": 0.3871,
+      "horizontal_rank": 0.2174,
+      "confidence_score": 0.66,
+      "assigned_label": "left_arm",
+      "assignment_reason": "side component classified as left arm by position",
+      "pass_labels": {
+        "A_connected_component": "region_009",
+        "B_colour_region": "brown",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "left_arm",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "left_arm",
+        "G_confidence_scoring": "0.660",
+        "H_unknown_fallback": "left_arm"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 10,
+      "pixel_count": 4,
+      "bbox": [
+        6,
+        11,
+        9,
+        13
+      ],
+      "centroid": [
+        6.75,
+        11.75
+      ],
+      "dominant_colour": [
+        248,
+        208,
+        192,
+        255
+      ],
+      "neighbour_regions": [
+        4,
+        7,
+        9,
+        12
+      ],
+      "vertical_rank": 0.379,
+      "horizontal_rank": 0.2935,
+      "confidence_score": 0.66,
+      "assigned_label": "left_arm",
+      "assignment_reason": "side component classified as left arm by position",
+      "pass_labels": {
+        "A_connected_component": "region_010",
+        "B_colour_region": "mixed",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "left_arm",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "left_arm",
+        "G_confidence_scoring": "0.660",
+        "H_unknown_fallback": "left_arm"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 11,
+      "pixel_count": 5,
+      "bbox": [
+        11,
+        11,
+        14,
+        14
+      ],
+      "centroid": [
+        12.0,
+        12.2
+      ],
+      "dominant_colour": [
+        248,
+        208,
+        192,
+        255
+      ],
+      "neighbour_regions": [
+        2,
+        5,
+        6,
+        12,
+        13,
+        14
+      ],
+      "vertical_rank": 0.3935,
+      "horizontal_rank": 0.5217,
+      "confidence_score": 0.82,
+      "assigned_label": "torso",
+      "assignment_reason": "central middle high-area component classified as torso",
+      "pass_labels": {
+        "A_connected_component": "region_011",
+        "B_colour_region": "mixed",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "torso",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "torso",
+        "G_confidence_scoring": "0.820",
+        "H_unknown_fallback": "torso"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 12,
+      "pixel_count": 7,
+      "bbox": [
+        6,
+        12,
+        11,
+        14
+      ],
+      "centroid": [
+        8.429,
+        12.714
+      ],
+      "dominant_colour": [
+        248,
+        112,
+        104,
+        255
+      ],
+      "neighbour_regions": [
+        7,
+        8,
+        9,
+        10,
+        11,
+        14
+      ],
+      "vertical_rank": 0.4101,
+      "horizontal_rank": 0.3665,
+      "confidence_score": 0.76,
+      "assigned_label": "head",
+      "assignment_reason": "upper skin region classified as head",
+      "pass_labels": {
+        "A_connected_component": "region_012",
+        "B_colour_region": "skin",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "head",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "head",
+        "G_confidence_scoring": "0.760",
+        "H_unknown_fallback": "head"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 13,
+      "pixel_count": 23,
+      "bbox": [
+        6,
+        12,
+        18,
+        18
+      ],
+      "centroid": [
+        12.304,
+        15.304
+      ],
+      "dominant_colour": [
+        248,
+        112,
+        104,
+        255
+      ],
+      "neighbour_regions": [
+        2,
+        11,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "vertical_rank": 0.4937,
+      "horizontal_rank": 0.535,
+      "confidence_score": 0.82,
+      "assigned_label": "torso",
+      "assignment_reason": "central middle high-area component classified as torso",
+      "pass_labels": {
+        "A_connected_component": "region_013",
+        "B_colour_region": "skin",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "torso",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "torso",
+        "G_confidence_scoring": "0.820",
+        "H_unknown_fallback": "torso"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 14,
+      "pixel_count": 18,
+      "bbox": [
+        4,
+        13,
+        13,
+        16
+      ],
+      "centroid": [
+        8.389,
+        14.389
+      ],
+      "dominant_colour": [
+        0,
+        0,
+        0,
+        255
+      ],
+      "neighbour_regions": [
+        9,
+        11,
+        12,
+        13
+      ],
+      "vertical_rank": 0.4642,
+      "horizontal_rank": 0.3647,
+      "confidence_score": 0.96,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_014",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.960",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 15,
+      "pixel_count": 5,
+      "bbox": [
+        15,
+        14,
+        18,
+        17
+      ],
+      "centroid": [
+        15.8,
+        14.8
+      ],
+      "dominant_colour": [
+        0,
+        0,
+        0,
+        255
+      ],
+      "neighbour_regions": [
+        13
+      ],
+      "vertical_rank": 0.4774,
+      "horizontal_rank": 0.687,
+      "confidence_score": 0.96,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_015",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.960",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 16,
+      "pixel_count": 3,
+      "bbox": [
+        7,
+        17,
+        10,
+        18
+      ],
+      "centroid": [
+        8.0,
+        17.0
+      ],
+      "dominant_colour": [
+        136,
+        88,
+        24,
+        255
+      ],
+      "neighbour_regions": [
+        13,
+        17
+      ],
+      "vertical_rank": 0.5484,
+      "horizontal_rank": 0.3478,
+      "confidence_score": 0.82,
+      "assigned_label": "torso",
+      "assignment_reason": "central middle high-area component classified as torso",
+      "pass_labels": {
+        "A_connected_component": "region_016",
+        "B_colour_region": "brown",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "torso",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "torso",
+        "G_confidence_scoring": "0.820",
+        "H_unknown_fallback": "torso"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 17,
+      "pixel_count": 26,
+      "bbox": [
+        5,
+        18,
+        12,
+        22
+      ],
+      "centroid": [
+        8.231,
+        19.5
+      ],
+      "dominant_colour": [
+        248,
+        248,
+        248,
+        255
+      ],
+      "neighbour_regions": [
+        13,
+        16,
+        18,
+        21,
+        22
+      ],
+      "vertical_rank": 0.629,
+      "horizontal_rank": 0.3579,
+      "confidence_score": 0.82,
+      "assigned_label": "torso",
+      "assignment_reason": "central middle high-area component classified as torso",
+      "pass_labels": {
+        "A_connected_component": "region_017",
+        "B_colour_region": "mixed",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "torso",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "torso",
+        "G_confidence_scoring": "0.820",
+        "H_unknown_fallback": "torso"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 18,
+      "pixel_count": 10,
+      "bbox": [
+        12,
+        18,
+        16,
+        22
+      ],
+      "centroid": [
+        13.0,
+        19.0
+      ],
+      "dominant_colour": [
+        248,
+        64,
+        112,
+        255
+      ],
+      "neighbour_regions": [
+        13,
+        17,
+        19
+      ],
+      "vertical_rank": 0.6129,
+      "horizontal_rank": 0.5652,
+      "confidence_score": 0.82,
+      "assigned_label": "torso",
+      "assignment_reason": "central middle high-area component classified as torso",
+      "pass_labels": {
+        "A_connected_component": "region_018",
+        "B_colour_region": "brown",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "torso",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "torso",
+        "G_confidence_scoring": "0.820",
+        "H_unknown_fallback": "torso"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 19,
+      "pixel_count": 11,
+      "bbox": [
+        12,
+        19,
+        17,
+        23
+      ],
+      "centroid": [
+        14.273,
+        20.636
+      ],
+      "dominant_colour": [
+        176,
+        40,
+        96,
+        255
+      ],
+      "neighbour_regions": [
+        18,
+        20,
+        22,
+        24
+      ],
+      "vertical_rank": 0.6657,
+      "horizontal_rank": 0.6206,
+      "confidence_score": 0.82,
+      "assigned_label": "torso",
+      "assignment_reason": "central middle high-area component classified as torso",
+      "pass_labels": {
+        "A_connected_component": "region_019",
+        "B_colour_region": "brown",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "torso",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "torso",
+        "G_confidence_scoring": "0.820",
+        "H_unknown_fallback": "torso"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 20,
+      "pixel_count": 5,
+      "bbox": [
+        15,
+        21,
+        17,
+        25
+      ],
+      "centroid": [
+        15.8,
+        22.4
+      ],
+      "dominant_colour": [
+        32,
+        48,
+        136,
+        255
+      ],
+      "neighbour_regions": [
+        19,
+        24
+      ],
+      "vertical_rank": 0.7226,
+      "horizontal_rank": 0.687,
+      "confidence_score": 0.76,
+      "assigned_label": "right_leg",
+      "assignment_reason": "lower component right of centre classified as right leg",
+      "pass_labels": {
+        "A_connected_component": "region_020",
+        "B_colour_region": "blue",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "right_leg",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "right_leg",
+        "G_confidence_scoring": "0.760",
+        "H_unknown_fallback": "right_leg"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 21,
+      "pixel_count": 4,
+      "bbox": [
+        6,
+        22,
+        10,
+        23
+      ],
+      "centroid": [
+        7.5,
+        22.0
+      ],
+      "dominant_colour": [
+        136,
+        88,
+        24,
+        255
+      ],
+      "neighbour_regions": [
+        17,
+        22,
+        23
+      ],
+      "vertical_rank": 0.7097,
+      "horizontal_rank": 0.3261,
+      "confidence_score": 0.76,
+      "assigned_label": "left_leg",
+      "assignment_reason": "lower component left of centre classified as left leg",
+      "pass_labels": {
+        "A_connected_component": "region_021",
+        "B_colour_region": "brown",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "left_leg",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "left_leg",
+        "G_confidence_scoring": "0.760",
+        "H_unknown_fallback": "left_leg"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 22,
+      "pixel_count": 5,
+      "bbox": [
+        10,
+        22,
+        14,
+        24
+      ],
+      "centroid": [
+        11.4,
+        22.6
+      ],
+      "dominant_colour": [
+        80,
+        0,
+        0,
+        255
+      ],
+      "neighbour_regions": [
+        17,
+        19,
+        21,
+        23,
+        24
+      ],
+      "vertical_rank": 0.729,
+      "horizontal_rank": 0.4957,
+      "confidence_score": 0.76,
+      "assigned_label": "left_leg",
+      "assignment_reason": "lower component left of centre classified as left leg",
+      "pass_labels": {
+        "A_connected_component": "region_022",
+        "B_colour_region": "mixed",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "left_leg",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "left_leg",
+        "G_confidence_scoring": "0.760",
+        "H_unknown_fallback": "left_leg"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 23,
+      "pixel_count": 12,
+      "bbox": [
+        7,
+        23,
+        13,
+        26
+      ],
+      "centroid": [
+        9.333,
+        23.833
+      ],
+      "dominant_colour": [
+        128,
+        216,
+        200,
+        255
+      ],
+      "neighbour_regions": [
+        21,
+        22,
+        24,
+        25
+      ],
+      "vertical_rank": 0.7688,
+      "horizontal_rank": 0.4058,
+      "confidence_score": 0.76,
+      "assigned_label": "left_leg",
+      "assignment_reason": "lower component left of centre classified as left leg",
+      "pass_labels": {
+        "A_connected_component": "region_023",
+        "B_colour_region": "green",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "left_leg",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "left_leg",
+        "G_confidence_scoring": "0.760",
+        "H_unknown_fallback": "left_leg"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 24,
+      "pixel_count": 15,
+      "bbox": [
+        10,
+        23,
+        16,
+        27
+      ],
+      "centroid": [
+        13.333,
+        24.933
+      ],
+      "dominant_colour": [
+        64,
+        128,
+        152,
+        255
+      ],
+      "neighbour_regions": [
+        19,
+        20,
+        22,
+        23,
+        25
+      ],
+      "vertical_rank": 0.8043,
+      "horizontal_rank": 0.5797,
+      "confidence_score": 0.76,
+      "assigned_label": "right_leg",
+      "assignment_reason": "lower component right of centre classified as right leg",
+      "pass_labels": {
+        "A_connected_component": "region_024",
+        "B_colour_region": "blue",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "right_leg",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "right_leg",
+        "G_confidence_scoring": "0.760",
+        "H_unknown_fallback": "right_leg"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 25,
+      "pixel_count": 11,
+      "bbox": [
+        8,
+        25,
+        15,
+        28
+      ],
+      "centroid": [
+        10.091,
+        26.455
+      ],
+      "dominant_colour": [
+        32,
+        48,
+        136,
+        255
+      ],
+      "neighbour_regions": [
+        23,
+        24,
+        26,
+        27,
+        28
+      ],
+      "vertical_rank": 0.8534,
+      "horizontal_rank": 0.4387,
+      "confidence_score": 0.76,
+      "assigned_label": "left_leg",
+      "assignment_reason": "lower component left of centre classified as left leg",
+      "pass_labels": {
+        "A_connected_component": "region_025",
+        "B_colour_region": "blue",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "left_leg",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "left_leg",
+        "G_confidence_scoring": "0.760",
+        "H_unknown_fallback": "left_leg"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 26,
+      "pixel_count": 2,
+      "bbox": [
+        7,
+        28,
+        9,
+        29
+      ],
+      "centroid": [
+        7.5,
+        28.0
+      ],
+      "dominant_colour": [
+        0,
+        0,
+        0,
+        255
+      ],
+      "neighbour_regions": [
+        25,
+        27,
+        29
+      ],
+      "vertical_rank": 0.9032,
+      "horizontal_rank": 0.3261,
+      "confidence_score": 0.81,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_026",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.810",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 27,
+      "pixel_count": 1,
+      "bbox": [
+        9,
+        28,
+        10,
+        29
+      ],
+      "centroid": [
+        9.0,
+        28.0
+      ],
+      "dominant_colour": [
+        0,
+        0,
+        0,
+        255
+      ],
+      "neighbour_regions": [
+        25,
+        26,
+        28,
+        29
+      ],
+      "vertical_rank": 0.9032,
+      "horizontal_rank": 0.3913,
+      "confidence_score": 0.81,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_027",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.810",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 28,
+      "pixel_count": 9,
+      "bbox": [
+        10,
+        28,
+        15,
+        30
+      ],
+      "centroid": [
+        11.778,
+        28.444
+      ],
+      "dominant_colour": [
+        136,
+        88,
+        24,
+        255
+      ],
+      "neighbour_regions": [
+        25,
+        27,
+        29
+      ],
+      "vertical_rank": 0.9175,
+      "horizontal_rank": 0.5121,
+      "confidence_score": 0.83,
+      "assigned_label": "boots/feet",
+      "assignment_reason": "lower brown/dark component classified as boots/feet",
+      "pass_labels": {
+        "A_connected_component": "region_028",
+        "B_colour_region": "brown",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "boots/feet",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "boots/feet",
+        "G_confidence_scoring": "0.830",
+        "H_unknown_fallback": "boots/feet"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 29,
+      "pixel_count": 14,
+      "bbox": [
+        6,
+        29,
+        15,
+        31
+      ],
+      "centroid": [
+        9.571,
+        29.643
+      ],
+      "dominant_colour": [
+        0,
+        0,
+        0,
+        255
+      ],
+      "neighbour_regions": [
+        26,
+        27,
+        28
+      ],
+      "vertical_rank": 0.9562,
+      "horizontal_rank": 0.4161,
+      "confidence_score": 0.96,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_029",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.960",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    }
+  ],
+  "validation_report": {
+    "mylar_depth_enabled": true,
+    "closed_body_enabled": true,
+    "back_mode": "semantic_rules",
+    "front_max_depth": 0.4487932026386261,
+    "back_max_depth": 0.4487932026386261,
+    "silhouette_pin_confirmed": true,
+    "seam_ring_count": 1,
+    "seam_discontinuity_max": 0.0,
+    "inner_holes_detected": 0,
+    "inner_holes_seamed": 0,
+    "sdf_volume_shape": [
+      32,
+      24,
+      49
+    ],
+    "sdf_sign_consistency": true,
+    "sdf_dtype": "float32",
+    "semantic_dtype": "int32",
+    "closed_volume_connected": true,
+    "hollow_gap_ratio": 0.0,
+    "semantic_volume_labels": [
+      1,
+      2,
+      4,
+      5,
+      6,
+      8,
+      9
+    ],
+    "required_semantic_volume_labels": [
+      1,
+      2,
+      4,
+      5,
+      6,
+      8,
+      9
+    ],
+    "missing_semantic_volume_labels": [],
+    "surface_nets_input_loadable": true,
+    "surface_nets_input_shape_valid": true,
+    "surface_nets_ready": true,
+    "manifold_ready_estimate": true,
+    "front_back_sprite_deferred": false,
+    "source_coverage": {
+      "front": "authored",
+      "back": "inferred",
+      "left": "mirrored_placeholder",
+      "right": "inferred",
+      "back_reference_recommended": true,
+      "side_reference_recommended": true,
+      "fidelity_limit": "front_only_inferred_back",
+      "warnings": [
+        "Back view is inferred from semantic rules. This is structurally valid but not artistically authoritative.",
+        "Side profile is generated from primitive/SDF priors. Provide side sprite for higher fidelity."
+      ],
+      "details": {
+        "front": {
+          "exists": true,
+          "path": "C:\\dev\\SpatialSprite\\assets\\samples\\mario\\mario_front.png",
+          "sha256": "0c614f41f014be7ea0308c48f22e6359d67501c79505a0b6bea881ee89583886",
+          "alpha_sha256": "45b44f26d9215db970efcd8860cdbc0bdf0f8295241bdfaddab41616b246e709",
+          "mirror_sha256": "3c5097ac7b45d53e4b3064bacfba1334be63c03a0559c44bc40f71285c177522",
+          "mirror_alpha_sha256": "2d7ba22acdbd5f19e7c90600d5839e065dddb81670d058c13cf0e73635af6c20",
+          "alpha_coverage": 0.3880208333333333,
+          "size": [
+            24,
+            32
+          ]
+        },
+        "back": {
+          "exists": true,
+          "path": "C:\\dev\\SpatialSprite\\assets\\samples\\mario\\mario_back.png",
+          "sha256": "0c614f41f014be7ea0308c48f22e6359d67501c79505a0b6bea881ee89583886",
+          "alpha_sha256": "45b44f26d9215db970efcd8860cdbc0bdf0f8295241bdfaddab41616b246e709",
+          "mirror_sha256": "3c5097ac7b45d53e4b3064bacfba1334be63c03a0559c44bc40f71285c177522",
+          "mirror_alpha_sha256": "2d7ba22acdbd5f19e7c90600d5839e065dddb81670d058c13cf0e73635af6c20",
+          "alpha_coverage": 0.3880208333333333,
+          "size": [
+            24,
+            32
+          ]
+        },
+        "left": {
+          "exists": true,
+          "path": "C:\\dev\\SpatialSprite\\assets\\samples\\mario\\mario_left.png",
+          "sha256": "3c5097ac7b45d53e4b3064bacfba1334be63c03a0559c44bc40f71285c177522",
+          "alpha_sha256": "2d7ba22acdbd5f19e7c90600d5839e065dddb81670d058c13cf0e73635af6c20",
+          "mirror_sha256": "0c614f41f014be7ea0308c48f22e6359d67501c79505a0b6bea881ee89583886",
+          "mirror_alpha_sha256": "45b44f26d9215db970efcd8860cdbc0bdf0f8295241bdfaddab41616b246e709",
+          "alpha_coverage": 0.3880208333333333,
+          "size": [
+            24,
+            32
+          ]
+        },
+        "right": {
+          "exists": true,
+          "path": "C:\\dev\\SpatialSprite\\assets\\samples\\mario\\mario_right.png",
+          "sha256": "0c614f41f014be7ea0308c48f22e6359d67501c79505a0b6bea881ee89583886",
+          "alpha_sha256": "45b44f26d9215db970efcd8860cdbc0bdf0f8295241bdfaddab41616b246e709",
+          "mirror_sha256": "3c5097ac7b45d53e4b3064bacfba1334be63c03a0559c44bc40f71285c177522",
+          "mirror_alpha_sha256": "2d7ba22acdbd5f19e7c90600d5839e065dddb81670d058c13cf0e73635af6c20",
+          "alpha_coverage": 0.3880208333333333,
+          "size": [
+            24,
+            32
+          ]
+        }
+      },
+      "fail_conditions": {
+        "quality_requires_authored_back": true,
+        "quality_requires_authored_sides": true
+      },
+      "passed": false
+    },
+    "build_warnings": [
+      "Back view is inferred from semantic rules. This is structurally valid but not artistically authoritative.",
+      "Side profile is generated from primitive/SDF priors. Provide side sprite for higher fidelity."
+    ],
+    "fail_conditions": {
+      "silhouette_pin_fails": false,
+      "front_back_seam_mismatch_exceeds_tolerance": false,
+      "sdf_volume_empty": false,
+      "critical_semantic_labels_disappear": false,
+      "hollow_gap_ratio_exceeds_threshold": false,
+      "closed_volume_disconnected": false,
+      "z_front_contains_negative_values": false,
+      "z_back_contains_positive_values": false,
+      "semantic_volume_loses_labels_present_in_phase_1_4": false,
+      "surface_nets_input_not_loadable": false,
+      "inner_holes_detected_not_seamed": false,
+      "mylar_isolated_spikes": false,
+      "outline_full_depth_slab": false,
+      "missing_critical_back_regions": false,
+      "source_coverage_policy_failed": true
+    },
+    "passed": false
+  }
+}

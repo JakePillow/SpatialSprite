@@ -23,7 +23,7 @@ class AlphaRemovalResult:
         if total == 0:
             return 0.0
         alpha = self.image.getchannel("A")
-        transparent = sum(1 for value in alpha.getdata() if value == 0)
+        transparent = alpha.tobytes().count(0)
         return transparent / total
 
 

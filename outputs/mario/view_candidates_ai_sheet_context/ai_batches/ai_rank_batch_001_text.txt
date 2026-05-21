@@ -1,0 +1,291 @@
+{
+  "rankings": [
+    {
+      "candidate_id": 64,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 65,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 66,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 67,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 68,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 69,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 70,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 71,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 76,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 77,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 79,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 80,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 84,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 0.65,
+      "reason": "Complete standing pose but less clear than top candidates."
+    },
+    {
+      "candidate_id": 85,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 0.65,
+      "reason": "Complete standing pose but less clear than top candidates."
+    },
+    {
+      "candidate_id": 86,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 0.65,
+      "reason": "Complete standing pose but less clear than top candidates."
+    },
+    {
+      "candidate_id": 88,
+      "view": "unknown",
+      "pose": "other",
+      "confidence": 0.4,
+      "reason": "Incomplete or unclear perspective."
+    },
+    {
+      "candidate_id": 94,
+      "view": "unknown",
+      "pose": "other",
+      "confidence": 0.75,
+      "reason": "Could be front-facing, confidence reduced."
+    },
+    {
+      "candidate_id": 97,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 98,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 99,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 100,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 101,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 102,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 104,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 105,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 106,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 107,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 108,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 109,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 110,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 111,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 118,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 119,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 120,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 121,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 122,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 123,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 124,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 125,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 126,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    },
+    {
+      "candidate_id": 127,
+      "view": "front",
+      "pose": "idle",
+      "confidence": 1.0,
+      "reason": "Complete standing pose with clear front view."
+    }
+  ]
+}

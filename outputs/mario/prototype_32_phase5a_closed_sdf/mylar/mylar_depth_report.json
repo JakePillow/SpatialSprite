@@ -1,0 +1,90 @@
+{
+  "schema": "spritespatial_mylar_depth_v1",
+  "max_total_depth": 0.6,
+  "z_min": 0.0,
+  "z_max": 0.41915464401245117,
+  "silhouette_pin_confirmed": true,
+  "isolated_spike_count": 0,
+  "opaque_semantic_pixels": 298,
+  "valid_depth_pixels": 298,
+  "outline_full_depth_slab": false,
+  "regions": [
+    {
+      "index": 0,
+      "name": "outline",
+      "semantic_label": "outline",
+      "profile": "linear",
+      "max_depth": 0.04,
+      "pixel_count": 79,
+      "actual_max_depth": 0.03999999910593033,
+      "actual_mean_depth": 0.02189500443637371,
+      "debug": "C:\\dev\\SpatialSprite\\outputs\\mario\\prototype_32_phase5a_closed_sdf\\mylar\\z_regions\\00_outline.png"
+    },
+    {
+      "index": 1,
+      "name": "head",
+      "semantic_label": "head",
+      "profile": "cosine",
+      "max_depth": 0.45,
+      "pixel_count": 72,
+      "actual_max_depth": 0.44999998807907104,
+      "actual_mean_depth": 0.2514103353023529,
+      "debug": "C:\\dev\\SpatialSprite\\outputs\\mario\\prototype_32_phase5a_closed_sdf\\mylar\\z_regions\\01_head.png"
+    },
+    {
+      "index": 2,
+      "name": "hair",
+      "semantic_label": "hair/hat",
+      "profile": "concave",
+      "max_depth": 0.12,
+      "pixel_count": 14,
+      "actual_max_depth": 0.11999999731779099,
+      "actual_mean_depth": 0.11999999731779099,
+      "debug": "C:\\dev\\SpatialSprite\\outputs\\mario\\prototype_32_phase5a_closed_sdf\\mylar\\z_regions\\02_hair_hat.png"
+    },
+    {
+      "index": 3,
+      "name": "torso",
+      "semantic_label": "torso",
+      "profile": "cosine",
+      "max_depth": 0.4,
+      "pixel_count": 69,
+      "actual_max_depth": 0.4000000059604645,
+      "actual_mean_depth": 0.1663777232170105,
+      "debug": "C:\\dev\\SpatialSprite\\outputs\\mario\\prototype_32_phase5a_closed_sdf\\mylar\\z_regions\\03_torso.png"
+    },
+    {
+      "index": 4,
+      "name": "left_arm",
+      "semantic_label": "left_arm",
+      "profile": "convex",
+      "max_depth": 0.3,
+      "pixel_count": 2,
+      "actual_max_depth": 0.30000001192092896,
+      "actual_mean_depth": 0.30000001192092896,
+      "debug": "C:\\dev\\SpatialSprite\\outputs\\mario\\prototype_32_phase5a_closed_sdf\\mylar\\z_regions\\04_left_arm.png"
+    },
+    {
+      "index": 5,
+      "name": "left_leg",
+      "semantic_label": "left_leg",
+      "profile": "convex",
+      "max_depth": 0.35,
+      "pixel_count": 34,
+      "actual_max_depth": 0.3499999940395355,
+      "actual_mean_depth": 0.21481430530548096,
+      "debug": "C:\\dev\\SpatialSprite\\outputs\\mario\\prototype_32_phase5a_closed_sdf\\mylar\\z_regions\\05_left_leg.png"
+    },
+    {
+      "index": 6,
+      "name": "right_leg",
+      "semantic_label": "right_leg",
+      "profile": "convex",
+      "max_depth": 0.35,
+      "pixel_count": 28,
+      "actual_max_depth": 0.3499999940395355,
+      "actual_mean_depth": 0.25124773383140564,
+      "debug": "C:\\dev\\SpatialSprite\\outputs\\mario\\prototype_32_phase5a_closed_sdf\\mylar\\z_regions\\06_right_leg.png"
+    }
+  ]
+}
