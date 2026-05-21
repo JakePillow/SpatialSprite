@@ -1,0 +1,50 @@
+{
+  "schema": "spritespatial_silhouette_error_before_after_v1",
+  "views": {
+    "front": {
+      "before_iou": 0.5132575757575758,
+      "after_iou": 0.5132575757575758,
+      "delta_iou": 0.0,
+      "before_overfill": 0.48674242424242425,
+      "after_overfill": 0.48674242424242425,
+      "before_underfill": 0.0,
+      "after_underfill": 0.0
+    },
+    "oblique": {
+      "before_iou": 0.6265822784810127,
+      "after_iou": 0.6528301886792452,
+      "delta_iou": 0.026247910198232582,
+      "before_overfill": 0.28087167070217917,
+      "after_overfill": 0.33204633204633205,
+      "before_underfill": 0.17039106145251395,
+      "after_underfill": 0.0335195530726257
+    },
+    "side": {
+      "before_iou": 0.4089775561097257,
+      "after_iou": 0.5300668151447662,
+      "delta_iou": 0.12108925903504048,
+      "before_overfill": 0.45514950166112955,
+      "after_overfill": 0.4373522458628842,
+      "before_underfill": 0.3787878787878788,
+      "after_underfill": 0.09848484848484848
+    },
+    "side_135": {
+      "before_iou": 0.4475374732334047,
+      "after_iou": 0.49317738791423,
+      "delta_iou": 0.04563991468082529,
+      "before_overfill": 0.49271844660194175,
+      "after_overfill": 0.4960159362549801,
+      "before_underfill": 0.20833333333333334,
+      "after_underfill": 0.041666666666666664
+    },
+    "back": {
+      "before_iou": 0.5037878787878788,
+      "after_iou": 0.5037878787878788,
+      "delta_iou": 0.0,
+      "before_overfill": 0.4962121212121212,
+      "after_overfill": 0.4962121212121212,
+      "before_underfill": 0.0,
+      "after_underfill": 0.0
+    }
+  }
+}

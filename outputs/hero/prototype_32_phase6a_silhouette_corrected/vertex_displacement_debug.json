@@ -1,0 +1,6008 @@
+{
+  "schema": "spritespatial_vertex_displacement_debug_v1",
+  "max_displacement": 3.4890003204345703,
+  "mean_displacement": 1.4267966747283936,
+  "moved_vertex_count": 1529,
+  "moved_vertices": [
+    {
+      "index": 0,
+      "semantic_label": 4,
+      "displacement": 0.09182548522949219
+    },
+    {
+      "index": 1,
+      "semantic_label": 4,
+      "displacement": 0.07677650451660156
+    },
+    {
+      "index": 2,
+      "semantic_label": 4,
+      "displacement": 0.10505962371826172
+    },
+    {
+      "index": 3,
+      "semantic_label": 4,
+      "displacement": 0.10505962371826172
+    },
+    {
+      "index": 4,
+      "semantic_label": 4,
+      "displacement": 0.1038045883178711
+    },
+    {
+      "index": 5,
+      "semantic_label": 4,
+      "displacement": 0.1038045883178711
+    },
+    {
+      "index": 6,
+      "semantic_label": 4,
+      "displacement": 0.10505962371826172
+    },
+    {
+      "index": 7,
+      "semantic_label": 4,
+      "displacement": 0.10505962371826172
+    },
+    {
+      "index": 8,
+      "semantic_label": 4,
+      "displacement": 0.09182548522949219
+    },
+    {
+      "index": 9,
+      "semantic_label": 4,
+      "displacement": 0.07677650451660156
+    },
+    {
+      "index": 10,
+      "semantic_label": 4,
+      "displacement": 0.057018280029296875
+    },
+    {
+      "index": 11,
+      "semantic_label": 4,
+      "displacement": 0.049160003662109375
+    },
+    {
+      "index": 12,
+      "semantic_label": 2,
+      "displacement": 2.006582736968994
+    },
+    {
+      "index": 13,
+      "semantic_label": 2,
+      "displacement": 1.6230363845825195
+    },
+    {
+      "index": 14,
+      "semantic_label": 2,
+      "displacement": 1.1367340087890625
+    },
+    {
+      "index": 15,
+      "semantic_label": 2,
+      "displacement": 0.6757078170776367
+    },
+    {
+      "index": 16,
+      "semantic_label": 2,
+      "displacement": 0.07303619384765625
+    },
+    {
+      "index": 18,
+      "semantic_label": 2,
+      "displacement": 0.14153766632080078
+    },
+    {
+      "index": 19,
+      "semantic_label": 2,
+      "displacement": 1.1124467849731445
+    },
+    {
+      "index": 20,
+      "semantic_label": 2,
+      "displacement": 1.5962915420532227
+    },
+    {
+      "index": 21,
+      "semantic_label": 2,
+      "displacement": 1.9232196807861328
+    },
+    {
+      "index": 22,
+      "semantic_label": 2,
+      "displacement": 1.0132756233215332
+    },
+    {
+      "index": 23,
+      "semantic_label": 2,
+      "displacement": 2.062986373901367
+    },
+    {
+      "index": 24,
+      "semantic_label": 2,
+      "displacement": 1.6625003814697266
+    },
+    {
+      "index": 25,
+      "semantic_label": 2,
+      "displacement": 1.1875
+    },
+    {
+      "index": 26,
+      "semantic_label": 2,
+      "displacement": 0.7027988433837891
+    },
+    {
+      "index": 27,
+      "semantic_label": 2,
+      "displacement": 0.16620445251464844
+    },
+    {
+      "index": 30,
+      "semantic_label": 2,
+      "displacement": 1.1570405960083008
+    },
+    {
+      "index": 31,
+      "semantic_label": 2,
+      "displacement": 1.6625003814697266
+    },
+    {
+      "index": 32,
+      "semantic_label": 2,
+      "displacement": 2.064767837524414
+    },
+    {
+      "index": 33,
+      "semantic_label": 2,
+      "displacement": 2.376007080078125
+    },
+    {
+      "index": 34,
+      "semantic_label": 2,
+      "displacement": 1.7683525085449219
+    },
+    {
+      "index": 35,
+      "semantic_label": 2,
+      "displacement": 2.1069202423095703
+    },
+    {
+      "index": 36,
+      "semantic_label": 2,
+      "displacement": 1.6625003814697266
+    },
+    {
+      "index": 37,
+      "semantic_label": 2,
+      "displacement": 1.1875
+    },
+    {
+      "index": 38,
+      "semantic_label": 2,
+      "displacement": 0.7027988433837891
+    },
+    {
+      "index": 39,
+      "semantic_label": 2,
+      "displacement": 0.16373348236083984
+    },
+    {
+      "index": 42,
+      "semantic_label": 2,
+      "displacement": 1.1570405960083008
+    },
+    {
+      "index": 43,
+      "semantic_label": 2,
+      "displacement": 1.6625003814697266
+    },
+    {
+      "index": 44,
+      "semantic_label": 2,
+      "displacement": 2.141146659851074
+    },
+    {
+      "index": 45,
+      "semantic_label": 2,
+      "displacement": 2.434262275695801
+    },
+    {
+      "index": 46,
+      "semantic_label": 2,
+      "displacement": 1.7890758514404297
+    },
+    {
+      "index": 47,
+      "semantic_label": 2,
+      "displacement": 2.0658931732177734
+    },
+    {
+      "index": 48,
+      "semantic_label": 2,
+      "displacement": 1.6625003814697266
+    },
+    {
+      "index": 49,
+      "semantic_label": 2,
+      "displacement": 1.1875
+    },
+    {
+      "index": 50,
+      "semantic_label": 2,
+      "displacement": 0.7027988433837891
+    },
+    {
+      "index": 51,
+      "semantic_label": 2,
+      "displacement": 0.16491127014160156
+    },
+    {
+      "index": 54,
+      "semantic_label": 2,
+      "displacement": 1.1570405960083008
+    },
+    {
+      "index": 55,
+      "semantic_label": 2,
+      "displacement": 1.6625003814697266
+    },
+    {
+      "index": 56,
+      "semantic_label": 2,
+      "displacement": 2.064767837524414
+    },
+    {
+      "index": 57,
+      "semantic_label": 2,
+      "displacement": 2.376007080078125
+    },
+    {
+      "index": 58,
+      "semantic_label": 2,
+      "displacement": 1.9681077003479004
+    },
+    {
+      "index": 59,
+      "semantic_label": 2,
+      "displacement": 1.6106929779052734
+    },
+    {
+      "index": 60,
+      "semantic_label": 2,
+      "displacement": 1.1367340087890625
+    },
+    {
+      "index": 61,
+      "semantic_label": 2,
+      "displacement": 0.6739444732666016
+    },
+    {
+      "index": 62,
+      "semantic_label": 2,
+      "displacement": 0.040757179260253906
+    },
+    {
+      "index": 64,
+      "semantic_label": 2,
+      "displacement": 0.25489234924316406
+    },
+    {
+      "index": 65,
+      "semantic_label": 2,
+      "displacement": 1.11773681640625
+    },
+    {
+      "index": 66,
+      "semantic_label": 2,
+      "displacement": 1.5962915420532227
+    },
+    {
+      "index": 67,
+      "semantic_label": 2,
+      "displacement": 1.9232187271118164
+    },
+    {
+      "index": 68,
+      "semantic_label": 4,
+      "displacement": 0.036376953125
+    },
+    {
+      "index": 69,
+      "semantic_label": 4,
+      "displacement": 0.05977153778076172
+    },
+    {
+      "index": 70,
+      "semantic_label": 1,
+      "displacement": 0.029689788818359375
+    },
+    {
+      "index": 71,
+      "semantic_label": 1,
+      "displacement": 0.021068572998046875
+    },
+    {
+      "index": 74,
+      "semantic_label": 4,
+      "displacement": 0.5743331909179688
+    },
+    {
+      "index": 81,
+      "semantic_label": 2,
+      "displacement": 2.4345569610595703
+    },
+    {
+      "index": 82,
+      "semantic_label": 2,
+      "displacement": 1.4533004760742188
+    },
+    {
+      "index": 83,
+      "semantic_label": 2,
+      "displacement": 0.6356391906738281
+    },
+    {
+      "index": 92,
+      "semantic_label": 2,
+      "displacement": 0.8938980102539062
+    },
+    {
+      "index": 93,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 94,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 95,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 96,
+      "semantic_label": 2,
+      "displacement": 3.4718356132507324
+    },
+    {
+      "index": 97,
+      "semantic_label": 2,
+      "displacement": 3.084357261657715
+    },
+    {
+      "index": 98,
+      "semantic_label": 2,
+      "displacement": 2.520294189453125
+    },
+    {
+      "index": 99,
+      "semantic_label": 2,
+      "displacement": 1.5822029113769531
+    },
+    {
+      "index": 102,
+      "semantic_label": 2,
+      "displacement": 2.9726734161376953
+    },
+    {
+      "index": 103,
+      "semantic_label": 2,
+      "displacement": 3.4718360900878906
+    },
+    {
+      "index": 104,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 105,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 106,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 107,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 108,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 109,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 110,
+      "semantic_label": 2,
+      "displacement": 3.4718356132507324
+    },
+    {
+      "index": 111,
+      "semantic_label": 2,
+      "displacement": 3.0807104110717773
+    },
+    {
+      "index": 112,
+      "semantic_label": 2,
+      "displacement": 2.6512527465820312
+    },
+    {
+      "index": 114,
+      "semantic_label": 2,
+      "displacement": 2.965726852416992
+    },
+    {
+      "index": 115,
+      "semantic_label": 2,
+      "displacement": 3.4718360900878906
+    },
+    {
+      "index": 116,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 117,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 118,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 119,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 120,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 121,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 122,
+      "semantic_label": 2,
+      "displacement": 3.4718356132507324
+    },
+    {
+      "index": 123,
+      "semantic_label": 2,
+      "displacement": 3.084357261657715
+    },
+    {
+      "index": 124,
+      "semantic_label": 2,
+      "displacement": 2.4982776641845703
+    },
+    {
+      "index": 125,
+      "semantic_label": 2,
+      "displacement": 0.8823528289794922
+    },
+    {
+      "index": 128,
+      "semantic_label": 2,
+      "displacement": 2.9726734161376953
+    },
+    {
+      "index": 129,
+      "semantic_label": 2,
+      "displacement": 3.4718360900878906
+    },
+    {
+      "index": 130,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 131,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 132,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 133,
+      "semantic_label": 2,
+      "displacement": 2.349057197570801
+    },
+    {
+      "index": 134,
+      "semantic_label": 2,
+      "displacement": 0.8125190734863281
+    },
+    {
+      "index": 135,
+      "semantic_label": 2,
+      "displacement": 0.34642505645751953
+    },
+    {
+      "index": 144,
+      "semantic_label": 2,
+      "displacement": 1.5995464324951172
+    },
+    {
+      "index": 145,
+      "semantic_label": 4,
+      "displacement": 0.31864166259765625
+    },
+    {
+      "index": 159,
+      "semantic_label": 1,
+      "displacement": 0.03779888153076172
+    },
+    {
+      "index": 160,
+      "semantic_label": 1,
+      "displacement": 0.02057170867919922
+    },
+    {
+      "index": 174,
+      "semantic_label": 2,
+      "displacement": 2.952894687652588
+    },
+    {
+      "index": 175,
+      "semantic_label": 2,
+      "displacement": 1.7972993850708008
+    },
+    {
+      "index": 185,
+      "semantic_label": 2,
+      "displacement": 0.9785804748535156
+    },
+    {
+      "index": 186,
+      "semantic_label": 2,
+      "displacement": 2.905869483947754
+    },
+    {
+      "index": 187,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 188,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 189,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 190,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 191,
+      "semantic_label": 2,
+      "displacement": 3.4718356132507324
+    },
+    {
+      "index": 192,
+      "semantic_label": 2,
+      "displacement": 3.0527420043945312
+    },
+    {
+      "index": 193,
+      "semantic_label": 2,
+      "displacement": 1.9189033508300781
+    },
+    {
+      "index": 194,
+      "semantic_label": 2,
+      "displacement": 1.0150890350341797
+    },
+    {
+      "index": 195,
+      "semantic_label": 2,
+      "displacement": 3.0234155654907227
+    },
+    {
+      "index": 196,
+      "semantic_label": 2,
+      "displacement": 3.4718360900878906
+    },
+    {
+      "index": 197,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 198,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 199,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 200,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 201,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 202,
+      "semantic_label": 2,
+      "displacement": 3.487931251525879
+    },
+    {
+      "index": 203,
+      "semantic_label": 2,
+      "displacement": 3.4879322052001953
+    },
+    {
+      "index": 204,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 205,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 206,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 207,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 208,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 209,
+      "semantic_label": 2,
+      "displacement": 3.4718356132507324
+    },
+    {
+      "index": 210,
+      "semantic_label": 2,
+      "displacement": 3.0224428176879883
+    },
+    {
+      "index": 211,
+      "semantic_label": 2,
+      "displacement": 1.0699529647827148
+    },
+    {
+      "index": 212,
+      "semantic_label": 2,
+      "displacement": 1.8170156478881836
+    },
+    {
+      "index": 213,
+      "semantic_label": 2,
+      "displacement": 3.051769256591797
+    },
+    {
+      "index": 214,
+      "semantic_label": 2,
+      "displacement": 3.4718360900878906
+    },
+    {
+      "index": 215,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 216,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 217,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 218,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 219,
+      "semantic_label": 2,
+      "displacement": 2.9010071754455566
+    },
+    {
+      "index": 220,
+      "semantic_label": 2,
+      "displacement": 0.9985518455505371
+    },
+    {
+      "index": 227,
+      "semantic_label": 2,
+      "displacement": 1.7787542343139648
+    },
+    {
+      "index": 228,
+      "semantic_label": 2,
+      "displacement": 2.948031425476074
+    },
+    {
+      "index": 244,
+      "semantic_label": 1,
+      "displacement": 0.020174026489257812
+    },
+    {
+      "index": 245,
+      "semantic_label": 1,
+      "displacement": 0.037059783935546875
+    },
+    {
+      "index": 246,
+      "semantic_label": 1,
+      "displacement": 0.03738117218017578
+    },
+    {
+      "index": 247,
+      "semantic_label": 1,
+      "displacement": 0.03738117218017578
+    },
+    {
+      "index": 248,
+      "semantic_label": 1,
+      "displacement": 0.047428131103515625
+    },
+    {
+      "index": 249,
+      "semantic_label": 1,
+      "displacement": 0.04609203338623047
+    },
+    {
+      "index": 263,
+      "semantic_label": 2,
+      "displacement": 2.9841151237487793
+    },
+    {
+      "index": 264,
+      "semantic_label": 2,
+      "displacement": 1.7757368087768555
+    },
+    {
+      "index": 274,
+      "semantic_label": 2,
+      "displacement": 0.9753303527832031
+    },
+    {
+      "index": 275,
+      "semantic_label": 2,
+      "displacement": 2.948845863342285
+    },
+    {
+      "index": 276,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 277,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 278,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 279,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 280,
+      "semantic_label": 2,
+      "displacement": 3.468188762664795
+    },
+    {
+      "index": 281,
+      "semantic_label": 2,
+      "displacement": 3.1524744033813477
+    },
+    {
+      "index": 282,
+      "semantic_label": 2,
+      "displacement": 3.152475357055664
+    },
+    {
+      "index": 283,
+      "semantic_label": 2,
+      "displacement": 3.468189239501953
+    },
+    {
+      "index": 284,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 285,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 286,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 287,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 288,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 289,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 290,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 291,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 292,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 293,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 294,
+      "semantic_label": 2,
+      "displacement": 3.472224712371826
+    },
+    {
+      "index": 295,
+      "semantic_label": 2,
+      "displacement": 3.175753593444824
+    },
+    {
+      "index": 296,
+      "semantic_label": 2,
+      "displacement": 3.1757545471191406
+    },
+    {
+      "index": 297,
+      "semantic_label": 2,
+      "displacement": 3.4722251892089844
+    },
+    {
+      "index": 298,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 299,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 300,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 301,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 302,
+      "semantic_label": 2,
+      "displacement": 3.4707303047180176
+    },
+    {
+      "index": 303,
+      "semantic_label": 2,
+      "displacement": 3.0349597930908203
+    },
+    {
+      "index": 304,
+      "semantic_label": 2,
+      "displacement": 0.980809211730957
+    },
+    {
+      "index": 314,
+      "semantic_label": 2,
+      "displacement": 1.7497129440307617
+    },
+    {
+      "index": 315,
+      "semantic_label": 2,
+      "displacement": 3.0631752014160156
+    },
+    {
+      "index": 316,
+      "semantic_label": 2,
+      "displacement": 3.4707298278808594
+    },
+    {
+      "index": 329,
+      "semantic_label": 1,
+      "displacement": 0.06913375854492188
+    },
+    {
+      "index": 330,
+      "semantic_label": 1,
+      "displacement": 0.14914512634277344
+    },
+    {
+      "index": 331,
+      "semantic_label": 1,
+      "displacement": 0.046027183532714844
+    },
+    {
+      "index": 332,
+      "semantic_label": 1,
+      "displacement": 0.04494285583496094
+    },
+    {
+      "index": 333,
+      "semantic_label": 1,
+      "displacement": 0.03738117218017578
+    },
+    {
+      "index": 334,
+      "semantic_label": 1,
+      "displacement": 0.03738117218017578
+    },
+    {
+      "index": 335,
+      "semantic_label": 1,
+      "displacement": 0.04353141784667969
+    },
+    {
+      "index": 336,
+      "semantic_label": 1,
+      "displacement": 0.04201316833496094
+    },
+    {
+      "index": 337,
+      "semantic_label": 1,
+      "displacement": 0.058684349060058594
+    },
+    {
+      "index": 338,
+      "semantic_label": 1,
+      "displacement": 0.03780555725097656
+    },
+    {
+      "index": 339,
+      "semantic_label": 1,
+      "displacement": 0.08149147033691406
+    },
+    {
+      "index": 341,
+      "semantic_label": 1,
+      "displacement": 0.02097034454345703
+    },
+    {
+      "index": 342,
+      "semantic_label": 1,
+      "displacement": 0.047209739685058594
+    },
+    {
+      "index": 347,
+      "semantic_label": 5,
+      "displacement": 0.3885841369628906
+    },
+    {
+      "index": 359,
+      "semantic_label": 2,
+      "displacement": 3.472351551055908
+    },
+    {
+      "index": 360,
+      "semantic_label": 2,
+      "displacement": 3.0622024536132812
+    },
+    {
+      "index": 361,
+      "semantic_label": 2,
+      "displacement": 1.7973718643188477
+    },
+    {
+      "index": 371,
+      "semantic_label": 2,
+      "displacement": 0.5469188690185547
+    },
+    {
+      "index": 372,
+      "semantic_label": 2,
+      "displacement": 3.019174575805664
+    },
+    {
+      "index": 373,
+      "semantic_label": 2,
+      "displacement": 3.47235107421875
+    },
+    {
+      "index": 374,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 375,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 376,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 377,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 378,
+      "semantic_label": 2,
+      "displacement": 3.4780030250549316
+    },
+    {
+      "index": 379,
+      "semantic_label": 2,
+      "displacement": 3.1708908081054688
+    },
+    {
+      "index": 380,
+      "semantic_label": 2,
+      "displacement": 3.1708908081054688
+    },
+    {
+      "index": 381,
+      "semantic_label": 2,
+      "displacement": 3.4780025482177734
+    },
+    {
+      "index": 382,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 383,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 384,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 385,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 386,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 387,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 388,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 389,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 390,
+      "semantic_label": 2,
+      "displacement": 3.4690499305725098
+    },
+    {
+      "index": 391,
+      "semantic_label": 2,
+      "displacement": 3.4690513610839844
+    },
+    {
+      "index": 392,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 393,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 394,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 395,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 396,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 397,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 398,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 399,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 400,
+      "semantic_label": 2,
+      "displacement": 3.4808268547058105
+    },
+    {
+      "index": 401,
+      "semantic_label": 2,
+      "displacement": 3.4808273315429688
+    },
+    {
+      "index": 402,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 403,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 404,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 405,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 406,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 407,
+      "semantic_label": 2,
+      "displacement": 3.020608901977539
+    },
+    {
+      "index": 408,
+      "semantic_label": 2,
+      "displacement": 1.0067968368530273
+    },
+    {
+      "index": 418,
+      "semantic_label": 2,
+      "displacement": 1.0153312683105469
+    },
+    {
+      "index": 419,
+      "semantic_label": 2,
+      "displacement": 3.021491050720215
+    },
+    {
+      "index": 420,
+      "semantic_label": 2,
+      "displacement": 3.488999366760254
+    },
+    {
+      "index": 433,
+      "semantic_label": 5,
+      "displacement": 0.9866218566894531
+    },
+    {
+      "index": 434,
+      "semantic_label": 5,
+      "displacement": 0.38858509063720703
+    },
+    {
+      "index": 437,
+      "semantic_label": 1,
+      "displacement": 0.10686683654785156
+    },
+    {
+      "index": 438,
+      "semantic_label": 5,
+      "displacement": 0.38231754302978516
+    },
+    {
+      "index": 440,
+      "semantic_label": 1,
+      "displacement": 0.07475757598876953
+    },
+    {
+      "index": 441,
+      "semantic_label": 1,
+      "displacement": 0.08831119537353516
+    },
+    {
+      "index": 442,
+      "semantic_label": 1,
+      "displacement": 0.032006263732910156
+    },
+    {
+      "index": 443,
+      "semantic_label": 1,
+      "displacement": 0.06978702545166016
+    },
+    {
+      "index": 444,
+      "semantic_label": 1,
+      "displacement": 0.15028667449951172
+    },
+    {
+      "index": 445,
+      "semantic_label": 1,
+      "displacement": 0.043262481689453125
+    },
+    {
+      "index": 446,
+      "semantic_label": 1,
+      "displacement": 0.042351722717285156
+    },
+    {
+      "index": 447,
+      "semantic_label": 1,
+      "displacement": 0.042601585388183594
+    },
+    {
+      "index": 448,
+      "semantic_label": 1,
+      "displacement": 0.04061698913574219
+    },
+    {
+      "index": 449,
+      "semantic_label": 1,
+      "displacement": 0.031517982482910156
+    },
+    {
+      "index": 454,
+      "semantic_label": 5,
+      "displacement": 0.4001140594482422
+    },
+    {
+      "index": 459,
+      "semantic_label": 5,
+      "displacement": 2.447293281555176
+    },
+    {
+      "index": 460,
+      "semantic_label": 5,
+      "displacement": 1.470707893371582
+    },
+    {
+      "index": 461,
+      "semantic_label": 5,
+      "displacement": 1.0804624557495117
+    },
+    {
+      "index": 467,
+      "semantic_label": 5,
+      "displacement": 0.9522819519042969
+    },
+    {
+      "index": 468,
+      "semantic_label": 5,
+      "displacement": 2.912353515625
+    },
+    {
+      "index": 469,
+      "semantic_label": 5,
+      "displacement": 2.4035282135009766
+    },
+    {
+      "index": 470,
+      "semantic_label": 5,
+      "displacement": 0.8300771713256836
+    },
+    {
+      "index": 477,
+      "semantic_label": 5,
+      "displacement": 2.852627754211426
+    },
+    {
+      "index": 478,
+      "semantic_label": 2,
+      "displacement": 3.4814038276672363
+    },
+    {
+      "index": 479,
+      "semantic_label": 2,
+      "displacement": 3.092362403869629
+    },
+    {
+      "index": 480,
+      "semantic_label": 2,
+      "displacement": 2.489823341369629
+    },
+    {
+      "index": 487,
+      "semantic_label": 2,
+      "displacement": 2.984647750854492
+    },
+    {
+      "index": 488,
+      "semantic_label": 2,
+      "displacement": 3.481403350830078
+    },
+    {
+      "index": 489,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 490,
+      "semantic_label": 2,
+      "displacement": 3.091146469116211
+    },
+    {
+      "index": 491,
+      "semantic_label": 2,
+      "displacement": 2.5211219787597656
+    },
+    {
+      "index": 496,
+      "semantic_label": 2,
+      "displacement": 2.9794626235961914
+    },
+    {
+      "index": 497,
+      "semantic_label": 2,
+      "displacement": 3.488999366760254
+    },
+    {
+      "index": 498,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 499,
+      "semantic_label": 2,
+      "displacement": 3.4807000160217285
+    },
+    {
+      "index": 500,
+      "semantic_label": 2,
+      "displacement": 3.084357261657715
+    },
+    {
+      "index": 501,
+      "semantic_label": 2,
+      "displacement": 2.5141754150390625
+    },
+    {
+      "index": 505,
+      "semantic_label": 2,
+      "displacement": 2.9726734161376953
+    },
+    {
+      "index": 506,
+      "semantic_label": 2,
+      "displacement": 3.4806995391845703
+    },
+    {
+      "index": 507,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 508,
+      "semantic_label": 2,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 509,
+      "semantic_label": 2,
+      "displacement": 3.483525276184082
+    },
+    {
+      "index": 510,
+      "semantic_label": 2,
+      "displacement": 3.084357261657715
+    },
+    {
+      "index": 511,
+      "semantic_label": 2,
+      "displacement": 2.5141754150390625
+    },
+    {
+      "index": 515,
+      "semantic_label": 2,
+      "displacement": 2.9726734161376953
+    },
+    {
+      "index": 516,
+      "semantic_label": 2,
+      "displacement": 3.4835262298583984
+    },
+    {
+      "index": 517,
+      "semantic_label": 2,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 518,
+      "semantic_label": 2,
+      "displacement": 3.4707303047180176
+    },
+    {
+      "index": 519,
+      "semantic_label": 2,
+      "displacement": 3.092362403869629
+    },
+    {
+      "index": 520,
+      "semantic_label": 2,
+      "displacement": 2.4505844116210938
+    },
+    {
+      "index": 524,
+      "semantic_label": 5,
+      "displacement": 0.80352783203125
+    },
+    {
+      "index": 525,
+      "semantic_label": 2,
+      "displacement": 0.9642200469970703
+    },
+    {
+      "index": 526,
+      "semantic_label": 2,
+      "displacement": 3.0259666442871094
+    },
+    {
+      "index": 527,
+      "semantic_label": 2,
+      "displacement": 3.4707298278808594
+    },
+    {
+      "index": 528,
+      "semantic_label": 5,
+      "displacement": 2.2557907104492188
+    },
+    {
+      "index": 532,
+      "semantic_label": 5,
+      "displacement": 0.6290464401245117
+    },
+    {
+      "index": 533,
+      "semantic_label": 5,
+      "displacement": 0.8115882873535156
+    },
+    {
+      "index": 534,
+      "semantic_label": 5,
+      "displacement": 1.0260124206542969
+    },
+    {
+      "index": 535,
+      "semantic_label": 5,
+      "displacement": 2.908665657043457
+    },
+    {
+      "index": 536,
+      "semantic_label": 5,
+      "displacement": 2.3631820678710938
+    },
+    {
+      "index": 537,
+      "semantic_label": 5,
+      "displacement": 0.7808265686035156
+    },
+    {
+      "index": 540,
+      "semantic_label": 5,
+      "displacement": 0.8077926635742188
+    },
+    {
+      "index": 541,
+      "semantic_label": 5,
+      "displacement": 0.6425714492797852
+    },
+    {
+      "index": 542,
+      "semantic_label": 5,
+      "displacement": 1.4282770156860352
+    },
+    {
+      "index": 543,
+      "semantic_label": 5,
+      "displacement": 1.7958183288574219
+    },
+    {
+      "index": 544,
+      "semantic_label": 5,
+      "displacement": 2.959378242492676
+    },
+    {
+      "index": 548,
+      "semantic_label": 5,
+      "displacement": 0.27361011505126953
+    },
+    {
+      "index": 549,
+      "semantic_label": 5,
+      "displacement": 0.45157909393310547
+    },
+    {
+      "index": 550,
+      "semantic_label": 5,
+      "displacement": 0.6018695831298828
+    },
+    {
+      "index": 552,
+      "semantic_label": 1,
+      "displacement": 0.09693145751953125
+    },
+    {
+      "index": 554,
+      "semantic_label": 1,
+      "displacement": 0.040050506591796875
+    },
+    {
+      "index": 555,
+      "semantic_label": 1,
+      "displacement": 0.08815860748291016
+    },
+    {
+      "index": 556,
+      "semantic_label": 1,
+      "displacement": 0.042281150817871094
+    },
+    {
+      "index": 557,
+      "semantic_label": 1,
+      "displacement": 0.04104137420654297
+    },
+    {
+      "index": 558,
+      "semantic_label": 1,
+      "displacement": 0.02351665496826172
+    },
+    {
+      "index": 559,
+      "semantic_label": 1,
+      "displacement": 0.023111343383789062
+    },
+    {
+      "index": 560,
+      "semantic_label": 6,
+      "displacement": 1.4112792015075684
+    },
+    {
+      "index": 561,
+      "semantic_label": 6,
+      "displacement": 1.1417779922485352
+    },
+    {
+      "index": 562,
+      "semantic_label": 6,
+      "displacement": 0.7953882217407227
+    },
+    {
+      "index": 563,
+      "semantic_label": 6,
+      "displacement": 0.25835132598876953
+    },
+    {
+      "index": 564,
+      "semantic_label": 1,
+      "displacement": 0.04387474060058594
+    },
+    {
+      "index": 568,
+      "semantic_label": 6,
+      "displacement": 0.5891313552856445
+    },
+    {
+      "index": 569,
+      "semantic_label": 6,
+      "displacement": 0.7464752197265625
+    },
+    {
+      "index": 570,
+      "semantic_label": 6,
+      "displacement": 1.427720546722412
+    },
+    {
+      "index": 571,
+      "semantic_label": 6,
+      "displacement": 1.1300134658813477
+    },
+    {
+      "index": 572,
+      "semantic_label": 6,
+      "displacement": 0.46099185943603516
+    },
+    {
+      "index": 573,
+      "semantic_label": 6,
+      "displacement": 0.2652616500854492
+    },
+    {
+      "index": 574,
+      "semantic_label": 6,
+      "displacement": 0.07416152954101562
+    },
+    {
+      "index": 578,
+      "semantic_label": 6,
+      "displacement": 0.7374324798583984
+    },
+    {
+      "index": 579,
+      "semantic_label": 6,
+      "displacement": 1.4098525047302246
+    },
+    {
+      "index": 580,
+      "semantic_label": 6,
+      "displacement": 1.1310834884643555
+    },
+    {
+      "index": 581,
+      "semantic_label": 6,
+      "displacement": 0.44023895263671875
+    },
+    {
+      "index": 582,
+      "semantic_label": 5,
+      "displacement": 0.2760744094848633
+    },
+    {
+      "index": 588,
+      "semantic_label": 5,
+      "displacement": 1.7733345031738281
+    },
+    {
+      "index": 589,
+      "semantic_label": 5,
+      "displacement": 1.465707778930664
+    },
+    {
+      "index": 590,
+      "semantic_label": 5,
+      "displacement": 1.1229019165039062
+    },
+    {
+      "index": 591,
+      "semantic_label": 5,
+      "displacement": 0.46828746795654297
+    },
+    {
+      "index": 596,
+      "semantic_label": 5,
+      "displacement": 2.916208267211914
+    },
+    {
+      "index": 597,
+      "semantic_label": 5,
+      "displacement": 2.952894687652588
+    },
+    {
+      "index": 598,
+      "semantic_label": 5,
+      "displacement": 1.8128719329833984
+    },
+    {
+      "index": 599,
+      "semantic_label": 5,
+      "displacement": 0.8369388580322266
+    },
+    {
+      "index": 601,
+      "semantic_label": 5,
+      "displacement": 3.0157833099365234
+    },
+    {
+      "index": 602,
+      "semantic_label": 5,
+      "displacement": 3.4707298278808594
+    },
+    {
+      "index": 603,
+      "semantic_label": 5,
+      "displacement": 2.987761974334717
+    },
+    {
+      "index": 604,
+      "semantic_label": 5,
+      "displacement": 1.7234516143798828
+    },
+    {
+      "index": 609,
+      "semantic_label": 5,
+      "displacement": 2.9794626235961914
+    },
+    {
+      "index": 610,
+      "semantic_label": 5,
+      "displacement": 3.488999366760254
+    },
+    {
+      "index": 611,
+      "semantic_label": 5,
+      "displacement": 2.9101309776306152
+    },
+    {
+      "index": 617,
+      "semantic_label": 5,
+      "displacement": 2.9794626235961914
+    },
+    {
+      "index": 618,
+      "semantic_label": 5,
+      "displacement": 3.488999366760254
+    },
+    {
+      "index": 619,
+      "semantic_label": 5,
+      "displacement": 2.9101309776306152
+    },
+    {
+      "index": 624,
+      "semantic_label": 5,
+      "displacement": 2.9794626235961914
+    },
+    {
+      "index": 625,
+      "semantic_label": 5,
+      "displacement": 3.488999366760254
+    },
+    {
+      "index": 626,
+      "semantic_label": 5,
+      "displacement": 2.9101309776306152
+    },
+    {
+      "index": 631,
+      "semantic_label": 5,
+      "displacement": 2.9794626235961914
+    },
+    {
+      "index": 632,
+      "semantic_label": 5,
+      "displacement": 3.488999366760254
+    },
+    {
+      "index": 633,
+      "semantic_label": 5,
+      "displacement": 2.911345958709717
+    },
+    {
+      "index": 637,
+      "semantic_label": 5,
+      "displacement": 0.9790000915527344
+    },
+    {
+      "index": 638,
+      "semantic_label": 5,
+      "displacement": 3.021491050720215
+    },
+    {
+      "index": 639,
+      "semantic_label": 5,
+      "displacement": 3.488999366760254
+    },
+    {
+      "index": 640,
+      "semantic_label": 5,
+      "displacement": 2.8510069847106934
+    },
+    {
+      "index": 643,
+      "semantic_label": 5,
+      "displacement": 1.0569934844970703
+    },
+    {
+      "index": 644,
+      "semantic_label": 5,
+      "displacement": 3.0449066162109375
+    },
+    {
+      "index": 645,
+      "semantic_label": 5,
+      "displacement": 3.4707298278808594
+    },
+    {
+      "index": 646,
+      "semantic_label": 5,
+      "displacement": 0.9416422843933105
+    },
+    {
+      "index": 650,
+      "semantic_label": 5,
+      "displacement": 0.47494029998779297
+    },
+    {
+      "index": 651,
+      "semantic_label": 5,
+      "displacement": 0.6415843963623047
+    },
+    {
+      "index": 652,
+      "semantic_label": 5,
+      "displacement": 1.4475269317626953
+    },
+    {
+      "index": 653,
+      "semantic_label": 5,
+      "displacement": 1.8185148239135742
+    },
+    {
+      "index": 654,
+      "semantic_label": 5,
+      "displacement": 2.992624282836914
+    },
+    {
+      "index": 655,
+      "semantic_label": 7,
+      "displacement": 0.748415470123291
+    },
+    {
+      "index": 660,
+      "semantic_label": 5,
+      "displacement": 0.28513336181640625
+    },
+    {
+      "index": 661,
+      "semantic_label": 5,
+      "displacement": 0.478363037109375
+    },
+    {
+      "index": 662,
+      "semantic_label": 7,
+      "displacement": 0.6037578582763672
+    },
+    {
+      "index": 663,
+      "semantic_label": 7,
+      "displacement": 1.3928632736206055
+    },
+    {
+      "index": 664,
+      "semantic_label": 7,
+      "displacement": 0.7709298133850098
+    },
+    {
+      "index": 665,
+      "semantic_label": 7,
+      "displacement": 0.5980739593505859
+    },
+    {
+      "index": 669,
+      "semantic_label": 7,
+      "displacement": 0.27933597564697266
+    },
+    {
+      "index": 670,
+      "semantic_label": 7,
+      "displacement": 0.4518547058105469
+    },
+    {
+      "index": 671,
+      "semantic_label": 7,
+      "displacement": 0.6474380493164062
+    },
+    {
+      "index": 672,
+      "semantic_label": 7,
+      "displacement": 1.4127473831176758
+    },
+    {
+      "index": 673,
+      "semantic_label": 7,
+      "displacement": 0.7622160911560059
+    },
+    {
+      "index": 674,
+      "semantic_label": 7,
+      "displacement": 0.6153154373168945
+    },
+    {
+      "index": 675,
+      "semantic_label": 7,
+      "displacement": 0.42647457122802734
+    },
+    {
+      "index": 678,
+      "semantic_label": 1,
+      "displacement": 0.04487895965576172
+    },
+    {
+      "index": 679,
+      "semantic_label": 7,
+      "displacement": 0.2554893493652344
+    },
+    {
+      "index": 680,
+      "semantic_label": 7,
+      "displacement": 0.7953882217407227
+    },
+    {
+      "index": 681,
+      "semantic_label": 7,
+      "displacement": 1.126805305480957
+    },
+    {
+      "index": 682,
+      "semantic_label": 7,
+      "displacement": 1.4112787246704102
+    },
+    {
+      "index": 683,
+      "semantic_label": 1,
+      "displacement": 0.023294448852539062
+    },
+    {
+      "index": 684,
+      "semantic_label": 1,
+      "displacement": 0.023344993591308594
+    },
+    {
+      "index": 685,
+      "semantic_label": 1,
+      "displacement": 0.023136138916015625
+    },
+    {
+      "index": 686,
+      "semantic_label": 1,
+      "displacement": 0.023136138916015625
+    },
+    {
+      "index": 687,
+      "semantic_label": 6,
+      "displacement": 1.410423755645752
+    },
+    {
+      "index": 688,
+      "semantic_label": 6,
+      "displacement": 1.1417779922485352
+    },
+    {
+      "index": 689,
+      "semantic_label": 6,
+      "displacement": 0.8060836791992188
+    },
+    {
+      "index": 690,
+      "semantic_label": 6,
+      "displacement": 0.27753543853759766
+    },
+    {
+      "index": 691,
+      "semantic_label": 6,
+      "displacement": 0.09316539764404297
+    },
+    {
+      "index": 697,
+      "semantic_label": 6,
+      "displacement": 1.4377570152282715
+    },
+    {
+      "index": 698,
+      "semantic_label": 6,
+      "displacement": 1.140066146850586
+    },
+    {
+      "index": 699,
+      "semantic_label": 6,
+      "displacement": 0.8125
+    },
+    {
+      "index": 700,
+      "semantic_label": 6,
+      "displacement": 0.47038841247558594
+    },
+    {
+      "index": 701,
+      "semantic_label": 6,
+      "displacement": 0.21451377868652344
+    },
+    {
+      "index": 707,
+      "semantic_label": 6,
+      "displacement": 1.427720546722412
+    },
+    {
+      "index": 708,
+      "semantic_label": 6,
+      "displacement": 1.1300134658813477
+    },
+    {
+      "index": 709,
+      "semantic_label": 6,
+      "displacement": 0.45319271087646484
+    },
+    {
+      "index": 714,
+      "semantic_label": 5,
+      "displacement": 1.7305755615234375
+    },
+    {
+      "index": 715,
+      "semantic_label": 5,
+      "displacement": 1.4650659561157227
+    },
+    {
+      "index": 716,
+      "semantic_label": 5,
+      "displacement": 1.126805305480957
+    },
+    {
+      "index": 717,
+      "semantic_label": 5,
+      "displacement": 0.4379739761352539
+    },
+    {
+      "index": 723,
+      "semantic_label": 5,
+      "displacement": 2.8510074615478516
+    },
+    {
+      "index": 724,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 725,
+      "semantic_label": 5,
+      "displacement": 3.481098175048828
+    },
+    {
+      "index": 726,
+      "semantic_label": 5,
+      "displacement": 3.0577430725097656
+    },
+    {
+      "index": 727,
+      "semantic_label": 5,
+      "displacement": 1.8103151321411133
+    },
+    {
+      "index": 728,
+      "semantic_label": 5,
+      "displacement": 1.519425392150879
+    },
+    {
+      "index": 730,
+      "semantic_label": 5,
+      "displacement": 2.9921188354492188
+    },
+    {
+      "index": 731,
+      "semantic_label": 5,
+      "displacement": 3.476116180419922
+    },
+    {
+      "index": 732,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 733,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 734,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 735,
+      "semantic_label": 5,
+      "displacement": 3.4751358032226562
+    },
+    {
+      "index": 736,
+      "semantic_label": 5,
+      "displacement": 3.1536903381347656
+    },
+    {
+      "index": 737,
+      "semantic_label": 5,
+      "displacement": 3.4738807678222656
+    },
+    {
+      "index": 738,
+      "semantic_label": 5,
+      "displacement": 3.482053756713867
+    },
+    {
+      "index": 739,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 740,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 741,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 742,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 743,
+      "semantic_label": 5,
+      "displacement": 3.468188762664795
+    },
+    {
+      "index": 744,
+      "semantic_label": 5,
+      "displacement": 3.150043487548828
+    },
+    {
+      "index": 745,
+      "semantic_label": 5,
+      "displacement": 3.4669322967529297
+    },
+    {
+      "index": 746,
+      "semantic_label": 5,
+      "displacement": 3.482053756713867
+    },
+    {
+      "index": 747,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 748,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 749,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 750,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 751,
+      "semantic_label": 5,
+      "displacement": 3.468188762664795
+    },
+    {
+      "index": 752,
+      "semantic_label": 5,
+      "displacement": 3.150043487548828
+    },
+    {
+      "index": 753,
+      "semantic_label": 5,
+      "displacement": 3.4669322967529297
+    },
+    {
+      "index": 754,
+      "semantic_label": 5,
+      "displacement": 3.482053756713867
+    },
+    {
+      "index": 755,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 756,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 757,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 758,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 759,
+      "semantic_label": 5,
+      "displacement": 3.468188762664795
+    },
+    {
+      "index": 760,
+      "semantic_label": 5,
+      "displacement": 3.150043487548828
+    },
+    {
+      "index": 761,
+      "semantic_label": 5,
+      "displacement": 3.4669322967529297
+    },
+    {
+      "index": 762,
+      "semantic_label": 5,
+      "displacement": 3.482053756713867
+    },
+    {
+      "index": 763,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 764,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 765,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 766,
+      "semantic_label": 5,
+      "displacement": 3.4751358032226562
+    },
+    {
+      "index": 767,
+      "semantic_label": 5,
+      "displacement": 3.1536903381347656
+    },
+    {
+      "index": 768,
+      "semantic_label": 5,
+      "displacement": 3.4738807678222656
+    },
+    {
+      "index": 769,
+      "semantic_label": 5,
+      "displacement": 3.482053756713867
+    },
+    {
+      "index": 770,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 771,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 772,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 773,
+      "semantic_label": 5,
+      "displacement": 3.481098175048828
+    },
+    {
+      "index": 774,
+      "semantic_label": 5,
+      "displacement": 2.996610641479492
+    },
+    {
+      "index": 777,
+      "semantic_label": 5,
+      "displacement": 1.8824501037597656
+    },
+    {
+      "index": 778,
+      "semantic_label": 5,
+      "displacement": 3.055659294128418
+    },
+    {
+      "index": 779,
+      "semantic_label": 5,
+      "displacement": 3.476116180419922
+    },
+    {
+      "index": 780,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 781,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 782,
+      "semantic_label": 5,
+      "displacement": 0.8967123031616211
+    },
+    {
+      "index": 787,
+      "semantic_label": 5,
+      "displacement": 0.4740562438964844
+    },
+    {
+      "index": 788,
+      "semantic_label": 5,
+      "displacement": 1.1079292297363281
+    },
+    {
+      "index": 789,
+      "semantic_label": 5,
+      "displacement": 1.4624996185302734
+    },
+    {
+      "index": 790,
+      "semantic_label": 5,
+      "displacement": 1.8121213912963867
+    },
+    {
+      "index": 791,
+      "semantic_label": 5,
+      "displacement": 2.9528942108154297
+    },
+    {
+      "index": 792,
+      "semantic_label": 7,
+      "displacement": 0.7612833976745605
+    },
+    {
+      "index": 796,
+      "semantic_label": 7,
+      "displacement": 0.4580860137939453
+    },
+    {
+      "index": 797,
+      "semantic_label": 7,
+      "displacement": 0.6452913284301758
+    },
+    {
+      "index": 798,
+      "semantic_label": 7,
+      "displacement": 1.4127473831176758
+    },
+    {
+      "index": 799,
+      "semantic_label": 7,
+      "displacement": 0.7762713432312012
+    },
+    {
+      "index": 800,
+      "semantic_label": 7,
+      "displacement": 0.6072988510131836
+    },
+    {
+      "index": 804,
+      "semantic_label": 7,
+      "displacement": 0.21451377868652344
+    },
+    {
+      "index": 805,
+      "semantic_label": 7,
+      "displacement": 0.47038841247558594
+    },
+    {
+      "index": 806,
+      "semantic_label": 7,
+      "displacement": 0.8018054962158203
+    },
+    {
+      "index": 807,
+      "semantic_label": 7,
+      "displacement": 1.140066146850586
+    },
+    {
+      "index": 808,
+      "semantic_label": 7,
+      "displacement": 1.4377555847167969
+    },
+    {
+      "index": 809,
+      "semantic_label": 7,
+      "displacement": 0.7616534233093262
+    },
+    {
+      "index": 810,
+      "semantic_label": 7,
+      "displacement": 0.6153154373168945
+    },
+    {
+      "index": 811,
+      "semantic_label": 7,
+      "displacement": 0.42647457122802734
+    },
+    {
+      "index": 814,
+      "semantic_label": 7,
+      "displacement": 0.09316539764404297
+    },
+    {
+      "index": 815,
+      "semantic_label": 7,
+      "displacement": 0.27753543853759766
+    },
+    {
+      "index": 816,
+      "semantic_label": 7,
+      "displacement": 0.8060827255249023
+    },
+    {
+      "index": 817,
+      "semantic_label": 7,
+      "displacement": 1.1417779922485352
+    },
+    {
+      "index": 818,
+      "semantic_label": 7,
+      "displacement": 1.4104232788085938
+    },
+    {
+      "index": 819,
+      "semantic_label": 1,
+      "displacement": 0.023136138916015625
+    },
+    {
+      "index": 820,
+      "semantic_label": 1,
+      "displacement": 0.023136138916015625
+    },
+    {
+      "index": 821,
+      "semantic_label": 6,
+      "displacement": 0.0899953842163086
+    },
+    {
+      "index": 823,
+      "semantic_label": 6,
+      "displacement": 1.410423755645752
+    },
+    {
+      "index": 824,
+      "semantic_label": 6,
+      "displacement": 1.1417779922485352
+    },
+    {
+      "index": 825,
+      "semantic_label": 6,
+      "displacement": 0.8060836791992188
+    },
+    {
+      "index": 826,
+      "semantic_label": 6,
+      "displacement": 0.27178478240966797
+    },
+    {
+      "index": 833,
+      "semantic_label": 6,
+      "displacement": 1.4112792015075684
+    },
+    {
+      "index": 834,
+      "semantic_label": 6,
+      "displacement": 1.1417779922485352
+    },
+    {
+      "index": 835,
+      "semantic_label": 6,
+      "displacement": 0.7875461578369141
+    },
+    {
+      "index": 843,
+      "semantic_label": 5,
+      "displacement": 1.416597843170166
+    },
+    {
+      "index": 844,
+      "semantic_label": 5,
+      "displacement": 1.1169424057006836
+    },
+    {
+      "index": 852,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 853,
+      "semantic_label": 5,
+      "displacement": 3.4787826538085938
+    },
+    {
+      "index": 854,
+      "semantic_label": 5,
+      "displacement": 3.049088478088379
+    },
+    {
+      "index": 855,
+      "semantic_label": 5,
+      "displacement": 1.8369417190551758
+    },
+    {
+      "index": 856,
+      "semantic_label": 5,
+      "displacement": 1.5041236877441406
+    },
+    {
+      "index": 858,
+      "semantic_label": 5,
+      "displacement": 2.965726852416992
+    },
+    {
+      "index": 859,
+      "semantic_label": 5,
+      "displacement": 3.4718360900878906
+    },
+    {
+      "index": 860,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 861,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 862,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 863,
+      "semantic_label": 5,
+      "displacement": 3.483698844909668
+    },
+    {
+      "index": 864,
+      "semantic_label": 5,
+      "displacement": 3.4740371704101562
+    },
+    {
+      "index": 865,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 866,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 867,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 868,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 869,
+      "semantic_label": 5,
+      "displacement": 3.461639881134033
+    },
+    {
+      "index": 870,
+      "semantic_label": 5,
+      "displacement": 3.480985641479492
+    },
+    {
+      "index": 871,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 872,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 873,
+      "semantic_label": 5,
+      "displacement": 3.487931251525879
+    },
+    {
+      "index": 874,
+      "semantic_label": 5,
+      "displacement": 3.4740371704101562
+    },
+    {
+      "index": 875,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 876,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 877,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 878,
+      "semantic_label": 5,
+      "displacement": 3.461639881134033
+    },
+    {
+      "index": 879,
+      "semantic_label": 5,
+      "displacement": 3.4809837341308594
+    },
+    {
+      "index": 880,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 881,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 882,
+      "semantic_label": 5,
+      "displacement": 3.483698844909668
+    },
+    {
+      "index": 883,
+      "semantic_label": 5,
+      "displacement": 3.4740371704101562
+    },
+    {
+      "index": 884,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 885,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 886,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 887,
+      "semantic_label": 5,
+      "displacement": 3.4787826538085938
+    },
+    {
+      "index": 888,
+      "semantic_label": 5,
+      "displacement": 2.9726734161376953
+    },
+    {
+      "index": 891,
+      "semantic_label": 5,
+      "displacement": 1.8576421737670898
+    },
+    {
+      "index": 892,
+      "semantic_label": 5,
+      "displacement": 3.0443992614746094
+    },
+    {
+      "index": 893,
+      "semantic_label": 5,
+      "displacement": 3.4718360900878906
+    },
+    {
+      "index": 894,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 895,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 901,
+      "semantic_label": 5,
+      "displacement": 0.4379739761352539
+    },
+    {
+      "index": 902,
+      "semantic_label": 5,
+      "displacement": 1.126805305480957
+    },
+    {
+      "index": 903,
+      "semantic_label": 5,
+      "displacement": 1.465707778930664
+    },
+    {
+      "index": 904,
+      "semantic_label": 5,
+      "displacement": 1.741598129272461
+    },
+    {
+      "index": 905,
+      "semantic_label": 7,
+      "displacement": 0.7493538856506348
+    },
+    {
+      "index": 912,
+      "semantic_label": 7,
+      "displacement": 0.4373760223388672
+    },
+    {
+      "index": 913,
+      "semantic_label": 7,
+      "displacement": 1.1161108016967773
+    },
+    {
+      "index": 914,
+      "semantic_label": 7,
+      "displacement": 1.4112787246704102
+    },
+    {
+      "index": 915,
+      "semantic_label": 7,
+      "displacement": 0.7616534233093262
+    },
+    {
+      "index": 916,
+      "semantic_label": 7,
+      "displacement": 0.5987777709960938
+    },
+    {
+      "index": 921,
+      "semantic_label": 7,
+      "displacement": 0.27091312408447266
+    },
+    {
+      "index": 922,
+      "semantic_label": 7,
+      "displacement": 0.46099090576171875
+    },
+    {
+      "index": 923,
+      "semantic_label": 7,
+      "displacement": 1.1310834884643555
+    },
+    {
+      "index": 924,
+      "semantic_label": 7,
+      "displacement": 1.4104232788085938
+    },
+    {
+      "index": 926,
+      "semantic_label": 7,
+      "displacement": 0.08999443054199219
+    },
+    {
+      "index": 933,
+      "semantic_label": 5,
+      "displacement": 1.4198060035705566
+    },
+    {
+      "index": 934,
+      "semantic_label": 5,
+      "displacement": 1.1169424057006836
+    },
+    {
+      "index": 942,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 943,
+      "semantic_label": 5,
+      "displacement": 3.4787826538085938
+    },
+    {
+      "index": 944,
+      "semantic_label": 5,
+      "displacement": 3.084357261657715
+    },
+    {
+      "index": 945,
+      "semantic_label": 5,
+      "displacement": 2.5436859130859375
+    },
+    {
+      "index": 946,
+      "semantic_label": 5,
+      "displacement": 1.5293245315551758
+    },
+    {
+      "index": 948,
+      "semantic_label": 5,
+      "displacement": 2.965726852416992
+    },
+    {
+      "index": 949,
+      "semantic_label": 5,
+      "displacement": 3.4718360900878906
+    },
+    {
+      "index": 950,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 951,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 952,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 953,
+      "semantic_label": 5,
+      "displacement": 3.483698844909668
+    },
+    {
+      "index": 954,
+      "semantic_label": 5,
+      "displacement": 3.4740371704101562
+    },
+    {
+      "index": 955,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 956,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 957,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 958,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 959,
+      "semantic_label": 5,
+      "displacement": 3.461639881134033
+    },
+    {
+      "index": 960,
+      "semantic_label": 5,
+      "displacement": 3.4809837341308594
+    },
+    {
+      "index": 961,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 962,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 963,
+      "semantic_label": 5,
+      "displacement": 3.487931251525879
+    },
+    {
+      "index": 964,
+      "semantic_label": 5,
+      "displacement": 3.4740371704101562
+    },
+    {
+      "index": 965,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 966,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 967,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 968,
+      "semantic_label": 5,
+      "displacement": 3.461639881134033
+    },
+    {
+      "index": 969,
+      "semantic_label": 5,
+      "displacement": 3.4809837341308594
+    },
+    {
+      "index": 970,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 971,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 972,
+      "semantic_label": 5,
+      "displacement": 3.483698844909668
+    },
+    {
+      "index": 973,
+      "semantic_label": 5,
+      "displacement": 3.4740371704101562
+    },
+    {
+      "index": 974,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 975,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 976,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 977,
+      "semantic_label": 5,
+      "displacement": 3.4787826538085938
+    },
+    {
+      "index": 978,
+      "semantic_label": 5,
+      "displacement": 3.084357261657715
+    },
+    {
+      "index": 979,
+      "semantic_label": 5,
+      "displacement": 2.4024906158447266
+    },
+    {
+      "index": 981,
+      "semantic_label": 5,
+      "displacement": 1.8587121963500977
+    },
+    {
+      "index": 982,
+      "semantic_label": 5,
+      "displacement": 3.0443992614746094
+    },
+    {
+      "index": 983,
+      "semantic_label": 5,
+      "displacement": 3.4718360900878906
+    },
+    {
+      "index": 984,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 985,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 992,
+      "semantic_label": 5,
+      "displacement": 1.113734245300293
+    },
+    {
+      "index": 993,
+      "semantic_label": 5,
+      "displacement": 1.465707778930664
+    },
+    {
+      "index": 994,
+      "semantic_label": 5,
+      "displacement": 1.7448062896728516
+    },
+    {
+      "index": 1001,
+      "semantic_label": 6,
+      "displacement": 0.0899953842163086
+    },
+    {
+      "index": 1003,
+      "semantic_label": 6,
+      "displacement": 2.0255064964294434
+    },
+    {
+      "index": 1004,
+      "semantic_label": 6,
+      "displacement": 1.1605710983276367
+    },
+    {
+      "index": 1005,
+      "semantic_label": 6,
+      "displacement": 0.8060836791992188
+    },
+    {
+      "index": 1006,
+      "semantic_label": 6,
+      "displacement": 0.27178478240966797
+    },
+    {
+      "index": 1013,
+      "semantic_label": 6,
+      "displacement": 2.0264792442321777
+    },
+    {
+      "index": 1014,
+      "semantic_label": 6,
+      "displacement": 1.1605710983276367
+    },
+    {
+      "index": 1015,
+      "semantic_label": 6,
+      "displacement": 0.7875461578369141
+    },
+    {
+      "index": 1023,
+      "semantic_label": 5,
+      "displacement": 1.439669132232666
+    },
+    {
+      "index": 1024,
+      "semantic_label": 5,
+      "displacement": 1.1169424057006836
+    },
+    {
+      "index": 1032,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1033,
+      "semantic_label": 5,
+      "displacement": 3.481098175048828
+    },
+    {
+      "index": 1034,
+      "semantic_label": 5,
+      "displacement": 3.084357261657715
+    },
+    {
+      "index": 1035,
+      "semantic_label": 5,
+      "displacement": 2.529233932495117
+    },
+    {
+      "index": 1036,
+      "semantic_label": 5,
+      "displacement": 1.552276611328125
+    },
+    {
+      "index": 1038,
+      "semantic_label": 5,
+      "displacement": 2.9900808334350586
+    },
+    {
+      "index": 1039,
+      "semantic_label": 5,
+      "displacement": 3.4718360900878906
+    },
+    {
+      "index": 1040,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1041,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1042,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1043,
+      "semantic_label": 5,
+      "displacement": 3.4787826538085938
+    },
+    {
+      "index": 1044,
+      "semantic_label": 5,
+      "displacement": 3.0527420043945312
+    },
+    {
+      "index": 1045,
+      "semantic_label": 5,
+      "displacement": 1.9189033508300781
+    },
+    {
+      "index": 1046,
+      "semantic_label": 5,
+      "displacement": 3.1757545471191406
+    },
+    {
+      "index": 1047,
+      "semantic_label": 5,
+      "displacement": 3.4722251892089844
+    },
+    {
+      "index": 1048,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1049,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1050,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1051,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1052,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1053,
+      "semantic_label": 5,
+      "displacement": 3.468188762664795
+    },
+    {
+      "index": 1054,
+      "semantic_label": 5,
+      "displacement": 3.1536903381347656
+    },
+    {
+      "index": 1055,
+      "semantic_label": 5,
+      "displacement": 3.4738807678222656
+    },
+    {
+      "index": 1056,
+      "semantic_label": 5,
+      "displacement": 3.482053756713867
+    },
+    {
+      "index": 1057,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1058,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1059,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1060,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1061,
+      "semantic_label": 5,
+      "displacement": 3.468188762664795
+    },
+    {
+      "index": 1062,
+      "semantic_label": 5,
+      "displacement": 3.150043487548828
+    },
+    {
+      "index": 1063,
+      "semantic_label": 5,
+      "displacement": 3.4669322967529297
+    },
+    {
+      "index": 1064,
+      "semantic_label": 5,
+      "displacement": 3.482053756713867
+    },
+    {
+      "index": 1065,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1066,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1067,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1068,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1069,
+      "semantic_label": 5,
+      "displacement": 3.468188762664795
+    },
+    {
+      "index": 1070,
+      "semantic_label": 5,
+      "displacement": 3.1536903381347656
+    },
+    {
+      "index": 1071,
+      "semantic_label": 5,
+      "displacement": 3.4738807678222656
+    },
+    {
+      "index": 1072,
+      "semantic_label": 5,
+      "displacement": 3.482053756713867
+    },
+    {
+      "index": 1073,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1074,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1075,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1076,
+      "semantic_label": 5,
+      "displacement": 3.4787826538085938
+    },
+    {
+      "index": 1077,
+      "semantic_label": 5,
+      "displacement": 2.989201545715332
+    },
+    {
+      "index": 1079,
+      "semantic_label": 5,
+      "displacement": 3.1757545471191406
+    },
+    {
+      "index": 1080,
+      "semantic_label": 5,
+      "displacement": 3.4722251892089844
+    },
+    {
+      "index": 1081,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1082,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1083,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1084,
+      "semantic_label": 5,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1085,
+      "semantic_label": 5,
+      "displacement": 3.481098175048828
+    },
+    {
+      "index": 1086,
+      "semantic_label": 5,
+      "displacement": 3.084357261657715
+    },
+    {
+      "index": 1087,
+      "semantic_label": 5,
+      "displacement": 2.3551454544067383
+    },
+    {
+      "index": 1089,
+      "semantic_label": 5,
+      "displacement": 1.8619203567504883
+    },
+    {
+      "index": 1090,
+      "semantic_label": 5,
+      "displacement": 3.0530195236206055
+    },
+    {
+      "index": 1091,
+      "semantic_label": 5,
+      "displacement": 3.4718360900878906
+    },
+    {
+      "index": 1092,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1093,
+      "semantic_label": 5,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1099,
+      "semantic_label": 5,
+      "displacement": 0.4379739761352539
+    },
+    {
+      "index": 1100,
+      "semantic_label": 5,
+      "displacement": 1.111832618713379
+    },
+    {
+      "index": 1101,
+      "semantic_label": 5,
+      "displacement": 1.465707778930664
+    },
+    {
+      "index": 1102,
+      "semantic_label": 5,
+      "displacement": 1.7458763122558594
+    },
+    {
+      "index": 1103,
+      "semantic_label": 7,
+      "displacement": 1.961641788482666
+    },
+    {
+      "index": 1110,
+      "semantic_label": 7,
+      "displacement": 0.4373760223388672
+    },
+    {
+      "index": 1111,
+      "semantic_label": 7,
+      "displacement": 1.1310834884643555
+    },
+    {
+      "index": 1112,
+      "semantic_label": 7,
+      "displacement": 1.4112787246704102
+    },
+    {
+      "index": 1113,
+      "semantic_label": 7,
+      "displacement": 1.9955811500549316
+    },
+    {
+      "index": 1114,
+      "semantic_label": 7,
+      "displacement": 0.6190166473388672
+    },
+    {
+      "index": 1119,
+      "semantic_label": 7,
+      "displacement": 0.27091312408447266
+    },
+    {
+      "index": 1120,
+      "semantic_label": 7,
+      "displacement": 0.46099090576171875
+    },
+    {
+      "index": 1121,
+      "semantic_label": 7,
+      "displacement": 1.1310834884643555
+    },
+    {
+      "index": 1122,
+      "semantic_label": 7,
+      "displacement": 1.4104232788085938
+    },
+    {
+      "index": 1124,
+      "semantic_label": 7,
+      "displacement": 0.08999443054199219
+    },
+    {
+      "index": 1125,
+      "semantic_label": 1,
+      "displacement": 0.023136138916015625
+    },
+    {
+      "index": 1126,
+      "semantic_label": 1,
+      "displacement": 0.023136138916015625
+    },
+    {
+      "index": 1127,
+      "semantic_label": 6,
+      "displacement": 1.4345622062683105
+    },
+    {
+      "index": 1128,
+      "semantic_label": 6,
+      "displacement": 1.1417779922485352
+    },
+    {
+      "index": 1129,
+      "semantic_label": 6,
+      "displacement": 0.8125
+    },
+    {
+      "index": 1130,
+      "semantic_label": 6,
+      "displacement": 0.48536109924316406
+    },
+    {
+      "index": 1131,
+      "semantic_label": 6,
+      "displacement": 0.09351253509521484
+    },
+    {
+      "index": 1135,
+      "semantic_label": 6,
+      "displacement": 0.5987777709960938
+    },
+    {
+      "index": 1136,
+      "semantic_label": 6,
+      "displacement": 0.7607145309448242
+    },
+    {
+      "index": 1137,
+      "semantic_label": 6,
+      "displacement": 2.0267176628112793
+    },
+    {
+      "index": 1138,
+      "semantic_label": 6,
+      "displacement": 1.1592397689819336
+    },
+    {
+      "index": 1139,
+      "semantic_label": 6,
+      "displacement": 0.8125
+    },
+    {
+      "index": 1140,
+      "semantic_label": 6,
+      "displacement": 0.4768056869506836
+    },
+    {
+      "index": 1141,
+      "semantic_label": 6,
+      "displacement": 0.21451377868652344
+    },
+    {
+      "index": 1146,
+      "semantic_label": 6,
+      "displacement": 0.7465038299560547
+    },
+    {
+      "index": 1147,
+      "semantic_label": 6,
+      "displacement": 2.0246481895446777
+    },
+    {
+      "index": 1148,
+      "semantic_label": 6,
+      "displacement": 1.1490440368652344
+    },
+    {
+      "index": 1149,
+      "semantic_label": 6,
+      "displacement": 0.4503297805786133
+    },
+    {
+      "index": 1154,
+      "semantic_label": 5,
+      "displacement": 1.9829096794128418
+    },
+    {
+      "index": 1155,
+      "semantic_label": 5,
+      "displacement": 1.1035337448120117
+    },
+    {
+      "index": 1162,
+      "semantic_label": 5,
+      "displacement": 1.7847976684570312
+    },
+    {
+      "index": 1163,
+      "semantic_label": 5,
+      "displacement": 1.9613800048828125
+    },
+    {
+      "index": 1169,
+      "semantic_label": 5,
+      "displacement": 2.846144676208496
+    },
+    {
+      "index": 1170,
+      "semantic_label": 5,
+      "displacement": 2.952894687652588
+    },
+    {
+      "index": 1171,
+      "semantic_label": 5,
+      "displacement": 1.7369270324707031
+    },
+    {
+      "index": 1176,
+      "semantic_label": 5,
+      "displacement": 3.002042770385742
+    },
+    {
+      "index": 1177,
+      "semantic_label": 5,
+      "displacement": 3.4707298278808594
+    },
+    {
+      "index": 1178,
+      "semantic_label": 5,
+      "displacement": 2.911345958709717
+    },
+    {
+      "index": 1183,
+      "semantic_label": 5,
+      "displacement": 2.9794626235961914
+    },
+    {
+      "index": 1184,
+      "semantic_label": 5,
+      "displacement": 3.488999366760254
+    },
+    {
+      "index": 1185,
+      "semantic_label": 5,
+      "displacement": 2.9101309776306152
+    },
+    {
+      "index": 1189,
+      "semantic_label": 5,
+      "displacement": 2.9725160598754883
+    },
+    {
+      "index": 1190,
+      "semantic_label": 5,
+      "displacement": 3.488999366760254
+    },
+    {
+      "index": 1191,
+      "semantic_label": 5,
+      "displacement": 2.911345958709717
+    },
+    {
+      "index": 1196,
+      "semantic_label": 5,
+      "displacement": 2.9794626235961914
+    },
+    {
+      "index": 1197,
+      "semantic_label": 5,
+      "displacement": 3.488999366760254
+    },
+    {
+      "index": 1198,
+      "semantic_label": 5,
+      "displacement": 2.8510069847106934
+    },
+    {
+      "index": 1202,
+      "semantic_label": 5,
+      "displacement": 0.8197460174560547
+    },
+    {
+      "index": 1203,
+      "semantic_label": 5,
+      "displacement": 1.7405815124511719
+    },
+    {
+      "index": 1204,
+      "semantic_label": 5,
+      "displacement": 3.0631752014160156
+    },
+    {
+      "index": 1205,
+      "semantic_label": 5,
+      "displacement": 3.4707298278808594
+    },
+    {
+      "index": 1207,
+      "semantic_label": 5,
+      "displacement": 1.8508329391479492
+    },
+    {
+      "index": 1210,
+      "semantic_label": 5,
+      "displacement": 0.6543722152709961
+    },
+    {
+      "index": 1211,
+      "semantic_label": 5,
+      "displacement": 0.8228931427001953
+    },
+    {
+      "index": 1212,
+      "semantic_label": 5,
+      "displacement": 1.7984323501586914
+    },
+    {
+      "index": 1213,
+      "semantic_label": 5,
+      "displacement": 2.948031425476074
+    },
+    {
+      "index": 1214,
+      "semantic_label": 5,
+      "displacement": 1.837719440460205
+    },
+    {
+      "index": 1218,
+      "semantic_label": 5,
+      "displacement": 0.4580860137939453
+    },
+    {
+      "index": 1219,
+      "semantic_label": 5,
+      "displacement": 0.6394376754760742
+    },
+    {
+      "index": 1220,
+      "semantic_label": 5,
+      "displacement": 1.4325551986694336
+    },
+    {
+      "index": 1221,
+      "semantic_label": 5,
+      "displacement": 1.730574607849121
+    },
+    {
+      "index": 1222,
+      "semantic_label": 7,
+      "displacement": 1.9471640586853027
+    },
+    {
+      "index": 1226,
+      "semantic_label": 7,
+      "displacement": 0.4740562438964844
+    },
+    {
+      "index": 1227,
+      "semantic_label": 7,
+      "displacement": 1.1261100769042969
+    },
+    {
+      "index": 1228,
+      "semantic_label": 7,
+      "displacement": 1.4234418869018555
+    },
+    {
+      "index": 1229,
+      "semantic_label": 7,
+      "displacement": 1.9630379676818848
+    },
+    {
+      "index": 1230,
+      "semantic_label": 7,
+      "displacement": 0.6279468536376953
+    },
+    {
+      "index": 1234,
+      "semantic_label": 7,
+      "displacement": 0.21451377868652344
+    },
+    {
+      "index": 1235,
+      "semantic_label": 7,
+      "displacement": 0.4768056869506836
+    },
+    {
+      "index": 1236,
+      "semantic_label": 7,
+      "displacement": 0.8018054962158203
+    },
+    {
+      "index": 1237,
+      "semantic_label": 7,
+      "displacement": 1.140066146850586
+    },
+    {
+      "index": 1238,
+      "semantic_label": 7,
+      "displacement": 1.433135986328125
+    },
+    {
+      "index": 1239,
+      "semantic_label": 7,
+      "displacement": 0.788245677947998
+    },
+    {
+      "index": 1240,
+      "semantic_label": 7,
+      "displacement": 0.6153154373168945
+    },
+    {
+      "index": 1241,
+      "semantic_label": 7,
+      "displacement": 0.42647457122802734
+    },
+    {
+      "index": 1244,
+      "semantic_label": 7,
+      "displacement": 0.09351253509521484
+    },
+    {
+      "index": 1245,
+      "semantic_label": 7,
+      "displacement": 0.48536109924316406
+    },
+    {
+      "index": 1246,
+      "semantic_label": 7,
+      "displacement": 0.8125
+    },
+    {
+      "index": 1247,
+      "semantic_label": 7,
+      "displacement": 1.1417779922485352
+    },
+    {
+      "index": 1248,
+      "semantic_label": 7,
+      "displacement": 1.40899658203125
+    },
+    {
+      "index": 1249,
+      "semantic_label": 1,
+      "displacement": 0.023136138916015625
+    },
+    {
+      "index": 1250,
+      "semantic_label": 1,
+      "displacement": 0.023136138916015625
+    },
+    {
+      "index": 1251,
+      "semantic_label": 1,
+      "displacement": 0.026246070861816406
+    },
+    {
+      "index": 1252,
+      "semantic_label": 1,
+      "displacement": 0.026246070861816406
+    },
+    {
+      "index": 1253,
+      "semantic_label": 6,
+      "displacement": 1.4215168952941895
+    },
+    {
+      "index": 1254,
+      "semantic_label": 6,
+      "displacement": 1.1407079696655273
+    },
+    {
+      "index": 1255,
+      "semantic_label": 6,
+      "displacement": 0.8125
+    },
+    {
+      "index": 1256,
+      "semantic_label": 6,
+      "displacement": 0.4814577102661133
+    },
+    {
+      "index": 1257,
+      "semantic_label": 6,
+      "displacement": 0.111236572265625
+    },
+    {
+      "index": 1261,
+      "semantic_label": 6,
+      "displacement": 0.5980739593505859
+    },
+    {
+      "index": 1262,
+      "semantic_label": 6,
+      "displacement": 0.7548933029174805
+    },
+    {
+      "index": 1263,
+      "semantic_label": 6,
+      "displacement": 2.952894687652588
+    },
+    {
+      "index": 1264,
+      "semantic_label": 6,
+      "displacement": 1.8409109115600586
+    },
+    {
+      "index": 1265,
+      "semantic_label": 6,
+      "displacement": 1.5166139602661133
+    },
+    {
+      "index": 1266,
+      "semantic_label": 6,
+      "displacement": 0.7877597808837891
+    },
+    {
+      "index": 1267,
+      "semantic_label": 6,
+      "displacement": 0.9933147430419922
+    },
+    {
+      "index": 1268,
+      "semantic_label": 6,
+      "displacement": 2.905869483947754
+    },
+    {
+      "index": 1269,
+      "semantic_label": 6,
+      "displacement": 3.0230307579040527
+    },
+    {
+      "index": 1270,
+      "semantic_label": 6,
+      "displacement": 2.5520219802856445
+    },
+    {
+      "index": 1271,
+      "semantic_label": 6,
+      "displacement": 1.497542381286621
+    },
+    {
+      "index": 1272,
+      "semantic_label": 6,
+      "displacement": 1.1216011047363281
+    },
+    {
+      "index": 1273,
+      "semantic_label": 6,
+      "displacement": 0.48755550384521484
+    },
+    {
+      "index": 1277,
+      "semantic_label": 6,
+      "displacement": 0.9669933319091797
+    },
+    {
+      "index": 1278,
+      "semantic_label": 6,
+      "displacement": 2.9524927139282227
+    },
+    {
+      "index": 1279,
+      "semantic_label": 6,
+      "displacement": 3.0181679725646973
+    },
+    {
+      "index": 1280,
+      "semantic_label": 6,
+      "displacement": 2.5872907638549805
+    },
+    {
+      "index": 1281,
+      "semantic_label": 6,
+      "displacement": 1.4673805236816406
+    },
+    {
+      "index": 1282,
+      "semantic_label": 6,
+      "displacement": 1.089630126953125
+    },
+    {
+      "index": 1283,
+      "semantic_label": 6,
+      "displacement": 0.4598236083984375
+    },
+    {
+      "index": 1288,
+      "semantic_label": 6,
+      "displacement": 2.8470869064331055
+    },
+    {
+      "index": 1289,
+      "semantic_label": 6,
+      "displacement": 3.3813328742980957
+    },
+    {
+      "index": 1290,
+      "semantic_label": 6,
+      "displacement": 3.042901039123535
+    },
+    {
+      "index": 1291,
+      "semantic_label": 6,
+      "displacement": 2.505250930786133
+    },
+    {
+      "index": 1292,
+      "semantic_label": 6,
+      "displacement": 0.8181695938110352
+    },
+    {
+      "index": 1298,
+      "semantic_label": 6,
+      "displacement": 1.7258415222167969
+    },
+    {
+      "index": 1299,
+      "semantic_label": 6,
+      "displacement": 1.9224567413330078
+    },
+    {
+      "index": 1300,
+      "semantic_label": 6,
+      "displacement": 1.9826154708862305
+    },
+    {
+      "index": 1301,
+      "semantic_label": 6,
+      "displacement": 1.7454452514648438
+    },
+    {
+      "index": 1302,
+      "semantic_label": 6,
+      "displacement": 1.4368748664855957
+    },
+    {
+      "index": 1307,
+      "semantic_label": 6,
+      "displacement": 1.6652965545654297
+    },
+    {
+      "index": 1308,
+      "semantic_label": 8,
+      "displacement": 1.9790077209472656
+    },
+    {
+      "index": 1309,
+      "semantic_label": 8,
+      "displacement": 3.440286636352539
+    },
+    {
+      "index": 1310,
+      "semantic_label": 8,
+      "displacement": 1.978713035583496
+    },
+    {
+      "index": 1311,
+      "semantic_label": 8,
+      "displacement": 1.7454452514648438
+    },
+    {
+      "index": 1312,
+      "semantic_label": 8,
+      "displacement": 1.4317803382873535
+    },
+    {
+      "index": 1316,
+      "semantic_label": 8,
+      "displacement": 1.6966361999511719
+    },
+    {
+      "index": 1317,
+      "semantic_label": 8,
+      "displacement": 2.0289840698242188
+    },
+    {
+      "index": 1318,
+      "semantic_label": 8,
+      "displacement": 3.4492225646972656
+    },
+    {
+      "index": 1319,
+      "semantic_label": 8,
+      "displacement": 3.357665538787842
+    },
+    {
+      "index": 1320,
+      "semantic_label": 8,
+      "displacement": 2.9723548889160156
+    },
+    {
+      "index": 1321,
+      "semantic_label": 8,
+      "displacement": 2.41365909576416
+    },
+    {
+      "index": 1324,
+      "semantic_label": 8,
+      "displacement": 2.846935272216797
+    },
+    {
+      "index": 1325,
+      "semantic_label": 8,
+      "displacement": 3.3479995727539062
+    },
+    {
+      "index": 1326,
+      "semantic_label": 8,
+      "displacement": 3.4562606811523438
+    },
+    {
+      "index": 1327,
+      "semantic_label": 8,
+      "displacement": 1.9817242622375488
+    },
+    {
+      "index": 1328,
+      "semantic_label": 8,
+      "displacement": 1.7454452514648438
+    },
+    {
+      "index": 1329,
+      "semantic_label": 8,
+      "displacement": 1.4317803382873535
+    },
+    {
+      "index": 1333,
+      "semantic_label": 8,
+      "displacement": 1.6966361999511719
+    },
+    {
+      "index": 1334,
+      "semantic_label": 8,
+      "displacement": 2.0110931396484375
+    },
+    {
+      "index": 1335,
+      "semantic_label": 8,
+      "displacement": 2.2348976135253906
+    },
+    {
+      "index": 1336,
+      "semantic_label": 9,
+      "displacement": 1.9826154708862305
+    },
+    {
+      "index": 1337,
+      "semantic_label": 9,
+      "displacement": 1.7018885612487793
+    },
+    {
+      "index": 1338,
+      "semantic_label": 9,
+      "displacement": 1.4000191688537598
+    },
+    {
+      "index": 1341,
+      "semantic_label": 9,
+      "displacement": 0.8155860900878906
+    },
+    {
+      "index": 1342,
+      "semantic_label": 9,
+      "displacement": 0.9917659759521484
+    },
+    {
+      "index": 1343,
+      "semantic_label": 9,
+      "displacement": 1.6839008331298828
+    },
+    {
+      "index": 1344,
+      "semantic_label": 9,
+      "displacement": 2.0343780517578125
+    },
+    {
+      "index": 1345,
+      "semantic_label": 9,
+      "displacement": 2.188222885131836
+    },
+    {
+      "index": 1346,
+      "semantic_label": 9,
+      "displacement": 3.220423698425293
+    },
+    {
+      "index": 1347,
+      "semantic_label": 9,
+      "displacement": 1.734729290008545
+    },
+    {
+      "index": 1348,
+      "semantic_label": 9,
+      "displacement": 1.4000191688537598
+    },
+    {
+      "index": 1352,
+      "semantic_label": 5,
+      "displacement": 0.6643543243408203
+    },
+    {
+      "index": 1353,
+      "semantic_label": 9,
+      "displacement": 0.7736568450927734
+    },
+    {
+      "index": 1354,
+      "semantic_label": 9,
+      "displacement": 0.99462890625
+    },
+    {
+      "index": 1355,
+      "semantic_label": 9,
+      "displacement": 1.7240619659423828
+    },
+    {
+      "index": 1356,
+      "semantic_label": 9,
+      "displacement": 3.2081069946289062
+    },
+    {
+      "index": 1357,
+      "semantic_label": 7,
+      "displacement": 1.7100095748901367
+    },
+    {
+      "index": 1358,
+      "semantic_label": 7,
+      "displacement": 1.440638542175293
+    },
+    {
+      "index": 1362,
+      "semantic_label": 7,
+      "displacement": 0.4649057388305664
+    },
+    {
+      "index": 1363,
+      "semantic_label": 7,
+      "displacement": 0.6327877044677734
+    },
+    {
+      "index": 1364,
+      "semantic_label": 7,
+      "displacement": 0.8184919357299805
+    },
+    {
+      "index": 1365,
+      "semantic_label": 7,
+      "displacement": 1.0144577026367188
+    },
+    {
+      "index": 1366,
+      "semantic_label": 7,
+      "displacement": 1.6957836151123047
+    },
+    {
+      "index": 1367,
+      "semantic_label": 7,
+      "displacement": 2.9651198387145996
+    },
+    {
+      "index": 1368,
+      "semantic_label": 7,
+      "displacement": 2.4376392364501953
+    },
+    {
+      "index": 1369,
+      "semantic_label": 7,
+      "displacement": 0.8073835372924805
+    },
+    {
+      "index": 1372,
+      "semantic_label": 7,
+      "displacement": 0.48373889923095703
+    },
+    {
+      "index": 1373,
+      "semantic_label": 7,
+      "displacement": 1.10662841796875
+    },
+    {
+      "index": 1374,
+      "semantic_label": 7,
+      "displacement": 1.4476127624511719
+    },
+    {
+      "index": 1375,
+      "semantic_label": 7,
+      "displacement": 1.7949867248535156
+    },
+    {
+      "index": 1376,
+      "semantic_label": 7,
+      "displacement": 2.9298505783081055
+    },
+    {
+      "index": 1377,
+      "semantic_label": 7,
+      "displacement": 2.905869960784912
+    },
+    {
+      "index": 1378,
+      "semantic_label": 7,
+      "displacement": 1.0193023681640625
+    },
+    {
+      "index": 1379,
+      "semantic_label": 7,
+      "displacement": 0.8244819641113281
+    },
+    {
+      "index": 1380,
+      "semantic_label": 7,
+      "displacement": 1.5012750625610352
+    },
+    {
+      "index": 1381,
+      "semantic_label": 7,
+      "displacement": 1.8167800903320312
+    },
+    {
+      "index": 1382,
+      "semantic_label": 7,
+      "displacement": 2.9528942108154297
+    },
+    {
+      "index": 1383,
+      "semantic_label": 7,
+      "displacement": 0.766848087310791
+    },
+    {
+      "index": 1384,
+      "semantic_label": 7,
+      "displacement": 0.6146116256713867
+    },
+    {
+      "index": 1385,
+      "semantic_label": 7,
+      "displacement": 0.42647457122802734
+    },
+    {
+      "index": 1388,
+      "semantic_label": 7,
+      "displacement": 0.111236572265625
+    },
+    {
+      "index": 1389,
+      "semantic_label": 7,
+      "displacement": 0.4814577102661133
+    },
+    {
+      "index": 1390,
+      "semantic_label": 7,
+      "displacement": 0.8125
+    },
+    {
+      "index": 1391,
+      "semantic_label": 7,
+      "displacement": 1.1407079696655273
+    },
+    {
+      "index": 1392,
+      "semantic_label": 7,
+      "displacement": 1.4215164184570312
+    },
+    {
+      "index": 1393,
+      "semantic_label": 1,
+      "displacement": 0.026246070861816406
+    },
+    {
+      "index": 1394,
+      "semantic_label": 1,
+      "displacement": 0.026246070861816406
+    },
+    {
+      "index": 1395,
+      "semantic_label": 1,
+      "displacement": 0.025864601135253906
+    },
+    {
+      "index": 1396,
+      "semantic_label": 1,
+      "displacement": 0.025864601135253906
+    },
+    {
+      "index": 1397,
+      "semantic_label": 6,
+      "displacement": 1.4198060035705566
+    },
+    {
+      "index": 1398,
+      "semantic_label": 6,
+      "displacement": 1.1407079696655273
+    },
+    {
+      "index": 1399,
+      "semantic_label": 6,
+      "displacement": 0.8125
+    },
+    {
+      "index": 1400,
+      "semantic_label": 6,
+      "displacement": 0.4814577102661133
+    },
+    {
+      "index": 1401,
+      "semantic_label": 6,
+      "displacement": 0.10837364196777344
+    },
+    {
+      "index": 1407,
+      "semantic_label": 6,
+      "displacement": 3.470731258392334
+    },
+    {
+      "index": 1408,
+      "semantic_label": 6,
+      "displacement": 3.0641469955444336
+    },
+    {
+      "index": 1409,
+      "semantic_label": 6,
+      "displacement": 1.8128108978271484
+    },
+    {
+      "index": 1410,
+      "semantic_label": 6,
+      "displacement": 1.5058355331420898
+    },
+    {
+      "index": 1412,
+      "semantic_label": 6,
+      "displacement": 0.9782505035400391
+    },
+    {
+      "index": 1413,
+      "semantic_label": 6,
+      "displacement": 3.0359325408935547
+    },
+    {
+      "index": 1414,
+      "semantic_label": 6,
+      "displacement": 3.4707298278808594
+    },
+    {
+      "index": 1415,
+      "semantic_label": 6,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1416,
+      "semantic_label": 6,
+      "displacement": 3.480607509613037
+    },
+    {
+      "index": 1417,
+      "semantic_label": 6,
+      "displacement": 3.1536903381347656
+    },
+    {
+      "index": 1418,
+      "semantic_label": 6,
+      "displacement": 3.1536903381347656
+    },
+    {
+      "index": 1419,
+      "semantic_label": 6,
+      "displacement": 3.4806079864501953
+    },
+    {
+      "index": 1420,
+      "semantic_label": 6,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1421,
+      "semantic_label": 6,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1422,
+      "semantic_label": 6,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1423,
+      "semantic_label": 6,
+      "displacement": 3.468188762664795
+    },
+    {
+      "index": 1424,
+      "semantic_label": 6,
+      "displacement": 3.14882755279541
+    },
+    {
+      "index": 1425,
+      "semantic_label": 6,
+      "displacement": 3.14882755279541
+    },
+    {
+      "index": 1426,
+      "semantic_label": 6,
+      "displacement": 3.4027976989746094
+    },
+    {
+      "index": 1427,
+      "semantic_label": 6,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1428,
+      "semantic_label": 6,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1429,
+      "semantic_label": 6,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1430,
+      "semantic_label": 6,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1431,
+      "semantic_label": 6,
+      "displacement": 3.431426525115967
+    },
+    {
+      "index": 1432,
+      "semantic_label": 6,
+      "displacement": 3.1708908081054688
+    },
+    {
+      "index": 1433,
+      "semantic_label": 6,
+      "displacement": 3.0045089721679688
+    },
+    {
+      "index": 1434,
+      "semantic_label": 6,
+      "displacement": 2.036752700805664
+    },
+    {
+      "index": 1435,
+      "semantic_label": 6,
+      "displacement": 3.432870864868164
+    },
+    {
+      "index": 1436,
+      "semantic_label": 6,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1437,
+      "semantic_label": 6,
+      "displacement": 2.011092185974121
+    },
+    {
+      "index": 1438,
+      "semantic_label": 8,
+      "displacement": 2.0318050384521484
+    },
+    {
+      "index": 1439,
+      "semantic_label": 8,
+      "displacement": 3.4464073181152344
+    },
+    {
+      "index": 1440,
+      "semantic_label": 8,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1441,
+      "semantic_label": 8,
+      "displacement": 3.428765296936035
+    },
+    {
+      "index": 1442,
+      "semantic_label": 8,
+      "displacement": 2.047731399536133
+    },
+    {
+      "index": 1443,
+      "semantic_label": 8,
+      "displacement": 3.4836997985839844
+    },
+    {
+      "index": 1444,
+      "semantic_label": 8,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1445,
+      "semantic_label": 8,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1446,
+      "semantic_label": 8,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1447,
+      "semantic_label": 8,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1448,
+      "semantic_label": 8,
+      "displacement": 3.368992805480957
+    },
+    {
+      "index": 1449,
+      "semantic_label": 8,
+      "displacement": 3.434762954711914
+    },
+    {
+      "index": 1450,
+      "semantic_label": 8,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1451,
+      "semantic_label": 8,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1452,
+      "semantic_label": 8,
+      "displacement": 2.007016658782959
+    },
+    {
+      "index": 1453,
+      "semantic_label": 8,
+      "displacement": 2.2638397216796875
+    },
+    {
+      "index": 1454,
+      "semantic_label": 9,
+      "displacement": 1.9661493301391602
+    },
+    {
+      "index": 1455,
+      "semantic_label": 9,
+      "displacement": 3.2278499603271484
+    },
+    {
+      "index": 1456,
+      "semantic_label": 9,
+      "displacement": 2.267374038696289
+    },
+    {
+      "index": 1457,
+      "semantic_label": 9,
+      "displacement": 1.9726128578186035
+    },
+    {
+      "index": 1458,
+      "semantic_label": 9,
+      "displacement": 1.7395596504211426
+    },
+    {
+      "index": 1459,
+      "semantic_label": 9,
+      "displacement": 1.7350444793701172
+    },
+    {
+      "index": 1460,
+      "semantic_label": 9,
+      "displacement": 2.041290283203125
+    },
+    {
+      "index": 1461,
+      "semantic_label": 9,
+      "displacement": 3.367288589477539
+    },
+    {
+      "index": 1462,
+      "semantic_label": 7,
+      "displacement": 3.443373680114746
+    },
+    {
+      "index": 1463,
+      "semantic_label": 7,
+      "displacement": 2.027434825897217
+    },
+    {
+      "index": 1464,
+      "semantic_label": 7,
+      "displacement": 1.7733545303344727
+    },
+    {
+      "index": 1465,
+      "semantic_label": 7,
+      "displacement": 1.7733535766601562
+    },
+    {
+      "index": 1466,
+      "semantic_label": 7,
+      "displacement": 2.027435302734375
+    },
+    {
+      "index": 1467,
+      "semantic_label": 7,
+      "displacement": 3.4433746337890625
+    },
+    {
+      "index": 1468,
+      "semantic_label": 7,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1469,
+      "semantic_label": 7,
+      "displacement": 3.4282941818237305
+    },
+    {
+      "index": 1470,
+      "semantic_label": 7,
+      "displacement": 3.0928096771240234
+    },
+    {
+      "index": 1471,
+      "semantic_label": 7,
+      "displacement": 3.0928096771240234
+    },
+    {
+      "index": 1472,
+      "semantic_label": 7,
+      "displacement": 3.428295135498047
+    },
+    {
+      "index": 1473,
+      "semantic_label": 7,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1474,
+      "semantic_label": 7,
+      "displacement": 3.4707303047180176
+    },
+    {
+      "index": 1475,
+      "semantic_label": 7,
+      "displacement": 3.0359325408935547
+    },
+    {
+      "index": 1476,
+      "semantic_label": 7,
+      "displacement": 0.9911012649536133
+    },
+    {
+      "index": 1477,
+      "semantic_label": 7,
+      "displacement": 0.8097009658813477
+    },
+    {
+      "index": 1478,
+      "semantic_label": 7,
+      "displacement": 1.5058355331420898
+    },
+    {
+      "index": 1479,
+      "semantic_label": 7,
+      "displacement": 1.8128108978271484
+    },
+    {
+      "index": 1480,
+      "semantic_label": 7,
+      "displacement": 3.0641469955444336
+    },
+    {
+      "index": 1481,
+      "semantic_label": 7,
+      "displacement": 3.4707298278808594
+    },
+    {
+      "index": 1482,
+      "semantic_label": 7,
+      "displacement": 0.7657217979431152
+    },
+    {
+      "index": 1483,
+      "semantic_label": 7,
+      "displacement": 0.6077213287353516
+    },
+    {
+      "index": 1487,
+      "semantic_label": 7,
+      "displacement": 0.10837364196777344
+    },
+    {
+      "index": 1488,
+      "semantic_label": 7,
+      "displacement": 0.4814577102661133
+    },
+    {
+      "index": 1489,
+      "semantic_label": 7,
+      "displacement": 0.8125
+    },
+    {
+      "index": 1490,
+      "semantic_label": 7,
+      "displacement": 1.1407079696655273
+    },
+    {
+      "index": 1491,
+      "semantic_label": 7,
+      "displacement": 1.4198055267333984
+    },
+    {
+      "index": 1492,
+      "semantic_label": 1,
+      "displacement": 0.025864601135253906
+    },
+    {
+      "index": 1493,
+      "semantic_label": 1,
+      "displacement": 0.025864601135253906
+    },
+    {
+      "index": 1494,
+      "semantic_label": 1,
+      "displacement": 0.025864601135253906
+    },
+    {
+      "index": 1495,
+      "semantic_label": 1,
+      "displacement": 0.025864601135253906
+    },
+    {
+      "index": 1496,
+      "semantic_label": 6,
+      "displacement": 1.4198060035705566
+    },
+    {
+      "index": 1497,
+      "semantic_label": 6,
+      "displacement": 1.1407079696655273
+    },
+    {
+      "index": 1498,
+      "semantic_label": 6,
+      "displacement": 0.8125
+    },
+    {
+      "index": 1499,
+      "semantic_label": 6,
+      "displacement": 0.4814577102661133
+    },
+    {
+      "index": 1500,
+      "semantic_label": 6,
+      "displacement": 0.10837364196777344
+    },
+    {
+      "index": 1506,
+      "semantic_label": 6,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1507,
+      "semantic_label": 6,
+      "displacement": 3.055877685546875
+    },
+    {
+      "index": 1508,
+      "semantic_label": 6,
+      "displacement": 1.8128108978271484
+    },
+    {
+      "index": 1509,
+      "semantic_label": 6,
+      "displacement": 1.5058355331420898
+    },
+    {
+      "index": 1511,
+      "semantic_label": 6,
+      "displacement": 0.9630908966064453
+    },
+    {
+      "index": 1512,
+      "semantic_label": 6,
+      "displacement": 3.0206098556518555
+    },
+    {
+      "index": 1513,
+      "semantic_label": 6,
+      "displacement": 3.488999366760254
+    },
+    {
+      "index": 1514,
+      "semantic_label": 6,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1515,
+      "semantic_label": 6,
+      "displacement": 3.4877734184265137
+    },
+    {
+      "index": 1516,
+      "semantic_label": 6,
+      "displacement": 3.487773895263672
+    },
+    {
+      "index": 1517,
+      "semantic_label": 6,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1518,
+      "semantic_label": 6,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1519,
+      "semantic_label": 6,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1520,
+      "semantic_label": 6,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1521,
+      "semantic_label": 6,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1522,
+      "semantic_label": 6,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1523,
+      "semantic_label": 6,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1524,
+      "semantic_label": 6,
+      "displacement": 3.4086461067199707
+    },
+    {
+      "index": 1525,
+      "semantic_label": 6,
+      "displacement": 2.029722213745117
+    },
+    {
+      "index": 1526,
+      "semantic_label": 6,
+      "displacement": 3.4429550170898438
+    },
+    {
+      "index": 1527,
+      "semantic_label": 6,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1528,
+      "semantic_label": 6,
+      "displacement": 2.005997657775879
+    },
+    {
+      "index": 1529,
+      "semantic_label": 8,
+      "displacement": 2.0502243041992188
+    },
+    {
+      "index": 1530,
+      "semantic_label": 8,
+      "displacement": 3.4255504608154297
+    },
+    {
+      "index": 1531,
+      "semantic_label": 8,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1532,
+      "semantic_label": 8,
+      "displacement": 3.4254231452941895
+    },
+    {
+      "index": 1533,
+      "semantic_label": 8,
+      "displacement": 2.0267114639282227
+    },
+    {
+      "index": 1534,
+      "semantic_label": 8,
+      "displacement": 3.367124557495117
+    },
+    {
+      "index": 1535,
+      "semantic_label": 8,
+      "displacement": 3.4845542907714844
+    },
+    {
+      "index": 1536,
+      "semantic_label": 8,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1537,
+      "semantic_label": 8,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1538,
+      "semantic_label": 8,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1539,
+      "semantic_label": 8,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1540,
+      "semantic_label": 8,
+      "displacement": 3.4030885696411133
+    },
+    {
+      "index": 1541,
+      "semantic_label": 8,
+      "displacement": 3.3657569885253906
+    },
+    {
+      "index": 1542,
+      "semantic_label": 8,
+      "displacement": 3.4378719329833984
+    },
+    {
+      "index": 1543,
+      "semantic_label": 8,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1544,
+      "semantic_label": 8,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1545,
+      "semantic_label": 8,
+      "displacement": 2.005997657775879
+    },
+    {
+      "index": 1546,
+      "semantic_label": 8,
+      "displacement": 2.034881591796875
+    },
+    {
+      "index": 1547,
+      "semantic_label": 8,
+      "displacement": 2.2260398864746094
+    },
+    {
+      "index": 1548,
+      "semantic_label": 9,
+      "displacement": 1.9661493301391602
+    },
+    {
+      "index": 1549,
+      "semantic_label": 9,
+      "displacement": 1.9937210083007812
+    },
+    {
+      "index": 1550,
+      "semantic_label": 9,
+      "displacement": 2.2358436584472656
+    },
+    {
+      "index": 1551,
+      "semantic_label": 9,
+      "displacement": 1.9726128578186035
+    },
+    {
+      "index": 1552,
+      "semantic_label": 9,
+      "displacement": 1.7350435256958008
+    },
+    {
+      "index": 1553,
+      "semantic_label": 9,
+      "displacement": 1.7293987274169922
+    },
+    {
+      "index": 1554,
+      "semantic_label": 9,
+      "displacement": 2.0137996673583984
+    },
+    {
+      "index": 1555,
+      "semantic_label": 9,
+      "displacement": 3.3686561584472656
+    },
+    {
+      "index": 1556,
+      "semantic_label": 7,
+      "displacement": 3.4640426635742188
+    },
+    {
+      "index": 1557,
+      "semantic_label": 7,
+      "displacement": 2.0252203941345215
+    },
+    {
+      "index": 1558,
+      "semantic_label": 7,
+      "displacement": 1.7350435256958008
+    },
+    {
+      "index": 1559,
+      "semantic_label": 7,
+      "displacement": 1.7350444793701172
+    },
+    {
+      "index": 1560,
+      "semantic_label": 7,
+      "displacement": 2.0252208709716797
+    },
+    {
+      "index": 1561,
+      "semantic_label": 7,
+      "displacement": 3.4640426635742188
+    },
+    {
+      "index": 1562,
+      "semantic_label": 7,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1563,
+      "semantic_label": 7,
+      "displacement": 3.4877734184265137
+    },
+    {
+      "index": 1564,
+      "semantic_label": 7,
+      "displacement": 3.487773895263672
+    },
+    {
+      "index": 1565,
+      "semantic_label": 7,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1566,
+      "semantic_label": 7,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1567,
+      "semantic_label": 7,
+      "displacement": 3.020608901977539
+    },
+    {
+      "index": 1568,
+      "semantic_label": 7,
+      "displacement": 0.9911012649536133
+    },
+    {
+      "index": 1569,
+      "semantic_label": 7,
+      "displacement": 0.8097009658813477
+    },
+    {
+      "index": 1570,
+      "semantic_label": 7,
+      "displacement": 1.5058355331420898
+    },
+    {
+      "index": 1571,
+      "semantic_label": 7,
+      "displacement": 1.8128108978271484
+    },
+    {
+      "index": 1572,
+      "semantic_label": 7,
+      "displacement": 3.055877685546875
+    },
+    {
+      "index": 1573,
+      "semantic_label": 7,
+      "displacement": 3.488999366760254
+    },
+    {
+      "index": 1574,
+      "semantic_label": 7,
+      "displacement": 0.7657217979431152
+    },
+    {
+      "index": 1575,
+      "semantic_label": 7,
+      "displacement": 0.6077213287353516
+    },
+    {
+      "index": 1579,
+      "semantic_label": 7,
+      "displacement": 0.10837364196777344
+    },
+    {
+      "index": 1580,
+      "semantic_label": 7,
+      "displacement": 0.4814577102661133
+    },
+    {
+      "index": 1581,
+      "semantic_label": 7,
+      "displacement": 0.8125
+    },
+    {
+      "index": 1582,
+      "semantic_label": 7,
+      "displacement": 1.1407079696655273
+    },
+    {
+      "index": 1583,
+      "semantic_label": 7,
+      "displacement": 1.4198055267333984
+    },
+    {
+      "index": 1584,
+      "semantic_label": 1,
+      "displacement": 0.025864601135253906
+    },
+    {
+      "index": 1585,
+      "semantic_label": 1,
+      "displacement": 0.025864601135253906
+    },
+    {
+      "index": 1586,
+      "semantic_label": 1,
+      "displacement": 0.026246070861816406
+    },
+    {
+      "index": 1587,
+      "semantic_label": 1,
+      "displacement": 0.026246070861816406
+    },
+    {
+      "index": 1588,
+      "semantic_label": 6,
+      "displacement": 1.4215168952941895
+    },
+    {
+      "index": 1589,
+      "semantic_label": 6,
+      "displacement": 1.1407079696655273
+    },
+    {
+      "index": 1590,
+      "semantic_label": 6,
+      "displacement": 0.8125
+    },
+    {
+      "index": 1591,
+      "semantic_label": 6,
+      "displacement": 0.4814577102661133
+    },
+    {
+      "index": 1592,
+      "semantic_label": 6,
+      "displacement": 0.111236572265625
+    },
+    {
+      "index": 1598,
+      "semantic_label": 6,
+      "displacement": 3.4707303047180176
+    },
+    {
+      "index": 1599,
+      "semantic_label": 6,
+      "displacement": 3.057093620300293
+    },
+    {
+      "index": 1600,
+      "semantic_label": 6,
+      "displacement": 1.8134527206420898
+    },
+    {
+      "index": 1601,
+      "semantic_label": 6,
+      "displacement": 1.498366355895996
+    },
+    {
+      "index": 1604,
+      "semantic_label": 6,
+      "displacement": 2.9806785583496094
+    },
+    {
+      "index": 1605,
+      "semantic_label": 6,
+      "displacement": 3.4707298278808594
+    },
+    {
+      "index": 1606,
+      "semantic_label": 6,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1607,
+      "semantic_label": 6,
+      "displacement": 3.483524799346924
+    },
+    {
+      "index": 1608,
+      "semantic_label": 6,
+      "displacement": 3.049088478088379
+    },
+    {
+      "index": 1609,
+      "semantic_label": 6,
+      "displacement": 1.8068933486938477
+    },
+    {
+      "index": 1610,
+      "semantic_label": 6,
+      "displacement": 1.494614601135254
+    },
+    {
+      "index": 1612,
+      "semantic_label": 6,
+      "displacement": 0.9373512268066406
+    },
+    {
+      "index": 1613,
+      "semantic_label": 6,
+      "displacement": 3.0138206481933594
+    },
+    {
+      "index": 1614,
+      "semantic_label": 6,
+      "displacement": 3.4835262298583984
+    },
+    {
+      "index": 1615,
+      "semantic_label": 6,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1616,
+      "semantic_label": 6,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1617,
+      "semantic_label": 6,
+      "displacement": 3.4787826538085938
+    },
+    {
+      "index": 1618,
+      "semantic_label": 6,
+      "displacement": 3.0040369033813477
+    },
+    {
+      "index": 1619,
+      "semantic_label": 6,
+      "displacement": 1.8553571701049805
+    },
+    {
+      "index": 1621,
+      "semantic_label": 6,
+      "displacement": 2.9404964447021484
+    },
+    {
+      "index": 1622,
+      "semantic_label": 6,
+      "displacement": 3.41339111328125
+    },
+    {
+      "index": 1623,
+      "semantic_label": 6,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1624,
+      "semantic_label": 6,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1625,
+      "semantic_label": 6,
+      "displacement": 3.377291202545166
+    },
+    {
+      "index": 1626,
+      "semantic_label": 6,
+      "displacement": 1.8025670051574707
+    },
+    {
+      "index": 1627,
+      "semantic_label": 6,
+      "displacement": 1.7752761840820312
+    },
+    {
+      "index": 1628,
+      "semantic_label": 6,
+      "displacement": 2.0246124267578125
+    },
+    {
+      "index": 1629,
+      "semantic_label": 6,
+      "displacement": 3.4310245513916016
+    },
+    {
+      "index": 1630,
+      "semantic_label": 6,
+      "displacement": 1.9729819297790527
+    },
+    {
+      "index": 1631,
+      "semantic_label": 6,
+      "displacement": 1.7171287536621094
+    },
+    {
+      "index": 1632,
+      "semantic_label": 8,
+      "displacement": 1.7339153289794922
+    },
+    {
+      "index": 1633,
+      "semantic_label": 8,
+      "displacement": 1.99957275390625
+    },
+    {
+      "index": 1634,
+      "semantic_label": 8,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1635,
+      "semantic_label": 8,
+      "displacement": 3.4515066146850586
+    },
+    {
+      "index": 1636,
+      "semantic_label": 8,
+      "displacement": 2.0185766220092773
+    },
+    {
+      "index": 1637,
+      "semantic_label": 8,
+      "displacement": 1.729398250579834
+    },
+    {
+      "index": 1638,
+      "semantic_label": 8,
+      "displacement": 3.3965415954589844
+    },
+    {
+      "index": 1639,
+      "semantic_label": 8,
+      "displacement": 3.482053756713867
+    },
+    {
+      "index": 1640,
+      "semantic_label": 8,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1641,
+      "semantic_label": 8,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1642,
+      "semantic_label": 8,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1643,
+      "semantic_label": 8,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1644,
+      "semantic_label": 8,
+      "displacement": 3.4176130294799805
+    },
+    {
+      "index": 1645,
+      "semantic_label": 8,
+      "displacement": 3.089716911315918
+    },
+    {
+      "index": 1646,
+      "semantic_label": 8,
+      "displacement": 3.399383544921875
+    },
+    {
+      "index": 1647,
+      "semantic_label": 8,
+      "displacement": 3.482053756713867
+    },
+    {
+      "index": 1648,
+      "semantic_label": 8,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1649,
+      "semantic_label": 8,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1650,
+      "semantic_label": 8,
+      "displacement": 1.9729819297790527
+    },
+    {
+      "index": 1651,
+      "semantic_label": 8,
+      "displacement": 1.77622652053833
+    },
+    {
+      "index": 1652,
+      "semantic_label": 8,
+      "displacement": 2.0022354125976562
+    },
+    {
+      "index": 1653,
+      "semantic_label": 9,
+      "displacement": 1.9788522720336914
+    },
+    {
+      "index": 1654,
+      "semantic_label": 9,
+      "displacement": 1.729461669921875
+    },
+    {
+      "index": 1655,
+      "semantic_label": 9,
+      "displacement": 2.011554718017578
+    },
+    {
+      "index": 1656,
+      "semantic_label": 9,
+      "displacement": 3.214949607849121
+    },
+    {
+      "index": 1657,
+      "semantic_label": 9,
+      "displacement": 1.7575321197509766
+    },
+    {
+      "index": 1658,
+      "semantic_label": 9,
+      "displacement": 1.7766227722167969
+    },
+    {
+      "index": 1659,
+      "semantic_label": 9,
+      "displacement": 3.2952194213867188
+    },
+    {
+      "index": 1660,
+      "semantic_label": 7,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1661,
+      "semantic_label": 7,
+      "displacement": 3.3563108444213867
+    },
+    {
+      "index": 1662,
+      "semantic_label": 7,
+      "displacement": 1.740746021270752
+    },
+    {
+      "index": 1663,
+      "semantic_label": 7,
+      "displacement": 0.9970307350158691
+    },
+    {
+      "index": 1664,
+      "semantic_label": 7,
+      "displacement": 1.7970075607299805
+    },
+    {
+      "index": 1665,
+      "semantic_label": 7,
+      "displacement": 1.756875991821289
+    },
+    {
+      "index": 1666,
+      "semantic_label": 7,
+      "displacement": 3.356311798095703
+    },
+    {
+      "index": 1667,
+      "semantic_label": 7,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1668,
+      "semantic_label": 7,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1669,
+      "semantic_label": 7,
+      "displacement": 3.483524799346924
+    },
+    {
+      "index": 1670,
+      "semantic_label": 7,
+      "displacement": 2.9544239044189453
+    },
+    {
+      "index": 1671,
+      "semantic_label": 7,
+      "displacement": 0.9848179817199707
+    },
+    {
+      "index": 1672,
+      "semantic_label": 7,
+      "displacement": 0.8071918487548828
+    },
+    {
+      "index": 1673,
+      "semantic_label": 7,
+      "displacement": 1.4894094467163086
+    },
+    {
+      "index": 1674,
+      "semantic_label": 7,
+      "displacement": 1.787771224975586
+    },
+    {
+      "index": 1675,
+      "semantic_label": 7,
+      "displacement": 2.9896926879882812
+    },
+    {
+      "index": 1676,
+      "semantic_label": 7,
+      "displacement": 3.4835262298583984
+    },
+    {
+      "index": 1677,
+      "semantic_label": 7,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1678,
+      "semantic_label": 7,
+      "displacement": 3.4707303047180176
+    },
+    {
+      "index": 1679,
+      "semantic_label": 7,
+      "displacement": 3.021824836730957
+    },
+    {
+      "index": 1680,
+      "semantic_label": 7,
+      "displacement": 0.991523265838623
+    },
+    {
+      "index": 1681,
+      "semantic_label": 7,
+      "displacement": 0.8013753890991211
+    },
+    {
+      "index": 1682,
+      "semantic_label": 7,
+      "displacement": 1.4828977584838867
+    },
+    {
+      "index": 1683,
+      "semantic_label": 7,
+      "displacement": 1.8134527206420898
+    },
+    {
+      "index": 1684,
+      "semantic_label": 7,
+      "displacement": 3.057093620300293
+    },
+    {
+      "index": 1685,
+      "semantic_label": 7,
+      "displacement": 3.4707298278808594
+    },
+    {
+      "index": 1686,
+      "semantic_label": 7,
+      "displacement": 0.766848087310791
+    },
+    {
+      "index": 1687,
+      "semantic_label": 7,
+      "displacement": 0.6146116256713867
+    },
+    {
+      "index": 1688,
+      "semantic_label": 7,
+      "displacement": 0.42647457122802734
+    },
+    {
+      "index": 1691,
+      "semantic_label": 7,
+      "displacement": 0.111236572265625
+    },
+    {
+      "index": 1692,
+      "semantic_label": 7,
+      "displacement": 0.4814577102661133
+    },
+    {
+      "index": 1693,
+      "semantic_label": 7,
+      "displacement": 0.8125
+    },
+    {
+      "index": 1694,
+      "semantic_label": 7,
+      "displacement": 1.1407079696655273
+    },
+    {
+      "index": 1695,
+      "semantic_label": 7,
+      "displacement": 1.4215164184570312
+    },
+    {
+      "index": 1696,
+      "semantic_label": 1,
+      "displacement": 0.026246070861816406
+    },
+    {
+      "index": 1697,
+      "semantic_label": 1,
+      "displacement": 0.026246070861816406
+    },
+    {
+      "index": 1698,
+      "semantic_label": 1,
+      "displacement": 0.023136138916015625
+    },
+    {
+      "index": 1699,
+      "semantic_label": 1,
+      "displacement": 0.019573211669921875
+    },
+    {
+      "index": 1700,
+      "semantic_label": 6,
+      "displacement": 1.4098525047302246
+    },
+    {
+      "index": 1701,
+      "semantic_label": 6,
+      "displacement": 1.1417779922485352
+    },
+    {
+      "index": 1702,
+      "semantic_label": 6,
+      "displacement": 0.8125
+    },
+    {
+      "index": 1703,
+      "semantic_label": 6,
+      "displacement": 0.48536109924316406
+    },
+    {
+      "index": 1704,
+      "semantic_label": 6,
+      "displacement": 0.0707387924194336
+    },
+    {
+      "index": 1708,
+      "semantic_label": 6,
+      "displacement": 0.5891313552856445
+    },
+    {
+      "index": 1709,
+      "semantic_label": 6,
+      "displacement": 0.7453374862670898
+    },
+    {
+      "index": 1710,
+      "semantic_label": 6,
+      "displacement": 1.3990588188171387
+    },
+    {
+      "index": 1711,
+      "semantic_label": 6,
+      "displacement": 1.1257362365722656
+    },
+    {
+      "index": 1712,
+      "semantic_label": 6,
+      "displacement": 0.8018054962158203
+    },
+    {
+      "index": 1713,
+      "semantic_label": 6,
+      "displacement": 0.47504138946533203
+    },
+    {
+      "index": 1714,
+      "semantic_label": 6,
+      "displacement": 0.10753440856933594
+    },
+    {
+      "index": 1719,
+      "semantic_label": 6,
+      "displacement": 0.7299251556396484
+    },
+    {
+      "index": 1720,
+      "semantic_label": 6,
+      "displacement": 1.669260025024414
+    },
+    {
+      "index": 1721,
+      "semantic_label": 6,
+      "displacement": 0.8307886123657227
+    },
+    {
+      "index": 1722,
+      "semantic_label": 6,
+      "displacement": 0.6366043090820312
+    },
+    {
+      "index": 1723,
+      "semantic_label": 6,
+      "displacement": 0.45471763610839844
+    },
+    {
+      "index": 1724,
+      "semantic_label": 6,
+      "displacement": 0.266265869140625
+    },
+    {
+      "index": 1732,
+      "semantic_label": 6,
+      "displacement": 2.8284621238708496
+    },
+    {
+      "index": 1733,
+      "semantic_label": 6,
+      "displacement": 1.025496482849121
+    },
+    {
+      "index": 1734,
+      "semantic_label": 6,
+      "displacement": 0.8281307220458984
+    },
+    {
+      "index": 1736,
+      "semantic_label": 6,
+      "displacement": 2.7650136947631836
+    },
+    {
+      "index": 1737,
+      "semantic_label": 6,
+      "displacement": 1.7018461227416992
+    },
+    {
+      "index": 1738,
+      "semantic_label": 6,
+      "displacement": 1.0272250175476074
+    },
+    {
+      "index": 1740,
+      "semantic_label": 6,
+      "displacement": 1.669809341430664
+    },
+    {
+      "index": 1741,
+      "semantic_label": 8,
+      "displacement": 1.6868343353271484
+    },
+    {
+      "index": 1742,
+      "semantic_label": 8,
+      "displacement": 1.7716045379638672
+    },
+    {
+      "index": 1743,
+      "semantic_label": 8,
+      "displacement": 3.350980758666992
+    },
+    {
+      "index": 1744,
+      "semantic_label": 8,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1745,
+      "semantic_label": 8,
+      "displacement": 3.3831892013549805
+    },
+    {
+      "index": 1746,
+      "semantic_label": 8,
+      "displacement": 1.7966938018798828
+    },
+    {
+      "index": 1747,
+      "semantic_label": 8,
+      "displacement": 3.4646167755126953
+    },
+    {
+      "index": 1748,
+      "semantic_label": 8,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1749,
+      "semantic_label": 8,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1750,
+      "semantic_label": 8,
+      "displacement": 3.488999843597412
+    },
+    {
+      "index": 1751,
+      "semantic_label": 8,
+      "displacement": 3.488110065460205
+    },
+    {
+      "index": 1752,
+      "semantic_label": 8,
+      "displacement": 2.940927505493164
+    },
+    {
+      "index": 1754,
+      "semantic_label": 8,
+      "displacement": 3.089716911315918
+    },
+    {
+      "index": 1755,
+      "semantic_label": 8,
+      "displacement": 3.417613983154297
+    },
+    {
+      "index": 1756,
+      "semantic_label": 8,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1757,
+      "semantic_label": 8,
+      "displacement": 3.4890003204345703
+    },
+    {
+      "index": 1758,
+      "semantic_label": 8,
+      "displacement": 1.6571946144104004
+    },
+    {
+      "index": 1760,
+      "semantic_label": 8,
+      "displacement": 1.7762260437011719
+    },
+    {
+      "index": 1761,
+      "semantic_label": 8,
+      "displacement": 1.9729804992675781
+    },
+    {
+      "index": 1762,
+      "semantic_label": 9,
+      "displacement": 3.402209758758545
+    },
+    {
+      "index": 1763,
+      "semantic_label": 9,
+      "displacement": 1.7231922149658203
+    }
+  ]
+}

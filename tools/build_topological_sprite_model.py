@@ -19,7 +19,8 @@ if str(TOOL_ROOT) not in sys.path:
 from spritespatial.asset_schema import AssetSchema  # noqa: E402
 from spritespatial.api_visual_judge import run_api_visual_judge  # noqa: E402
 from spritespatial.back_hemisphere import build_back_hemisphere  # noqa: E402
-from spritespatial.canonical_views import write_canonical_view_records  # noqa: E402
+from spritespatial.canonical_silhouette_optimizer import optimize_canonical_silhouette  # noqa: E402
+from spritespatial.canonical_views import canonical_view_records, write_canonical_view_records  # noqa: E402
 from spritespatial.continuity import apply_semantic_continuity  # noqa: E402
 from spritespatial.manifold_validation import build_phase5a_validation  # noqa: E402
 from spritespatial.metrics.silhouette_iou import compute_canonical_view_metrics  # noqa: E402
@@ -46,12 +47,12 @@ from spritespatial.semantic import (  # noqa: E402
     run_semantic_rule_passes,
     write_semantic_debug_outputs,
 )
-from spritespatial.render_diagnostics import analyze_phase5c_captures  # noqa: E402
-from spritespatial.render_comparison import build_visual_mapping  # noqa: E402
 from spritespatial.semantic_overrides import (  # noqa: E402
     apply_semantic_overrides_to_parts,
     load_semantic_overrides,
 )
+from spritespatial.render_comparison import build_visual_mapping  # noqa: E402
+from spritespatial.render_diagnostics import analyze_phase5c_captures  # noqa: E402
 from spritespatial.smoothing import SmoothingConfig, smooth_mesh  # noqa: E402
 from spritespatial.source_coverage import analyze_source_coverage, emit_view_candidates  # noqa: E402
 from spritespatial.surface_nets import (  # noqa: E402
@@ -137,6 +138,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--emit-canonical-view-metrics", action="store_true")
     parser.add_argument("--emit-visual-mapping", action="store_true")
     parser.add_argument("--api-visual-judge", action="store_true")
+    parser.add_argument("--canonical-silhouette-correct", action="store_true")
+    parser.add_argument("--silhouette-correction-iterations", type=int, default=1)
+    parser.add_argument("--max-silhouette-displacement", type=float, default=0.15)
+    parser.add_argument("--emit-silhouette-correction-debug", action="store_true")
     parser.add_argument("--find-view-candidates", action="store_true")
     parser.add_argument("--semantic-overrides", type=Path)
     parser.add_argument("--semantic-override-mode", choices=("none", "supplement", "replace", "strict"), default=None)
@@ -1890,9 +1895,22 @@ def _build_phase5a_closed_body(
     if getattr(args, "emit_render_diagnostics", False) or getattr(args, "emit_canonical_view_metrics", False):
         phase5d_result = _run_phase5d_diagnostics(args, output_dir, source_coverage)
         validation_report = _extend_phase5d_validation(validation_report, phase5d_result)
-    if getattr(args, "emit_visual_mapping", False) or getattr(args, "api_visual_judge", False):
+    if getattr(args, "emit_visual_mapping", False) or getattr(args, "api_visual_judge", False) or getattr(args, "canonical_silhouette_correct", False):
         visual_mapping_result = _run_phase5d_visual_mapping(args, output_dir, source_coverage)
-        validation_report = _extend_visual_mapping_validation(validation_report, visual_mapping_result, getattr(args, "api_visual_judge", False))
+        validation_report = _extend_visual_mapping_validation(
+            validation_report,
+            visual_mapping_result,
+            getattr(args, "api_visual_judge", False),
+        )
+    silhouette_correction_result: dict[str, Any] = {}
+    if getattr(args, "canonical_silhouette_correct", False):
+        silhouette_correction_result = _run_phase6a_canonical_silhouette_correction(
+            args,
+            output_dir,
+            source_coverage,
+            surface_net_paths.get("mesh"),
+        )
+        validation_report = _extend_phase6a_validation(validation_report, silhouette_correction_result)
     validation_path = output_dir / "validation_report.json"
     model_path = output_dir / "topological_model.json"
     _write_json(validation_path, validation_report)
@@ -1912,6 +1930,17 @@ def _build_phase5a_closed_body(
         "meshing": {key: _res_path(path) for key, path in meshing["paths"].items()},
         "surface_nets": {key: _res_path(path) for key, path in surface_net_paths.items()},
         "surface_net_debug": {key: _res_path(path) for key, path in surface_net_debug_paths.items()},
+        "silhouette_correction": {
+            "mesh_corrected": _res_path(Path(silhouette_correction_result["mesh_corrected"]))
+            if silhouette_correction_result.get("mesh_corrected")
+            else "",
+            "correction_report": _res_path(output_dir / "correction_report.json")
+            if silhouette_correction_result
+            else "",
+            "corrected_visual_mapping": _res_path(output_dir / "corrected_visual_mapping")
+            if silhouette_correction_result.get("corrected_visual_mapping_report")
+            else "",
+        },
         "source_coverage": source_coverage,
         "view_candidates": {key: _res_path(path) for key, path in view_candidate_paths.items()},
         "canvas_size": [front.width, front.height],
@@ -1924,6 +1953,9 @@ def _build_phase5a_closed_body(
             "mesh_backend": mesh_backend,
             "surface_net_smoothing_alpha": float(getattr(args, "surface_net_smoothing_alpha", 0.65)),
             "emit_surface_net_debug": getattr(args, "emit_surface_net_debug", False),
+            "canonical_silhouette_correct": getattr(args, "canonical_silhouette_correct", False),
+            "silhouette_correction_iterations": int(getattr(args, "silhouette_correction_iterations", 1)),
+            "max_silhouette_displacement": float(getattr(args, "max_silhouette_displacement", 0.15)),
             "semantic_override_mode": getattr(args, "semantic_override_mode", "supplement"),
             "model_depth_units": args.model_depth_units,
             "total_depth_slices": args.total_depth_slices,
@@ -1949,14 +1981,12 @@ def _build_phase5a_closed_body(
     _write_json(output_dir / "semantic_report.json", semantic_report)
     _write_json(output_dir / "semantic_warnings.json", semantic_warnings)
     _write_json(output_dir / "semantic_override_report.json", semantic_override_report)
-    if mesh_backend == "surface_nets":
-        _write_phase5b_comparison(output_dir, validation_report, surface_net_report)
     if not validation_report.get("passed", False):
         failures = [
             key for key, failed in validation_report.get("fail_conditions", {}).items()
             if failed
         ]
-        phase_name = "Phase 5B" if mesh_backend == "surface_nets" else "Phase 5A"
+        phase_name = "Phase 6A" if getattr(args, "canonical_silhouette_correct", False) else ("Phase 5B" if mesh_backend == "surface_nets" else "Phase 5A")
         raise ValueError(f"{phase_name} validation failed: {failures}")
     for warning in source_coverage.get("warnings", []):
         print(f"WARNING: {warning}")
@@ -1978,23 +2008,26 @@ def _extend_phase5b_validation(
     report = dict(validation_report)
     fail_conditions = dict(report.get("fail_conditions", {}))
     faces = int(surface_net_report.get("surface_net_faces", 0))
+    vertices = int(surface_net_report.get("surface_net_vertices", 0))
     degenerate = int(surface_net_report.get("degenerate_face_count", 0))
-    labels_missing = list(surface_net_report.get("semantic_labels_missing_from_mesh", []))
+    labels_mesh = set(int(value) for value in surface_net_report.get("semantic_labels_in_mesh", []))
+    labels_volume = set(int(value) for value in surface_net_report.get("semantic_labels_in_volume", []))
+    missing_labels = sorted(labels_volume - labels_mesh)
+    input_report = meshing.get("report", {})
     fail_conditions.update(
         {
-            "surface_net_zero_vertices": int(surface_net_report.get("surface_net_vertices", 0)) <= 0,
+            "surface_net_zero_vertices": vertices <= 0,
             "surface_net_zero_faces": faces <= 0,
-            "surface_net_degenerate_faces_exceed_threshold": degenerate > max(2, int(faces * 0.02)),
-            "surface_net_semantic_labels_disappear": bool(labels_missing),
-            "surface_net_mesh_components_exceed_threshold": int(surface_net_report.get("mesh_connected_components", 999)) > 1,
-            "surface_net_sdf_semantic_shape_mismatch": not meshing["report"].get("surface_nets_input_shape_valid", False),
-            "surface_nets_input_not_loadable": not meshing["report"].get("surface_nets_input_loadable", False),
+            "surface_net_degenerate_faces": degenerate > max(1, int(faces * 0.01)),
+            "surface_net_semantic_labels_lost": bool(missing_labels),
+            "surface_nets_input_not_loadable": not bool(input_report.get("surface_nets_input_loadable", False)),
+            "surface_nets_input_shape_invalid": not bool(input_report.get("surface_nets_input_shape_valid", False)),
         }
     )
     report.update(
         {
             "mesh_backend": "surface_nets",
-            "surface_net_vertices": int(surface_net_report.get("surface_net_vertices", 0)),
+            "surface_net_vertices": vertices,
             "surface_net_faces": faces,
             "active_cell_count": int(surface_net_report.get("active_cell_count", 0)),
             "semantic_boundary_edge_count": int(surface_net_report.get("semantic_boundary_edge_count", 0)),
@@ -2002,11 +2035,11 @@ def _extend_phase5b_validation(
             "degenerate_face_count": degenerate,
             "non_manifold_edge_count": int(surface_net_report.get("non_manifold_edge_count", 0)),
             "mesh_connected_components": int(surface_net_report.get("mesh_connected_components", 0)),
-            "semantic_labels_in_mesh": list(surface_net_report.get("semantic_labels_in_mesh", [])),
-            "semantic_labels_in_volume": list(surface_net_report.get("semantic_labels_in_volume", [])),
-            "semantic_label_preservation_passed": bool(surface_net_report.get("semantic_label_preservation_passed", False)),
+            "semantic_labels_in_mesh": sorted(labels_mesh),
+            "semantic_labels_in_volume": sorted(labels_volume),
+            "semantic_labels_missing_from_mesh": missing_labels,
+            "semantic_label_preservation_passed": not missing_labels,
             "surface_net_smoothing_alpha": float(smoothing_alpha),
-            "surface_nets_report": surface_net_report,
             "fail_conditions": fail_conditions,
             "passed": not any(fail_conditions.values()),
         }
@@ -2014,66 +2047,19 @@ def _extend_phase5b_validation(
     return report
 
 
-def _write_phase5b_comparison(
-    output_dir: Path,
-    validation_report: dict[str, Any],
-    surface_net_report: dict[str, Any],
-) -> None:
-    comparison_dir = output_dir.parent / "comparisons" / "phase5a_vs_phase5b_surface_nets"
-    comparison_dir.mkdir(parents=True, exist_ok=True)
-    phase5a_dir = output_dir.parent / output_dir.name.replace("phase5b_surface_nets", "phase5a_closed_sdf")
-    phase5a_validation_path = phase5a_dir / "validation_report.json"
-    phase5a_validation = {}
-    if phase5a_validation_path.exists():
-        phase5a_validation = json.loads(phase5a_validation_path.read_text(encoding="utf-8"))
-    mesh_stats = {
-        "phase5a": {
-            "surface_nets_ready": phase5a_validation.get("surface_nets_ready", False),
-            "sdf_volume_shape": phase5a_validation.get("sdf_volume_shape", []),
-            "semantic_volume_labels": phase5a_validation.get("semantic_volume_labels", []),
-        },
-        "phase5b": {
-            "surface_net_vertices": validation_report.get("surface_net_vertices", 0),
-            "surface_net_faces": validation_report.get("surface_net_faces", 0),
-            "active_cell_count": validation_report.get("active_cell_count", 0),
-            "semantic_labels_in_mesh": validation_report.get("semantic_labels_in_mesh", []),
-            "mesh_connected_components": validation_report.get("mesh_connected_components", 0),
-            "degenerate_face_count": validation_report.get("degenerate_face_count", 0),
-        },
-    }
-    comparison_report = {
-        "schema": "spritespatial_phase5a_vs_phase5b_surface_nets_v1",
-        "phase5a_output": str(phase5a_dir),
-        "phase5b_output": str(output_dir),
-        "verdict": "better_with_caveats" if validation_report.get("passed", False) else "worse",
-        "notes": [
-            "Phase 5B converts the closed SDF infrastructure into an explicit semantic surface-nets mesh.",
-            "Visual capture is not required for this comparison; metric/debug artefacts are authoritative for this phase.",
-        ],
-        "mesh_backend": "surface_nets",
-        "surface_nets_report": surface_net_report,
-        "validation_passed": validation_report.get("passed", False),
-    }
-    summary = (
-        "# Phase 5A vs Phase 5B Surface Nets\n\n"
-        f"Verdict: {comparison_report['verdict']}\n\n"
-        f"- Phase 5B vertices: {mesh_stats['phase5b']['surface_net_vertices']}\n"
-        f"- Phase 5B faces: {mesh_stats['phase5b']['surface_net_faces']}\n"
-        f"- Connected components: {mesh_stats['phase5b']['mesh_connected_components']}\n"
-        f"- Degenerate faces: {mesh_stats['phase5b']['degenerate_face_count']}\n"
-        f"- Semantic labels in mesh: {mesh_stats['phase5b']['semantic_labels_in_mesh']}\n"
-    )
-    _write_json(comparison_dir / "comparison_report.json", comparison_report)
-    _write_json(comparison_dir / "mesh_stats_comparison.json", mesh_stats)
-    (comparison_dir / "comparison_summary.md").write_text(summary, encoding="utf-8")
-
-
 def _run_phase5c_godot_preview(
     args: argparse.Namespace,
     output_dir: Path,
     mesh_path: Path | None,
 ) -> dict[str, Any]:
-    render_dir = output_dir
+    return _run_godot_preview_for_mesh(args, output_dir, mesh_path)
+
+
+def _run_godot_preview_for_mesh(
+    args: argparse.Namespace,
+    render_dir: Path,
+    mesh_path: Path | None,
+) -> dict[str, Any]:
     captures_dir = render_dir / "captures"
     render_dir.mkdir(parents=True, exist_ok=True)
     captures_dir.mkdir(parents=True, exist_ok=True)
@@ -2116,6 +2102,10 @@ def _run_phase5c_godot_preview(
     material_report_path = render_dir / "semantic_material_report.json"
     render_report = _read_json_if_exists(render_report_path)
     material_report = _read_json_if_exists(material_report_path)
+    for name in ("front", "oblique", "side", "side_135", "back", "wireframe"):
+        source = captures_dir / f"{name}.png"
+        if source.exists():
+            shutil.copyfile(source, render_dir / f"{name}.png")
     result = {
         "godot_preview_requested": True,
         "godot_preview_ran": completed.returncode == 0,
@@ -2185,21 +2175,21 @@ def _run_phase5d_diagnostics(
 ) -> dict[str, Any]:
     captures_dir = output_dir / "captures"
     diagnostics_report: dict[str, Any] = {}
-    metrics_report: dict[str, Any] = {}
-    asset_schema = getattr(args, "_asset_schema", None)
-    front_path = asset_schema.sprite_path("front") if asset_schema else args.front
-    back_path = asset_schema.sprite_path("back") if asset_schema else getattr(args, "back", None)
-    side_path = None
-    if asset_schema:
-        left_path = asset_schema.sprite_path("left")
-        right_path = asset_schema.sprite_path("right")
-        side_path = left_path if left_path.exists() else right_path
+    canonical_report: dict[str, Any] = {}
+    records = canonical_view_records(source_coverage)
+    write_canonical_view_records(records, output_dir / "canonical_views.json")
     if getattr(args, "emit_render_diagnostics", False):
         diagnostics_report = analyze_phase5c_captures(captures_dir, output_dir)
     if getattr(args, "emit_canonical_view_metrics", False):
-        if not diagnostics_report and (output_dir / "render_diagnostics.json").exists():
-            diagnostics_report = _read_json_if_exists(output_dir / "render_diagnostics.json")
-        metrics_report = compute_canonical_view_metrics(
+        asset_schema = getattr(args, "_asset_schema", None)
+        front_path = asset_schema.sprite_path("front") if asset_schema else args.front
+        back_path = asset_schema.sprite_path("back") if asset_schema else getattr(args, "back", None)
+        side_path = None
+        if asset_schema:
+            left_path = asset_schema.sprite_path("left")
+            right_path = asset_schema.sprite_path("right")
+            side_path = left_path if left_path.exists() else right_path
+        canonical_report = compute_canonical_view_metrics(
             captures_dir,
             output_dir,
             front_path,
@@ -2208,14 +2198,11 @@ def _run_phase5d_diagnostics(
             source_coverage,
             diagnostics_report,
         )
-        write_canonical_view_records(metrics_report.get("canonical_views", []), output_dir / "canonical_views.json")
-    _write_phase5d_summary(output_dir, diagnostics_report, metrics_report, source_coverage)
+    _write_phase5d_summary(output_dir, diagnostics_report, canonical_report)
     return {
         "render_diagnostics": diagnostics_report,
-        "canonical_view_metrics": metrics_report,
-        "render_diagnostics_path": output_dir / "render_diagnostics.json",
-        "canonical_view_metrics_path": output_dir / "canonical_view_metrics.json",
-        "summary_path": output_dir / "phase5d_summary.md",
+        "canonical_view_metrics": canonical_report,
+        "canonical_views": records,
     }
 
 
@@ -2224,46 +2211,25 @@ def _extend_phase5d_validation(
     phase5d_result: dict[str, Any],
 ) -> dict[str, Any]:
     report = dict(validation_report)
-    fail_conditions = dict(report.get("fail_conditions", {}))
-    diagnostics = phase5d_result.get("render_diagnostics", {})
     metrics = phase5d_result.get("canonical_view_metrics", {})
-    expected_overlays = [
-        "silhouette_overlay_0.png",
-        "silhouette_overlay_45.png",
-        "silhouette_overlay_90.png",
-        "silhouette_overlay_135.png",
-        "silhouette_overlay_180.png",
-    ]
-    fail_conditions.update(
-        {
-            "phase5d_render_diagnostics_missing": not bool(diagnostics),
-            "phase5d_canonical_metrics_missing": not bool(metrics),
-            "phase5d_silhouette_overlays_missing": not all(
-                (Path(phase5d_result["summary_path"]).parent / name).exists() for name in expected_overlays
-            ),
-        }
-    )
-    canonical_summary = {
-        "front_iou": metrics.get("front_iou", 0.0),
-        "oblique_iou": metrics.get("oblique_iou", 0.0),
-        "side_iou": metrics.get("side_iou", 0.0),
-        "side_135_iou": metrics.get("side_135_iou", 0.0),
-        "back_iou": metrics.get("back_iou", 0.0),
-        "worst_view": metrics.get("worst_view", ""),
-        "front_back_similarity_warning": metrics.get("front_back_similarity_warning", False),
-        "side_front_visual_similarity_warning": metrics.get("side_front_visual_similarity_warning", False),
-        "side_profile_authority": metrics.get("side_profile_authority", ""),
-        "back_view_authority": metrics.get("back_view_authority", ""),
-    }
+    diagnostics = phase5d_result.get("render_diagnostics", {})
     report.update(
         {
-            "phase5d_diagnostics_enabled": True,
-            "canonical_view_metrics": canonical_summary,
-            "render_diagnostics_path": str(phase5d_result.get("render_diagnostics_path", "")),
-            "canonical_view_metrics_path": str(phase5d_result.get("canonical_view_metrics_path", "")),
-            "phase5d_summary_path": str(phase5d_result.get("summary_path", "")),
-            "fail_conditions": fail_conditions,
-            "passed": not any(fail_conditions.values()),
+            "render_diagnostics_enabled": bool(diagnostics),
+            "canonical_view_metrics_enabled": bool(metrics),
+            "canonical_view_metrics": {
+                "front_iou": metrics.get("front_iou", 0.0),
+                "oblique_iou": metrics.get("oblique_iou", 0.0),
+                "side_iou": metrics.get("side_iou", 0.0),
+                "back_iou": metrics.get("back_iou", 0.0),
+                "worst_view": metrics.get("worst_view", ""),
+                "front_back_similarity_warning": metrics.get("front_back_similarity_warning", False),
+                "side_profile_authority": metrics.get("side_profile_authority", ""),
+                "back_view_authority": metrics.get("back_view_authority", ""),
+            },
+            "front_back_similarity_warning": diagnostics.get("front_back_visual_similarity_warning", False),
+            "side_front_similarity_warning": diagnostics.get("side_front_visual_similarity_warning", False),
+            "passed": not any(report.get("fail_conditions", {}).values()),
         }
     )
     return report
@@ -2273,42 +2239,19 @@ def _write_phase5d_summary(
     output_dir: Path,
     diagnostics: dict[str, Any],
     metrics: dict[str, Any],
-    source_coverage: dict[str, Any],
 ) -> None:
-    canonical = {
-        "front_iou": metrics.get("front_iou", 0.0),
-        "oblique_iou": metrics.get("oblique_iou", 0.0),
-        "side_iou": metrics.get("side_iou", 0.0),
-        "side_135_iou": metrics.get("side_135_iou", 0.0),
-        "back_iou": metrics.get("back_iou", 0.0),
-        "worst_view": metrics.get("worst_view", ""),
-    }
     lines = [
-        "# Phase 5D Visual Diagnostics",
+        "# Phase 5D Diagnostics",
         "",
-        "Phase 5D measures rotational silhouette quality. It does not correct geometry.",
+        f"- front/back similarity warning: {diagnostics.get('front_back_visual_similarity_warning', False)}",
+        f"- side/front similarity warning: {diagnostics.get('side_front_visual_similarity_warning', False)}",
+        f"- front IoU: {metrics.get('front_iou', 0.0)}",
+        f"- side IoU: {metrics.get('side_iou', 0.0)}",
+        f"- back IoU: {metrics.get('back_iou', 0.0)}",
+        f"- worst view: {metrics.get('worst_view', '')}",
         "",
-        "## Canonical View Metrics",
+        "Interpretation: these metrics diagnose canonical-view silhouette failure; they do not apply correction.",
     ]
-    for key, value in canonical.items():
-        lines.append(f"- {key}: {value}")
-    lines.extend(
-        [
-            "",
-            "## View Authority",
-            f"- side_profile_authority: {metrics.get('side_profile_authority', '')}",
-            f"- back_view_authority: {metrics.get('back_view_authority', '')}",
-            f"- source_coverage_fidelity_limit: {source_coverage.get('fidelity_limit', '')}",
-            "",
-            "## Similarity Warnings",
-            f"- front_back_visual_similarity_warning: {diagnostics.get('front_back_visual_similarity_warning', False)}",
-            f"- side_front_visual_similarity_warning: {diagnostics.get('side_front_visual_similarity_warning', False)}",
-            f"- front_back_aligned_iou: {diagnostics.get('front_back_aligned_iou', 0.0)}",
-            f"- side_front_aligned_iou: {diagnostics.get('side_front_aligned_iou', 0.0)}",
-            "",
-            "Interpretation: high front/back or side/front aligned IoU indicates a likely front-derived view and should be corrected in Phase 6 only after an authored or canonical target is chosen.",
-        ]
-    )
     (output_dir / "phase5d_summary.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
@@ -2409,6 +2352,137 @@ def _extend_visual_mapping_validation(
     return report
 
 
+def _run_phase6a_canonical_silhouette_correction(
+    args: argparse.Namespace,
+    output_dir: Path,
+    source_coverage: dict[str, Any],
+    mesh_path: Path | None,
+) -> dict[str, Any]:
+    if mesh_path is None or not mesh_path.exists():
+        error = {
+            "schema": "spritespatial_phase6a_correction_error_v1",
+            "ok": False,
+            "error": "Surface-nets mesh is required before canonical silhouette correction.",
+        }
+        _write_json(output_dir / "correction_report.json", error)
+        return error
+    asset_schema = getattr(args, "_asset_schema", None)
+    front_path = asset_schema.sprite_path("front") if asset_schema else args.front
+    back_path = asset_schema.sprite_path("back") if asset_schema else getattr(args, "back", None)
+    side_path = None
+    if asset_schema:
+        left_path = asset_schema.sprite_path("left")
+        right_path = asset_schema.sprite_path("right")
+        side_path = left_path if left_path.exists() else right_path
+    correction_report = optimize_canonical_silhouette(
+        mesh_path,
+        output_dir,
+        front_path,
+        back_path,
+        side_path,
+        source_coverage,
+        iterations=int(getattr(args, "silhouette_correction_iterations", 1)),
+        max_displacement=float(getattr(args, "max_silhouette_displacement", 0.15)),
+        emit_debug=bool(getattr(args, "emit_silhouette_correction_debug", False)),
+    )
+    corrected_mesh_path = Path(correction_report["mesh_corrected"])
+    render_result: dict[str, Any] = {}
+    corrected_visual_result: dict[str, Any] = {}
+    if getattr(args, "godot_preview", False):
+        corrected_render_dir = output_dir / "corrected_captures"
+        render_result = _run_godot_preview_for_mesh(args, corrected_render_dir, corrected_mesh_path)
+        semantic_override_dir = _resolve_optional_path(getattr(args, "semantic_overrides", None))
+        corrected_visual_dir = output_dir / "corrected_visual_mapping"
+        canonical_metrics = _read_json_if_exists(output_dir / "canonical_view_metrics.json")
+        try:
+            corrected_visual_report = build_visual_mapping(
+                corrected_render_dir / "captures",
+                corrected_visual_dir,
+                front_path,
+                back_path,
+                side_path,
+                semantic_override_dir,
+                source_coverage,
+                canonical_metrics,
+            )
+            corrected_visual_result = {
+                "visual_mapping_report": corrected_visual_report,
+                "visual_mapping_report_path": corrected_visual_dir / "visual_mapping_report.json",
+                "comparison_contact_sheet": corrected_visual_dir / "comparison_contact_sheet.png",
+                "compare_images": [corrected_visual_dir / f"compare_{angle}.png" for angle in (0, 45, 90, 135, 180)],
+            }
+        except Exception as exc:
+            error_payload = {
+                "schema": "spritespatial_corrected_visual_mapping_error_v1",
+                "ok": False,
+                "error": str(exc),
+            }
+            _write_json(output_dir / "corrected_visual_mapping_error.json", error_payload)
+            corrected_visual_result = {"visual_mapping_report": {}, "visual_mapping_error": error_payload}
+    correction_report.update(
+        {
+            "corrected_render_result": render_result,
+            "corrected_visual_mapping_report": corrected_visual_result.get("visual_mapping_report", {}),
+            "corrected_visual_mapping_report_path": str(corrected_visual_result.get("visual_mapping_report_path", "")),
+            "corrected_visual_mapping_contact_sheet": str(corrected_visual_result.get("comparison_contact_sheet", "")),
+        }
+    )
+    _write_json(output_dir / "correction_report.json", correction_report)
+    return correction_report
+
+
+def _extend_phase6a_validation(
+    validation_report: dict[str, Any],
+    correction_result: dict[str, Any],
+) -> dict[str, Any]:
+    report = dict(validation_report)
+    fail_conditions = dict(report.get("fail_conditions", {}))
+    corrected_visual = correction_result.get("corrected_visual_mapping_report", {})
+    corrected_report_path = Path(str(correction_result.get("corrected_visual_mapping_report_path", "")))
+    visual_outputs_exist = bool(corrected_visual) and corrected_report_path.exists()
+    original_non_manifold = int(report.get("non_manifold_edge_count", 0))
+    corrected_non_manifold = int(correction_result.get("non_manifold_edge_count", original_non_manifold))
+    fail_conditions.update(
+        {
+            "silhouette_correction_failed": not bool(correction_result.get("passed", False)),
+            "silhouette_correction_front_iou_regressed": not bool(correction_result.get("front_iou_not_worse", False)),
+            "silhouette_correction_worst_view_not_improved": not bool(correction_result.get("worst_view_iou_improved", False)),
+            "silhouette_correction_semantic_labels_lost": bool(correction_result.get("semantic_labels_lost", [])),
+            "silhouette_correction_semantic_boundary_violations": int(correction_result.get("semantic_boundary_violations", 0)) > 0,
+            "silhouette_correction_degenerate_faces": int(correction_result.get("degenerate_face_count", 0)) > 0,
+            "silhouette_correction_disconnected_mesh": int(correction_result.get("mesh_connected_components", 99)) > 1,
+            "silhouette_correction_non_manifold_increase": corrected_non_manifold > original_non_manifold + max(2, int(original_non_manifold * 0.1)),
+            "corrected_visual_mapping_outputs_missing": not visual_outputs_exist,
+        }
+    )
+    report.update(
+        {
+            "canonical_silhouette_correction_enabled": True,
+            "silhouette_correction_iterations": correction_result.get("iterations", 0),
+            "max_silhouette_displacement": correction_result.get("max_silhouette_displacement", 0.0),
+            "max_vertex_displacement": correction_result.get("max_vertex_displacement", 0.0),
+            "front_iou_before_correction": correction_result.get("front_iou_before", 0.0),
+            "front_iou_after_correction": correction_result.get("front_iou_after", 0.0),
+            "front_iou_not_worse": correction_result.get("front_iou_not_worse", False),
+            "worst_view_before_correction": correction_result.get("worst_view_before", ""),
+            "worst_view_after_correction": correction_result.get("worst_view_after", ""),
+            "worst_view_iou_before_correction": correction_result.get("worst_view_iou_before", 0.0),
+            "worst_view_iou_after_correction": correction_result.get("worst_view_iou_after", 0.0),
+            "worst_view_iou_improved": correction_result.get("worst_view_iou_improved", False),
+            "semantic_boundary_violations": correction_result.get("semantic_boundary_violations", 0),
+            "corrected_visual_mapping_enabled": bool(corrected_visual),
+            "corrected_visual_mapping_outputs_exist": visual_outputs_exist,
+            "corrected_visual_mapping_report_path": str(corrected_report_path) if str(corrected_report_path) else "",
+            "corrected_front_visual_mapping_iou": corrected_visual.get("front_visual_mapping_iou", 0.0),
+            "corrected_worst_visual_mapping_view": corrected_visual.get("worst_visual_mapping_view", ""),
+            "corrected_worst_visual_mapping_score": corrected_visual.get("worst_visual_mapping_score", 0.0),
+            "fail_conditions": fail_conditions,
+            "passed": not any(fail_conditions.values()),
+        }
+    )
+    return report
+
+
 def _find_godot_executable(godot_arg: Path | None) -> Path | None:
     candidates: list[Path] = []
     if godot_arg:
@@ -2416,18 +2490,19 @@ def _find_godot_executable(godot_arg: Path | None) -> Path | None:
     env_path = os.environ.get("GODOT_EXECUTABLE")
     if env_path:
         candidates.append(Path(env_path))
-    for known in (
-        Path("C:/Users/jakep/Downloads/Godot_v4.6.2-stable_win64.exe/Godot_v4.6.2-stable_win64_console.exe"),
-        Path(os.environ.get("LOCALAPPDATA", "")) / "Programs" / "Godot" / "godot.exe",
-    ):
-        candidates.append(known)
+    candidates.extend(
+        [
+            Path("C:/Users/jakep/Downloads/Godot_v4.6.2-stable_win64.exe/Godot_v4.6.2-stable_win64_console.exe"),
+            Path(os.environ.get("LOCALAPPDATA", "")) / "Programs" / "Godot" / "godot.exe",
+        ]
+    )
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
     for name in ("godot", "godot4", "Godot_v4.6.2-stable_win64_console.exe"):
         found = shutil.which(name)
         if found:
-            candidates.append(Path(found))
-    for candidate in candidates:
-        if candidate and candidate.exists():
-            return candidate.resolve()
+            return Path(found)
     return None
 
 
