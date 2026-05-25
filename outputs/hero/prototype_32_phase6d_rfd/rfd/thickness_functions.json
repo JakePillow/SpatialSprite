@@ -1,0 +1,377 @@
+{
+  "regions": [
+    {
+      "region_id": 0,
+      "semantic_class": "hair/hat",
+      "thickness_function": {
+        "type": "taper",
+        "samples": [
+          {
+            "s": 0.0,
+            "value": 1.14
+          },
+          {
+            "s": 1.0,
+            "value": 0.41999999999999993
+          }
+        ]
+      }
+    },
+    {
+      "region_id": 1,
+      "semantic_class": "hair/hat",
+      "thickness_function": {
+        "type": "taper",
+        "samples": [
+          {
+            "s": 0.0,
+            "value": 1.14
+          },
+          {
+            "s": 1.0,
+            "value": 0.41999999999999993
+          }
+        ]
+      }
+    },
+    {
+      "region_id": 2,
+      "semantic_class": "head",
+      "thickness_function": {
+        "type": "constant",
+        "samples": [
+          {
+            "s": 0.0,
+            "value": 2.0
+          },
+          {
+            "s": 1.0,
+            "value": 2.0
+          }
+        ]
+      }
+    },
+    {
+      "region_id": 3,
+      "semantic_class": "hair/hat",
+      "thickness_function": {
+        "type": "taper",
+        "samples": [
+          {
+            "s": 0.0,
+            "value": 1.14
+          },
+          {
+            "s": 1.0,
+            "value": 0.41999999999999993
+          }
+        ]
+      }
+    },
+    {
+      "region_id": 4,
+      "semantic_class": "outline",
+      "thickness_function": {
+        "type": "constant",
+        "samples": [
+          {
+            "s": 0.0,
+            "value": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "region_id": 5,
+      "semantic_class": "outline",
+      "thickness_function": {
+        "type": "constant",
+        "samples": [
+          {
+            "s": 0.0,
+            "value": 1.4142135381698608
+          },
+          {
+            "s": 1.0,
+            "value": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "region_id": 6,
+      "semantic_class": "torso",
+      "thickness_function": {
+        "type": "bell",
+        "samples": [
+          {
+            "s": 0.0,
+            "value": 0.72
+          }
+        ]
+      }
+    },
+    {
+      "region_id": 7,
+      "semantic_class": "outline",
+      "thickness_function": {
+        "type": "constant",
+        "samples": [
+          {
+            "s": 0.0,
+            "value": 1.0
+          },
+          {
+            "s": 0.5,
+            "value": 2.0
+          },
+          {
+            "s": 1.0,
+            "value": 1.4142135381698608
+          }
+        ]
+      }
+    },
+    {
+      "region_id": 8,
+      "semantic_class": "outline",
+      "thickness_function": {
+        "type": "constant",
+        "samples": [
+          {
+            "s": 0.0,
+            "value": 2.0
+          },
+          {
+            "s": 1.0,
+            "value": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "region_id": 9,
+      "semantic_class": "torso",
+      "thickness_function": {
+        "type": "bell",
+        "samples": [
+          {
+            "s": 0.0,
+            "value": 0.72
+          }
+        ]
+      }
+    },
+    {
+      "region_id": 10,
+      "semantic_class": "torso",
+      "thickness_function": {
+        "type": "bell",
+        "samples": [
+          {
+            "s": 0.0,
+            "value": 0.72
+          },
+          {
+            "s": 0.25,
+            "value": 2.2108017316912867
+          },
+          {
+            "s": 0.5,
+            "value": 3.3000000000000003
+          },
+          {
+            "s": 0.75,
+            "value": 3.9548023074035523
+          },
+          {
+            "s": 1.0,
+            "value": 1.44
+          }
+        ]
+      }
+    },
+    {
+      "region_id": 11,
+      "semantic_class": "left_arm",
+      "thickness_function": {
+        "type": "asymmetric_taper",
+        "samples": [
+          {
+            "s": 0.0,
+            "value": 1.08
+          },
+          {
+            "s": 0.5,
+            "value": 1.3717871320247652
+          },
+          {
+            "s": 1.0,
+            "value": 1.4000000000000001
+          }
+        ]
+      }
+    },
+    {
+      "region_id": 12,
+      "semantic_class": "right_arm",
+      "thickness_function": {
+        "type": "asymmetric_taper",
+        "samples": [
+          {
+            "s": 0.0,
+            "value": 1.08
+          },
+          {
+            "s": 0.5,
+            "value": 1.3717871320247652
+          },
+          {
+            "s": 1.0,
+            "value": 1.4000000000000001
+          }
+        ]
+      }
+    },
+    {
+      "region_id": 13,
+      "semantic_class": "outline",
+      "thickness_function": {
+        "type": "constant",
+        "samples": [
+          {
+            "s": 0.0,
+            "value": 1.0
+          },
+          {
+            "s": 1.0,
+            "value": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "region_id": 14,
+      "semantic_class": "outline",
+      "thickness_function": {
+        "type": "constant",
+        "samples": [
+          {
+            "s": 0.0,
+            "value": 1.0
+          },
+          {
+            "s": 1.0,
+            "value": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "region_id": 15,
+      "semantic_class": "left_leg",
+      "thickness_function": {
+        "type": "asymmetric_taper",
+        "samples": [
+          {
+            "s": 0.0,
+            "value": 2.16
+          },
+          {
+            "s": 0.5,
+            "value": 1.9400000000000002
+          },
+          {
+            "s": 1.0,
+            "value": 1.4000000000000001
+          }
+        ]
+      }
+    },
+    {
+      "region_id": 16,
+      "semantic_class": "right_leg",
+      "thickness_function": {
+        "type": "asymmetric_taper",
+        "samples": [
+          {
+            "s": 0.0,
+            "value": 1.08
+          },
+          {
+            "s": 0.5,
+            "value": 1.3717871320247652
+          },
+          {
+            "s": 1.0,
+            "value": 1.4000000000000001
+          }
+        ]
+      }
+    },
+    {
+      "region_id": 17,
+      "semantic_class": "outline",
+      "thickness_function": {
+        "type": "constant",
+        "samples": [
+          {
+            "s": 0.0,
+            "value": 1.0
+          },
+          {
+            "s": 1.0,
+            "value": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "region_id": 18,
+      "semantic_class": "outline",
+      "thickness_function": {
+        "type": "constant",
+        "samples": [
+          {
+            "s": 0.0,
+            "value": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "region_id": 19,
+      "semantic_class": "boots/feet",
+      "thickness_function": {
+        "type": "constant",
+        "samples": [
+          {
+            "s": 0.0,
+            "value": 1.0
+          },
+          {
+            "s": 1.0,
+            "value": 1.0
+          }
+        ]
+      }
+    },
+    {
+      "region_id": 20,
+      "semantic_class": "boots/feet",
+      "thickness_function": {
+        "type": "constant",
+        "samples": [
+          {
+            "s": 0.0,
+            "value": 1.0
+          },
+          {
+            "s": 1.0,
+            "value": 1.0
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -26,6 +26,7 @@ def analyze_source_coverage(
             "back_reference_recommended": True,
             "side_reference_recommended": True,
             "fidelity_limit": "front_missing",
+            "back_geometry_authority": "missing",
             "warnings": ["No spriteasset schema was provided; source authority cannot be established."],
             "details": {},
             "fail_conditions": _fail_conditions(profile, "missing", "missing", "missing"),
@@ -39,9 +40,12 @@ def analyze_source_coverage(
     back_recommended = back_status != "authored"
     side_recommended = left_status != "authored" or right_status != "authored"
     fidelity = _fidelity_limit(front_status, back_status, left_status, right_status)
+    back_geometry_authority = _back_geometry_authority(back_mode, details["back"].get("exists", False))
     warnings = []
     if back_recommended and back_mode == "semantic_rules":
         warnings.append("Back view is inferred from semantic rules. This is structurally valid but not artistically authoritative.")
+    if back_status == "authored" and back_mode == "semantic_rules":
+        warnings.append("Authored back sprite is available but semantic_rules uses it only as optional comparison, not geometry authority.")
     if side_recommended:
         warnings.append("Side profile is generated from primitive/SDF priors. Provide side sprite for higher fidelity.")
     fail_conditions = _fail_conditions(profile, back_status, left_status, right_status)
@@ -53,6 +57,7 @@ def analyze_source_coverage(
         "back_reference_recommended": back_recommended,
         "side_reference_recommended": side_recommended,
         "fidelity_limit": fidelity,
+        "back_geometry_authority": back_geometry_authority,
         "warnings": warnings,
         "details": details,
         "fail_conditions": fail_conditions,
@@ -160,6 +165,14 @@ def _fail_conditions(profile: dict[str, Any], back: str, left: str, right: str) 
         "quality_requires_authored_back": require_authored_back and back != "authored",
         "quality_requires_authored_sides": require_authored_sides and (left != "authored" or right != "authored"),
     }
+
+
+def _back_geometry_authority(back_mode: str, back_exists: bool) -> str:
+    if back_mode == "front_back_sprite":
+        return "authored_back" if back_exists else "missing"
+    if back_mode in {"semantic_rules", "symmetric"}:
+        return back_mode
+    return "missing"
 
 
 def _find_source_sheet(asset: AssetSchema, raw_search_root: Path) -> Path | None:

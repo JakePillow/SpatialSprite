@@ -39,6 +39,23 @@ PART_ORDER = [
     "unknown",
 ]
 
+OVERRIDE_PRIORITY = [
+    "outline",
+    "equipment",
+    "hair",
+    "face",
+    "head",
+    "torso",
+    "left_arm",
+    "right_arm",
+    "left_leg",
+    "right_leg",
+    "left_foot",
+    "right_foot",
+    "boots_feet",
+    "unknown",
+]
+
 SEMANTIC_COLOURS = {
     "outline": (8, 8, 8, 255),
     "head": (245, 190, 126, 255),
@@ -105,6 +122,7 @@ def load_semantic_overrides(
     overlap_pixels = [pixel for pixel, count in owner_count.items() if count > 1]
     report["override_pixels_applied"] = sum(len(pixels) for pixels in masks.values())
     report["override_overlap_count"] = len(overlap_pixels)
+    report["override_overlap_ratio"] = len(overlap_pixels) / max(int(report["override_pixels_applied"]), 1)
     report["overlap_pixels"] = [list(pixel) for pixel in overlap_pixels[:200]]
     if report["dimension_mismatches"]:
         report["passed"] = False
@@ -126,16 +144,25 @@ def apply_semantic_overrides_to_parts(
         return heuristic_parts, _empty_apply_report(source), {}
 
     opaque = _opaque_pixels(source)
+    outline_seam = _opaque_seam(opaque, source.size)
     override_owner: dict[Pixel, str] = {}
     overlap_pixels: set[Pixel] = set()
+    priority_index = {name: index for index, name in enumerate(OVERRIDE_PRIORITY)}
+    rgba = source.convert("RGBA").load()
     for label, pixels in masks.items():
         for pixel in pixels:
             if pixel not in opaque:
                 continue
-            if pixel in override_owner and override_owner[pixel] != label:
+            owner_label = _normalise_part_name(label, pixel, source.width)
+            if pixel in override_owner and override_owner[pixel] != owner_label:
                 overlap_pixels.add(pixel)
+                current = override_owner[pixel]
+                owner_priority = _effective_priority_name(owner_label, pixel, rgba, outline_seam)
+                current_priority = _effective_priority_name(current, pixel, rgba, outline_seam)
+                if priority_index.get(owner_priority, 999) < priority_index.get(current_priority, 999):
+                    override_owner[pixel] = owner_label
                 continue
-            override_owner[pixel] = label
+            override_owner[pixel] = owner_label
 
     heuristic_owner = _heuristic_owner(heuristic_parts)
     grouped: dict[str, set[Pixel]] = {name: set() for name in PART_ORDER}
@@ -209,6 +236,7 @@ def _empty_apply_report(source: Image.Image) -> dict[str, Any]:
     return {
         "override_pixels_applied": 0,
         "override_overlap_count": 0,
+        "override_overlap_ratio": 0.0,
         "unlabelled_opaque_pixel_ratio": 0.0,
         "critical_label_coverage": {},
         "torso_head_overlap_count_after_override": 0,
@@ -235,6 +263,7 @@ def _override_apply_report(
     report = {
         "override_pixels_applied": sum(len(pixels) for pixels in grouped.values()),
         "override_overlap_count": len(overlap_pixels),
+        "override_overlap_ratio": len(overlap_pixels) / max(sum(len(pixels) for pixels in grouped.values()), 1),
         "unlabelled_opaque_pixel_ratio": len(opaque - labelled) / max(len(opaque), 1),
         "critical_label_coverage": critical,
         "torso_head_overlap_count_after_override": _torso_head_overlap_from_groups(grouped),
@@ -274,6 +303,41 @@ def _normalise_part_name(name: str, pixel: Pixel, width: int) -> str:
     if name == "equipment/shield/sword":
         return "equipment"
     return name
+
+
+def _priority_name(name: str) -> str:
+    if name in {"left_foot", "right_foot", "boots/feet"}:
+        return "boots_feet"
+    if name == "hair/hat":
+        return "hair"
+    if name == "equipment/shield/sword":
+        return "equipment"
+    return name
+
+
+def _effective_priority_name(name: str, pixel: Pixel, rgba, outline_seam: set[Pixel]) -> str:
+    priority = _priority_name(name)
+    if priority == "outline" and not _is_outline_authoritative(pixel, rgba, outline_seam):
+        return "unknown"
+    return priority
+
+
+def _is_outline_authoritative(pixel: Pixel, rgba, outline_seam: set[Pixel]) -> bool:
+    red, green, blue, alpha = rgba[pixel[0], pixel[1]]
+    if alpha <= 16:
+        return False
+    return pixel in outline_seam and max(red, green, blue) <= 64
+
+
+def _opaque_seam(opaque: set[Pixel], size: tuple[int, int]) -> set[Pixel]:
+    width, height = size
+    seam = set()
+    for x, y in opaque:
+        for nx, ny in ((x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)):
+            if nx < 0 or ny < 0 or nx >= width or ny >= height or (nx, ny) not in opaque:
+                seam.add((x, y))
+                break
+    return seam
 
 
 def _semantic_label(name: str) -> str:

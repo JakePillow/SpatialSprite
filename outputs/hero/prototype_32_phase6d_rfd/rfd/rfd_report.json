@@ -1,0 +1,219 @@
+{
+  "schema": "spritespatial_rfd_report_v1",
+  "rfd_enabled": true,
+  "rfd_region_count": 21,
+  "centerline_quality_score": 0.8603248964428858,
+  "field_continuity_score": 0.9119839679358718,
+  "thickness_profile_variance": 0.43428972363471985,
+  "anisotropy_score": 0.9394285714285715,
+  "directional_field_coherence": 0.6242781043052674,
+  "surface_flow_rfd_alignment": 0.7091207245729682,
+  "silhouette_constraint_preservation": 1.0,
+  "semantic_regions": [
+    {
+      "region_id": 0,
+      "semantic_class": "hair/hat",
+      "centerline_point_count": 2,
+      "thickness_type": "taper",
+      "primitive_candidates": [
+        "tapered_prism",
+        "shell",
+        "capsule_chain"
+      ]
+    },
+    {
+      "region_id": 1,
+      "semantic_class": "hair/hat",
+      "centerline_point_count": 2,
+      "thickness_type": "taper",
+      "primitive_candidates": [
+        "tapered_prism",
+        "shell",
+        "capsule_chain"
+      ]
+    },
+    {
+      "region_id": 2,
+      "semantic_class": "head",
+      "centerline_point_count": 2,
+      "thickness_type": "constant",
+      "primitive_candidates": [
+        "ellipsoid",
+        "rounded_cuboid"
+      ]
+    },
+    {
+      "region_id": 3,
+      "semantic_class": "hair/hat",
+      "centerline_point_count": 2,
+      "thickness_type": "taper",
+      "primitive_candidates": [
+        "tapered_prism",
+        "shell",
+        "capsule_chain"
+      ]
+    },
+    {
+      "region_id": 4,
+      "semantic_class": "outline",
+      "centerline_point_count": 1,
+      "thickness_type": "constant",
+      "primitive_candidates": [
+        "shell"
+      ]
+    },
+    {
+      "region_id": 5,
+      "semantic_class": "outline",
+      "centerline_point_count": 2,
+      "thickness_type": "constant",
+      "primitive_candidates": [
+        "shell"
+      ]
+    },
+    {
+      "region_id": 6,
+      "semantic_class": "torso",
+      "centerline_point_count": 1,
+      "thickness_type": "bell",
+      "primitive_candidates": [
+        "rounded_cuboid",
+        "ellipsoid"
+      ]
+    },
+    {
+      "region_id": 7,
+      "semantic_class": "outline",
+      "centerline_point_count": 3,
+      "thickness_type": "constant",
+      "primitive_candidates": [
+        "shell"
+      ]
+    },
+    {
+      "region_id": 8,
+      "semantic_class": "outline",
+      "centerline_point_count": 2,
+      "thickness_type": "constant",
+      "primitive_candidates": [
+        "shell"
+      ]
+    },
+    {
+      "region_id": 9,
+      "semantic_class": "torso",
+      "centerline_point_count": 1,
+      "thickness_type": "bell",
+      "primitive_candidates": [
+        "rounded_cuboid",
+        "ellipsoid"
+      ]
+    },
+    {
+      "region_id": 10,
+      "semantic_class": "torso",
+      "centerline_point_count": 5,
+      "thickness_type": "bell",
+      "primitive_candidates": [
+        "rounded_cuboid",
+        "ellipsoid"
+      ]
+    },
+    {
+      "region_id": 11,
+      "semantic_class": "left_arm",
+      "centerline_point_count": 3,
+      "thickness_type": "asymmetric_taper",
+      "primitive_candidates": [
+        "capsule_chain",
+        "tapered_prism"
+      ]
+    },
+    {
+      "region_id": 12,
+      "semantic_class": "right_arm",
+      "centerline_point_count": 3,
+      "thickness_type": "asymmetric_taper",
+      "primitive_candidates": [
+        "capsule_chain",
+        "tapered_prism"
+      ]
+    },
+    {
+      "region_id": 13,
+      "semantic_class": "outline",
+      "centerline_point_count": 2,
+      "thickness_type": "constant",
+      "primitive_candidates": [
+        "shell"
+      ]
+    },
+    {
+      "region_id": 14,
+      "semantic_class": "outline",
+      "centerline_point_count": 2,
+      "thickness_type": "constant",
+      "primitive_candidates": [
+        "shell"
+      ]
+    },
+    {
+      "region_id": 15,
+      "semantic_class": "left_leg",
+      "centerline_point_count": 3,
+      "thickness_type": "asymmetric_taper",
+      "primitive_candidates": [
+        "tapered_capsule_chain",
+        "capsule_chain"
+      ]
+    },
+    {
+      "region_id": 16,
+      "semantic_class": "right_leg",
+      "centerline_point_count": 3,
+      "thickness_type": "asymmetric_taper",
+      "primitive_candidates": [
+        "tapered_capsule_chain",
+        "capsule_chain"
+      ]
+    },
+    {
+      "region_id": 17,
+      "semantic_class": "outline",
+      "centerline_point_count": 2,
+      "thickness_type": "constant",
+      "primitive_candidates": [
+        "shell"
+      ]
+    },
+    {
+      "region_id": 18,
+      "semantic_class": "outline",
+      "centerline_point_count": 1,
+      "thickness_type": "constant",
+      "primitive_candidates": [
+        "shell"
+      ]
+    },
+    {
+      "region_id": 19,
+      "semantic_class": "boots/feet",
+      "centerline_point_count": 2,
+      "thickness_type": "constant",
+      "primitive_candidates": [
+        "flattened_rounded_box",
+        "rounded_cuboid"
+      ]
+    },
+    {
+      "region_id": 20,
+      "semantic_class": "boots/feet",
+      "centerline_point_count": 2,
+      "thickness_type": "constant",
+      "primitive_candidates": [
+        "flattened_rounded_box",
+        "rounded_cuboid"
+      ]
+    }
+  ]
+}

@@ -16,8 +16,12 @@ def build_phase5a_validation(
     parts: list[dict[str, Any]],
     back_mode: str,
     source_coverage: dict[str, Any] | None = None,
+    semantic_authority: dict[str, Any] | None = None,
+    semantic_parts: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     source_coverage = source_coverage or {}
+    semantic_authority = semantic_authority or {}
+    semantic_parts = semantic_parts or {}
     mylar_report = mylar["report"]
     back_report = back["report"]
     seam_report = seam["report"]
@@ -25,6 +29,9 @@ def build_phase5a_validation(
     semantic_depth_enabled = bool(sdf_summary.get("semantic_depth_profiles_enabled", False))
     directional_enabled = bool(sdf_summary.get("directional_morphology_enabled", False))
     surface_flow_enabled = bool(sdf_summary.get("surface_flow_enabled", False))
+    rfd_enabled = bool(sdf_summary.get("rfd_enabled", False))
+    semantic_authority_enabled = bool(semantic_authority.get("semantic_authority_enabled", False))
+    semantic_parts_enabled = bool(semantic_parts.get("semantic_parts_enabled", False))
     mesh_report = meshing["report"]
     required_labels = labels_present_in_parts(parts)
     present_labels = list(sdf_summary.get("semantic_volume_labels", []))
@@ -47,6 +54,10 @@ def build_phase5a_validation(
         "outline_full_depth_slab": mylar_report.get("outline_full_depth_slab", False),
         "missing_critical_back_regions": bool(back_report.get("missing_critical_back_regions", [])),
         "source_coverage_policy_failed": any(source_coverage.get("fail_conditions", {}).values()),
+        "semantic_authority_failed": semantic_authority_enabled and not semantic_authority.get("passed", False),
+        "semantic_parts_failed": semantic_parts_enabled and not semantic_parts.get("passed", False),
+        "semantic_parts_geometry_not_canonical": semantic_parts_enabled
+        and not semantic_parts.get("geometry_uses_canonical_parts", False),
         "semantic_depth_uniform_slab": semantic_depth_enabled and float(sdf_summary.get("uniform_slab_ratio", 1.0)) > 0.70,
         "semantic_depth_variance_missing": semantic_depth_enabled and float(sdf_summary.get("semantic_depth_variance", 0.0)) <= 0.0,
         "semantic_outline_shell_too_thick": semantic_depth_enabled and float(sdf_summary.get("outline_shell_ratio", 0.0)) > 1.0,
@@ -54,11 +65,18 @@ def build_phase5a_validation(
         "directional_morphology_missing": directional_enabled and int(sdf_summary.get("directional_semantic_count", 0)) <= 0,
         "directional_morphology_unreadable": directional_enabled
         and float(sdf_summary.get("directional_readability_score", 0.0)) < 0.10,
+        "hat_pointed_back_asymmetry_low": directional_enabled
+        and bool(sdf_summary.get("hat_pointed_back_present", False))
+        and float(sdf_summary.get("hat_asymmetry_ratio", 0.0)) <= 2.0,
         "surface_flow_missing_transitions": surface_flow_enabled and int(sdf_summary.get("semantic_transition_count", 0)) <= 0,
         "surface_flow_continuity_low": surface_flow_enabled and float(sdf_summary.get("surface_continuity_score", 0.0)) < 0.12,
         "surface_flow_anatomical_flow_low": surface_flow_enabled and float(sdf_summary.get("anatomical_flow_score", 0.0)) < 0.20,
         "surface_flow_fragmentation_high": surface_flow_enabled
         and float(sdf_summary.get("surface_fragmentation_score", 1.0)) > 0.85,
+        "rfd_regions_missing": rfd_enabled and int(sdf_summary.get("rfd_region_count", 0)) <= 0,
+        "rfd_centerline_quality_low": rfd_enabled and float(sdf_summary.get("centerline_quality_score", 0.0)) < 0.10,
+        "rfd_field_continuity_low": rfd_enabled and float(sdf_summary.get("field_continuity_score", 0.0)) < 0.20,
+        "rfd_silhouette_constraints_lost": rfd_enabled and float(sdf_summary.get("silhouette_constraint_preservation", 0.0)) < 0.95,
     }
     return {
         "mylar_depth_enabled": True,
@@ -87,8 +105,32 @@ def build_phase5a_validation(
         "manifold_ready_estimate": sdf_summary.get("closed_volume_connected", False)
         and sdf_summary.get("sdf_sign_consistency", False),
         "front_back_sprite_deferred": back_report.get("front_back_sprite_deferred", False),
+        "back_geometry_authority": back_report.get("back_geometry_authority", semantic_authority.get("back_geometry_authority", "")),
         "source_coverage": source_coverage,
-        "build_warnings": list(source_coverage.get("warnings", [])),
+        "build_warnings": list(source_coverage.get("warnings", []))
+        + list(semantic_authority.get("warnings", []))
+        + list(semantic_parts.get("warnings", [])),
+        "semantic_authority_enabled": semantic_authority_enabled,
+        "override_overlap_ratio": semantic_authority.get("override_overlap_ratio", 0.0),
+        "hat_authority_passed": semantic_authority.get("hat_authority_passed", True),
+        "hat_pixel_count": semantic_authority.get("hat_pixel_count", 0),
+        "hat_component_count": semantic_authority.get("hat_component_count", 0),
+        "hat_head_attachment_score": semantic_authority.get("hat_head_attachment_score", 0.0),
+        "hat_torso_overlap_count": semantic_authority.get("hat_torso_overlap_count", 0),
+        "hat_directional_morphology_allowed": semantic_authority.get("hat_directional_morphology_allowed", False),
+        "directional_morphology_gated_labels": semantic_authority.get("directional_morphology_gated_labels", []),
+        "front_back_semantic_correspondence_passed": semantic_authority.get(
+            "front_back_semantic_correspondence_passed", True
+        ),
+        "semantic_parts_enabled": semantic_parts_enabled,
+        "raw_region_count": semantic_parts.get("raw_region_count", 0),
+        "canonical_part_count": semantic_parts.get("canonical_part_count", 0),
+        "part_reduction_ratio": semantic_parts.get("part_reduction_ratio", 0.0),
+        "tiny_orphans_absorbed": semantic_parts.get("tiny_orphans_absorbed", 0),
+        "outline_debris_removed": semantic_parts.get("outline_debris_removed", 0),
+        "geometry_uses_canonical_parts": semantic_parts.get("geometry_uses_canonical_parts", not semantic_parts_enabled),
+        "canonical_required_parts_present": semantic_parts.get("canonical_required_parts_present", True),
+        "semantic_part_warnings": list(semantic_parts.get("warnings", [])),
         "semantic_depth_profiles_enabled": semantic_depth_enabled,
         "semantic_depth_profile": sdf_summary.get("semantic_depth_profile", ""),
         "uniform_slab_ratio": sdf_summary.get("uniform_slab_ratio", 0.0),
@@ -107,6 +149,10 @@ def build_phase5a_validation(
         "front_compression_score": sdf_summary.get("front_compression_score", 0.0),
         "directional_readability_score": sdf_summary.get("directional_readability_score", 0.0),
         "symmetric_volume_penalty": sdf_summary.get("symmetric_volume_penalty", 0.0),
+        "hat_pointed_back_present": sdf_summary.get("hat_pointed_back_present", False),
+        "front_hat_extension_score": sdf_summary.get("front_hat_extension_score", 0.0),
+        "back_hat_extension_score": sdf_summary.get("back_hat_extension_score", 0.0),
+        "hat_asymmetry_ratio": sdf_summary.get("hat_asymmetry_ratio", 0.0),
         "surface_flow_enabled": surface_flow_enabled,
         "semantic_transition_count": sdf_summary.get("semantic_transition_count", 0),
         "surface_continuity_score": sdf_summary.get("surface_continuity_score", 0.0),
@@ -115,6 +161,15 @@ def build_phase5a_validation(
         "surface_fragmentation_score": sdf_summary.get("surface_fragmentation_score", 0.0),
         "staircase_artifact_score": sdf_summary.get("staircase_artifact_score", 0.0),
         "anatomical_flow_score": sdf_summary.get("anatomical_flow_score", 0.0),
+        "rfd_enabled": rfd_enabled,
+        "rfd_region_count": sdf_summary.get("rfd_region_count", 0),
+        "centerline_quality_score": sdf_summary.get("centerline_quality_score", 0.0),
+        "field_continuity_score": sdf_summary.get("field_continuity_score", 0.0),
+        "thickness_profile_variance": sdf_summary.get("thickness_profile_variance", 0.0),
+        "anisotropy_score": sdf_summary.get("anisotropy_score", 0.0),
+        "directional_field_coherence": sdf_summary.get("directional_field_coherence", 0.0),
+        "surface_flow_rfd_alignment": sdf_summary.get("surface_flow_rfd_alignment", 0.0),
+        "silhouette_constraint_preservation": sdf_summary.get("silhouette_constraint_preservation", 0.0),
         "fail_conditions": fail_conditions,
         "passed": not any(fail_conditions.values()),
     }

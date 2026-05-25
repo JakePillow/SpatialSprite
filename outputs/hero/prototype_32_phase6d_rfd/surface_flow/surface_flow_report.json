@@ -1,0 +1,21 @@
+{
+  "schema": "spritespatial_surface_flow_v1",
+  "surface_flow_enabled": true,
+  "surface_flow_strength": 0.45,
+  "surface_flow_iterations": 2,
+  "semantic_transition_count": 19,
+  "transition_contact_count": 111,
+  "surface_continuity_score": 1.0,
+  "surface_continuity_before": 0.9954954954954955,
+  "surface_continuity_delta": 0.0045045045045044585,
+  "semantic_seam_score": 1.0,
+  "oblique_surface_readability": 0.8296381462772495,
+  "surface_fragmentation_score": 0.0,
+  "staircase_artifact_score": 0.08144288577154309,
+  "anatomical_flow_score": 0.949489530457548,
+  "added_surface_flow_voxels": 137,
+  "surface_flow_rfd_alignment": 0.7091207245729682,
+  "front_silhouette_preserved": true,
+  "semantic_ownership_preserved": true,
+  "directional_morphology_preserved": true
+}

@@ -10,6 +10,8 @@ from typing import Any
 import numpy as np
 from PIL import Image, ImageDraw
 
+from spritespatial.rfd import RegionFieldDescriptor, descriptor_alignment
+
 Pixel = tuple[int, int]
 
 
@@ -161,12 +163,15 @@ def apply_surface_flow(
     strength: float = 0.45,
     iterations: int = 2,
     emit_debug: bool = False,
+    rfd_result: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     strength = max(0.0, min(1.0, float(strength)))
     iterations = max(1, int(iterations))
     labels = _label_grid(alpha_mask, label_by_pixel)
     seam = _silhouette_seam(alpha_mask)
     graph = build_semantic_surface_graph(labels, alpha_mask, strength)
+    rfd_descriptors = _rfd_descriptors(rfd_result)
+    rfd_alignment_by_pair = _annotate_rfd_alignment(graph["transitions"], rfd_descriptors)
     contacts: list[dict[str, Any]] = graph["contacts"]
     before_continuity = _continuity_score(occupancy, contacts)
 
@@ -199,7 +204,8 @@ def apply_surface_flow(
             flow_y[ny, nx] += float(y - ny) * rule.transition_strength
             if _preserve_pair(label_a, label_b, seam[y, x], seam[ny, nx]):
                 continue
-            local_strength = strength * rule.transition_strength
+            alignment = rfd_alignment_by_pair.get(_key(label_a, label_b), 0.0)
+            local_strength = strength * rule.transition_strength * (0.88 + 0.24 * alignment)
             added_voxels += _blend_column_pair(
                 next_refined,
                 refined_semantic,
@@ -257,6 +263,7 @@ def apply_surface_flow(
         "staircase_artifact_score": staircase,
         "anatomical_flow_score": anatomical_flow_score,
         "added_surface_flow_voxels": int(added_voxels),
+        "surface_flow_rfd_alignment": float(sum(rfd_alignment_by_pair.values()) / len(rfd_alignment_by_pair)) if rfd_alignment_by_pair else 0.0,
         "front_silhouette_preserved": True,
         "semantic_ownership_preserved": True,
         "directional_morphology_preserved": True,
@@ -323,6 +330,29 @@ def smooth_surface_flow_sdf(
             else:
                 result[y_i, x_i, z_i] = max(1e-4, blended)
     return result.astype(np.float32)
+
+
+def _rfd_descriptors(rfd_result: dict[str, Any] | None) -> list[RegionFieldDescriptor]:
+    if not rfd_result:
+        return []
+    return [item for item in rfd_result.get("descriptors", []) if isinstance(item, RegionFieldDescriptor)]
+
+
+def _annotate_rfd_alignment(
+    transitions: list[dict[str, Any]],
+    descriptors: list[RegionFieldDescriptor],
+) -> dict[tuple[str, str], float]:
+    if not descriptors:
+        return {}
+    result: dict[tuple[str, str], float] = {}
+    for transition in transitions:
+        semantic_a = str(transition.get("semantic_a", "unknown"))
+        semantic_b = str(transition.get("semantic_b", "unknown"))
+        alignment = descriptor_alignment(descriptors, semantic_a, semantic_b)
+        transition["rfd_alignment"] = alignment
+        transition["centerline_guided"] = alignment > 0.0
+        result[_key(semantic_a, semantic_b)] = alignment
+    return result
 
 
 def build_semantic_surface_graph(labels: np.ndarray, alpha_mask: np.ndarray, strength: float) -> dict[str, Any]:

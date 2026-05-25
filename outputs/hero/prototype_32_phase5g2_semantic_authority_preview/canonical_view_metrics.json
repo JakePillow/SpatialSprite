@@ -1,0 +1,182 @@
+{
+  "schema": "spritespatial_canonical_view_metrics_v1",
+  "canonical_views": [
+    {
+      "yaw": 0,
+      "view": "front",
+      "authority": "source_sprite",
+      "target_type": "front_alpha"
+    },
+    {
+      "yaw": 45,
+      "view": "oblique",
+      "authority": "interpolated_prior",
+      "target_type": "front_to_side_transition"
+    },
+    {
+      "yaw": 90,
+      "view": "side",
+      "authority": "primitive_prior",
+      "target_type": "side_profile"
+    },
+    {
+      "yaw": 135,
+      "view": "side_135",
+      "authority": "interpolated_prior",
+      "target_type": "side_to_back_transition"
+    },
+    {
+      "yaw": 180,
+      "view": "back",
+      "authority": "authored",
+      "target_type": "back_alpha_or_inferred"
+    }
+  ],
+  "view_metrics": {
+    "front": {
+      "silhouette_iou": 0.4432199115963096,
+      "silhouette_precision": 0.44382556516056204,
+      "silhouette_recall": 0.9969305708470957,
+      "bounding_box_drift": {
+        "x": 44.0,
+        "y": 56.0,
+        "width": 88.0,
+        "height": 112.0
+      },
+      "centre_of_mass_drift": {
+        "x": 2.131919269480818,
+        "y": 34.85824888777228
+      },
+      "rendered_pixel_count": 67326,
+      "target_pixel_count": 29973,
+      "canonical_view": {
+        "yaw": 0,
+        "view": "front",
+        "authority": "source_sprite",
+        "target_type": "front_alpha"
+      },
+      "capture": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5g2_semantic_authority_preview\\captures\\front.png",
+      "rendered_mask": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5g2_semantic_authority_preview\\silhouette_masks\\rendered_front.png",
+      "target_mask": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5g2_semantic_authority_preview\\silhouette_masks\\target_front.png",
+      "overlay": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5g2_semantic_authority_preview\\silhouette_overlay_0.png"
+    },
+    "oblique": {
+      "silhouette_iou": 0.27233969986357437,
+      "silhouette_precision": 0.2730661377470761,
+      "silhouette_recall": 0.9903261813220886,
+      "bounding_box_drift": {
+        "x": 86.0,
+        "y": 52.0,
+        "width": 172.0,
+        "height": 104.0
+      },
+      "centre_of_mass_drift": {
+        "x": 5.1536122993297795,
+        "y": 31.066000056256257
+      },
+      "rendered_pixel_count": 58484,
+      "target_pixel_count": 16126,
+      "canonical_view": {
+        "yaw": 45,
+        "view": "oblique",
+        "authority": "interpolated_prior",
+        "target_type": "front_to_side_transition"
+      },
+      "capture": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5g2_semantic_authority_preview\\captures\\oblique.png",
+      "rendered_mask": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5g2_semantic_authority_preview\\silhouette_masks\\rendered_oblique.png",
+      "target_mask": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5g2_semantic_authority_preview\\silhouette_masks\\target_oblique.png",
+      "overlay": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5g2_semantic_authority_preview\\silhouette_overlay_45.png"
+    },
+    "side": {
+      "silhouette_iou": 0.3504501811932604,
+      "silhouette_precision": 0.35442918406287194,
+      "silhouette_recall": 0.9689598182005991,
+      "bounding_box_drift": {
+        "x": 104.5,
+        "y": 52.0,
+        "width": 209.0,
+        "height": 104.0
+      },
+      "centre_of_mass_drift": {
+        "x": 10.556099562244526,
+        "y": 42.97622433547531
+      },
+      "rendered_pixel_count": 52933,
+      "target_pixel_count": 19362,
+      "canonical_view": {
+        "yaw": 90,
+        "view": "side",
+        "authority": "primitive_prior",
+        "target_type": "side_profile"
+      },
+      "capture": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5g2_semantic_authority_preview\\captures\\side.png",
+      "rendered_mask": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5g2_semantic_authority_preview\\silhouette_masks\\rendered_side.png",
+      "target_mask": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5g2_semantic_authority_preview\\silhouette_masks\\target_side.png",
+      "overlay": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5g2_semantic_authority_preview\\silhouette_overlay_90.png"
+    },
+    "side_135": {
+      "silhouette_iou": 0.2668344870988043,
+      "silhouette_precision": 0.26828368046401263,
+      "silhouette_recall": 0.9801579657098825,
+      "bounding_box_drift": {
+        "x": 85.0,
+        "y": 50.5,
+        "width": 170.0,
+        "height": 101.0
+      },
+      "centre_of_mass_drift": {
+        "x": 8.053645647928533,
+        "y": 32.88443523997239
+      },
+      "rendered_pixel_count": 56895,
+      "target_pixel_count": 15573,
+      "canonical_view": {
+        "yaw": 135,
+        "view": "side_135",
+        "authority": "interpolated_prior",
+        "target_type": "side_to_back_transition"
+      },
+      "capture": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5g2_semantic_authority_preview\\captures\\side_135.png",
+      "rendered_mask": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5g2_semantic_authority_preview\\silhouette_masks\\rendered_side_135.png",
+      "target_mask": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5g2_semantic_authority_preview\\silhouette_masks\\target_side_135.png",
+      "overlay": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5g2_semantic_authority_preview\\silhouette_overlay_135.png"
+    },
+    "back": {
+      "silhouette_iou": 0.440470372632865,
+      "silhouette_precision": 0.44140063052860334,
+      "silhouette_recall": 0.9952380952380953,
+      "bounding_box_drift": {
+        "x": 43.0,
+        "y": 55.5,
+        "width": 86.0,
+        "height": 111.0
+      },
+      "centre_of_mass_drift": {
+        "x": 3.0394838822136307,
+        "y": 28.757200530017997
+      },
+      "rendered_pixel_count": 65342,
+      "target_pixel_count": 28980,
+      "canonical_view": {
+        "yaw": 180,
+        "view": "back",
+        "authority": "authored",
+        "target_type": "back_alpha_or_inferred"
+      },
+      "capture": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5g2_semantic_authority_preview\\captures\\back.png",
+      "rendered_mask": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5g2_semantic_authority_preview\\silhouette_masks\\rendered_back.png",
+      "target_mask": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5g2_semantic_authority_preview\\silhouette_masks\\target_back.png",
+      "overlay": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase5g2_semantic_authority_preview\\silhouette_overlay_180.png"
+    }
+  },
+  "front_iou": 0.4432199115963096,
+  "oblique_iou": 0.27233969986357437,
+  "side_iou": 0.3504501811932604,
+  "side_135_iou": 0.2668344870988043,
+  "back_iou": 0.440470372632865,
+  "worst_view": "side_135",
+  "front_back_similarity_warning": true,
+  "side_front_visual_similarity_warning": false,
+  "side_profile_authority": "primitive_prior",
+  "back_view_authority": "authored"
+}

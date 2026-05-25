@@ -226,6 +226,10 @@ def synthesize_semantic_occupancy(
                 "front_compression_score": 0.0,
                 "directional_readability_score": 0.0,
                 "symmetric_volume_penalty": 0.0,
+                "hat_pointed_back_present": False,
+                "front_hat_extension_score": 0.0,
+                "back_hat_extension_score": 0.0,
+                "hat_asymmetry_ratio": 0.0,
             }
         )
     paths: dict[str, Path] = {}

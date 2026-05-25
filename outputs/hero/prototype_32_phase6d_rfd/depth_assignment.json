@@ -1,0 +1,516 @@
+{
+  "assignments": [
+    {
+      "region_id": 0,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 1,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 2,
+      "label": "torso",
+      "z_offset": 0.0,
+      "local_depth": 0.48,
+      "smoothing_strength": 0.35,
+      "merge_policy": "core"
+    },
+    {
+      "region_id": 3,
+      "label": "torso",
+      "z_offset": 0.0,
+      "local_depth": 0.48,
+      "smoothing_strength": 0.35,
+      "merge_policy": "core"
+    },
+    {
+      "region_id": 4,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 5,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 6,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 7,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 8,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 9,
+      "label": "right_arm",
+      "z_offset": 0.12,
+      "local_depth": 0.36,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 10,
+      "label": "left_arm",
+      "z_offset": 0.12,
+      "local_depth": 0.36,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 11,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 12,
+      "label": "unknown",
+      "z_offset": 0.0,
+      "local_depth": 0.32,
+      "smoothing_strength": 0.2,
+      "merge_policy": "part"
+    },
+    {
+      "region_id": 13,
+      "label": "head",
+      "z_offset": 0.18,
+      "local_depth": 0.42,
+      "smoothing_strength": 0.35,
+      "merge_policy": "part"
+    },
+    {
+      "region_id": 14,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 15,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 16,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 17,
+      "label": "left_arm",
+      "z_offset": 0.12,
+      "local_depth": 0.36,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 18,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 19,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 20,
+      "label": "left_arm",
+      "z_offset": 0.12,
+      "local_depth": 0.36,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 21,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 22,
+      "label": "left_arm",
+      "z_offset": 0.12,
+      "local_depth": 0.36,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 23,
+      "label": "torso",
+      "z_offset": 0.0,
+      "local_depth": 0.48,
+      "smoothing_strength": 0.35,
+      "merge_policy": "core"
+    },
+    {
+      "region_id": 24,
+      "label": "torso",
+      "z_offset": 0.0,
+      "local_depth": 0.48,
+      "smoothing_strength": 0.35,
+      "merge_policy": "core"
+    },
+    {
+      "region_id": 25,
+      "label": "right_arm",
+      "z_offset": 0.12,
+      "local_depth": 0.36,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 26,
+      "label": "right_arm",
+      "z_offset": 0.12,
+      "local_depth": 0.36,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 27,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 28,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 29,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 30,
+      "label": "head",
+      "z_offset": 0.18,
+      "local_depth": 0.42,
+      "smoothing_strength": 0.35,
+      "merge_policy": "part"
+    },
+    {
+      "region_id": 31,
+      "label": "equipment",
+      "z_offset": 0.12,
+      "local_depth": 0.36,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 32,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 33,
+      "label": "left_arm",
+      "z_offset": 0.12,
+      "local_depth": 0.36,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 34,
+      "label": "legs",
+      "z_offset": -0.04,
+      "local_depth": 0.34,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 35,
+      "label": "left_arm",
+      "z_offset": 0.12,
+      "local_depth": 0.36,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 36,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 37,
+      "label": "legs",
+      "z_offset": -0.04,
+      "local_depth": 0.34,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 38,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 39,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 40,
+      "label": "boots",
+      "z_offset": -0.04,
+      "local_depth": 0.34,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 41,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 42,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 43,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 44,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 45,
+      "label": "boots",
+      "z_offset": -0.04,
+      "local_depth": 0.34,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 46,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 47,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 48,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 49,
+      "label": "legs",
+      "z_offset": -0.04,
+      "local_depth": 0.34,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 50,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 51,
+      "label": "left_arm",
+      "z_offset": 0.12,
+      "local_depth": 0.36,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 52,
+      "label": "right_arm",
+      "z_offset": 0.12,
+      "local_depth": 0.36,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 53,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 54,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 55,
+      "label": "head",
+      "z_offset": 0.18,
+      "local_depth": 0.42,
+      "smoothing_strength": 0.35,
+      "merge_policy": "part"
+    },
+    {
+      "region_id": 56,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 57,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 58,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 59,
+      "label": "legs",
+      "z_offset": -0.04,
+      "local_depth": 0.34,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 60,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 61,
+      "label": "left_arm",
+      "z_offset": 0.12,
+      "local_depth": 0.36,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 62,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 63,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    }
+  ]
+}

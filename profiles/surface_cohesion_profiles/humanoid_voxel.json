@@ -1,0 +1,29 @@
+{
+  "name": "humanoid_voxel",
+  "max_vertex_displacement": 0.45,
+  "silhouette_drift_tolerance_px": 1.0,
+  "intra_part_relaxation": 0.55,
+  "seam_alignment": 0.35,
+  "transition_rules": {
+    "torso:left_arm": "soft_joint",
+    "torso:right_arm": "soft_joint",
+    "torso:left_leg": "soft_root",
+    "torso:right_leg": "soft_root",
+    "torso:head": "soft_root",
+    "head:hair/hat": "seated_surface",
+    "head:face": "soft_surface",
+    "outline:*": "preserve_hard",
+    "equipment/shield/sword:*": "preserve_hard",
+    "boots/feet:left_leg": "medium",
+    "boots/feet:right_leg": "medium"
+  },
+  "preserve_labels": [
+    "outline",
+    "equipment/shield/sword"
+  ],
+  "hard_edge_labels": [
+    "outline",
+    "equipment/shield/sword",
+    "boots/feet"
+  ]
+}

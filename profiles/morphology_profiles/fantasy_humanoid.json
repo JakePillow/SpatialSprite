@@ -12,7 +12,15 @@
       "asymmetry_strength": 0.82,
       "curvature_bias": 0.34,
       "trailing_profile": "curved_down_tail",
-      "compression_profile": "compressed_front"
+      "compression_profile": "compressed_front",
+      "front_profile": "rounded_compressed",
+      "back_profile": "elongated_taper",
+      "front_scale": 0.25,
+      "back_scale": 1.2,
+      "front_taper": 0.12,
+      "back_taper": 0.84,
+      "suppress_front_projection": true,
+      "rear_extension_bias": 0.86
     },
     "face": {
       "profile_type": "NOSE_FORWARD",

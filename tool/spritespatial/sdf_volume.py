@@ -8,6 +8,7 @@ from typing import Any
 import numpy as np
 from PIL import Image
 
+from spritespatial.rfd import build_region_field_descriptors
 from spritespatial.semantic_depth_profiles import synthesize_semantic_occupancy
 from spritespatial.surface_flow import apply_surface_flow, smooth_surface_flow_sdf
 
@@ -92,6 +93,9 @@ def build_sdf_volume(
     surface_flow_iterations: int = 2,
     surface_flow_output_dir: Path | None = None,
     emit_surface_flow_debug: bool = False,
+    rfd_enabled: bool = False,
+    rfd_output_dir: Path | None = None,
+    emit_rfd_debug: bool = False,
 ) -> dict[str, Any]:
     output_dir.mkdir(parents=True, exist_ok=True)
     slices_dir = output_dir / "sdf_slices"
@@ -132,6 +136,24 @@ def build_sdf_volume(
                 occupancy[y, x, inside] = True
                 semantic_volume[y, x, inside] = label_id
 
+    isolated_outline_voxels_removed = _remove_isolated_outline_components(occupancy, semantic_volume)
+
+    rfd_result: dict[str, Any] = {}
+    if rfd_enabled:
+        rfd_result = build_region_field_descriptors(
+            occupancy,
+            semantic_volume,
+            alpha_mask,
+            label_by_pixel,
+            z_front,
+            z_back,
+            z_axis,
+            output_dir=rfd_output_dir,
+            emit_debug=emit_rfd_debug,
+        )
+        occupancy = rfd_result["occupancy"].astype(bool, copy=False)
+        semantic_volume = rfd_result["semantic_volume"].astype(np.int32, copy=False)
+
     surface_flow_result: dict[str, Any] = {}
     if surface_flow_enabled:
         surface_flow_result = apply_surface_flow(
@@ -144,6 +166,7 @@ def build_sdf_volume(
             strength=surface_flow_strength,
             iterations=surface_flow_iterations,
             emit_debug=emit_surface_flow_debug,
+            rfd_result=rfd_result,
         )
         occupancy = surface_flow_result["occupancy"].astype(bool, copy=False)
         semantic_volume = surface_flow_result["semantic_volume"].astype(np.int32, copy=False)
@@ -184,6 +207,7 @@ def build_sdf_volume(
         "hollow_gap_ratio": 0.0,
         "front_back_connected_through_seam": bool(occupancy[:, :, z_samples // 2].any()),
         "sdf_slice_contact_sheet": str(sheet),
+        "isolated_outline_voxels_removed": isolated_outline_voxels_removed,
     }
     if semantic_depth_result:
         depth_report = semantic_depth_result.get("report", {})
@@ -208,6 +232,10 @@ def build_sdf_volume(
                 "front_compression_score": depth_report.get("front_compression_score", 0.0),
                 "directional_readability_score": depth_report.get("directional_readability_score", 0.0),
                 "symmetric_volume_penalty": depth_report.get("symmetric_volume_penalty", 0.0),
+                "hat_pointed_back_present": depth_report.get("hat_pointed_back_present", False),
+                "front_hat_extension_score": depth_report.get("front_hat_extension_score", 0.0),
+                "back_hat_extension_score": depth_report.get("back_hat_extension_score", 0.0),
+                "hat_asymmetry_ratio": depth_report.get("hat_asymmetry_ratio", 0.0),
             }
         )
     else:
@@ -232,6 +260,29 @@ def build_sdf_volume(
         )
     else:
         summary["surface_flow_enabled"] = False
+    if rfd_result:
+        rfd_report = rfd_result.get("report", {})
+        if surface_flow_result:
+            rfd_report["surface_flow_rfd_alignment"] = surface_flow_result.get("report", {}).get("surface_flow_rfd_alignment", 0.0)
+            rfd_report_path = rfd_result.get("paths", {}).get("rfd_report")
+            if isinstance(rfd_report_path, Path):
+                rfd_report_path.write_text(json.dumps(rfd_report, indent=2) + "\n", encoding="utf-8")
+        summary.update(
+            {
+                "rfd_enabled": True,
+                "rfd_region_count": rfd_report.get("rfd_region_count", 0),
+                "centerline_quality_score": rfd_report.get("centerline_quality_score", 0.0),
+                "field_continuity_score": rfd_report.get("field_continuity_score", 0.0),
+                "thickness_profile_variance": rfd_report.get("thickness_profile_variance", 0.0),
+                "anisotropy_score": rfd_report.get("anisotropy_score", 0.0),
+                "directional_field_coherence": rfd_report.get("directional_field_coherence", 0.0),
+                "surface_flow_rfd_alignment": rfd_report.get("surface_flow_rfd_alignment", 0.0),
+                "silhouette_constraint_preservation": rfd_report.get("silhouette_constraint_preservation", 0.0),
+                "rfd_report": rfd_report,
+            }
+        )
+    else:
+        summary["rfd_enabled"] = False
     (output_dir / "sdf_summary.json").write_text(json.dumps(summary, indent=2) + "\n", encoding="utf-8")
     return {
         "sdf": sdf,
@@ -242,6 +293,7 @@ def build_sdf_volume(
         "semantic_depth_profile": semantic_depth_result,
         "directional_morphology": semantic_depth_result.get("directional_morphology", {}) if semantic_depth_result else {},
         "surface_flow": surface_flow_result,
+        "rfd": rfd_result,
         "paths": {
             "sdf_volume": output_dir / "sdf_volume.npy",
             "semantic_volume": output_dir / "semantic_volume.npy",
@@ -335,6 +387,35 @@ def _volume_component_count(occupancy: np.ndarray) -> int:
                     remaining.remove(neighbour)
                     queue.append(neighbour)
     return components
+
+
+def _remove_isolated_outline_components(
+    occupancy: np.ndarray,
+    semantic_volume: np.ndarray,
+    max_voxels: int = 8,
+) -> int:
+    remaining = {tuple(int(v) for v in item) for item in np.argwhere(occupancy)}
+    removed = 0
+    while remaining:
+        start = remaining.pop()
+        queue = deque([start])
+        component = [start]
+        while queue:
+            y, x, z = queue.popleft()
+            for neighbour in ((y - 1, x, z), (y + 1, x, z), (y, x - 1, z), (y, x + 1, z), (y, x, z - 1), (y, x, z + 1)):
+                if neighbour in remaining:
+                    remaining.remove(neighbour)
+                    queue.append(neighbour)
+                    component.append(neighbour)
+        if len(component) > max_voxels:
+            continue
+        labels = {int(semantic_volume[y, x, z]) for y, x, z in component}
+        if labels == {SEMANTIC_LABEL_IDS["outline"]}:
+            for y, x, z in component:
+                occupancy[y, x, z] = False
+                semantic_volume[y, x, z] = 0
+                removed += 1
+    return removed
 
 
 def _concave_seam_count(alpha_mask: np.ndarray, seam_mask: np.ndarray) -> int:

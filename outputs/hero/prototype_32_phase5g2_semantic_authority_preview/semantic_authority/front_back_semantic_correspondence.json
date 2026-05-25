@@ -1,0 +1,57 @@
+{
+  "schema": "spritespatial_front_back_semantic_correspondence_v1",
+  "back_sprite_path": "C:\\dev\\SpatialSprite\\assets\\samples\\hero\\hero_back.png",
+  "back_sprite_present": true,
+  "back_geometry_authority": "semantic_rules",
+  "label_overlap": {
+    "face": {
+      "front_pixel_count": 8,
+      "back_alpha_overlap": 8,
+      "overlap_ratio": 1.0
+    },
+    "hair/hat": {
+      "front_pixel_count": 10,
+      "back_alpha_overlap": 10,
+      "overlap_ratio": 1.0
+    },
+    "head": {
+      "front_pixel_count": 4,
+      "back_alpha_overlap": 4,
+      "overlap_ratio": 1.0
+    },
+    "left_arm": {
+      "front_pixel_count": 26,
+      "back_alpha_overlap": 26,
+      "overlap_ratio": 1.0
+    },
+    "left_leg": {
+      "front_pixel_count": 27,
+      "back_alpha_overlap": 27,
+      "overlap_ratio": 1.0
+    },
+    "outline": {
+      "front_pixel_count": 75,
+      "back_alpha_overlap": 65,
+      "overlap_ratio": 0.8666666666666667
+    },
+    "right_arm": {
+      "front_pixel_count": 22,
+      "back_alpha_overlap": 19,
+      "overlap_ratio": 0.8636363636363636
+    },
+    "right_leg": {
+      "front_pixel_count": 20,
+      "back_alpha_overlap": 19,
+      "overlap_ratio": 0.95
+    },
+    "torso": {
+      "front_pixel_count": 79,
+      "back_alpha_overlap": 79,
+      "overlap_ratio": 1.0
+    }
+  },
+  "front_labels_missing_in_back_alpha": [],
+  "directional_labels_missing_in_back_alpha": [],
+  "method": "canvas_alpha_overlap_heuristic",
+  "passed": true
+}

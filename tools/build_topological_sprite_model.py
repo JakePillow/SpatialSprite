@@ -53,11 +53,17 @@ from spritespatial.semantic_overrides import (  # noqa: E402
     apply_semantic_overrides_to_parts,
     load_semantic_overrides,
 )
+from spritespatial.semantic_authority import validate_semantic_authority  # noqa: E402
 from spritespatial.semantic_depth_profiles import load_profile_set  # noqa: E402
+from spritespatial.semantic_parts import consolidate_semantic_parts  # noqa: E402
 from spritespatial.render_comparison import build_visual_mapping  # noqa: E402
 from spritespatial.render_diagnostics import analyze_phase5c_captures  # noqa: E402
 from spritespatial.smoothing import SmoothingConfig, smooth_mesh  # noqa: E402
 from spritespatial.source_coverage import analyze_source_coverage, emit_view_candidates  # noqa: E402
+from spritespatial.surface_cohesion import (  # noqa: E402
+    apply_surface_cohesion,
+    load_surface_cohesion_profile,
+)
 from spritespatial.surface_nets import (  # noqa: E402
     emit_surface_nets_input,
     extract_surface_nets,
@@ -136,6 +142,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--mesh-backend", choices=("greedy", "surface_nets"), default="greedy")
     parser.add_argument("--surface-net-smoothing-alpha", type=float, default=0.65)
     parser.add_argument("--emit-surface-net-debug", action="store_true")
+    parser.add_argument("--surface-cohesion", action="store_true")
+    parser.add_argument("--surface-cohesion-profile", default="humanoid_voxel")
+    parser.add_argument("--surface-cohesion-strength", type=float, default=0.35)
+    parser.add_argument("--surface-cohesion-iterations", type=int, default=2)
+    parser.add_argument("--emit-surface-cohesion-debug", action="store_true")
     parser.add_argument("--godot-preview", action="store_true")
     parser.add_argument("--godot-executable", type=Path)
     parser.add_argument("--emit-render-diagnostics", action="store_true")
@@ -156,10 +167,14 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--surface-flow-strength", type=float, default=0.45)
     parser.add_argument("--surface-flow-iterations", type=int, default=2)
     parser.add_argument("--emit-surface-flow-debug", action="store_true")
+    parser.add_argument("--rfd", action="store_true")
+    parser.add_argument("--emit-rfd-debug", action="store_true")
     parser.add_argument("--render-profile")
     parser.add_argument("--find-view-candidates", action="store_true")
     parser.add_argument("--semantic-overrides", type=Path)
     parser.add_argument("--semantic-override-mode", choices=("none", "supplement", "replace", "strict"), default=None)
+    parser.add_argument("--semantic-parts", action="store_true")
+    parser.add_argument("--emit-semantic-parts-debug", action="store_true")
     parser.add_argument("--smooth", action="store_true")
     parser.add_argument(
         "--smoothing-mode",
@@ -239,6 +254,12 @@ def _apply_profile_defaults(args: argparse.Namespace, profile: dict) -> None:
         args.surface_flow_strength = float(profile["surface_flow_strength"])
     if "surface_flow_iterations" in profile:
         args.surface_flow_iterations = int(profile["surface_flow_iterations"])
+    if profile.get("rfd", False):
+        args.rfd = True
+    if profile.get("semantic_parts", False):
+        args.semantic_parts = True
+    if profile.get("surface_cohesion", False):
+        args.surface_cohesion = True
     if args.smoothing_mode is None:
         args.smoothing_mode = "none"
     if args.use_zfield or args.use_primitives or args.use_continuity:
@@ -350,6 +371,8 @@ def build_topological_model(args: argparse.Namespace) -> dict:
             semantic_warnings,
             semantic_override_report,
             override_parts,
+            override_load["masks"],
+            regions,
             region_id_map,
             region_overlay,
             depth_debug,
@@ -1834,6 +1857,8 @@ def _build_phase5a_closed_body(
     semantic_warnings: dict[str, Any],
     semantic_override_report: dict[str, Any],
     parts: list[dict[str, Any]],
+    override_masks: dict[str, set[tuple[int, int]]],
+    raw_regions: list[set[tuple[int, int]]],
     region_id_map: Path,
     region_overlay: Path,
     depth_debug: Path,
@@ -1842,6 +1867,25 @@ def _build_phase5a_closed_body(
     source_coverage: dict[str, Any],
     view_candidate_paths: dict[str, Path],
 ) -> dict[str, Any]:
+    semantic_parts_result: dict[str, Any] = {}
+    semantic_parts_paths: dict[str, Path] = {}
+    if getattr(args, "semantic_parts", False):
+        semantic_parts_result = consolidate_semantic_parts(
+            front,
+            parts,
+            raw_regions,
+            graph,
+            override_masks,
+            {},
+            output_dir / "semantic_parts",
+            emit_debug=bool(getattr(args, "emit_semantic_parts_debug", False)),
+        )
+        parts = semantic_parts_result["parts"]
+        semantic_parts_paths = {
+            key: path
+            for key, path in semantic_parts_result.get("paths", {}).items()
+            if isinstance(path, Path)
+        }
     mylar = build_mylar_front_depth(front.size, parts, output_dir / "mylar", max_total_depth=float(args.model_depth_units))
     back = build_back_hemisphere(
         mylar["z_front"],
@@ -1862,7 +1906,10 @@ def _build_phase5a_closed_body(
     semantic_depth_paths: dict[str, Path] = {}
     directional_morphology: dict[str, Any] | None = None
     directional_paths: dict[str, Path] = {}
+    semantic_authority_result: dict[str, Any] = {}
+    semantic_authority_paths: dict[str, Path] = {}
     surface_flow_paths: dict[str, Path] = {}
+    rfd_paths: dict[str, Path] = {}
     if getattr(args, "semantic_depth_profiles", False):
         semantic_depth_profile = load_profile_set(getattr(args, "semantic_depth_profile", "humanoid_voxel"), WORKSPACE_ROOT)
     if getattr(args, "directional_morphology", False):
@@ -1870,6 +1917,29 @@ def _build_phase5a_closed_body(
         if semantic_depth_profile is None:
             args.semantic_depth_profiles = True
             semantic_depth_profile = load_profile_set(getattr(args, "semantic_depth_profile", "humanoid_voxel"), WORKSPACE_ROOT)
+    semantic_authority_result = validate_semantic_authority(
+        front,
+        parts,
+        load_semantic_overrides(
+            _resolve_optional_path(getattr(args, "semantic_overrides", None)),
+            front.size,
+            getattr(args, "semantic_override_mode", "supplement"),
+        )["masks"],
+        semantic_override_report,
+        directional_morphology,
+        _load_profile(getattr(args, "profile", None)),
+        source_coverage,
+        back["report"],
+        getattr(args, "back", None),
+        getattr(args, "back_mode", "semantic_rules"),
+        output_dir / "semantic_authority",
+    )
+    semantic_authority_paths = {
+        key: path
+        for key, path in semantic_authority_result.get("paths", {}).items()
+        if isinstance(path, Path)
+    }
+    directional_morphology = semantic_authority_result.get("morphology_profile", directional_morphology)
     sdf = build_sdf_volume(
         mylar["z_front"],
         back["z_back"],
@@ -1888,11 +1958,20 @@ def _build_phase5a_closed_body(
         surface_flow_iterations=int(getattr(args, "surface_flow_iterations", 2)),
         surface_flow_output_dir=output_dir / "surface_flow" if getattr(args, "surface_flow", False) else None,
         emit_surface_flow_debug=bool(getattr(args, "emit_surface_flow_debug", False)),
+        rfd_enabled=bool(getattr(args, "rfd", False)),
+        rfd_output_dir=output_dir / "rfd" if getattr(args, "rfd", False) else None,
+        emit_rfd_debug=bool(getattr(args, "emit_rfd_debug", False)),
     )
     if sdf.get("semantic_depth_profile"):
         semantic_depth_paths = {
             key: path
             for key, path in sdf["semantic_depth_profile"].get("paths", {}).items()
+            if isinstance(path, Path)
+        }
+    if sdf.get("rfd"):
+        rfd_paths = {
+            key: path
+            for key, path in sdf["rfd"].get("paths", {}).items()
             if isinstance(path, Path)
         }
     if sdf.get("surface_flow"):
@@ -1913,6 +1992,8 @@ def _build_phase5a_closed_body(
     surface_net_report: dict[str, Any] = {}
     surface_net_paths: dict[str, Path] = {}
     surface_net_debug_paths: dict[str, Path] = {}
+    surface_cohesion_result: dict[str, Any] = {}
+    surface_cohesion_paths: dict[str, Path] = {}
     voxel_render_result: dict[str, Any] = {}
     material_debug_paths: dict[str, Path] = {}
     if mesh_backend == "surface_nets":
@@ -1938,7 +2019,31 @@ def _build_phase5a_closed_body(
                 for key, path in voxel_render_result.get("paths", {}).items()
                 if isinstance(path, Path)
             }
-        mesh_path = write_mesh_json(surface_net_mesh, output_dir / "mesh.json")
+        if getattr(args, "surface_cohesion", False):
+            raw_mesh_path = write_mesh_json(surface_net_mesh, output_dir / "mesh.json")
+            cohesion_profile = load_surface_cohesion_profile(
+                getattr(args, "surface_cohesion_profile", "humanoid_voxel"),
+                WORKSPACE_ROOT,
+            )
+            surface_cohesion_result = apply_surface_cohesion(
+                surface_net_mesh,
+                semantic_parts_result.get("report", {}),
+                cohesion_profile,
+                output_dir / "surface_cohesion",
+                strength=float(getattr(args, "surface_cohesion_strength", 0.35)),
+                iterations=int(getattr(args, "surface_cohesion_iterations", 2)),
+                emit_debug=bool(getattr(args, "emit_surface_cohesion_debug", False)),
+            )
+            surface_net_mesh = surface_cohesion_result["mesh"]
+            surface_cohesion_paths = {
+                key: path
+                for key, path in surface_cohesion_result.get("paths", {}).items()
+                if isinstance(path, Path)
+            }
+            mesh_path = surface_cohesion_paths.get("mesh_cohesive", output_dir / "mesh_cohesive.json")
+        else:
+            raw_mesh_path = output_dir / "mesh.json"
+            mesh_path = write_mesh_json(surface_net_mesh, raw_mesh_path)
         surface_net_report = write_surface_nets_report(surface_net_mesh, output_dir, surface_net_input)
         boundary_path = output_dir / "semantic_boundary_debug.json"
         _write_json(
@@ -1950,6 +2055,7 @@ def _build_phase5a_closed_body(
         )
         surface_net_paths = {
             "mesh": mesh_path,
+            "raw_mesh": raw_mesh_path,
             "surface_nets_report": output_dir / "surface_nets_report.json",
             "semantic_boundary_debug": boundary_path,
         }
@@ -1969,6 +2075,8 @@ def _build_phase5a_closed_body(
         parts,
         getattr(args, "back_mode", "semantic_rules"),
         source_coverage,
+        semantic_authority_result.get("report", {}),
+        semantic_parts_result.get("report", {}),
     )
     if mesh_backend == "surface_nets":
         validation_report = _extend_phase5b_validation(
@@ -1977,6 +2085,8 @@ def _build_phase5a_closed_body(
             meshing,
             float(getattr(args, "surface_net_smoothing_alpha", 0.65)),
         )
+    if surface_cohesion_result:
+        validation_report = _extend_surface_cohesion_validation(validation_report, surface_cohesion_result)
     if voxel_render_result:
         validation_report = _extend_phase5f_validation(validation_report, voxel_render_result)
     if mesh_backend == "surface_nets" and getattr(args, "godot_preview", False):
@@ -2022,10 +2132,14 @@ def _build_phase5a_closed_body(
         "sdf": {key: _res_path(path) for key, path in sdf["paths"].items()},
         "semantic_depth_profiles": {key: _res_path(path) for key, path in semantic_depth_paths.items()},
         "directional_morphology": {key: _res_path(path) for key, path in directional_paths.items()},
+        "semantic_authority": {key: _res_path(path) for key, path in semantic_authority_paths.items()},
+        "semantic_parts": {key: _res_path(path) for key, path in semantic_parts_paths.items()},
         "surface_flow": {key: _res_path(path) for key, path in surface_flow_paths.items()},
+        "rfd": {key: _res_path(path) for key, path in rfd_paths.items()},
         "meshing": {key: _res_path(path) for key, path in meshing["paths"].items()},
         "surface_nets": {key: _res_path(path) for key, path in surface_net_paths.items()},
         "surface_net_debug": {key: _res_path(path) for key, path in surface_net_debug_paths.items()},
+        "surface_cohesion": {key: _res_path(path) for key, path in surface_cohesion_paths.items()},
         "material_debug": {key: _res_path(path) for key, path in material_debug_paths.items()},
         "voxel_render_report": _res_path(output_dir / "voxel_render_report.json") if voxel_render_result else "",
         "silhouette_correction": {
@@ -2051,6 +2165,11 @@ def _build_phase5a_closed_body(
             "mesh_backend": mesh_backend,
             "surface_net_smoothing_alpha": float(getattr(args, "surface_net_smoothing_alpha", 0.65)),
             "emit_surface_net_debug": getattr(args, "emit_surface_net_debug", False),
+            "surface_cohesion": getattr(args, "surface_cohesion", False),
+            "surface_cohesion_profile": getattr(args, "surface_cohesion_profile", "humanoid_voxel"),
+            "surface_cohesion_strength": float(getattr(args, "surface_cohesion_strength", 0.35)),
+            "surface_cohesion_iterations": int(getattr(args, "surface_cohesion_iterations", 2)),
+            "emit_surface_cohesion_debug": getattr(args, "emit_surface_cohesion_debug", False),
             "semantic_depth_profiles": getattr(args, "semantic_depth_profiles", False),
             "semantic_depth_profile": getattr(args, "semantic_depth_profile", "humanoid_voxel"),
             "emit_semantic_depth_debug": getattr(args, "emit_semantic_depth_debug", False),
@@ -2061,11 +2180,15 @@ def _build_phase5a_closed_body(
             "surface_flow_strength": float(getattr(args, "surface_flow_strength", 0.45)),
             "surface_flow_iterations": int(getattr(args, "surface_flow_iterations", 2)),
             "emit_surface_flow_debug": getattr(args, "emit_surface_flow_debug", False),
+            "rfd": getattr(args, "rfd", False),
+            "emit_rfd_debug": getattr(args, "emit_rfd_debug", False),
             "render_profile": getattr(args, "render_profile", ""),
             "canonical_silhouette_correct": getattr(args, "canonical_silhouette_correct", False),
             "silhouette_correction_iterations": int(getattr(args, "silhouette_correction_iterations", 1)),
             "max_silhouette_displacement": float(getattr(args, "max_silhouette_displacement", 0.15)),
             "semantic_override_mode": getattr(args, "semantic_override_mode", "supplement"),
+            "semantic_parts": getattr(args, "semantic_parts", False),
+            "emit_semantic_parts_debug": getattr(args, "emit_semantic_parts_debug", False),
             "model_depth_units": args.model_depth_units,
             "total_depth_slices": args.total_depth_slices,
         },
@@ -2095,10 +2218,14 @@ def _build_phase5a_closed_body(
             key for key, failed in validation_report.get("fail_conditions", {}).items()
             if failed
         ]
-        if getattr(args, "canonical_silhouette_correct", False):
+        if getattr(args, "rfd", False):
+            phase_name = "Phase 6D"
+        elif getattr(args, "canonical_silhouette_correct", False):
             phase_name = "Phase 6A"
         elif getattr(args, "surface_flow", False):
             phase_name = "Phase 6B"
+        elif getattr(args, "surface_cohesion", False):
+            phase_name = "Phase 6C"
         else:
             phase_name = "Phase 5B" if mesh_backend == "surface_nets" else "Phase 5A"
         raise ValueError(f"{phase_name} validation failed: {failures}")
@@ -2158,6 +2285,40 @@ def _extend_phase5b_validation(
             "passed": not any(fail_conditions.values()),
         }
     )
+    return report
+
+
+def _extend_surface_cohesion_validation(
+    validation_report: dict[str, Any],
+    surface_cohesion_result: dict[str, Any],
+) -> dict[str, Any]:
+    report = dict(validation_report)
+    cohesion_report = dict(surface_cohesion_result.get("report", {}))
+    fail_conditions = dict(report.get("fail_conditions", {}))
+    for key, value in cohesion_report.get("fail_conditions", {}).items():
+        fail_conditions[f"surface_cohesion_{key}"] = bool(value)
+    report.update(
+        {
+            "surface_cohesion_enabled": bool(cohesion_report.get("surface_cohesion_enabled", False)),
+            "surface_cohesion_profile": cohesion_report.get("surface_cohesion_profile", ""),
+            "cohesion_vertices_adjusted": int(cohesion_report.get("cohesion_vertices_adjusted", 0)),
+            "mean_vertex_displacement": float(cohesion_report.get("mean_vertex_displacement", 0.0)),
+            "max_vertex_displacement": float(cohesion_report.get("max_vertex_displacement", 0.0)),
+            "semantic_boundary_preservation_score": float(
+                cohesion_report.get("semantic_boundary_preservation_score", 0.0)
+            ),
+            "normal_discontinuity_before": float(cohesion_report.get("normal_discontinuity_before", 0.0)),
+            "normal_discontinuity_after": float(cohesion_report.get("normal_discontinuity_after", 0.0)),
+            "surface_fragmentation_before": float(cohesion_report.get("surface_fragmentation_before", 0.0)),
+            "surface_fragmentation_after": float(cohesion_report.get("surface_fragmentation_after", 0.0)),
+            "silhouette_drift_px": float(cohesion_report.get("silhouette_drift_px", 0.0)),
+            "hat_tip_preserved": bool(cohesion_report.get("hat_tip_preserved", True)),
+            "outline_preserved": bool(cohesion_report.get("outline_preserved", True)),
+            "surface_cohesion_report": cohesion_report,
+            "fail_conditions": fail_conditions,
+        }
+    )
+    report["passed"] = not any(fail_conditions.values())
     return report
 
 

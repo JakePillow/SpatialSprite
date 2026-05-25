@@ -35,10 +35,15 @@ def build_back_hemisphere(
 ) -> dict[str, Any]:
     output_dir.mkdir(parents=True, exist_ok=True)
     scale_map = np.ones(z_front.shape, dtype=np.float32)
+    back_geometry_authority = _back_geometry_authority(mode, back_sprite_path)
     rules: dict[str, Any] = {
         "mode": mode,
         "front_back_sprite_deferred": mode == "front_back_sprite",
-        "back_sprite_path": str(back_sprite_path) if back_sprite_path else "",
+        "back_geometry_authority": back_geometry_authority,
+        "back_sprite_path": str(back_sprite_path) if back_geometry_authority == "authored_back" else "",
+        "comparison_back_sprite_path": str(back_sprite_path)
+        if back_geometry_authority != "authored_back" and back_sprite_path and back_sprite_path.exists()
+        else "",
         "scales": {},
     }
     if mode == "symmetric":
@@ -82,6 +87,14 @@ def build_back_hemisphere(
             "seam_debug": seam_debug_path,
         },
     }
+
+
+def _back_geometry_authority(mode: str, back_sprite_path: Path | None) -> str:
+    if mode == "front_back_sprite":
+        return "authored_back" if back_sprite_path and back_sprite_path.exists() else "missing"
+    if mode in {"semantic_rules", "symmetric"}:
+        return mode
+    return "missing"
 
 
 def _missing_critical(label_by_pixel: dict[Pixel, str], z_back: np.ndarray) -> list[str]:

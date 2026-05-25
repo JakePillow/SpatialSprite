@@ -1,0 +1,34 @@
+{
+  "canonical_views": [
+    {
+      "yaw": 0,
+      "view": "front",
+      "authority": "source_sprite",
+      "target_type": "front_alpha"
+    },
+    {
+      "yaw": 45,
+      "view": "oblique",
+      "authority": "interpolated_prior",
+      "target_type": "front_to_side_transition"
+    },
+    {
+      "yaw": 90,
+      "view": "side",
+      "authority": "primitive_prior",
+      "target_type": "side_profile"
+    },
+    {
+      "yaw": 135,
+      "view": "side_135",
+      "authority": "interpolated_prior",
+      "target_type": "side_to_back_transition"
+    },
+    {
+      "yaw": 180,
+      "view": "back",
+      "authority": "authored",
+      "target_type": "back_alpha_or_inferred"
+    }
+  ]
+}
