@@ -56,7 +56,7 @@ def apply_surface_cohesion(
     face_metadata = list(mesh.get("face_metadata", []))
     before_vertices = vertices.copy()
     labels = _vertex_labels(vertex_metadata, faces, face_metadata, len(vertices))
-    silhouette = _silhouette_vertices(mesh, vertex_metadata)
+    silhouette = _silhouette_vertices(mesh, vertex_metadata, vertices)
     boundary_edges = {tuple(sorted(map(int, edge))) for edge in mesh.get("semantic_boundary_edges", []) if len(edge) == 2}
     adjacency, edge_faces = _mesh_adjacency(faces)
     face_normals_before = _face_normals(before_vertices, faces)
@@ -222,12 +222,29 @@ def _vertex_labels(
     return labels
 
 
-def _silhouette_vertices(mesh: dict[str, Any], vertex_metadata: list[dict[str, Any]]) -> set[int]:
+def _silhouette_vertices(mesh: dict[str, Any], vertex_metadata: list[dict[str, Any]], vertices: np.ndarray) -> set[int]:
     vertices = {int(index) for index in mesh.get("silhouette_vertices", [])}
     for index, metadata in enumerate(vertex_metadata):
         if metadata.get("is_silhouette_vertex", False):
             vertices.add(index)
+    if len(vertices) >= max(1, int(len(vertex_metadata) * 0.90)):
+        return _projection_boundary_vertices(np.asarray(mesh.get("vertices", []), dtype=np.float32))
     return vertices
+
+
+def _projection_boundary_vertices(vertices: np.ndarray) -> set[int]:
+    if vertices.size == 0:
+        return set()
+    buckets: dict[tuple[int, int], list[int]] = defaultdict(list)
+    for index, vertex in enumerate(vertices):
+        buckets[(int(round(float(vertex[0]))), int(round(float(vertex[1]))))].append(index)
+    occupied = set(buckets)
+    boundary = set()
+    for coord, indices in buckets.items():
+        x, y = coord
+        if any((nx, ny) not in occupied for nx, ny in ((x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1))):
+            boundary.update(indices)
+    return boundary
 
 
 def _mesh_adjacency(faces: list[list[int]]) -> tuple[dict[int, set[int]], dict[tuple[int, int], list[int]]]:
