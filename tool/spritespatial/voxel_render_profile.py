@@ -72,8 +72,9 @@ def apply_voxel_render_profile(
         normal = _face_normal(vertices, face)
         face_type = _face_type(normal)
         counts[f"{face_type}_faces"] = counts.get(f"{face_type}_faces", 0) + 1
-        source_color = _source_color(face_meta, pixels, front.size, label)
-        outer_outline = label == 1 and _is_outer_outline(face_meta, seam)
+        source_scale = float(mesh.get("config", {}).get("sdf_resolution_scale", 1.0))
+        source_color = _source_color(face_meta, pixels, front.size, label, source_scale)
+        outer_outline = label == 1 and _is_outer_outline(face_meta, seam, source_scale)
         internal_outline = label == 1 and not outer_outline
         if outer_outline:
             counts["outer_outline_faces"] += 1
@@ -163,14 +164,21 @@ def _write_debug_outputs(
     return paths
 
 
-def _source_color(face_meta: dict[str, Any], pixels: Any, size: tuple[int, int], label: int) -> tuple[int, int, int, int]:
+def _source_color(
+    face_meta: dict[str, Any],
+    pixels: Any,
+    size: tuple[int, int],
+    label: int,
+    source_scale: float = 1.0,
+) -> tuple[int, int, int, int]:
     cells = face_meta.get("source_cells", [])
     samples = []
+    scale = max(1.0, float(source_scale))
     for cell in cells:
         if not isinstance(cell, list) or len(cell) < 2:
             continue
-        y = int(cell[0])
-        x = int(cell[1])
+        y = int(round(float(cell[0]) / scale))
+        x = int(round(float(cell[1]) / scale))
         if 0 <= x < size[0] and 0 <= y < size[1]:
             pixel = pixels[x, y]
             if pixel[3] > 16:
@@ -224,14 +232,15 @@ def _face_type(normal: np.ndarray) -> str:
     return "side"
 
 
-def _is_outer_outline(face_meta: dict[str, Any], seam: np.ndarray) -> bool:
+def _is_outer_outline(face_meta: dict[str, Any], seam: np.ndarray, source_scale: float = 1.0) -> bool:
     if bool(face_meta.get("is_silhouette", False)):
         return True
+    scale = max(1.0, float(source_scale))
     for cell in face_meta.get("source_cells", []):
         if not isinstance(cell, list) or len(cell) < 2:
             continue
-        y = int(cell[0])
-        x = int(cell[1])
+        y = int(round(float(cell[0]) / scale))
+        x = int(round(float(cell[1]) / scale))
         if 0 <= y < seam.shape[0] and 0 <= x < seam.shape[1] and bool(seam[y, x]):
             return True
     return False

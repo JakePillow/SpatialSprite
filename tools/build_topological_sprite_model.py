@@ -24,6 +24,7 @@ from spritespatial.canonical_silhouette_optimizer import optimize_canonical_silh
 from spritespatial.canonical_views import canonical_view_records, write_canonical_view_records  # noqa: E402
 from spritespatial.continuity import apply_semantic_continuity  # noqa: E402
 from spritespatial.directional_morphology import load_morphology_profile  # noqa: E402
+from spritespatial.hermite_qef import write_qef_debug  # noqa: E402
 from spritespatial.manifold_validation import build_phase5a_validation  # noqa: E402
 from spritespatial.metrics.silhouette_iou import compute_canonical_view_metrics  # noqa: E402
 from spritespatial.mylar_depth import build_mylar_front_depth  # noqa: E402
@@ -55,7 +56,16 @@ from spritespatial.semantic_overrides import (  # noqa: E402
 )
 from spritespatial.semantic_authority import validate_semantic_authority  # noqa: E402
 from spritespatial.semantic_depth_profiles import load_profile_set  # noqa: E402
+from spritespatial.semantic_macro_patches import load_macro_patch_profile  # noqa: E402
+from spritespatial.semantic_patch_nets import (  # noqa: E402
+    apply_semantic_patch_nets,
+    load_patch_profile,
+)
 from spritespatial.semantic_parts import consolidate_semantic_parts  # noqa: E402
+from spritespatial.semantic_remeshing import (  # noqa: E402
+    apply_semantic_remeshing,
+    load_remesh_profile,
+)
 from spritespatial.render_comparison import build_visual_mapping  # noqa: E402
 from spritespatial.render_diagnostics import analyze_phase5c_captures  # noqa: E402
 from spritespatial.smoothing import SmoothingConfig, smooth_mesh  # noqa: E402
@@ -72,6 +82,7 @@ from spritespatial.surface_nets import (  # noqa: E402
     write_surface_nets_debug,
     write_surface_nets_report,
 )
+from spritespatial.topology_cleanup import apply_topology_cleanup  # noqa: E402
 from spritespatial.voxel_render_profile import apply_voxel_render_profile, load_render_profile  # noqa: E402
 from spritespatial.zfield import (  # noqa: E402
     build_semantic_zfield,
@@ -139,14 +150,37 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--back-mode", choices=("symmetric", "semantic_rules", "front_back_sprite"), default="semantic_rules")
     parser.add_argument("--emit-sdf-debug", action="store_true")
     parser.add_argument("--emit-closure-debug", action="store_true")
-    parser.add_argument("--mesh-backend", choices=("greedy", "surface_nets"), default="greedy")
+    parser.add_argument("--mesh-backend", choices=("greedy", "surface_nets", "surface_nets_patch"), default="greedy")
     parser.add_argument("--surface-net-smoothing-alpha", type=float, default=0.65)
+    parser.add_argument("--surface-net-vertex-placement", choices=("average", "qef", "patch_qef"), default="average")
+    parser.add_argument("--qef-regularization", type=float, default=0.001)
+    parser.add_argument("--qef-max-displacement", type=float, default=0.35)
+    parser.add_argument("--emit-qef-debug", action="store_true")
     parser.add_argument("--emit-surface-net-debug", action="store_true")
+    parser.add_argument("--patch-profile", default="humanoid_voxel")
+    parser.add_argument("--emit-patch-debug", action="store_true")
+    parser.add_argument("--macro-patches", action="store_true")
+    parser.add_argument("--macro-patch-profile", default="humanoid_voxel")
+    parser.add_argument("--emit-macro-patch-debug", action="store_true")
+    parser.add_argument("--sdf-resolution-scale", type=float, default=1.0)
+    parser.add_argument("--z-resolution-scale", type=float, default=1.0)
+    parser.add_argument("--emit-resolution-diagnostic", action="store_true")
+    parser.add_argument("--adaptive-sdf-resolution", action="store_true")
+    parser.add_argument("--resolution-profile", default="prototype_adaptive")
+    parser.add_argument("--emit-resolution-debug", action="store_true")
+    parser.add_argument("--topology-cleanup", action="store_true")
+    parser.add_argument("--emit-topology-cleanup-debug", action="store_true")
     parser.add_argument("--surface-cohesion", action="store_true")
     parser.add_argument("--surface-cohesion-profile", default="humanoid_voxel")
     parser.add_argument("--surface-cohesion-strength", type=float, default=0.35)
     parser.add_argument("--surface-cohesion-iterations", type=int, default=2)
     parser.add_argument("--emit-surface-cohesion-debug", action="store_true")
+    parser.add_argument("--semantic-remesh", action="store_true")
+    parser.add_argument("--remesh-profile", default="humanoid_lowpoly")
+    parser.add_argument("--remesh-iterations", type=int, default=1)
+    parser.add_argument("--remesh-strength", type=float, default=0.35)
+    parser.add_argument("--preserve-silhouette-edges", action=argparse.BooleanOptionalAction, default=True)
+    parser.add_argument("--emit-remesh-debug", action="store_true")
     parser.add_argument("--godot-preview", action="store_true")
     parser.add_argument("--godot-executable", type=Path)
     parser.add_argument("--emit-render-diagnostics", action="store_true")
@@ -205,6 +239,75 @@ def _load_profile(profile_path: Path | None) -> dict:
     return json.loads(path.resolve().read_text(encoding="utf-8"))
 
 
+def _load_resolution_profile(profile_ref: str | Path | None) -> dict[str, Any]:
+    name = str(profile_ref or "prototype_adaptive")
+    path = Path(name)
+    if not path.suffix:
+        path = WORKSPACE_ROOT / "profiles" / "resolution_profiles" / f"{name}.json"
+    elif not path.is_absolute():
+        path = WORKSPACE_ROOT / path
+    data = json.loads(path.resolve().read_text(encoding="utf-8"))
+    data["name"] = data.get("name", path.stem)
+    data["path"] = str(path.resolve())
+    return data
+
+
+def _adaptive_resolution_settings(
+    args: argparse.Namespace,
+    base_z_samples: int,
+    source_size: tuple[int, int],
+) -> dict[str, Any]:
+    if not getattr(args, "adaptive_sdf_resolution", False):
+        xy_scale = max(1.0, float(getattr(args, "sdf_resolution_scale", 1.0)))
+        z_scale = max(1.0, float(getattr(args, "z_resolution_scale", 1.0)))
+        return {
+            "enabled": False,
+            "profile": None,
+            "xy_scale": xy_scale,
+            "z_scale": z_scale,
+            "z_samples": int(round(float(base_z_samples - 1) * z_scale)) + 1,
+            "strategy": "uniform",
+        }
+    profile = _load_resolution_profile(getattr(args, "resolution_profile", "prototype_adaptive"))
+    requested_xy = max(
+        float(profile.get("base_xy_scale", 1.0)),
+        float(profile.get("high_detail_xy_scale", 1.0)),
+        float(profile.get("silhouette_band_extra_scale", 1.0)),
+        float(profile.get("semantic_boundary_extra_scale", 1.0)),
+    )
+    requested_z = max(float(profile.get("base_z_scale", 1.0)), float(profile.get("high_detail_z_scale", 1.0)))
+    width, height = source_size
+    requested_voxels = (height * requested_xy) * (width * requested_xy) * (base_z_samples * requested_z)
+    base_voxels = max(1.0, float(height * width * base_z_samples))
+    requested_multiplier = requested_voxels / base_voxels
+    budget = max(1.0, float(profile.get("max_voxel_budget_multiplier", requested_multiplier)))
+    clamp = min(1.0, (budget / max(requested_multiplier, 1.0e-6)) ** (1.0 / 3.0))
+    xy_scale = max(float(profile.get("base_xy_scale", 1.0)), requested_xy * clamp)
+    z_scale = max(float(profile.get("base_z_scale", 1.0)), requested_z * clamp)
+    z_samples = int(round(float(base_z_samples - 1) * z_scale)) + 1
+    base_voxel_count = max(1, width * height * base_z_samples)
+    for _ in range(12):
+        scaled_width = max(width, int(round(width * xy_scale)))
+        scaled_height = max(height, int(round(height * xy_scale)))
+        multiplier = (scaled_width * scaled_height * z_samples) / float(base_voxel_count)
+        if multiplier <= budget + 1.0e-6:
+            break
+        xy_scale = max(float(profile.get("base_xy_scale", 1.0)), xy_scale * 0.985)
+        z_scale = max(float(profile.get("base_z_scale", 1.0)), z_scale * 0.985)
+        z_samples = int(round(float(base_z_samples - 1) * z_scale)) + 1
+    return {
+        "enabled": True,
+        "profile": profile,
+        "xy_scale": xy_scale,
+        "z_scale": z_scale,
+        "z_samples": z_samples,
+        "strategy": "highres_internal_downsampled" if clamp < 0.999 else "adaptive",
+        "requested_xy_scale": requested_xy,
+        "requested_z_scale": requested_z,
+        "budget_clamp": clamp,
+    }
+
+
 def _resolve_optional_path(path: Path | None) -> Path | None:
     if not path:
         return None
@@ -260,6 +363,20 @@ def _apply_profile_defaults(args: argparse.Namespace, profile: dict) -> None:
         args.semantic_parts = True
     if profile.get("surface_cohesion", False):
         args.surface_cohesion = True
+    if "patch_profile" in profile:
+        args.patch_profile = str(profile["patch_profile"])
+    if profile.get("macro_patches", False):
+        args.macro_patches = True
+    if "macro_patch_profile" in profile:
+        args.macro_patch_profile = str(profile["macro_patch_profile"])
+    if profile.get("semantic_remesh", False):
+        args.semantic_remesh = True
+    if "remesh_profile" in profile:
+        args.remesh_profile = str(profile["remesh_profile"])
+    if "remesh_iterations" in profile:
+        args.remesh_iterations = int(profile["remesh_iterations"])
+    if "remesh_strength" in profile:
+        args.remesh_strength = float(profile["remesh_strength"])
     if args.smoothing_mode is None:
         args.smoothing_mode = "none"
     if args.use_zfield or args.use_primitives or args.use_continuity:
@@ -1940,13 +2057,17 @@ def _build_phase5a_closed_body(
         if isinstance(path, Path)
     }
     directional_morphology = semantic_authority_result.get("morphology_profile", directional_morphology)
+    base_z_samples = max(17, int(args.total_depth_slices) * 2 + 1)
+    resolution_settings = _adaptive_resolution_settings(args, base_z_samples, front.size)
+    z_samples = int(resolution_settings["z_samples"])
+    resolution_profile = resolution_settings.get("profile")
     sdf = build_sdf_volume(
         mylar["z_front"],
         back["z_back"],
         mylar["alpha_mask"],
         mylar["label_by_pixel"],
         output_dir / "sdf",
-        z_samples=max(17, int(args.total_depth_slices) * 2 + 1),
+        z_samples=z_samples,
         semantic_depth_profile=semantic_depth_profile,
         semantic_depth_output_dir=output_dir / "depth_profiles" if semantic_depth_profile else None,
         emit_semantic_depth_debug=bool(getattr(args, "emit_semantic_depth_debug", False)),
@@ -1961,6 +2082,13 @@ def _build_phase5a_closed_body(
         rfd_enabled=bool(getattr(args, "rfd", False)),
         rfd_output_dir=output_dir / "rfd" if getattr(args, "rfd", False) else None,
         emit_rfd_debug=bool(getattr(args, "emit_rfd_debug", False)),
+        sdf_resolution_scale=float(resolution_settings["xy_scale"]),
+        base_z_samples=base_z_samples,
+        adaptive_resolution_profile=resolution_profile if isinstance(resolution_profile, dict) else None,
+        resolution_output_dir=output_dir / "resolution"
+        if getattr(args, "adaptive_sdf_resolution", False) or getattr(args, "emit_resolution_debug", False)
+        else None,
+        emit_resolution_debug=bool(getattr(args, "emit_resolution_debug", False)),
     )
     if sdf.get("semantic_depth_profile"):
         semantic_depth_paths = {
@@ -1992,11 +2120,19 @@ def _build_phase5a_closed_body(
     surface_net_report: dict[str, Any] = {}
     surface_net_paths: dict[str, Path] = {}
     surface_net_debug_paths: dict[str, Path] = {}
+    qef_debug_paths: dict[str, Path] = {}
+    semantic_patch_result: dict[str, Any] = {}
+    semantic_patch_paths: dict[str, Path] = {}
+    macro_patch_paths: dict[str, Path] = {}
+    topology_cleanup_result: dict[str, Any] = {}
+    topology_cleanup_paths: dict[str, Path] = {}
     surface_cohesion_result: dict[str, Any] = {}
     surface_cohesion_paths: dict[str, Path] = {}
+    semantic_remesh_result: dict[str, Any] = {}
+    semantic_remesh_paths: dict[str, Path] = {}
     voxel_render_result: dict[str, Any] = {}
     material_debug_paths: dict[str, Path] = {}
-    if mesh_backend == "surface_nets":
+    if mesh_backend in {"surface_nets", "surface_nets_patch"}:
         surface_net_input = meshing["paths"]["surface_nets_input"]
         surface_sdf, surface_semantic = load_surface_nets_input(surface_net_input)
         surface_net_mesh = extract_surface_nets(
@@ -2004,7 +2140,68 @@ def _build_phase5a_closed_body(
             surface_semantic,
             iso_level=0.0,
             smoothing_alpha=float(getattr(args, "surface_net_smoothing_alpha", 0.65)),
+            vertex_placement=getattr(args, "surface_net_vertex_placement", "average"),
+            qef_regularization=float(getattr(args, "qef_regularization", 0.001)),
+            qef_max_displacement=float(getattr(args, "qef_max_displacement", 0.35)),
         )
+        surface_net_mesh["config"] = {
+            **dict(surface_net_mesh.get("config", {})),
+            "sdf_resolution_scale": float(resolution_settings["xy_scale"]),
+            "z_resolution_scale": float(resolution_settings["z_scale"]),
+            "adaptive_sdf_resolution": bool(getattr(args, "adaptive_sdf_resolution", False)),
+            "resolution_profile": getattr(args, "resolution_profile", "prototype_adaptive"),
+        }
+        raw_mesh_path = write_mesh_json(surface_net_mesh, output_dir / "mesh.json")
+        mesh_path = raw_mesh_path
+        if getattr(args, "emit_qef_debug", False):
+            qef_debug_paths = write_qef_debug(surface_net_mesh, output_dir / "qef")
+        if mesh_backend == "surface_nets_patch":
+            patch_profile = load_patch_profile(getattr(args, "patch_profile", "humanoid_voxel"), WORKSPACE_ROOT)
+            macro_patch_profile = (
+                load_macro_patch_profile(getattr(args, "macro_patch_profile", "humanoid_voxel"), WORKSPACE_ROOT)
+                if getattr(args, "macro_patches", False)
+                else None
+            )
+            semantic_patch_result = apply_semantic_patch_nets(
+                surface_net_mesh,
+                surface_sdf,
+                surface_semantic,
+                semantic_parts_result.get("report", {}),
+                sdf.get("directional_morphology", {}).get("report", {}) if isinstance(sdf.get("directional_morphology"), dict) else {},
+                patch_profile,
+                output_dir / "patch_nets",
+                emit_debug=bool(getattr(args, "emit_patch_debug", False)),
+                macro_patch_profile=macro_patch_profile,
+                macro_output_dir=output_dir / "macro_patches" if getattr(args, "macro_patches", False) else None,
+                emit_macro_debug=bool(getattr(args, "emit_macro_patch_debug", False)),
+            )
+            surface_net_mesh = semantic_patch_result["mesh"]
+            semantic_patch_paths = {
+                key: path
+                for key, path in semantic_patch_result.get("paths", {}).items()
+                if isinstance(path, Path)
+            }
+            macro_patch_paths = {
+                key.removeprefix("macro_"): path
+                for key, path in semantic_patch_paths.items()
+                if key.startswith("macro_")
+            }
+            mesh_path = semantic_patch_paths.get("mesh_patch", output_dir / "mesh_patch.json")
+        if getattr(args, "topology_cleanup", False):
+            topology_cleanup_result = apply_topology_cleanup(
+                surface_net_mesh,
+                output_dir / "topology_cleanup",
+                emit_debug=bool(getattr(args, "emit_topology_cleanup_debug", False)),
+                preserve_silhouette_edges=bool(getattr(args, "preserve_silhouette_edges", True)),
+                preserve_semantic_boundaries=True,
+            )
+            surface_net_mesh = topology_cleanup_result["mesh"]
+            topology_cleanup_paths = {
+                key: path
+                for key, path in topology_cleanup_result.get("paths", {}).items()
+                if isinstance(path, Path)
+            }
+            mesh_path = topology_cleanup_paths.get("mesh_topology_cleaned", output_dir / "topology_cleanup" / "mesh_topology_cleaned.json")
         if getattr(args, "render_profile", None):
             render_profile = load_render_profile(getattr(args, "render_profile"), WORKSPACE_ROOT)
             voxel_render_result = apply_voxel_render_profile(
@@ -2020,7 +2217,6 @@ def _build_phase5a_closed_body(
                 if isinstance(path, Path)
             }
         if getattr(args, "surface_cohesion", False):
-            raw_mesh_path = write_mesh_json(surface_net_mesh, output_dir / "mesh.json")
             cohesion_profile = load_surface_cohesion_profile(
                 getattr(args, "surface_cohesion_profile", "humanoid_voxel"),
                 WORKSPACE_ROOT,
@@ -2042,8 +2238,31 @@ def _build_phase5a_closed_body(
             }
             mesh_path = surface_cohesion_paths.get("mesh_cohesive", output_dir / "mesh_cohesive.json")
         else:
-            raw_mesh_path = output_dir / "mesh.json"
-            mesh_path = write_mesh_json(surface_net_mesh, raw_mesh_path)
+            mesh_path = write_mesh_json(surface_net_mesh, mesh_path)
+        if getattr(args, "semantic_remesh", False):
+            if not raw_mesh_path.exists():
+                raw_mesh_path = write_mesh_json(surface_net_mesh, output_dir / "mesh.json")
+            remesh_profile = load_remesh_profile(
+                getattr(args, "remesh_profile", "humanoid_lowpoly"),
+                WORKSPACE_ROOT,
+            )
+            semantic_remesh_result = apply_semantic_remeshing(
+                surface_net_mesh,
+                semantic_parts_result.get("report", {}),
+                remesh_profile,
+                output_dir / "remeshing",
+                iterations=int(getattr(args, "remesh_iterations", 1)),
+                strength=float(getattr(args, "remesh_strength", 0.35)),
+                preserve_silhouette_edges=bool(getattr(args, "preserve_silhouette_edges", True)),
+                emit_debug=bool(getattr(args, "emit_remesh_debug", False)),
+            )
+            surface_net_mesh = semantic_remesh_result["mesh"]
+            semantic_remesh_paths = {
+                key: path
+                for key, path in semantic_remesh_result.get("paths", {}).items()
+                if isinstance(path, Path)
+            }
+            mesh_path = semantic_remesh_paths.get("mesh_remeshed", output_dir / "mesh_remeshed.json")
         surface_net_report = write_surface_nets_report(surface_net_mesh, output_dir, surface_net_input)
         boundary_path = output_dir / "semantic_boundary_debug.json"
         _write_json(
@@ -2078,18 +2297,30 @@ def _build_phase5a_closed_body(
         semantic_authority_result.get("report", {}),
         semantic_parts_result.get("report", {}),
     )
-    if mesh_backend == "surface_nets":
+    if mesh_backend in {"surface_nets", "surface_nets_patch"}:
         validation_report = _extend_phase5b_validation(
             validation_report,
             surface_net_report,
             meshing,
             float(getattr(args, "surface_net_smoothing_alpha", 0.65)),
+            mesh_backend,
+        )
+    if semantic_patch_result:
+        validation_report = _extend_semantic_patch_validation(validation_report, semantic_patch_result)
+    if topology_cleanup_result or getattr(args, "adaptive_sdf_resolution", False):
+        validation_report = _extend_resolution_and_topology_validation(
+            validation_report,
+            sdf.get("summary", {}),
+            topology_cleanup_result,
+            resolution_profile if isinstance(resolution_profile, dict) else {},
         )
     if surface_cohesion_result:
         validation_report = _extend_surface_cohesion_validation(validation_report, surface_cohesion_result)
+    if semantic_remesh_result:
+        validation_report = _extend_semantic_remesh_validation(validation_report, semantic_remesh_result)
     if voxel_render_result:
         validation_report = _extend_phase5f_validation(validation_report, voxel_render_result)
-    if mesh_backend == "surface_nets" and getattr(args, "godot_preview", False):
+    if mesh_backend in {"surface_nets", "surface_nets_patch"} and getattr(args, "godot_preview", False):
         render_result = _run_phase5c_godot_preview(args, output_dir, surface_net_paths.get("mesh"))
         validation_report = _extend_phase5c_validation(validation_report, render_result)
         if voxel_render_result:
@@ -2139,7 +2370,12 @@ def _build_phase5a_closed_body(
         "meshing": {key: _res_path(path) for key, path in meshing["paths"].items()},
         "surface_nets": {key: _res_path(path) for key, path in surface_net_paths.items()},
         "surface_net_debug": {key: _res_path(path) for key, path in surface_net_debug_paths.items()},
+        "qef": {key: _res_path(path) for key, path in qef_debug_paths.items()},
+        "semantic_patch_nets": {key: _res_path(path) for key, path in semantic_patch_paths.items()},
+        "macro_patches": {key: _res_path(path) for key, path in macro_patch_paths.items()},
+        "topology_cleanup": {key: _res_path(path) for key, path in topology_cleanup_paths.items()},
         "surface_cohesion": {key: _res_path(path) for key, path in surface_cohesion_paths.items()},
+        "semantic_remeshing": {key: _res_path(path) for key, path in semantic_remesh_paths.items()},
         "material_debug": {key: _res_path(path) for key, path in material_debug_paths.items()},
         "voxel_render_report": _res_path(output_dir / "voxel_render_report.json") if voxel_render_result else "",
         "silhouette_correction": {
@@ -2164,12 +2400,35 @@ def _build_phase5a_closed_body(
             "emit_closure_debug": getattr(args, "emit_closure_debug", False),
             "mesh_backend": mesh_backend,
             "surface_net_smoothing_alpha": float(getattr(args, "surface_net_smoothing_alpha", 0.65)),
+            "surface_net_vertex_placement": getattr(args, "surface_net_vertex_placement", "average"),
+            "qef_regularization": float(getattr(args, "qef_regularization", 0.001)),
+            "qef_max_displacement": float(getattr(args, "qef_max_displacement", 0.35)),
+            "emit_qef_debug": getattr(args, "emit_qef_debug", False),
             "emit_surface_net_debug": getattr(args, "emit_surface_net_debug", False),
+            "patch_profile": getattr(args, "patch_profile", "humanoid_voxel"),
+            "emit_patch_debug": getattr(args, "emit_patch_debug", False),
+            "macro_patches": getattr(args, "macro_patches", False),
+            "macro_patch_profile": getattr(args, "macro_patch_profile", "humanoid_voxel"),
+            "emit_macro_patch_debug": getattr(args, "emit_macro_patch_debug", False),
+            "sdf_resolution_scale": float(resolution_settings["xy_scale"]),
+            "z_resolution_scale": float(resolution_settings["z_scale"]),
+            "emit_resolution_diagnostic": getattr(args, "emit_resolution_diagnostic", False),
+            "adaptive_sdf_resolution": getattr(args, "adaptive_sdf_resolution", False),
+            "resolution_profile": getattr(args, "resolution_profile", "prototype_adaptive"),
+            "emit_resolution_debug": getattr(args, "emit_resolution_debug", False),
+            "topology_cleanup": getattr(args, "topology_cleanup", False),
+            "emit_topology_cleanup_debug": getattr(args, "emit_topology_cleanup_debug", False),
             "surface_cohesion": getattr(args, "surface_cohesion", False),
             "surface_cohesion_profile": getattr(args, "surface_cohesion_profile", "humanoid_voxel"),
             "surface_cohesion_strength": float(getattr(args, "surface_cohesion_strength", 0.35)),
             "surface_cohesion_iterations": int(getattr(args, "surface_cohesion_iterations", 2)),
             "emit_surface_cohesion_debug": getattr(args, "emit_surface_cohesion_debug", False),
+            "semantic_remesh": getattr(args, "semantic_remesh", False),
+            "remesh_profile": getattr(args, "remesh_profile", "humanoid_lowpoly"),
+            "remesh_iterations": int(getattr(args, "remesh_iterations", 1)),
+            "remesh_strength": float(getattr(args, "remesh_strength", 0.35)),
+            "preserve_silhouette_edges": getattr(args, "preserve_silhouette_edges", True),
+            "emit_remesh_debug": getattr(args, "emit_remesh_debug", False),
             "semantic_depth_profiles": getattr(args, "semantic_depth_profiles", False),
             "semantic_depth_profile": getattr(args, "semantic_depth_profile", "humanoid_voxel"),
             "emit_semantic_depth_debug": getattr(args, "emit_semantic_depth_debug", False),
@@ -2218,7 +2477,13 @@ def _build_phase5a_closed_body(
             key for key, failed in validation_report.get("fail_conditions", {}).items()
             if failed
         ]
-        if getattr(args, "rfd", False):
+        if mesh_backend == "surface_nets_patch" and getattr(args, "macro_patches", False):
+            phase_name = "Phase 6F"
+        elif mesh_backend == "surface_nets_patch":
+            phase_name = "Phase 6E"
+        elif getattr(args, "semantic_remesh", False):
+            phase_name = "Phase 6D"
+        elif getattr(args, "rfd", False):
             phase_name = "Phase 6D"
         elif getattr(args, "canonical_silhouette_correct", False):
             phase_name = "Phase 6A"
@@ -2245,6 +2510,7 @@ def _extend_phase5b_validation(
     surface_net_report: dict[str, Any],
     meshing: dict[str, Any],
     smoothing_alpha: float,
+    mesh_backend: str = "surface_nets",
 ) -> dict[str, Any]:
     report = dict(validation_report)
     fail_conditions = dict(report.get("fail_conditions", {}))
@@ -2255,6 +2521,9 @@ def _extend_phase5b_validation(
     labels_volume = set(int(value) for value in surface_net_report.get("semantic_labels_in_volume", []))
     missing_labels = sorted(labels_volume - labels_mesh)
     input_report = meshing.get("report", {})
+    qef_enabled = bool(surface_net_report.get("qef_enabled", False))
+    qef_limit = float(surface_net_report.get("qef_max_displacement_limit", surface_net_report.get("qef_max_displacement", 0.0)))
+    qef_observed = float(surface_net_report.get("qef_max_displacement", surface_net_report.get("qef_max_displacement_observed", 0.0)))
     fail_conditions.update(
         {
             "surface_net_zero_vertices": vertices <= 0,
@@ -2263,11 +2532,13 @@ def _extend_phase5b_validation(
             "surface_net_semantic_labels_lost": bool(missing_labels),
             "surface_nets_input_not_loadable": not bool(input_report.get("surface_nets_input_loadable", False)),
             "surface_nets_input_shape_invalid": not bool(input_report.get("surface_nets_input_shape_valid", False)),
+            "qef_no_cells_accepted": qef_enabled and int(surface_net_report.get("qef_cells_accepted", 0)) <= 0,
+            "qef_max_displacement_exceeded": qef_enabled and qef_observed > qef_limit + 1.0e-6,
         }
     )
     report.update(
         {
-            "mesh_backend": "surface_nets",
+            "mesh_backend": mesh_backend,
             "surface_net_vertices": vertices,
             "surface_net_faces": faces,
             "active_cell_count": int(surface_net_report.get("active_cell_count", 0)),
@@ -2281,6 +2552,24 @@ def _extend_phase5b_validation(
             "semantic_labels_missing_from_mesh": missing_labels,
             "semantic_label_preservation_passed": not missing_labels,
             "surface_net_smoothing_alpha": float(smoothing_alpha),
+            "surface_net_vertex_placement": surface_net_report.get("surface_net_vertex_placement", "average"),
+            "qef_enabled": qef_enabled,
+            "qef_cells_processed": int(surface_net_report.get("qef_cells_processed", 0)),
+            "qef_cells_accepted": int(surface_net_report.get("qef_cells_accepted", 0)),
+            "qef_cells_rejected": int(surface_net_report.get("qef_cells_rejected", 0)),
+            "qef_acceptance_ratio": float(surface_net_report.get("qef_acceptance_ratio", 0.0)),
+            "qef_mean_displacement": float(surface_net_report.get("qef_mean_displacement", 0.0)),
+            "qef_max_displacement": qef_observed,
+            "qef_max_displacement_limit": qef_limit,
+            "qef_fallback_count": int(surface_net_report.get("qef_fallback_count", 0)),
+            "qef_condition_warning_count": int(surface_net_report.get("qef_condition_warning_count", 0)),
+            "staircase_artifact_before_qef": float(surface_net_report.get("staircase_artifact_before_qef", 0.0)),
+            "staircase_artifact_after_qef": float(surface_net_report.get("staircase_artifact_after_qef", 0.0)),
+            "surface_flow_before_qef": float(surface_net_report.get("surface_flow_before_qef", 0.0)),
+            "surface_flow_after_qef": float(surface_net_report.get("surface_flow_after_qef", 0.0)),
+            "planar_surface_score_before_qef": float(surface_net_report.get("planar_surface_score_before_qef", 0.0)),
+            "planar_surface_score_after_qef": float(surface_net_report.get("planar_surface_score_after_qef", 0.0)),
+            "qef_quality_metric_improved": bool(surface_net_report.get("qef_quality_metric_improved", False)),
             "fail_conditions": fail_conditions,
             "passed": not any(fail_conditions.values()),
         }
@@ -2315,6 +2604,204 @@ def _extend_surface_cohesion_validation(
             "hat_tip_preserved": bool(cohesion_report.get("hat_tip_preserved", True)),
             "outline_preserved": bool(cohesion_report.get("outline_preserved", True)),
             "surface_cohesion_report": cohesion_report,
+            "fail_conditions": fail_conditions,
+        }
+    )
+    report["passed"] = not any(fail_conditions.values())
+    return report
+
+
+def _extend_semantic_patch_validation(
+    validation_report: dict[str, Any],
+    semantic_patch_result: dict[str, Any],
+) -> dict[str, Any]:
+    report = dict(validation_report)
+    patch_report = dict(semantic_patch_result.get("report", {}))
+    fail_conditions = dict(report.get("fail_conditions", {}))
+    for key, value in patch_report.get("fail_conditions", {}).items():
+        fail_conditions[f"semantic_patch_nets_{key}"] = bool(value)
+    report.update(
+        {
+            "semantic_patch_nets_enabled": bool(patch_report.get("semantic_patch_nets_enabled", False)),
+            "patch_profile": patch_report.get("patch_profile", ""),
+            "patch_count": int(patch_report.get("patch_count", 0)),
+            "mean_patch_size": float(patch_report.get("mean_patch_size", 0.0)),
+            "small_patch_ratio": float(patch_report.get("small_patch_ratio", 0.0)),
+            "planar_patch_count": int(patch_report.get("planar_patch_count", 0)),
+            "curved_patch_count": int(patch_report.get("curved_patch_count", 0)),
+            "silhouette_patch_count": int(patch_report.get("silhouette_patch_count", 0)),
+            "semantic_boundary_patch_count": int(patch_report.get("semantic_boundary_patch_count", 0)),
+            "macro_patches_enabled": bool(patch_report.get("macro_patches_enabled", False)),
+            "micro_patch_count": int(patch_report.get("micro_patch_count", patch_report.get("patch_count", 0))),
+            "macro_patch_count": int(patch_report.get("macro_patch_count", 0)),
+            "macro_patch_reduction_ratio": float(patch_report.get("macro_patch_reduction_ratio", 0.0)),
+            "mean_macro_patch_size": float(patch_report.get("mean_macro_patch_size", 0.0)),
+            "small_macro_patch_ratio": float(patch_report.get("small_macro_patch_ratio", 0.0)),
+            "planar_macro_patch_count": int(patch_report.get("planar_macro_patch_count", 0)),
+            "curved_macro_patch_count": int(patch_report.get("curved_macro_patch_count", 0)),
+            "directional_feature_macro_patch_count": int(
+                patch_report.get("directional_feature_macro_patch_count", 0)
+            ),
+            "noise_fragments_absorbed": int(patch_report.get("noise_fragments_absorbed", 0)),
+            "macro_patch_coherence_score": float(patch_report.get("macro_patch_coherence_score", 0.0)),
+            "triangle_count_before_patch": int(patch_report.get("triangle_count_before_patch", 0)),
+            "triangle_count_after_patch": int(patch_report.get("triangle_count_after_patch", 0)),
+            "staircase_artifact_before": float(patch_report.get("staircase_artifact_before", 0.0)),
+            "staircase_artifact_after": float(patch_report.get("staircase_artifact_after", 0.0)),
+            "surface_flow_before": float(patch_report.get("surface_flow_before", 0.0)),
+            "surface_flow_after": float(patch_report.get("surface_flow_after", 0.0)),
+            "patch_coherence_score": float(patch_report.get("patch_coherence_score", 0.0)),
+            "semantic_boundary_preservation_score": float(
+                patch_report.get("semantic_boundary_preservation_score", 0.0)
+            ),
+            "silhouette_edge_preservation_score": float(
+                patch_report.get("silhouette_edge_preservation_score", 0.0)
+            ),
+            "directional_feature_preservation_score": float(
+                patch_report.get("directional_feature_preservation_score", 0.0)
+            ),
+            "surface_net_vertex_placement": patch_report.get(
+                "surface_net_vertex_placement",
+                report.get("surface_net_vertex_placement", "average"),
+            ),
+            "qef_enabled": bool(patch_report.get("qef_enabled", report.get("qef_enabled", False))),
+            "qef_cells_processed": int(patch_report.get("qef_cells_processed", report.get("qef_cells_processed", 0))),
+            "qef_cells_accepted": int(patch_report.get("qef_cells_accepted", report.get("qef_cells_accepted", 0))),
+            "qef_cells_rejected": int(patch_report.get("qef_cells_rejected", report.get("qef_cells_rejected", 0))),
+            "qef_acceptance_ratio": float(patch_report.get("qef_acceptance_ratio", report.get("qef_acceptance_ratio", 0.0))),
+            "qef_mean_displacement": float(patch_report.get("qef_mean_displacement", report.get("qef_mean_displacement", 0.0))),
+            "qef_max_displacement": float(patch_report.get("qef_max_displacement", report.get("qef_max_displacement", 0.0))),
+            "qef_max_displacement_limit": float(
+                patch_report.get("qef_max_displacement_limit", report.get("qef_max_displacement_limit", 0.0))
+            ),
+            "qef_fallback_count": int(patch_report.get("qef_fallback_count", report.get("qef_fallback_count", 0))),
+            "qef_condition_warning_count": int(
+                patch_report.get("qef_condition_warning_count", report.get("qef_condition_warning_count", 0))
+            ),
+            "staircase_artifact_before_qef": float(
+                patch_report.get("staircase_artifact_before_qef", report.get("staircase_artifact_before_qef", 0.0))
+            ),
+            "staircase_artifact_after_qef": float(
+                patch_report.get("staircase_artifact_after_qef", report.get("staircase_artifact_after_qef", 0.0))
+            ),
+            "surface_flow_before_qef": float(
+                patch_report.get("surface_flow_before_qef", report.get("surface_flow_before_qef", 0.0))
+            ),
+            "surface_flow_after_qef": float(
+                patch_report.get("surface_flow_after_qef", report.get("surface_flow_after_qef", 0.0))
+            ),
+            "planar_surface_score_before_qef": float(
+                patch_report.get("planar_surface_score_before_qef", report.get("planar_surface_score_before_qef", 0.0))
+            ),
+            "planar_surface_score_after_qef": float(
+                patch_report.get("planar_surface_score_after_qef", report.get("planar_surface_score_after_qef", 0.0))
+            ),
+            "qef_quality_metric_improved": bool(
+                patch_report.get("qef_quality_metric_improved", report.get("qef_quality_metric_improved", False))
+            ),
+            "semantic_patch_nets_report": patch_report,
+            "fail_conditions": fail_conditions,
+        }
+    )
+    report["passed"] = not any(fail_conditions.values())
+    return report
+
+
+def _extend_resolution_and_topology_validation(
+    validation_report: dict[str, Any],
+    sdf_summary: dict[str, Any],
+    topology_cleanup_result: dict[str, Any],
+    resolution_profile: dict[str, Any],
+) -> dict[str, Any]:
+    report = dict(validation_report)
+    cleanup_report = dict(topology_cleanup_result.get("report", {})) if topology_cleanup_result else {}
+    fail_conditions = dict(report.get("fail_conditions", {}))
+    adaptive_enabled = bool(sdf_summary.get("adaptive_sdf_resolution_enabled", False))
+    max_non_manifold_increase = int(resolution_profile.get("max_non_manifold_edge_increase", 15))
+    baseline_non_manifold = int(resolution_profile.get("baseline_non_manifold_edge_count", 11))
+    max_voxel_multiplier = float(resolution_profile.get("max_voxel_budget_multiplier", 999.0))
+    non_manifold_after = int(
+        cleanup_report.get("non_manifold_after_cleanup", report.get("non_manifold_edge_count", 0))
+    )
+    effective_budget = float(sdf_summary.get("effective_voxel_budget_multiplier", 1.0))
+    degenerate_after = int(cleanup_report.get("degenerate_face_count", report.get("degenerate_face_count", 0)))
+    components_after = int(cleanup_report.get("mesh_connected_components", report.get("mesh_connected_components", 1)))
+    semantic_missing = list(cleanup_report.get("semantic_labels_missing_from_mesh", report.get("semantic_labels_missing_from_mesh", [])))
+    hat_ratio = float(report.get("hat_asymmetry_ratio", sdf_summary.get("hat_asymmetry_ratio", 0.0)))
+    fail_conditions.update(
+        {
+            "adaptive_sdf_voxel_budget_exceeded": adaptive_enabled and effective_budget > max_voxel_multiplier + 1.0e-6,
+            "topology_cleanup_mesh_disconnected": bool(cleanup_report) and components_after != 1,
+            "topology_cleanup_semantic_labels_disappeared": bool(semantic_missing),
+            "topology_cleanup_degenerate_faces": bool(cleanup_report) and degenerate_after > 0,
+            "topology_cleanup_non_manifold_above_target": bool(cleanup_report)
+            and non_manifold_after > baseline_non_manifold + max_non_manifold_increase,
+            "adaptive_sdf_hat_asymmetry_regressed": adaptive_enabled and hat_ratio < 2.0,
+        }
+    )
+    report.update(
+        {
+            "adaptive_sdf_resolution_enabled": adaptive_enabled,
+            "resolution_profile": sdf_summary.get("resolution_profile", resolution_profile.get("name", "")),
+            "effective_voxel_budget_multiplier": effective_budget,
+            "adaptive_high_detail_region_count": int(sdf_summary.get("adaptive_high_detail_region_count", 0)),
+            "silhouette_band_high_res_enabled": bool(sdf_summary.get("silhouette_band_high_res_enabled", False)),
+            "semantic_boundary_high_res_enabled": bool(sdf_summary.get("semantic_boundary_high_res_enabled", False)),
+            "sdf_resolution_strategy": sdf_summary.get("sdf_resolution_strategy", "uniform"),
+            "topology_cleanup_applied": bool(cleanup_report.get("topology_cleanup_applied", False)),
+            "non_manifold_before_cleanup": int(cleanup_report.get("non_manifold_before_cleanup", report.get("non_manifold_edge_count", 0))),
+            "non_manifold_after_cleanup": non_manifold_after,
+            "duplicate_faces_removed": int(cleanup_report.get("duplicate_faces_removed", 0)),
+            "duplicate_vertices_merged": int(cleanup_report.get("duplicate_vertices_merged", 0)),
+            "sliver_faces_removed": int(cleanup_report.get("sliver_faces_removed", 0)),
+            "topology_cleanup_report": cleanup_report,
+            "fail_conditions": fail_conditions,
+        }
+    )
+    if cleanup_report:
+        report["non_manifold_edge_count"] = non_manifold_after
+        report["degenerate_face_count"] = degenerate_after
+        report["mesh_connected_components"] = components_after
+        report["semantic_labels_missing_from_mesh"] = semantic_missing
+        report["semantic_label_preservation_passed"] = not semantic_missing
+    report["passed"] = not any(fail_conditions.values())
+    return report
+
+
+def _extend_semantic_remesh_validation(
+    validation_report: dict[str, Any],
+    semantic_remesh_result: dict[str, Any],
+) -> dict[str, Any]:
+    report = dict(validation_report)
+    remesh_report = dict(semantic_remesh_result.get("report", {}))
+    fail_conditions = dict(report.get("fail_conditions", {}))
+    for key, value in remesh_report.get("fail_conditions", {}).items():
+        fail_conditions[f"semantic_remesh_{key}"] = bool(value)
+    report.update(
+        {
+            "semantic_remesh_enabled": bool(remesh_report.get("semantic_remesh_enabled", False)),
+            "remesh_profile": remesh_report.get("remesh_profile", ""),
+            "triangle_count_before": int(remesh_report.get("triangle_count_before", 0)),
+            "triangle_count_after": int(remesh_report.get("triangle_count_after", 0)),
+            "triangle_reduction_ratio": float(remesh_report.get("triangle_reduction_ratio", 0.0)),
+            "coplanar_merge_count": int(remesh_report.get("coplanar_merge_count", 0)),
+            "staircase_artifact_before": float(remesh_report.get("staircase_artifact_before", 0.0)),
+            "staircase_artifact_after": float(remesh_report.get("staircase_artifact_after", 0.0)),
+            "surface_flow_before": float(remesh_report.get("surface_flow_before", 0.0)),
+            "surface_flow_after": float(remesh_report.get("surface_flow_after", 0.0)),
+            "silhouette_edge_preservation_score": float(
+                remesh_report.get("silhouette_edge_preservation_score", 0.0)
+            ),
+            "semantic_boundary_preservation_score": float(
+                remesh_report.get("semantic_boundary_preservation_score", 0.0)
+            ),
+            "directional_feature_preservation_score": float(
+                remesh_report.get("directional_feature_preservation_score", 0.0)
+            ),
+            "planar_surface_score": float(remesh_report.get("planar_surface_score", 0.0)),
+            "oblique_readability_score": float(remesh_report.get("oblique_readability_score", 0.0)),
+            "lowpoly_coherence_score": float(remesh_report.get("lowpoly_coherence_score", 0.0)),
+            "semantic_remesh_report": remesh_report,
             "fail_conditions": fail_conditions,
         }
     )

@@ -1,0 +1,14 @@
+{
+  "directional_morphology_gated_labels": [
+    "equipment/shield/sword"
+  ],
+  "gated_reasons": {
+    "equipment/shield/sword": "missing directional semantic label"
+  },
+  "required_directional_labels": [
+    "equipment/shield/sword",
+    "face",
+    "hair/hat"
+  ],
+  "hat_directional_morphology_allowed": true
+}

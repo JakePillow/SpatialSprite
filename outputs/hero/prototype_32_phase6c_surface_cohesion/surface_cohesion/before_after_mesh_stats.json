@@ -142,6 +142,21 @@
       "max_vertex_displacement_exceeded": false,
       "outline_preservation_failed": false,
       "hat_tip_preservation_failed": false
+    },
+    "visual_quality_diagnosis": {
+      "surface_metric_improved": false,
+      "semantic_issue": false,
+      "sdf_issue": false,
+      "meshing_issue": true,
+      "render_issue": false,
+      "likely_cause": "meshing issue",
+      "notes": [
+        "Semantic authority and canonical semantic parts are present; this pass does not indicate a semantic authority failure.",
+        "Closed SDF connectivity and label preservation remain valid, so the SDF layer is not the primary failure signal.",
+        "Local mesh relaxation is safe but does not reduce the current normal/fragmentation metric, pointing to surface-nets topology or extraction density as the next bottleneck.",
+        "Rendering may still make blockiness visible, but this phase intentionally did not change render style."
+      ],
+      "recommended_next_engineering_step": "Inspect surface-nets topology and consider topology-aware extraction or a better cohesion objective before increasing relaxation strength."
     }
   }
 }

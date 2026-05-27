@@ -1,0 +1,19 @@
+{
+  "name": "humanoid_lowpoly",
+  "coplanarity_threshold": 0.88,
+  "curvature_threshold": 0.24,
+  "min_patch_cell_count": 3,
+  "max_patch_vertex_adjustment": 0.22,
+  "silhouette_drift_tolerance_px": 1.0,
+  "silhouette_lock_weight": 1.0,
+  "semantic_boundary_lock_weight": 1.0,
+  "planar_projection_strength": 0.38,
+  "curved_patch_smoothing_strength": 0.12,
+  "directional_preservation_min": 0.88,
+  "max_non_manifold_increase": 2,
+  "metric_epsilon": 0.000001,
+  "preserve_labels": [
+    "outline",
+    "equipment/shield/sword"
+  ]
+}

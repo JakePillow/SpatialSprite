@@ -1,0 +1,142 @@
+{
+  "schema": "spritespatial_comparison_v2",
+  "baseline_dir": "res://outputs/hero/prototype_32",
+  "candidate_dir": "res://outputs/hero/audit_best_3d_recreation",
+  "zfield_dir": "res://outputs/hero/audit_best_3d_recreation",
+  "comparison_images": {
+    "0": "res://outputs/hero/audit_best_3d_recreation/python_fallback_preview_vs_phase1/side_by_side_0.png",
+    "45": "res://outputs/hero/audit_best_3d_recreation/python_fallback_preview_vs_phase1/side_by_side_45.png",
+    "90": "res://outputs/hero/audit_best_3d_recreation/python_fallback_preview_vs_phase1/side_by_side_90.png",
+    "135": "res://outputs/hero/audit_best_3d_recreation/python_fallback_preview_vs_phase1/side_by_side_135.png",
+    "180": "res://outputs/hero/audit_best_3d_recreation/python_fallback_preview_vs_phase1/side_by_side_180.png"
+  },
+  "metrics": {
+    "baseline": {
+      "passed": true,
+      "faces": 3500,
+      "voxels": 3834,
+      "fallback_or_black_face_percentage": 0.004571428571428572,
+      "front_coverage": 0.3528645833333333,
+      "bounds": [
+        1.2000000000000002,
+        1.6,
+        0.6
+      ]
+    },
+    "zfield": {
+      "passed": true,
+      "faces": 0,
+      "voxels": 0,
+      "fallback_or_black_face_percentage": 0.0,
+      "front_coverage": 0.0,
+      "bounds": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "average_region_depth": null,
+      "outline_shell_voxel_count": null
+    },
+    "candidate": {
+      "passed": true,
+      "faces": 0,
+      "voxels": 0,
+      "fallback_or_black_face_percentage": 0.0,
+      "front_coverage": 0.0,
+      "bounds": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "average_region_depth": null,
+      "outline_shell_voxel_count": null,
+      "smoothing": {
+        "enabled": false,
+        "mode": "none",
+        "silhouette_drift_px": 0.0,
+        "outline_preservation_score": 1.0,
+        "semantic_boundary_violation_count": 0,
+        "face_count_before_smoothing": 0,
+        "face_count_after_smoothing": 0,
+        "degenerate_faces_removed": 0,
+        "smoothing_passed": true
+      }
+    }
+  },
+  "primitive_counts": {},
+  "semantic_warning_counts": {},
+  "semantic_override_metrics": {
+    "mode": null,
+    "override_pixels_applied": 0,
+    "override_overlap_count": 0,
+    "unlabelled_opaque_pixel_ratio": 0.0,
+    "critical_label_coverage": {},
+    "torso_head_overlap_count_after_override": null,
+    "disconnected_critical_labels_after_override": null
+  },
+  "smoothing_metrics": {
+    "enabled": false,
+    "mode": "none",
+    "silhouette_drift_px": 0.0,
+    "outline_preservation_score": 1.0,
+    "semantic_boundary_violation_count": 0,
+    "face_count_before_smoothing": 0,
+    "face_count_after_smoothing": 0,
+    "degenerate_faces_removed": 0,
+    "smoothing_passed": true
+  },
+  "phase5a_metrics": {
+    "mylar_depth_enabled": true,
+    "closed_body_enabled": true,
+    "back_mode": "semantic_rules",
+    "sdf_volume_shape": [
+      45,
+      34,
+      35
+    ],
+    "sdf_dtype": "float32",
+    "semantic_dtype": "int32",
+    "surface_nets_ready": true,
+    "manifold_ready_estimate": true
+  },
+  "phase5a_debug_images": {
+    "z_front": "res://outputs/hero/audit_best_3d_recreation/python_fallback_preview_vs_phase1/z_front.png",
+    "z_back": "res://outputs/hero/audit_best_3d_recreation/python_fallback_preview_vs_phase1/z_back.png",
+    "seam_debug": "res://outputs/hero/audit_best_3d_recreation/python_fallback_preview_vs_phase1/seam_debug.png",
+    "sdf_slice_contact_sheet": "res://outputs/hero/audit_best_3d_recreation/python_fallback_preview_vs_phase1/sdf_slice_contact_sheet.png"
+  },
+  "primitive_assignments": [],
+  "assessment": {
+    "side_profile": {
+      "improved": false,
+      "reason": "Continuity score is None; occupied voxels changed from 3834 to 0; depth span 0.000 vs baseline 0.600."
+    },
+    "head_torso_limb_volume": {
+      "improved": false,
+      "reason": "Primitive mix is {}; head/torso/limbs are no longer all cuboid/flat."
+    },
+    "outline_shell": {
+      "controlled": false,
+      "reason": "Outline shell voxels 0; outline source pixels 0."
+    },
+    "budget": {
+      "within_budget": true,
+      "reason": "Candidate faces 0; baseline faces 3500; profile budget treated as 4000."
+    },
+    "front_readability": {
+      "preserved": false,
+      "reason": "Baseline alpha coverage 0.3529; Candidate front projection 0.0000."
+    },
+    "smoothing": {
+      "passed": true,
+      "reason": "Smoothing was not enabled for the candidate."
+    },
+    "phase5a_closed_sdf": {
+      "ready": true,
+      "reason": "Closed SDF infrastructure present; shape [45, 34, 35]; dtypes float32 / int32; manifold-ready estimate True."
+    },
+    "worsened_parts": [],
+    "overall_verdict": "infrastructure_only"
+  },
+  "verdict": "infrastructure_only"
+}

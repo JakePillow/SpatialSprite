@@ -1,0 +1,224 @@
+{
+  "semantic_depth_profiles_enabled": true,
+  "uniform_slab_ratio": 0.0,
+  "semantic_depth_variance": 88.38468933105469,
+  "head_depth_ratio": 0.7372448979591837,
+  "torso_depth_ratio": 0.31042536910699337,
+  "limb_depth_ratio": 0.22848640655984684,
+  "outline_shell_ratio": 1.0,
+  "side_projection_entropy": 0.8901172849609944,
+  "side_profile_readability_score": 0.9505527782324475,
+  "depth_ratio_by_label": {
+    "face": 0.13903061224489796,
+    "hair/hat": 0.058673469387755105,
+    "head": 0.7372448979591837,
+    "left_arm": 0.24267967379823022,
+    "left_leg": 0.24206348341338488,
+    "outline": 0.02040816326530612,
+    "right_arm": 0.22180450205900232,
+    "right_leg": 0.20739796696876994,
+    "torso": 0.31042536910699337
+  },
+  "depth_variance_by_label": {
+    "face": 2.83984375,
+    "hair/hat": 2.2760417461395264,
+    "head": 13.984375,
+    "left_arm": 29.16210174560547,
+    "left_leg": 26.434415817260742,
+    "outline": 0.0,
+    "right_arm": 23.48268699645996,
+    "right_leg": 15.13609504699707,
+    "torso": 118.56398010253906
+  },
+  "z_axis_min": -0.3698795437812805,
+  "z_axis_max": 0.4351523518562317,
+  "outline_max_voxel_thickness": 1.0,
+  "schema": "spritespatial_semantic_depth_profiles_v1",
+  "profile_set": "humanoid_voxel",
+  "profile_assignment_counts": {
+    "outline": 300,
+    "hair/hat": 48,
+    "head": 16,
+    "torso": 332,
+    "face": 32,
+    "left_arm": 92,
+    "right_arm": 76,
+    "left_leg": 108,
+    "right_leg": 80
+  },
+  "profiles": {
+    "head": {
+      "z_center_fraction": 0.02,
+      "half_thickness_fraction": 0.46,
+      "profile_type": "hemisphere",
+      "taper_curve": "round",
+      "asymmetry": 0.05,
+      "depth_priority": 90,
+      "silhouette_preservation_weight": 0.95
+    },
+    "face": {
+      "z_center_fraction": 0.28,
+      "half_thickness_fraction": 0.22,
+      "profile_type": "rounded_front",
+      "taper_curve": "front_pad",
+      "asymmetry": 0.35,
+      "depth_priority": 92,
+      "silhouette_preservation_weight": 0.98
+    },
+    "torso": {
+      "z_center_fraction": 0.0,
+      "half_thickness_fraction": 0.4,
+      "profile_type": "rounded_cuboid",
+      "taper_curve": "neck_waist",
+      "asymmetry": 0.0,
+      "depth_priority": 80,
+      "silhouette_preservation_weight": 0.92
+    },
+    "left_arm": {
+      "z_center_fraction": 0.0,
+      "half_thickness_fraction": 0.3,
+      "profile_type": "capsule_chain",
+      "taper_curve": "limb",
+      "asymmetry": 0.0,
+      "depth_priority": 70,
+      "silhouette_preservation_weight": 0.88
+    },
+    "right_arm": {
+      "z_center_fraction": 0.0,
+      "half_thickness_fraction": 0.3,
+      "profile_type": "capsule_chain",
+      "taper_curve": "limb",
+      "asymmetry": 0.0,
+      "depth_priority": 70,
+      "silhouette_preservation_weight": 0.88
+    },
+    "left_leg": {
+      "z_center_fraction": 0.0,
+      "half_thickness_fraction": 0.32,
+      "profile_type": "tapered_capsule_chain",
+      "taper_curve": "limb_taper",
+      "asymmetry": 0.0,
+      "depth_priority": 68,
+      "silhouette_preservation_weight": 0.88
+    },
+    "right_leg": {
+      "z_center_fraction": 0.0,
+      "half_thickness_fraction": 0.32,
+      "profile_type": "tapered_capsule_chain",
+      "taper_curve": "limb_taper",
+      "asymmetry": 0.0,
+      "depth_priority": 68,
+      "silhouette_preservation_weight": 0.88
+    },
+    "boots/feet": {
+      "z_center_fraction": 0.06,
+      "half_thickness_fraction": 0.18,
+      "profile_type": "flattened_rounded_box",
+      "taper_curve": "foot",
+      "asymmetry": 0.12,
+      "depth_priority": 74,
+      "silhouette_preservation_weight": 0.9
+    },
+    "hair/hat": {
+      "z_center_fraction": 0.22,
+      "half_thickness_fraction": 0.14,
+      "profile_type": "shell_offset",
+      "taper_curve": "layer",
+      "asymmetry": 0.2,
+      "depth_priority": 85,
+      "silhouette_preservation_weight": 0.96
+    },
+    "outline": {
+      "z_center_fraction": 0.0,
+      "half_thickness_fraction": 0.04,
+      "profile_type": "outline_shell",
+      "taper_curve": "shell",
+      "asymmetry": 0.0,
+      "depth_priority": 100,
+      "silhouette_preservation_weight": 1.0
+    },
+    "equipment/shield/sword": {
+      "z_center_fraction": 0.18,
+      "half_thickness_fraction": 0.16,
+      "profile_type": "shell_offset",
+      "taper_curve": "rigid",
+      "asymmetry": 0.2,
+      "depth_priority": 88,
+      "silhouette_preservation_weight": 0.96
+    },
+    "unknown": {
+      "z_center_fraction": 0.0,
+      "half_thickness_fraction": 0.28,
+      "profile_type": "rounded_cuboid",
+      "taper_curve": "neutral",
+      "asymmetry": 0.0,
+      "depth_priority": 40,
+      "silhouette_preservation_weight": 0.85
+    }
+  },
+  "directional_morphology_enabled": true,
+  "morphology_profile": "fantasy_humanoid",
+  "directional_semantic_count": 2,
+  "directional_semantic_labels": [
+    "face",
+    "hair/hat"
+  ],
+  "directional_profile_types": [
+    "HAT_POINTED_BACK",
+    "NOSE_FORWARD"
+  ],
+  "anisotropic_region_ratio": 0.07380073800738007,
+  "rearward_extension_score": 0.3126525282859802,
+  "front_compression_score": 0.39025434851646423,
+  "directional_readability_score": 0.3514570951461792,
+  "symmetric_volume_penalty": 0.635604739189148,
+  "mean_center_shift": -0.023515349254012108,
+  "hat_pointed_back_present": true,
+  "front_hat_extension_score": 0.009224314242601395,
+  "back_hat_extension_score": 0.03943460062146187,
+  "hat_asymmetry_ratio": 4.27507125021152,
+  "rules": {
+    "hair/hat": {
+      "profile_type": "HAT_POINTED_BACK",
+      "forward_bias": 0.0,
+      "backward_bias": 0.88,
+      "lateral_bias": -0.48,
+      "upward_bias": 0.06,
+      "downward_bias": 0.32,
+      "taper_direction": "back",
+      "asymmetry_strength": 0.82,
+      "curvature_bias": 0.34,
+      "trailing_profile": "curved_down_tail",
+      "compression_profile": "compressed_front",
+      "front_profile": "rounded_compressed",
+      "back_profile": "elongated_taper",
+      "front_scale": 0.25,
+      "back_scale": 1.2,
+      "front_taper": 0.12,
+      "back_taper": 0.84,
+      "suppress_front_projection": true,
+      "rear_extension_bias": 0.86
+    },
+    "face": {
+      "profile_type": "NOSE_FORWARD",
+      "forward_bias": 0.46,
+      "backward_bias": 0.02,
+      "lateral_bias": -0.1,
+      "upward_bias": 0.0,
+      "downward_bias": 0.0,
+      "taper_direction": "front",
+      "asymmetry_strength": 0.52,
+      "curvature_bias": 0.16,
+      "trailing_profile": "none",
+      "compression_profile": "flat_back",
+      "front_profile": "inherit",
+      "back_profile": "inherit",
+      "front_scale": 1.0,
+      "back_scale": 1.0,
+      "front_taper": 0.0,
+      "back_taper": 0.0,
+      "suppress_front_projection": false,
+      "rear_extension_bias": 0.0
+    }
+  }
+}

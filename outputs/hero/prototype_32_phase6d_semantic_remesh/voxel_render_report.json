@@ -1,0 +1,25 @@
+{
+  "schema": "spritespatial_voxel_render_profile_report_v1",
+  "render_profile": "voxel_sprite",
+  "profile_path": "C:\\dev\\SpatialSprite\\profiles\\render_profiles\\voxel_sprite.json",
+  "face_counts": {
+    "front_faces": 0,
+    "back_faces": 528,
+    "side_faces": 438,
+    "top_faces": 654,
+    "bottom_faces": 0,
+    "outer_outline_faces": 126,
+    "internal_black_faces": 38,
+    "internal_black_faces_suppressed": 38
+  },
+  "internal_black_face_ratio": 0.02345679012345679,
+  "outer_outline_preservation_score": 0.7682926829268293,
+  "source_colour_match_score": 0.7785665695808106,
+  "side_face_shading_score": 1.0,
+  "voxel_face_readability_score": 0.8796777760898729,
+  "paths": {
+    "face_type_counts": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase6d_semantic_remesh\\material_debug\\face_type_counts.json",
+    "render_profile": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase6d_semantic_remesh\\material_debug\\render_profile.json",
+    "render_colour_swatches": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32_phase6d_semantic_remesh\\material_debug\\render_colour_swatches.png"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "schema": "spritespatial_semantic_authority_v1",
+  "semantic_authority_enabled": true,
+  "profile": "prototype_32",
+  "morphology_profile": "fantasy_humanoid",
+  "required_directional_labels": [
+    "equipment/shield/sword",
+    "face",
+    "hair/hat"
+  ],
+  "missing_directional_labels": [
+    "equipment/shield/sword"
+  ],
+  "override_overlap_count": 145,
+  "override_pixels_applied": 271,
+  "override_overlap_ratio": 0.5350553505535055,
+  "override_overlap_warning_threshold": 0.2,
+  "override_overlap_failure_threshold": 0.6,
+  "back_geometry_authority": "semantic_rules",
+  "directional_morphology_gated_labels": [
+    "equipment/shield/sword"
+  ],
+  "front_back_semantic_correspondence_passed": true,
+  "warnings": [
+    "Semantic override overlap ratio 0.535 exceeds warning threshold 0.20.",
+    "Directional labels are absent from this asset and will be gated: equipment/shield/sword."
+  ],
+  "failures": [],
+  "passed": true,
+  "hat_authority_requested": true,
+  "hat_authority_passed": true,
+  "hat_pixel_count": 12,
+  "hat_override_pixel_count": 16,
+  "hat_component_count": 1,
+  "hat_head_attachment_score": 1.0,
+  "hat_torso_overlap_count": 0,
+  "hat_head_overlap_count": 8,
+  "hat_directional_morphology_allowed": true
+}

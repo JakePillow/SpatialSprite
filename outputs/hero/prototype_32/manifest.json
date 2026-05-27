@@ -83,6 +83,6 @@
     ]
   },
   "validation_passed": true,
-  "timestamp": "2026-05-25T11:31:26.350608+00:00",
+  "timestamp": "2026-05-27T19:19:11.176803+00:00",
   "command": "python tools/build_profiled_asset.py --asset C:\\dev\\SpatialSprite\\assets\\samples\\hero\\spriteasset_v1.json --profile C:\\dev\\SpatialSprite\\profiles\\prototype_32.json --out C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32"
 }

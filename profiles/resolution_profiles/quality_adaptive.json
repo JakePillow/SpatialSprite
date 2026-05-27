@@ -1,0 +1,26 @@
+{
+  "name": "quality_adaptive",
+  "base_xy_scale": 1.0,
+  "base_z_scale": 1.0,
+  "high_detail_xy_scale": 2.25,
+  "high_detail_z_scale": 2.0,
+  "adaptive_regions": [
+    "hair/hat",
+    "face",
+    "head",
+    "equipment/shield/sword",
+    "outline"
+  ],
+  "medium_detail_regions": [
+    "torso",
+    "left_arm",
+    "right_arm",
+    "left_leg",
+    "right_leg",
+    "boots/feet"
+  ],
+  "silhouette_band_extra_scale": 2.25,
+  "semantic_boundary_extra_scale": 1.75,
+  "max_non_manifold_edge_increase": 20,
+  "max_voxel_budget_multiplier": 4.0
+}

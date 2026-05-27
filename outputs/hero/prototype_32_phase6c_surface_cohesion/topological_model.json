@@ -104,6 +104,7 @@
     "semantic_boundary_preservation": "res://outputs/hero/prototype_32_phase6c_surface_cohesion/surface_cohesion/semantic_boundary_preservation.png",
     "before_after_mesh_stats": "res://outputs/hero/prototype_32_phase6c_surface_cohesion/surface_cohesion/before_after_mesh_stats.json",
     "before_after_contact_sheet": "res://outputs/hero/prototype_32_phase6c_surface_cohesion/surface_cohesion/before_after_contact_sheet.png",
+    "cohesion_diagnosis": "res://outputs/hero/prototype_32_phase6c_surface_cohesion/surface_cohesion/cohesion_diagnosis.json",
     "mesh_cohesive": "res://outputs/hero/prototype_32_phase6c_surface_cohesion/mesh_cohesive.json"
   },
   "material_debug": {
@@ -130233,6 +130234,21 @@
         "max_vertex_displacement_exceeded": false,
         "outline_preservation_failed": false,
         "hat_tip_preservation_failed": false
+      },
+      "visual_quality_diagnosis": {
+        "surface_metric_improved": false,
+        "semantic_issue": false,
+        "sdf_issue": false,
+        "meshing_issue": true,
+        "render_issue": false,
+        "likely_cause": "meshing issue",
+        "notes": [
+          "Semantic authority and canonical semantic parts are present; this pass does not indicate a semantic authority failure.",
+          "Closed SDF connectivity and label preservation remain valid, so the SDF layer is not the primary failure signal.",
+          "Local mesh relaxation is safe but does not reduce the current normal/fragmentation metric, pointing to surface-nets topology or extraction density as the next bottleneck.",
+          "Rendering may still make blockiness visible, but this phase intentionally did not change render style."
+        ],
+        "recommended_next_engineering_step": "Inspect surface-nets topology and consider topology-aware extraction or a better cohesion objective before increasing relaxation strength."
       }
     },
     "render_profile": "voxel_sprite",

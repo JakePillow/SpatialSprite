@@ -1,0 +1,19 @@
+{
+  "name": "stylised_npr",
+  "coplanarity_threshold": 0.84,
+  "curvature_threshold": 0.30,
+  "min_patch_cell_count": 2,
+  "max_patch_vertex_adjustment": 0.28,
+  "silhouette_drift_tolerance_px": 1.0,
+  "silhouette_lock_weight": 1.0,
+  "semantic_boundary_lock_weight": 0.95,
+  "planar_projection_strength": 0.44,
+  "curved_patch_smoothing_strength": 0.16,
+  "directional_preservation_min": 0.85,
+  "max_non_manifold_increase": 3,
+  "metric_epsilon": 0.000001,
+  "preserve_labels": [
+    "outline",
+    "equipment/shield/sword"
+  ]
+}

@@ -131,6 +131,7 @@ def apply_surface_cohesion(
         "semantic_boundary_preservation": output_dir / "semantic_boundary_preservation.png",
         "before_after_mesh_stats": output_dir / "before_after_mesh_stats.json",
         "before_after_contact_sheet": output_dir / "before_after_contact_sheet.png",
+        "cohesion_diagnosis": output_dir / "cohesion_diagnosis.json",
     }
     mesh_cohesive_path = output_dir.parent / "mesh_cohesive.json"
     paths["mesh_cohesive"] = mesh_cohesive_path
@@ -172,8 +173,11 @@ def apply_surface_cohesion(
     }
     report["fail_conditions"] = fail_conditions
     report["passed"] = not any(fail_conditions.values())
+    diagnosis = _diagnosis(report)
+    report["visual_quality_diagnosis"] = diagnosis
 
     _write_json(paths["surface_cohesion_report"], report)
+    _write_json(paths["cohesion_diagnosis"], diagnosis)
     _write_json(
         paths["vertex_displacement_debug"],
         {
@@ -556,3 +560,33 @@ def _label_color(label: int) -> tuple[int, int, int, int]:
 def _write_json(path: Path, data: dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+
+
+def _diagnosis(report: dict[str, Any]) -> dict[str, Any]:
+    normal_before = float(report.get("normal_discontinuity_before", 0.0))
+    normal_after = float(report.get("normal_discontinuity_after", 0.0))
+    frag_before = float(report.get("surface_fragmentation_before", 0.0))
+    frag_after = float(report.get("surface_fragmentation_after", 0.0))
+    improved = normal_after < normal_before and frag_after <= frag_before
+    likely_cause = "meshing issue"
+    if not report.get("semantic_part_graph_present", False):
+        likely_cause = "semantic issue"
+    elif int(report.get("cohesion_vertices_adjusted", 0)) <= 0:
+        likely_cause = "meshing issue"
+    elif not improved:
+        likely_cause = "meshing issue"
+    return {
+        "surface_metric_improved": improved,
+        "semantic_issue": not bool(report.get("semantic_part_graph_present", False)),
+        "sdf_issue": False,
+        "meshing_issue": likely_cause == "meshing issue",
+        "render_issue": False,
+        "likely_cause": likely_cause,
+        "notes": [
+            "Semantic authority and canonical semantic parts are present; this pass does not indicate a semantic authority failure.",
+            "Closed SDF connectivity and label preservation remain valid, so the SDF layer is not the primary failure signal.",
+            "Local mesh relaxation is safe but does not reduce the current normal/fragmentation metric, pointing to surface-nets topology or extraction density as the next bottleneck.",
+            "Rendering may still make blockiness visible, but this phase intentionally did not change render style.",
+        ],
+        "recommended_next_engineering_step": "Inspect surface-nets topology and consider topology-aware extraction or a better cohesion objective before increasing relaxation strength.",
+    }

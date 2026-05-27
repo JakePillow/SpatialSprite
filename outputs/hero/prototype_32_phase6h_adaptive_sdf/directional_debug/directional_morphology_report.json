@@ -1,0 +1,67 @@
+{
+  "directional_morphology_enabled": true,
+  "morphology_profile": "fantasy_humanoid",
+  "directional_semantic_count": 2,
+  "directional_semantic_labels": [
+    "face",
+    "hair/hat"
+  ],
+  "directional_profile_types": [
+    "HAT_POINTED_BACK",
+    "NOSE_FORWARD"
+  ],
+  "anisotropic_region_ratio": 0.07649253731343283,
+  "rearward_extension_score": 0.22096069157123566,
+  "front_compression_score": 0.29737815260887146,
+  "directional_readability_score": 0.2618000231683254,
+  "symmetric_volume_penalty": 0.7222485542297363,
+  "mean_center_shift": -0.022457174956798553,
+  "hat_pointed_back_present": true,
+  "front_hat_extension_score": 0.013563421554863453,
+  "back_hat_extension_score": 0.038008928298950195,
+  "hat_asymmetry_ratio": 2.802311212197138,
+  "rules": {
+    "hair/hat": {
+      "profile_type": "HAT_POINTED_BACK",
+      "forward_bias": 0.0,
+      "backward_bias": 0.88,
+      "lateral_bias": -0.48,
+      "upward_bias": 0.06,
+      "downward_bias": 0.32,
+      "taper_direction": "back",
+      "asymmetry_strength": 0.82,
+      "curvature_bias": 0.34,
+      "trailing_profile": "curved_down_tail",
+      "compression_profile": "compressed_front",
+      "front_profile": "rounded_compressed",
+      "back_profile": "elongated_taper",
+      "front_scale": 0.25,
+      "back_scale": 1.2,
+      "front_taper": 0.12,
+      "back_taper": 0.84,
+      "suppress_front_projection": true,
+      "rear_extension_bias": 0.86
+    },
+    "face": {
+      "profile_type": "NOSE_FORWARD",
+      "forward_bias": 0.46,
+      "backward_bias": 0.02,
+      "lateral_bias": -0.1,
+      "upward_bias": 0.0,
+      "downward_bias": 0.0,
+      "taper_direction": "front",
+      "asymmetry_strength": 0.52,
+      "curvature_bias": 0.16,
+      "trailing_profile": "none",
+      "compression_profile": "flat_back",
+      "front_profile": "inherit",
+      "back_profile": "inherit",
+      "front_scale": 1.0,
+      "back_scale": 1.0,
+      "front_taper": 0.0,
+      "back_taper": 0.0,
+      "suppress_front_projection": false,
+      "rear_extension_bias": 0.0
+    }
+  }
+}

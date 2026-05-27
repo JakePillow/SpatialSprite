@@ -1,0 +1,29 @@
+{
+  "schema": "spritespatial_semantic_part_graph_v1",
+  "semantic_parts_enabled": true,
+  "raw_region_count": 64,
+  "raw_semantic_part_count": 9,
+  "canonical_part_count": 9,
+  "part_reduction_ratio": 0.859375,
+  "tiny_orphans_absorbed": 8,
+  "outline_debris_removed": 0,
+  "geometry_uses_canonical_parts": true,
+  "canonical_required_parts_present": true,
+  "missing_required_parts": [],
+  "canonical_part_count_warning": false,
+  "semantic_authority_passed": true,
+  "override_mask_labels_present": [
+    "boots/feet",
+    "face",
+    "hair/hat",
+    "head",
+    "left_arm",
+    "left_leg",
+    "outline",
+    "right_arm",
+    "right_leg",
+    "torso"
+  ],
+  "warnings": [],
+  "passed": true
+}

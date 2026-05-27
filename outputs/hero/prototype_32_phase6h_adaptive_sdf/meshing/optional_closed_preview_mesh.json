@@ -1,0 +1,6 @@
+{
+  "schema": "spritespatial_optional_closed_preview_mesh_v1",
+  "note": "Phase 5A emits SDF infrastructure only; surface nets triangulation is deferred.",
+  "vertices": [],
+  "indices": []
+}

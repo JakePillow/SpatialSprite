@@ -1,0 +1,21 @@
+{
+  "name": "humanoid_lowpoly",
+  "max_vertex_displacement": 0.35,
+  "silhouette_drift_tolerance_px": 1.0,
+  "coplanar_angle_degrees": 12.0,
+  "max_coplanar_merge_fraction": 0.10,
+  "lowpoly_planarisation": 0.50,
+  "normal_flow_smoothing": 0.22,
+  "lock_semantic_boundary_vertices": true,
+  "directional_preservation_min": 0.85,
+  "hat_extension_min_ratio": 0.80,
+  "preserve_labels": [
+    "outline",
+    "equipment/shield/sword"
+  ],
+  "hard_edge_labels": [
+    "outline",
+    "equipment/shield/sword",
+    "boots/feet"
+  ]
+}

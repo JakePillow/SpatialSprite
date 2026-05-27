@@ -1,0 +1,22 @@
+{
+  "name": "voxel_character",
+  "max_vertex_displacement": 0.20,
+  "silhouette_drift_tolerance_px": 0.5,
+  "coplanar_angle_degrees": 8.0,
+  "max_coplanar_merge_fraction": 0.06,
+  "lowpoly_planarisation": 0.35,
+  "normal_flow_smoothing": 0.12,
+  "lock_semantic_boundary_vertices": true,
+  "directional_preservation_min": 0.90,
+  "hat_extension_min_ratio": 0.88,
+  "preserve_labels": [
+    "outline",
+    "equipment/shield/sword",
+    "boots/feet"
+  ],
+  "hard_edge_labels": [
+    "outline",
+    "equipment/shield/sword",
+    "boots/feet"
+  ]
+}

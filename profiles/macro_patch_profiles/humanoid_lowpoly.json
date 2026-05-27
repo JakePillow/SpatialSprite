@@ -1,0 +1,11 @@
+{
+  "name": "humanoid_lowpoly",
+  "normal_merge_angle_deg": 52.0,
+  "curvature_merge_threshold": 0.46,
+  "planar_curvature_threshold": 0.50,
+  "min_macro_patch_size": 10,
+  "max_macro_patch_drift": 0.22,
+  "preserve_silhouette_bands": true,
+  "preserve_semantic_boundaries": true,
+  "preserve_directional_features": true
+}

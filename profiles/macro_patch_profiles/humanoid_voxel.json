@@ -1,0 +1,11 @@
+{
+  "name": "humanoid_voxel",
+  "normal_merge_angle_deg": 42.0,
+  "curvature_merge_threshold": 0.38,
+  "planar_curvature_threshold": 0.42,
+  "min_macro_patch_size": 8,
+  "max_macro_patch_drift": 0.16,
+  "preserve_silhouette_bands": true,
+  "preserve_semantic_boundaries": true,
+  "preserve_directional_features": true
+}

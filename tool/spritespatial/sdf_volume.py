@@ -96,11 +96,50 @@ def build_sdf_volume(
     rfd_enabled: bool = False,
     rfd_output_dir: Path | None = None,
     emit_rfd_debug: bool = False,
+    sdf_resolution_scale: float = 1.0,
+    base_z_samples: int | None = None,
+    adaptive_resolution_profile: dict[str, Any] | None = None,
+    resolution_output_dir: Path | None = None,
+    emit_resolution_debug: bool = False,
 ) -> dict[str, Any]:
     output_dir.mkdir(parents=True, exist_ok=True)
     slices_dir = output_dir / "sdf_slices"
     slices_dir.mkdir(parents=True, exist_ok=True)
+    source_shape = list(alpha_mask.shape)
+    source_label_by_pixel = dict(label_by_pixel)
+    resolution_scale = max(1.0, float(sdf_resolution_scale))
+    resolution_strategy = "adaptive" if adaptive_resolution_profile else ("uniform" if resolution_scale > 1.0001 or z_samples != (base_z_samples or z_samples) else "uniform")
+    highres_downsampled = bool(
+        adaptive_resolution_profile
+        and resolution_scale < float(adaptive_resolution_profile.get("high_detail_xy_scale", resolution_scale)) - 1.0e-6
+    )
+    if highres_downsampled:
+        resolution_strategy = "highres_internal_downsampled"
+    if resolution_scale > 1.0001:
+        z_front, z_back, alpha_mask, label_by_pixel = _scale_sampling_grid(
+            z_front,
+            z_back,
+            alpha_mask,
+            label_by_pixel,
+            resolution_scale,
+        )
     height, width = alpha_mask.shape
+    resolution_debug_paths: dict[str, Path] = {}
+    resolution_report: dict[str, Any] = {}
+    if adaptive_resolution_profile or resolution_output_dir is not None:
+        resolution_report, resolution_debug_paths = _write_resolution_debug(
+            resolution_output_dir or output_dir / "resolution",
+            alpha_mask,
+            label_by_pixel,
+            source_label_by_pixel,
+            source_shape,
+            z_samples,
+            base_z_samples or z_samples,
+            resolution_scale,
+            adaptive_resolution_profile,
+            resolution_strategy,
+            emit_resolution_debug,
+        )
     max_front = max(float(z_front.max()), 0.01)
     max_back = max(float(np.abs(z_back.min())), 0.01)
     z_axis = np.linspace(-max_back, max_front, z_samples, dtype=np.float32)
@@ -137,6 +176,7 @@ def build_sdf_volume(
                 semantic_volume[y, x, inside] = label_id
 
     isolated_outline_voxels_removed = _remove_isolated_outline_components(occupancy, semantic_volume)
+    tiny_noncritical_voxels_removed = _remove_tiny_noncritical_components(occupancy, semantic_volume)
 
     rfd_result: dict[str, Any] = {}
     if rfd_enabled:
@@ -192,6 +232,15 @@ def build_sdf_volume(
     summary = {
         "schema": "spritespatial_closed_sdf_v1",
         "shape": list(sdf.shape),
+        "source_shape": source_shape,
+        "sdf_resolution_scale": resolution_scale,
+        "adaptive_sdf_resolution_enabled": bool(adaptive_resolution_profile),
+        "resolution_profile": (adaptive_resolution_profile or {}).get("name", ""),
+        "effective_voxel_budget_multiplier": resolution_report.get("effective_voxel_budget_multiplier", 1.0),
+        "adaptive_high_detail_region_count": resolution_report.get("adaptive_high_detail_region_count", 0),
+        "silhouette_band_high_res_enabled": resolution_report.get("silhouette_band_high_res_enabled", False),
+        "semantic_boundary_high_res_enabled": resolution_report.get("semantic_boundary_high_res_enabled", False),
+        "sdf_resolution_strategy": resolution_strategy,
         "z_samples": z_samples,
         "z_axis_min": float(z_axis.min()),
         "z_axis_max": float(z_axis.max()),
@@ -208,6 +257,7 @@ def build_sdf_volume(
         "front_back_connected_through_seam": bool(occupancy[:, :, z_samples // 2].any()),
         "sdf_slice_contact_sheet": str(sheet),
         "isolated_outline_voxels_removed": isolated_outline_voxels_removed,
+        "tiny_noncritical_voxels_removed": tiny_noncritical_voxels_removed,
     }
     if semantic_depth_result:
         depth_report = semantic_depth_result.get("report", {})
@@ -301,6 +351,7 @@ def build_sdf_volume(
             "sdf_slices": slices_dir,
             "sdf_slice_contact_sheet": sheet,
             "sdf_summary": output_dir / "sdf_summary.json",
+            **resolution_debug_paths,
         },
     }
 
@@ -315,20 +366,219 @@ def labels_present_in_parts(parts: list[dict[str, Any]]) -> list[int]:
 
 
 def _occupancy_signed_distance(occupancy: np.ndarray) -> np.ndarray:
-    sdf = np.zeros(occupancy.shape, dtype=np.float32)
-    inside = np.argwhere(occupancy)
-    outside = np.argwhere(~occupancy)
-    if inside.size == 0:
+    if not occupancy.any():
         return np.ones(occupancy.shape, dtype=np.float32)
-    for index in np.argwhere(np.ones(occupancy.shape, dtype=bool)):
-        y, x, z = (int(index[0]), int(index[1]), int(index[2]))
-        if occupancy[y, x, z]:
-            delta = outside - index
-            sdf[y, x, z] = -float(np.sqrt((delta * delta).sum(axis=1).min())) if outside.size else -1.0
-        else:
-            delta = inside - index
-            sdf[y, x, z] = float(np.sqrt((delta * delta).sum(axis=1).min()))
-    return sdf
+    if bool(np.all(occupancy)):
+        return -np.ones(occupancy.shape, dtype=np.float32)
+    outside_distance = _distance_to_mask(occupancy)
+    inside_distance = _distance_to_mask(~occupancy)
+    sdf = outside_distance.astype(np.float32, copy=True)
+    sdf[occupancy] = -inside_distance[occupancy]
+    return sdf.astype(np.float32, copy=False)
+
+
+def _scale_sampling_grid(
+    z_front: np.ndarray,
+    z_back: np.ndarray,
+    alpha_mask: np.ndarray,
+    label_by_pixel: dict[Pixel, str],
+    scale: float,
+) -> tuple[np.ndarray, np.ndarray, np.ndarray, dict[Pixel, str]]:
+    height, width = alpha_mask.shape
+    scaled_width = max(width, int(round(width * scale)))
+    scaled_height = max(height, int(round(height * scale)))
+    z_front_scaled = _resize_float_grid(z_front, scaled_width, scaled_height)
+    z_back_scaled = _resize_float_grid(z_back, scaled_width, scaled_height)
+    alpha_scaled = _resize_bool_grid(alpha_mask, scaled_width, scaled_height)
+    labels_scaled: dict[Pixel, str] = {}
+    for y, x in np.argwhere(alpha_scaled):
+        source_x = min(width - 1, max(0, int(round((float(x) + 0.5) / scale - 0.5))))
+        source_y = min(height - 1, max(0, int(round((float(y) + 0.5) / scale - 0.5))))
+        labels_scaled[(int(x), int(y))] = label_by_pixel.get((source_x, source_y), "unknown")
+    seam = _silhouette_seam(alpha_scaled)
+    z_front_scaled[seam] = 0.0
+    z_back_scaled[seam] = 0.0
+    z_front_scaled[~alpha_scaled] = 0.0
+    z_back_scaled[~alpha_scaled] = 0.0
+    return z_front_scaled, z_back_scaled, alpha_scaled, labels_scaled
+
+
+def _resize_float_grid(values: np.ndarray, width: int, height: int) -> np.ndarray:
+    image = Image.fromarray(values.astype(np.float32), mode="F")
+    return np.array(image.resize((width, height), Image.Resampling.BILINEAR), dtype=np.float32, copy=True)
+
+
+def _resize_bool_grid(values: np.ndarray, width: int, height: int) -> np.ndarray:
+    image = Image.fromarray((values.astype(np.uint8) * 255), mode="L")
+    return np.array(image.resize((width, height), Image.Resampling.NEAREST), dtype=np.uint8, copy=True) > 0
+
+
+def _write_resolution_debug(
+    output_dir: Path,
+    alpha_mask: np.ndarray,
+    label_by_pixel: dict[Pixel, str],
+    source_label_by_pixel: dict[Pixel, str],
+    source_shape: list[int],
+    z_samples: int,
+    base_z_samples: int,
+    resolution_scale: float,
+    profile: dict[str, Any] | None,
+    strategy: str,
+    emit_debug: bool,
+) -> tuple[dict[str, Any], dict[str, Path]]:
+    output_dir.mkdir(parents=True, exist_ok=True)
+    profile = profile or {}
+    adaptive_regions = {str(item) for item in profile.get("adaptive_regions", [])}
+    medium_regions = {str(item) for item in profile.get("medium_detail_regions", [])}
+    labels_present = {str(label) for label in source_label_by_pixel.values()}
+    high_detail_present = sorted(labels_present & adaptive_regions)
+    source_h, source_w = int(source_shape[0]), int(source_shape[1])
+    base_voxels = max(1, source_h * source_w * max(1, int(base_z_samples)))
+    effective_voxels = int(alpha_mask.shape[0]) * int(alpha_mask.shape[1]) * max(1, int(z_samples))
+    report = {
+        "schema": "spritespatial_resolution_profile_report_v1",
+        "adaptive_sdf_resolution_enabled": bool(profile),
+        "resolution_profile": profile.get("name", ""),
+        "sdf_resolution_strategy": strategy,
+        "base_xy_scale": profile.get("base_xy_scale", 1.0),
+        "base_z_scale": profile.get("base_z_scale", 1.0),
+        "effective_xy_scale": resolution_scale,
+        "effective_z_samples": z_samples,
+        "base_z_samples": base_z_samples,
+        "effective_voxel_budget_multiplier": float(effective_voxels) / float(base_voxels),
+        "adaptive_high_detail_region_count": len(high_detail_present),
+        "adaptive_regions_present": high_detail_present,
+        "medium_detail_regions_present": sorted(labels_present & medium_regions),
+        "silhouette_band_high_res_enabled": bool(profile.get("silhouette_band_extra_scale", 1.0) > 1.0),
+        "semantic_boundary_high_res_enabled": bool(profile.get("semantic_boundary_extra_scale", 1.0) > 1.0),
+        "max_voxel_budget_multiplier": profile.get("max_voxel_budget_multiplier", 1.0),
+        "max_non_manifold_edge_increase": profile.get("max_non_manifold_edge_increase", 0),
+    }
+    paths = {
+        "resolution_profile_used": output_dir / "resolution_profile_used.json",
+        "adaptive_region_map": output_dir / "adaptive_region_map.png",
+        "high_detail_band_debug": output_dir / "high_detail_band_debug.png",
+        "semantic_boundary_resolution_debug": output_dir / "semantic_boundary_resolution_debug.png",
+        "voxel_budget_report": output_dir / "voxel_budget_report.json",
+    }
+    _write_json(paths["resolution_profile_used"], profile)
+    _write_json(paths["voxel_budget_report"], report)
+    _write_adaptive_region_map(alpha_mask, label_by_pixel, adaptive_regions, paths["adaptive_region_map"])
+    _write_high_detail_band(alpha_mask, paths["high_detail_band_debug"])
+    _write_semantic_boundary_map(alpha_mask, label_by_pixel, paths["semantic_boundary_resolution_debug"])
+    if emit_debug:
+        _write_json(output_dir / "resolution_debug_payload.json", {"label_count": len(label_by_pixel), **report})
+        paths["resolution_debug_payload"] = output_dir / "resolution_debug_payload.json"
+    return report, paths
+
+
+def _write_adaptive_region_map(
+    alpha_mask: np.ndarray,
+    label_by_pixel: dict[Pixel, str],
+    adaptive_regions: set[str],
+    path: Path,
+) -> None:
+    image = Image.new("RGBA", (alpha_mask.shape[1], alpha_mask.shape[0]), (0, 0, 0, 0))
+    pixels = image.load()
+    for y, x in np.argwhere(alpha_mask):
+        label = label_by_pixel.get((int(x), int(y)), "unknown")
+        pixels[int(x), int(y)] = (255, 170, 60, 255) if label in adaptive_regions else (70, 140, 180, 180)
+    image.save(path, format="PNG")
+
+
+def _write_high_detail_band(alpha_mask: np.ndarray, path: Path) -> None:
+    seam = _silhouette_seam(alpha_mask)
+    image = Image.new("RGBA", (alpha_mask.shape[1], alpha_mask.shape[0]), (0, 0, 0, 0))
+    pixels = image.load()
+    for y, x in np.argwhere(alpha_mask):
+        pixels[int(x), int(y)] = (70, 120, 150, 120)
+    for y, x in np.argwhere(seam):
+        pixels[int(x), int(y)] = (255, 225, 90, 255)
+    image.save(path, format="PNG")
+
+
+def _write_semantic_boundary_map(
+    alpha_mask: np.ndarray,
+    label_by_pixel: dict[Pixel, str],
+    path: Path,
+) -> None:
+    image = Image.new("RGBA", (alpha_mask.shape[1], alpha_mask.shape[0]), (0, 0, 0, 0))
+    pixels = image.load()
+    height, width = alpha_mask.shape
+    for y, x in np.argwhere(alpha_mask):
+        label = label_by_pixel.get((int(x), int(y)), "unknown")
+        boundary = False
+        for nx, ny in ((int(x) - 1, int(y)), (int(x) + 1, int(y)), (int(x), int(y) - 1), (int(x), int(y) + 1)):
+            if 0 <= nx < width and 0 <= ny < height and alpha_mask[ny, nx]:
+                if label_by_pixel.get((nx, ny), "unknown") != label:
+                    boundary = True
+                    break
+        pixels[int(x), int(y)] = (255, 80, 110, 255) if boundary else (60, 110, 130, 120)
+    image.save(path, format="PNG")
+
+
+def _silhouette_seam(alpha_mask: np.ndarray) -> np.ndarray:
+    seam = np.zeros_like(alpha_mask, dtype=bool)
+    height, width = alpha_mask.shape
+    for y in range(height):
+        for x in range(width):
+            if not alpha_mask[y, x]:
+                continue
+            for nx, ny in ((x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)):
+                if nx < 0 or ny < 0 or nx >= width or ny >= height or not alpha_mask[ny, nx]:
+                    seam[y, x] = True
+                    break
+    return seam
+
+
+def _distance_to_mask(mask: np.ndarray) -> np.ndarray:
+    inf = np.float32(1.0e12)
+    distances = np.where(mask, np.float32(0.0), inf).astype(np.float32)
+    for axis in range(distances.ndim):
+        distances = _edt_axis(distances, axis)
+    return np.sqrt(distances).astype(np.float32, copy=False)
+
+
+def _edt_axis(values: np.ndarray, axis: int) -> np.ndarray:
+    moved = np.moveaxis(values, axis, 0)
+    result = np.empty_like(moved, dtype=np.float32)
+    trailing_shape = moved.shape[1:]
+    for index in np.ndindex(trailing_shape):
+        result[(slice(None),) + index] = _edt_1d(moved[(slice(None),) + index])
+    return np.moveaxis(result, 0, axis)
+
+
+def _edt_1d(values: np.ndarray) -> np.ndarray:
+    n = int(values.shape[0])
+    if n == 0:
+        return values.astype(np.float32, copy=True)
+    v = np.zeros(n, dtype=np.int32)
+    z = np.zeros(n + 1, dtype=np.float32)
+    output = np.zeros(n, dtype=np.float32)
+    k = 0
+    v[0] = 0
+    z[0] = -np.inf
+    z[1] = np.inf
+    for q in range(1, n):
+        while True:
+            p = int(v[k])
+            numerator = (float(values[q]) + float(q * q)) - (float(values[p]) + float(p * p))
+            denominator = float(2 * q - 2 * p)
+            s = numerator / denominator if abs(denominator) > 1.0e-12 else np.inf
+            if s > z[k] or k == 0:
+                break
+            k -= 1
+        k += 1
+        v[k] = q
+        z[k] = s
+        z[k + 1] = np.inf
+    k = 0
+    for q in range(n):
+        while z[k + 1] < q:
+            k += 1
+        p = int(v[k])
+        output[q] = float((q - p) * (q - p)) + float(values[p])
+    return output
 
 
 def _components(mask: np.ndarray) -> list[set[tuple[int, int]]]:
@@ -418,6 +668,43 @@ def _remove_isolated_outline_components(
     return removed
 
 
+def _remove_tiny_noncritical_components(
+    occupancy: np.ndarray,
+    semantic_volume: np.ndarray,
+    max_voxels: int = 16,
+) -> int:
+    noncritical_labels = {0, SEMANTIC_LABEL_IDS["outline"], SEMANTIC_LABEL_IDS["unknown"]}
+    remaining = {tuple(int(v) for v in item) for item in np.argwhere(occupancy)}
+    components: list[list[tuple[int, int, int]]] = []
+    while remaining:
+        start = remaining.pop()
+        queue = deque([start])
+        component = [start]
+        while queue:
+            y, x, z = queue.popleft()
+            for neighbour in ((y - 1, x, z), (y + 1, x, z), (y, x - 1, z), (y, x + 1, z), (y, x, z - 1), (y, x, z + 1)):
+                if neighbour in remaining:
+                    remaining.remove(neighbour)
+                    queue.append(neighbour)
+                    component.append(neighbour)
+        components.append(component)
+    if len(components) <= 1:
+        return 0
+    largest = max(components, key=len)
+    removed = 0
+    for component in components:
+        if component is largest or len(component) > max_voxels:
+            continue
+        labels = {int(semantic_volume[y, x, z]) for y, x, z in component}
+        if not labels.issubset(noncritical_labels):
+            continue
+        for y, x, z in component:
+            occupancy[y, x, z] = False
+            semantic_volume[y, x, z] = 0
+            removed += 1
+    return removed
+
+
 def _concave_seam_count(alpha_mask: np.ndarray, seam_mask: np.ndarray) -> int:
     count = 0
     height, width = alpha_mask.shape
@@ -474,3 +761,8 @@ def _slice_image(values: np.ndarray, occupied: np.ndarray) -> Image.Image:
             shade = int(255 * min(abs(value) / max_abs, 1.0))
             pixels[x, y] = (60, 190, 90, 255) if occupied[y, x] else (shade, shade, shade, 120)
     return image
+
+
+def _write_json(path: Path, data: Any) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
