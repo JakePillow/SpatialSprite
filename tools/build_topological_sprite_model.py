@@ -23,7 +23,9 @@ from spritespatial.back_hemisphere import build_back_hemisphere  # noqa: E402
 from spritespatial.canonical_silhouette_optimizer import optimize_canonical_silhouette  # noqa: E402
 from spritespatial.canonical_views import canonical_view_records, write_canonical_view_records  # noqa: E402
 from spritespatial.continuity import apply_semantic_continuity  # noqa: E402
+from spritespatial.constraint_arbitration import arbitrate_constraints  # noqa: E402
 from spritespatial.directional_morphology import load_morphology_profile  # noqa: E402
+from spritespatial.embodiment_params import apply_embodiment_params, load_embodiment_params  # noqa: E402
 from spritespatial.hermite_qef import write_qef_debug  # noqa: E402
 from spritespatial.manifold_validation import build_phase5a_validation  # noqa: E402
 from spritespatial.metrics.silhouette_iou import compute_canonical_view_metrics  # noqa: E402
@@ -83,6 +85,7 @@ from spritespatial.surface_nets import (  # noqa: E402
     write_surface_nets_report,
 )
 from spritespatial.topology_cleanup import apply_topology_cleanup  # noqa: E402
+from spritespatial.view_authority import build_view_authority_constraints  # noqa: E402
 from spritespatial.voxel_render_profile import apply_voxel_render_profile, load_render_profile  # noqa: E402
 from spritespatial.zfield import (  # noqa: E402
     build_semantic_zfield,
@@ -148,6 +151,11 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--depth-mode", choices=("primitive", "mylar_edt"), default="primitive")
     parser.add_argument("--closed-body", action="store_true")
     parser.add_argument("--back-mode", choices=("symmetric", "semantic_rules", "front_back_sprite"), default="semantic_rules")
+    parser.add_argument("--multi-view-authority", action="store_true")
+    parser.add_argument("--view-authority-mode", choices=("front_back_sprite", "front_back_side", "auto"), default="auto")
+    parser.add_argument("--allow-mirrored-side-fallback", action="store_true")
+    parser.add_argument("--emit-view-authority-debug", action="store_true")
+    parser.add_argument("--constraint-arbitration", action="store_true")
     parser.add_argument("--emit-sdf-debug", action="store_true")
     parser.add_argument("--emit-closure-debug", action="store_true")
     parser.add_argument("--mesh-backend", choices=("greedy", "surface_nets", "surface_nets_patch"), default="greedy")
@@ -197,6 +205,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--directional-morphology", action="store_true")
     parser.add_argument("--morphology-profile", default="fantasy_humanoid")
     parser.add_argument("--emit-directional-debug", action="store_true")
+    parser.add_argument("--embodiment-params", type=Path)
+    parser.add_argument("--emit-embodiment-param-debug", "--emit-embodiment-debug", dest="emit_embodiment_param_debug", action="store_true")
     parser.add_argument("--surface-flow", action="store_true")
     parser.add_argument("--surface-flow-strength", type=float, default=0.45)
     parser.add_argument("--surface-flow-iterations", type=int, default=2)
@@ -411,6 +421,8 @@ def build_topological_model(args: argparse.Namespace) -> dict:
         args.front = asset.sprite_path("front")
         if not getattr(args, "back", None):
             args.back = asset.sprite_path("back")
+        args.left = asset.sprite_path("left")
+        args.right = asset.sprite_path("right")
     if not getattr(args, "front", None):
         raise ValueError("Either --asset or --front is required.")
     front = load_rgba(args.front.resolve())
@@ -1986,6 +1998,8 @@ def _build_phase5a_closed_body(
 ) -> dict[str, Any]:
     semantic_parts_result: dict[str, Any] = {}
     semantic_parts_paths: dict[str, Path] = {}
+    view_authority_result: dict[str, Any] = {}
+    view_authority_paths: dict[str, Path] = {}
     if getattr(args, "semantic_parts", False):
         semantic_parts_result = consolidate_semantic_parts(
             front,
@@ -2011,6 +2025,7 @@ def _build_phase5a_closed_body(
         output_dir / "back",
         mode=getattr(args, "back_mode", "semantic_rules"),
         back_sprite_path=getattr(args, "back", None),
+        front_alpha_mask=mylar["alpha_mask"],
     )
     seam = build_seam_outputs(
         mylar["alpha_mask"],
@@ -2023,6 +2038,11 @@ def _build_phase5a_closed_body(
     semantic_depth_paths: dict[str, Path] = {}
     directional_morphology: dict[str, Any] | None = None
     directional_paths: dict[str, Path] = {}
+    embodiment_param_result: dict[str, Any] = {}
+    embodiment_param_paths: dict[str, Path] = {}
+    embodiment_params_data: dict[str, Any] | None = None
+    constraint_arbitration_result: dict[str, Any] = {}
+    constraint_arbitration_paths: dict[str, Path] = {}
     semantic_authority_result: dict[str, Any] = {}
     semantic_authority_paths: dict[str, Path] = {}
     surface_flow_paths: dict[str, Path] = {}
@@ -2057,6 +2077,79 @@ def _build_phase5a_closed_body(
         if isinstance(path, Path)
     }
     directional_morphology = semantic_authority_result.get("morphology_profile", directional_morphology)
+    should_load_embodiment_params = bool(
+        getattr(args, "embodiment_params", None)
+        or getattr(args, "constraint_arbitration", False)
+        or getattr(args, "emit_embodiment_param_debug", False)
+    )
+    if should_load_embodiment_params:
+        embodiment_params_data = load_embodiment_params(getattr(args, "embodiment_params", None), WORKSPACE_ROOT)
+    if getattr(args, "multi_view_authority", False):
+        view_authority_result = build_view_authority_constraints(
+            front,
+            parts,
+            source_coverage,
+            getattr(args, "back", None),
+            getattr(args, "left", None),
+            getattr(args, "right", None),
+            output_dir / "view_authority",
+            mode=getattr(args, "view_authority_mode", "auto"),
+            emit_debug=bool(getattr(args, "emit_view_authority_debug", False)),
+            semantic_overrides_dir=_resolve_optional_path(getattr(args, "semantic_overrides", None)),
+            allow_mirrored_side_fallback=bool(getattr(args, "allow_mirrored_side_fallback", False)),
+        )
+        view_authority_paths = {
+            key: path
+            for key, path in view_authority_result.get("paths", {}).items()
+            if isinstance(path, Path)
+        }
+    if getattr(args, "constraint_arbitration", False) and view_authority_result:
+        constraint_arbitration_result = arbitrate_constraints(
+            view_authority_result.get("constraints", {}),
+            embodiment_params_data,
+            output_dir / "embodiment",
+            emit_debug=bool(getattr(args, "emit_embodiment_param_debug", False)),
+        )
+        view_authority_result["constraints"] = constraint_arbitration_result.get(
+            "constraints", view_authority_result.get("constraints", {})
+        )
+        arbitration_report_fields = {
+            key: value
+            for key, value in constraint_arbitration_result.get("report", {}).items()
+            if key != "schema"
+        }
+        view_authority_result["report"] = {
+            **dict(view_authority_result.get("report", {})),
+            **arbitration_report_fields,
+            "constraint_arbitration_report": constraint_arbitration_result.get("report", {}),
+        }
+        constraint_arbitration_paths = {
+            key: path
+            for key, path in constraint_arbitration_result.get("paths", {}).items()
+            if isinstance(path, Path)
+        }
+    if should_load_embodiment_params and embodiment_params_data is not None:
+        if semantic_depth_profile is None:
+            args.semantic_depth_profiles = True
+            semantic_depth_profile = load_profile_set(getattr(args, "semantic_depth_profile", "humanoid_voxel"), WORKSPACE_ROOT)
+        if directional_morphology is None:
+            args.directional_morphology = True
+            directional_morphology = load_morphology_profile(getattr(args, "morphology_profile", "fantasy_humanoid"), WORKSPACE_ROOT)
+        embodiment_param_result = apply_embodiment_params(
+            semantic_depth_profile,
+            directional_morphology,
+            embodiment_params_data,
+            parts,
+            output_dir / "embodiment",
+            emit_debug=bool(getattr(args, "emit_embodiment_param_debug", False)),
+        )
+        semantic_depth_profile = embodiment_param_result.get("semantic_depth_profile", semantic_depth_profile)
+        directional_morphology = embodiment_param_result.get("directional_morphology", directional_morphology)
+        embodiment_param_paths = {
+            key: path
+            for key, path in embodiment_param_result.get("paths", {}).items()
+            if isinstance(path, Path)
+        }
     base_z_samples = max(17, int(args.total_depth_slices) * 2 + 1)
     resolution_settings = _adaptive_resolution_settings(args, base_z_samples, front.size)
     z_samples = int(resolution_settings["z_samples"])
@@ -2089,6 +2182,9 @@ def _build_phase5a_closed_body(
         if getattr(args, "adaptive_sdf_resolution", False) or getattr(args, "emit_resolution_debug", False)
         else None,
         emit_resolution_debug=bool(getattr(args, "emit_resolution_debug", False)),
+        view_authority=view_authority_result.get("constraints") if view_authority_result else None,
+        view_authority_output_dir=output_dir / "view_authority" if view_authority_result else None,
+        emit_view_authority_debug=bool(getattr(args, "emit_view_authority_debug", False)),
     )
     if sdf.get("semantic_depth_profile"):
         semantic_depth_paths = {
@@ -2363,7 +2459,10 @@ def _build_phase5a_closed_body(
         "sdf": {key: _res_path(path) for key, path in sdf["paths"].items()},
         "semantic_depth_profiles": {key: _res_path(path) for key, path in semantic_depth_paths.items()},
         "directional_morphology": {key: _res_path(path) for key, path in directional_paths.items()},
+        "embodiment_params": {key: _res_path(path) for key, path in embodiment_param_paths.items()},
+        "constraint_arbitration": {key: _res_path(path) for key, path in constraint_arbitration_paths.items()},
         "semantic_authority": {key: _res_path(path) for key, path in semantic_authority_paths.items()},
+        "view_authority": {key: _res_path(path) for key, path in view_authority_paths.items()},
         "semantic_parts": {key: _res_path(path) for key, path in semantic_parts_paths.items()},
         "surface_flow": {key: _res_path(path) for key, path in surface_flow_paths.items()},
         "rfd": {key: _res_path(path) for key, path in rfd_paths.items()},
@@ -2396,6 +2495,11 @@ def _build_phase5a_closed_body(
             "depth_mode": getattr(args, "depth_mode", "mylar_edt"),
             "closed_body": True,
             "back_mode": getattr(args, "back_mode", "semantic_rules"),
+            "multi_view_authority": getattr(args, "multi_view_authority", False),
+            "view_authority_mode": getattr(args, "view_authority_mode", "auto"),
+            "allow_mirrored_side_fallback": getattr(args, "allow_mirrored_side_fallback", False),
+            "emit_view_authority_debug": getattr(args, "emit_view_authority_debug", False),
+            "constraint_arbitration": getattr(args, "constraint_arbitration", False),
             "emit_sdf_debug": getattr(args, "emit_sdf_debug", False),
             "emit_closure_debug": getattr(args, "emit_closure_debug", False),
             "mesh_backend": mesh_backend,
@@ -2435,6 +2539,9 @@ def _build_phase5a_closed_body(
             "directional_morphology": getattr(args, "directional_morphology", False),
             "morphology_profile": getattr(args, "morphology_profile", "fantasy_humanoid"),
             "emit_directional_debug": getattr(args, "emit_directional_debug", False),
+            "embodiment_params": str(getattr(args, "embodiment_params", "") or ""),
+            "emit_embodiment_param_debug": getattr(args, "emit_embodiment_param_debug", False),
+            "emit_embodiment_debug": getattr(args, "emit_embodiment_param_debug", False),
             "surface_flow": getattr(args, "surface_flow", False),
             "surface_flow_strength": float(getattr(args, "surface_flow_strength", 0.45)),
             "surface_flow_iterations": int(getattr(args, "surface_flow_iterations", 2)),
@@ -2477,7 +2584,9 @@ def _build_phase5a_closed_body(
             key for key, failed in validation_report.get("fail_conditions", {}).items()
             if failed
         ]
-        if mesh_backend == "surface_nets_patch" and getattr(args, "macro_patches", False):
+        if getattr(args, "multi_view_authority", False):
+            phase_name = "Phase 7A"
+        elif mesh_backend == "surface_nets_patch" and getattr(args, "macro_patches", False):
             phase_name = "Phase 6F"
         elif mesh_backend == "surface_nets_patch":
             phase_name = "Phase 6E"

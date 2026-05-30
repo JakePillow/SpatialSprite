@@ -1,0 +1,660 @@
+{
+  "schema": "spritespatial_semantic_override_report_v1",
+  "mode": "supplement",
+  "override_dir": "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\semantic_overrides",
+  "loaded_masks": {
+    "head": {
+      "file": "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\semantic_overrides\\head.png",
+      "pixel_count": 20,
+      "coverage": 0.026041666666666668
+    },
+    "face": {
+      "file": "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\semantic_overrides\\face.png",
+      "pixel_count": 8,
+      "coverage": 0.010416666666666666
+    },
+    "hair": {
+      "file": "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\semantic_overrides\\hat_hair.png",
+      "pixel_count": 16,
+      "coverage": 0.020833333333333332
+    },
+    "torso": {
+      "file": "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\semantic_overrides\\torso.png",
+      "pixel_count": 80,
+      "coverage": 0.10416666666666667
+    },
+    "left_arm": {
+      "file": "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\semantic_overrides\\left_arm.png",
+      "pixel_count": 48,
+      "coverage": 0.0625
+    },
+    "right_arm": {
+      "file": "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\semantic_overrides\\right_arm.png",
+      "pixel_count": 38,
+      "coverage": 0.049479166666666664
+    },
+    "left_leg": {
+      "file": "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\semantic_overrides\\left_leg.png",
+      "pixel_count": 48,
+      "coverage": 0.0625
+    },
+    "right_leg": {
+      "file": "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\semantic_overrides\\right_leg.png",
+      "pixel_count": 47,
+      "coverage": 0.061197916666666664
+    },
+    "boots_feet": {
+      "file": "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\semantic_overrides\\boots_feet.png",
+      "pixel_count": 27,
+      "coverage": 0.03515625
+    },
+    "equipment": {
+      "file": "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\semantic_overrides\\equipment.png",
+      "pixel_count": 0,
+      "coverage": 0.0
+    },
+    "outline": {
+      "file": "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\semantic_overrides\\outline.png",
+      "pixel_count": 120,
+      "coverage": 0.15625
+    }
+  },
+  "missing_masks": [],
+  "dimension_mismatches": [],
+  "override_pixels_applied": 271,
+  "override_overlap_count": 145,
+  "overlap_pixels": [
+    [
+      12,
+      10
+    ],
+    [
+      12,
+      13
+    ],
+    [
+      11,
+      14
+    ],
+    [
+      13,
+      11
+    ],
+    [
+      11,
+      11
+    ],
+    [
+      13,
+      14
+    ],
+    [
+      10,
+      11
+    ],
+    [
+      11,
+      10
+    ],
+    [
+      10,
+      14
+    ],
+    [
+      11,
+      13
+    ],
+    [
+      13,
+      10
+    ],
+    [
+      13,
+      13
+    ],
+    [
+      12,
+      11
+    ],
+    [
+      12,
+      14
+    ],
+    [
+      10,
+      13
+    ],
+    [
+      10,
+      10
+    ],
+    [
+      9,
+      10
+    ],
+    [
+      11,
+      9
+    ],
+    [
+      14,
+      10
+    ],
+    [
+      12,
+      9
+    ],
+    [
+      13,
+      9
+    ],
+    [
+      10,
+      9
+    ],
+    [
+      15,
+      21
+    ],
+    [
+      16,
+      20
+    ],
+    [
+      7,
+      17
+    ],
+    [
+      8,
+      18
+    ],
+    [
+      9,
+      17
+    ],
+    [
+      7,
+      19
+    ],
+    [
+      9,
+      19
+    ],
+    [
+      11,
+      16
+    ],
+    [
+      13,
+      19
+    ],
+    [
+      15,
+      16
+    ],
+    [
+      16,
+      15
+    ],
+    [
+      7,
+      21
+    ],
+    [
+      9,
+      21
+    ],
+    [
+      13,
+      21
+    ],
+    [
+      15,
+      18
+    ],
+    [
+      16,
+      17
+    ],
+    [
+      16,
+      19
+    ],
+    [
+      7,
+      16
+    ],
+    [
+      14,
+      21
+    ],
+    [
+      9,
+      16
+    ],
+    [
+      8,
+      20
+    ],
+    [
+      13,
+      16
+    ],
+    [
+      16,
+      21
+    ],
+    [
+      10,
+      19
+    ],
+    [
+      13,
+      18
+    ],
+    [
+      16,
+      14
+    ],
+    [
+      14,
+      16
+    ],
+    [
+      10,
+      21
+    ],
+    [
+      16,
+      16
+    ],
+    [
+      15,
+      20
+    ],
+    [
+      12,
+      21
+    ],
+    [
+      8,
+      17
+    ],
+    [
+      7,
+      18
+    ],
+    [
+      8,
+      19
+    ],
+    [
+      10,
+      16
+    ],
+    [
+      9,
+      18
+    ],
+    [
+      7,
+      20
+    ],
+    [
+      12,
+      16
+    ],
+    [
+      8,
+      21
+    ],
+    [
+      10,
+      18
+    ],
+    [
+      9,
+      20
+    ],
+    [
+      15,
+      17
+    ],
+    [
+      15,
+      19
+    ],
+    [
+      16,
+      18
+    ],
+    [
+      7,
+      15
+    ],
+    [
+      8,
+      16
+    ],
+    [
+      11,
+      21
+    ],
+    [
+      6,
+      18
+    ],
+    [
+      7,
+      23
+    ],
+    [
+      6,
+      21
+    ],
+    [
+      8,
+      24
+    ],
+    [
+      9,
+      23
+    ],
+    [
+      6,
+      23
+    ],
+    [
+      7,
+      22
+    ],
+    [
+      7,
+      25
+    ],
+    [
+      8,
+      23
+    ],
+    [
+      9,
+      22
+    ],
+    [
+      9,
+      25
+    ],
+    [
+      6,
+      16
+    ],
+    [
+      6,
+      19
+    ],
+    [
+      6,
+      25
+    ],
+    [
+      7,
+      24
+    ],
+    [
+      5,
+      17
+    ],
+    [
+      5,
+      20
+    ],
+    [
+      9,
+      24
+    ],
+    [
+      8,
+      22
+    ],
+    [
+      8,
+      25
+    ],
+    [
+      18,
+      17
+    ],
+    [
+      15,
+      24
+    ],
+    [
+      18,
+      20
+    ],
+    [
+      17,
+      21
+    ],
+    [
+      17,
+      18
+    ],
+    [
+      17,
+      24
+    ],
+    [
+      15,
+      23
+    ],
+    [
+      16,
+      22
+    ],
+    [
+      16,
+      25
+    ],
+    [
+      17,
+      23
+    ],
+    [
+      15,
+      25
+    ],
+    [
+      16,
+      24
+    ],
+    [
+      15,
+      22
+    ],
+    [
+      17,
+      16
+    ],
+    [
+      17,
+      19
+    ],
+    [
+      17,
+      22
+    ],
+    [
+      17,
+      25
+    ],
+    [
+      16,
+      23
+    ],
+    [
+      7,
+      26
+    ],
+    [
+      10,
+      28
+    ],
+    [
+      12,
+      22
+    ],
+    [
+      12,
+      28
+    ],
+    [
+      12,
+      25
+    ],
+    [
+      8,
+      27
+    ],
+    [
+      10,
+      27
+    ],
+    [
+      7,
+      28
+    ],
+    [
+      12,
+      24
+    ],
+    [
+      12,
+      27
+    ],
+    [
+      9,
+      28
+    ],
+    [
+      11,
+      22
+    ],
+    [
+      11,
+      28
+    ],
+    [
+      7,
+      27
+    ],
+    [
+      12,
+      23
+    ],
+    [
+      12,
+      26
+    ],
+    [
+      10,
+      25
+    ],
+    [
+      9,
+      27
+    ],
+    [
+      8,
+      28
+    ],
+    [
+      11,
+      27
+    ],
+    [
+      16,
+      26
+    ],
+    [
+      13,
+      27
+    ],
+    [
+      15,
+      27
+    ],
+    [
+      14,
+      28
+    ],
+    [
+      17,
+      27
+    ],
+    [
+      16,
+      28
+    ],
+    [
+      14,
+      27
+    ],
+    [
+      17,
+      26
+    ],
+    [
+      13,
+      28
+    ],
+    [
+      13,
+      25
+    ],
+    [
+      15,
+      28
+    ],
+    [
+      16,
+      27
+    ],
+    [
+      9,
+      29
+    ],
+    [
+      13,
+      29
+    ],
+    [
+      15,
+      29
+    ],
+    [
+      8,
+      29
+    ],
+    [
+      10,
+      29
+    ],
+    [
+      14,
+      29
+    ]
+  ],
+  "passed": true,
+  "failures": [],
+  "override_overlap_ratio": 0.5350553505535055,
+  "unlabelled_opaque_pixel_ratio": 0.0,
+  "critical_label_coverage": {
+    "head": 4,
+    "torso": 79,
+    "left_leg": 27,
+    "right_leg": 20
+  },
+  "torso_head_overlap_count_after_override": 0,
+  "disconnected_critical_labels_after_override": 0
+}

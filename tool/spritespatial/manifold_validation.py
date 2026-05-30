@@ -30,6 +30,7 @@ def build_phase5a_validation(
     directional_enabled = bool(sdf_summary.get("directional_morphology_enabled", False))
     surface_flow_enabled = bool(sdf_summary.get("surface_flow_enabled", False))
     rfd_enabled = bool(sdf_summary.get("rfd_enabled", False))
+    multi_view_enabled = bool(sdf_summary.get("multi_view_authority_enabled", False))
     semantic_authority_enabled = bool(semantic_authority.get("semantic_authority_enabled", False))
     semantic_parts_enabled = bool(semantic_parts.get("semantic_parts_enabled", False))
     mesh_report = meshing["report"]
@@ -77,6 +78,23 @@ def build_phase5a_validation(
         "rfd_centerline_quality_low": rfd_enabled and float(sdf_summary.get("centerline_quality_score", 0.0)) < 0.10,
         "rfd_field_continuity_low": rfd_enabled and float(sdf_summary.get("field_continuity_score", 0.0)) < 0.20,
         "rfd_silhouette_constraints_lost": rfd_enabled and float(sdf_summary.get("silhouette_constraint_preservation", 0.0)) < 0.95,
+        "multi_view_back_authority_missing": multi_view_enabled
+        and sdf_summary.get("back_geometry_authority") != "authored_back",
+        "front_back_sprite_backend_not_enabled": multi_view_enabled
+        and sdf_summary.get("back_geometry_authority") == "authored_back"
+        and not bool(sdf_summary.get("front_back_sprite_backend_enabled", False)),
+        "front_back_correspondence_failed": multi_view_enabled
+        and not bool(sdf_summary.get("front_back_correspondence_passed", False)),
+        "front_projection_constraint_low": multi_view_enabled and float(sdf_summary.get("front_projection_iou", 0.0)) < 0.80,
+        "back_projection_constraint_low": multi_view_enabled
+        and sdf_summary.get("back_geometry_authority") == "authored_back"
+        and float(sdf_summary.get("back_projection_iou", 0.0)) < 0.80,
+        "side_view_correspondence_failed": multi_view_enabled
+        and bool(sdf_summary.get("side_authority_used", False))
+        and not bool(sdf_summary.get("side_view_correspondence_passed", False)),
+        "side_projection_constraint_low": multi_view_enabled
+        and bool(sdf_summary.get("side_authority_used", False))
+        and float(sdf_summary.get("side_projection_iou", 0.0)) < 0.35,
     }
     return {
         "mylar_depth_enabled": True,
@@ -114,6 +132,28 @@ def build_phase5a_validation(
         and mesh_report.get("surface_nets_input_shape_valid", False),
         "manifold_ready_estimate": sdf_summary.get("closed_volume_connected", False)
         and sdf_summary.get("sdf_sign_consistency", False),
+        "multi_view_authority_enabled": multi_view_enabled,
+        "front_geometry_authority": sdf_summary.get("front_geometry_authority", "authored_front" if multi_view_enabled else ""),
+        "side_geometry_authority": sdf_summary.get("side_geometry_authority", ""),
+        "side_semantic_authority": sdf_summary.get("side_semantic_authority", ""),
+        "front_back_sprite_backend_enabled": sdf_summary.get("front_back_sprite_backend_enabled", False),
+        "front_back_side_backend_enabled": sdf_summary.get("front_back_side_backend_enabled", False),
+        "front_back_correspondence_passed": sdf_summary.get("front_back_correspondence_passed", False),
+        "side_authority_used": sdf_summary.get("side_authority_used", False),
+        "side_view_correspondence_passed": sdf_summary.get("side_view_correspondence_passed", True),
+        "side_mirror_fallback_used": sdf_summary.get("side_mirror_fallback_used", False),
+        "view_constraint_conflict_count": sdf_summary.get("view_constraint_conflict_count", 0),
+        "side_constraint_conflict_count": sdf_summary.get("side_constraint_conflict_count", 0),
+        "front_projection_iou": sdf_summary.get("front_projection_iou", 0.0),
+        "back_projection_iou": sdf_summary.get("back_projection_iou", 0.0),
+        "side_projection_iou": sdf_summary.get("side_projection_iou", 0.0),
+        "constraint_arbitration_enabled": sdf_summary.get("constraint_arbitration_enabled", False),
+        "conflict_zone_count": sdf_summary.get("conflict_zone_count", 0),
+        "topology_risk_zone_count": sdf_summary.get("topology_risk_zone_count", 0),
+        "weighted_blend_region_count": sdf_summary.get("weighted_blend_region_count", 0),
+        "rejected_constraint_count": sdf_summary.get("rejected_constraint_count", 0),
+        "constraint_arbitration_report": sdf_summary.get("constraint_arbitration_report", {}),
+        "view_authority_report": sdf_summary.get("view_authority_report", {}),
         "front_back_sprite_deferred": back_report.get("front_back_sprite_deferred", False),
         "back_geometry_authority": back_report.get("back_geometry_authority", semantic_authority.get("back_geometry_authority", "")),
         "source_coverage": source_coverage,
@@ -151,6 +191,17 @@ def build_phase5a_validation(
         "outline_shell_ratio": sdf_summary.get("outline_shell_ratio", 0.0),
         "side_projection_entropy": sdf_summary.get("side_projection_entropy", 0.0),
         "side_profile_readability_score": sdf_summary.get("side_profile_readability_score", 0.0),
+        "embodiment_params_enabled": sdf_summary.get("embodiment_params_enabled", False),
+        "embodiment_params_loaded": sdf_summary.get("embodiment_params_loaded", False),
+        "embodiment_params_using_defaults": sdf_summary.get("embodiment_params_using_defaults", False),
+        "embodiment_params_path": sdf_summary.get("embodiment_params_path", ""),
+        "embodiment_param_parts_requested": sdf_summary.get("embodiment_param_parts_requested", []),
+        "embodiment_param_parts_applied": sdf_summary.get("embodiment_param_parts_applied", []),
+        "embodiment_param_parts_skipped": sdf_summary.get("embodiment_param_parts_skipped", {}),
+        "embodiment_param_locked_parts": sdf_summary.get("embodiment_param_locked_parts", []),
+        "embodiment_param_applied_count": sdf_summary.get("embodiment_param_applied_count", 0),
+        "embodiment_parts_modified": sdf_summary.get("embodiment_parts_modified", 0),
+        "embodiment_param_report": sdf_summary.get("embodiment_param_report", {}),
         "directional_morphology_enabled": directional_enabled,
         "morphology_profile": sdf_summary.get("morphology_profile", ""),
         "directional_semantic_count": sdf_summary.get("directional_semantic_count", 0),

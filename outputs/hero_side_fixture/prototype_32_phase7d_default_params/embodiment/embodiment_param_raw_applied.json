@@ -1,0 +1,17 @@
+{
+  "schema": "spritespatial_embodiment_param_report_v1",
+  "embodiment_params_enabled": true,
+  "embodiment_params_path": "",
+  "embodiment_params_name": "default_embodiment_params",
+  "embodiment_params_loaded": true,
+  "embodiment_params_using_defaults": true,
+  "embodiment_param_parts_requested": [],
+  "embodiment_param_parts_applied": [],
+  "embodiment_param_parts_skipped": {},
+  "embodiment_param_locked_parts": [],
+  "embodiment_param_applied_count": 0,
+  "embodiment_parts_modified": 0,
+  "embodiment_param_depth_deltas": {},
+  "embodiment_param_morphology_deltas": {},
+  "embodiment_param_notes": {}
+}

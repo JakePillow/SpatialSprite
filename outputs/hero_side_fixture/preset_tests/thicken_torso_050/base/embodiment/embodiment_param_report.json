@@ -1,0 +1,25 @@
+{
+  "schema": "spritespatial_embodiment_param_report_v1",
+  "embodiment_params_enabled": true,
+  "embodiment_params_path": "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\embodiment_params_default.json",
+  "embodiment_params_name": "hero_side_fixture_default_embodiment_params",
+  "embodiment_params_loaded": true,
+  "embodiment_params_using_defaults": false,
+  "embodiment_param_parts_requested": [
+    "equipment/shield/sword",
+    "hair/hat",
+    "torso"
+  ],
+  "embodiment_param_parts_applied": [],
+  "embodiment_param_parts_skipped": {
+    "hair/hat": "disabled",
+    "torso": "disabled",
+    "equipment/shield/sword": "disabled"
+  },
+  "embodiment_param_locked_parts": [],
+  "embodiment_param_applied_count": 0,
+  "embodiment_parts_modified": 0,
+  "embodiment_param_depth_deltas": {},
+  "embodiment_param_morphology_deltas": {},
+  "embodiment_param_notes": {}
+}

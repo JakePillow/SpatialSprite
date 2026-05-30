@@ -1,0 +1,33 @@
+{
+  "schema": "spritespatial_changed_parts_v1",
+  "changed_parts": [
+    {
+      "part_id": "torso",
+      "changed_fields": {
+        "enabled": [
+          false,
+          true
+        ],
+        "thickness_scale": [
+          1.0,
+          1.0899999999999999
+        ],
+        "side_authority_weight": [
+          1.0,
+          0.975
+        ],
+        "topology_preservation_weight": [
+          1.0,
+          1.1
+        ],
+        "notes": [
+          "Default disabled baseline.",
+          "Gives the torso more body depth."
+        ]
+      },
+      "applied": true,
+      "skipped_reason": null
+    }
+  ],
+  "skipped_parts": []
+}

@@ -1,0 +1,231 @@
+{
+  "schema": "spritespatial_embodiment_preset_profile_v1",
+  "profile_id": "fantasy_humanoid",
+  "display_name": "Fantasy Humanoid",
+  "description": "Creator-facing embodiment presets for fantasy humanoid sprites with hats, hair, capes, weapons, and shields.",
+  "presets": [
+    {
+      "preset_id": "pull_hat_back",
+      "display_name": "Pull Hat Back",
+      "description": "Extends hat/hair volume rearward while keeping the front compressed.",
+      "target_parts": ["hair/hat"],
+      "parameter_changes": {
+        "hair/hat": {
+          "enabled": true,
+          "z_center_offset": -0.03,
+          "thickness_scale": 1.16,
+          "front_bias": -0.04,
+          "back_bias": 0.24,
+          "side_width_scale": 0.95,
+          "back_authority_weight": 1.10,
+          "side_authority_weight": 0.98,
+          "topology_preservation_weight": 1.18,
+          "taper_strength": 0.24,
+          "preserve_silhouette": true
+        }
+      },
+      "safe_ranges": {
+        "z_center_offset": [-0.08, 0.0],
+        "thickness_scale": [1.0, 1.3],
+        "front_bias": [-0.12, 0.0],
+        "back_bias": [0.0, 0.35],
+        "side_width_scale": [0.85, 1.05],
+        "taper_strength": [0.0, 0.4]
+      },
+      "expected_effect": "Hat reads as rounded/compressed at the front and trailing toward the back.",
+      "risk_notes": "Too much back bias can reduce directional readability or increase cleanup work."
+    },
+    {
+      "preset_id": "compress_hat_front",
+      "display_name": "Compress Hat Front",
+      "description": "Suppresses forward hat protrusion without adding much rear extension.",
+      "target_parts": ["hair/hat"],
+      "parameter_changes": {
+        "hair/hat": {
+          "enabled": true,
+          "front_bias": -0.08,
+          "back_bias": 0.08,
+          "side_width_scale": 0.94,
+          "taper_strength": 0.14
+        }
+      },
+      "safe_ranges": {
+        "front_bias": [-0.15, 0.0],
+        "back_bias": [0.0, 0.18],
+        "side_width_scale": [0.85, 1.0],
+        "taper_strength": [0.0, 0.25]
+      },
+      "expected_effect": "Front view keeps hat compact while side/back retain cap direction.",
+      "risk_notes": "May make the hat feel too small if intensity is high."
+    },
+    {
+      "preset_id": "push_face_forward",
+      "display_name": "Push Face Forward",
+      "description": "Adds small face/nose protrusion.",
+      "target_parts": ["face"],
+      "parameter_changes": {
+        "face": {
+          "enabled": true,
+          "z_center_offset": 0.03,
+          "thickness_scale": 1.08,
+          "front_bias": 0.24,
+          "taper_strength": 0.10
+        }
+      },
+      "safe_ranges": {
+        "z_center_offset": [0.0, 0.08],
+        "front_bias": [0.0, 0.35],
+        "thickness_scale": [1.0, 1.16]
+      },
+      "expected_effect": "Face reads more dimensional in oblique views.",
+      "risk_notes": "Can create a nose-like feature even when the art did not intend one."
+    },
+    {
+      "preset_id": "thicken_torso",
+      "display_name": "Thicken Torso",
+      "description": "Gives the torso more body depth.",
+      "target_parts": ["torso"],
+      "parameter_changes": {
+        "torso": {
+          "enabled": true,
+          "thickness_scale": 1.18,
+          "topology_preservation_weight": 1.20,
+          "side_authority_weight": 0.95
+        }
+      },
+      "safe_ranges": {
+        "thickness_scale": [1.0, 1.25],
+        "topology_preservation_weight": [1.0, 1.35],
+        "side_authority_weight": [0.75, 1.1]
+      },
+      "expected_effect": "Torso becomes less flat while staying topology-safe.",
+      "risk_notes": "May slightly lower side projection fit."
+    },
+    {
+      "preset_id": "slim_torso",
+      "display_name": "Slim Torso",
+      "description": "Reduces torso bulk.",
+      "target_parts": ["torso"],
+      "parameter_changes": {
+        "torso": {
+          "enabled": true,
+          "thickness_scale": 0.88,
+          "side_width_scale": 0.96
+        }
+      },
+      "safe_ranges": {
+        "thickness_scale": [0.75, 1.0],
+        "side_width_scale": [0.85, 1.0]
+      },
+      "expected_effect": "Useful when torso looks inflated.",
+      "risk_notes": "Can make the model look front-derived again."
+    },
+    {
+      "preset_id": "broaden_shoulders",
+      "display_name": "Broaden Shoulders",
+      "description": "Adds controlled upper-body side width.",
+      "target_parts": ["torso", "left_arm", "right_arm"],
+      "parameter_changes": {
+        "torso": {"enabled": true, "side_width_scale": 1.06},
+        "left_arm": {"enabled": true, "side_width_scale": 1.12},
+        "right_arm": {"enabled": true, "side_width_scale": 1.12}
+      },
+      "safe_ranges": {
+        "side_width_scale": [1.0, 1.2]
+      },
+      "expected_effect": "Upper body reads stronger during rotation.",
+      "risk_notes": "Can make arms dominate tiny sprites."
+    },
+    {
+      "preset_id": "thicken_limbs",
+      "display_name": "Thicken Limbs",
+      "description": "Adds depth to arms and legs.",
+      "target_parts": ["left_arm", "right_arm", "left_leg", "right_leg"],
+      "parameter_changes": {
+        "left_arm": {"enabled": true, "thickness_scale": 1.12},
+        "right_arm": {"enabled": true, "thickness_scale": 1.12},
+        "left_leg": {"enabled": true, "thickness_scale": 1.10},
+        "right_leg": {"enabled": true, "thickness_scale": 1.10}
+      },
+      "safe_ranges": {
+        "thickness_scale": [1.0, 1.2]
+      },
+      "expected_effect": "Limbs feel more embodied.",
+      "risk_notes": "May reduce slim pixel-art limb definition."
+    },
+    {
+      "preset_id": "taper_limbs",
+      "display_name": "Taper Limbs",
+      "description": "Adds stylised taper to limbs.",
+      "target_parts": ["left_arm", "right_arm", "left_leg", "right_leg"],
+      "parameter_changes": {
+        "left_arm": {"enabled": true, "taper_strength": 0.22},
+        "right_arm": {"enabled": true, "taper_strength": 0.22},
+        "left_leg": {"enabled": true, "taper_strength": 0.26},
+        "right_leg": {"enabled": true, "taper_strength": 0.26}
+      },
+      "safe_ranges": {
+        "taper_strength": [0.0, 0.35]
+      },
+      "expected_effect": "Limbs read less voxel-blocky.",
+      "risk_notes": "Overuse can weaken extremities."
+    },
+    {
+      "preset_id": "widen_side_profile",
+      "display_name": "Widen Side Profile",
+      "description": "Broadens side projection for core body parts.",
+      "target_parts": ["torso", "left_arm", "right_arm"],
+      "parameter_changes": {
+        "torso": {"enabled": true, "side_width_scale": 1.12, "thickness_scale": 1.08},
+        "left_arm": {"enabled": true, "side_width_scale": 1.10},
+        "right_arm": {"enabled": true, "side_width_scale": 1.10}
+      },
+      "safe_ranges": {
+        "side_width_scale": [1.0, 1.2],
+        "thickness_scale": [1.0, 1.15]
+      },
+      "expected_effect": "Side view becomes less narrow.",
+      "risk_notes": "Can conflict with strict side authority."
+    },
+    {
+      "preset_id": "soften_side_profile",
+      "display_name": "Soften Side Profile",
+      "description": "Softens side bulk for cleaner constrained side views.",
+      "target_parts": ["torso", "left_arm", "right_arm"],
+      "parameter_changes": {
+        "torso": {"enabled": true, "side_width_scale": 0.96},
+        "left_arm": {"enabled": true, "side_width_scale": 0.94},
+        "right_arm": {"enabled": true, "side_width_scale": 0.94}
+      },
+      "safe_ranges": {
+        "side_width_scale": [0.85, 1.0]
+      },
+      "expected_effect": "Side silhouette gets less bulky.",
+      "risk_notes": "Can flatten the model if overdone."
+    },
+    {
+      "preset_id": "pull_equipment_sideways",
+      "display_name": "Pull Equipment Sideways",
+      "description": "Pushes shield/sword/equipment outward in side profile.",
+      "target_parts": ["equipment/shield/sword"],
+      "parameter_changes": {
+        "equipment/shield/sword": {
+          "enabled": true,
+          "z_center_offset": 0.04,
+          "thickness_scale": 1.16,
+          "side_width_scale": 1.32,
+          "side_authority_weight": 1.20,
+          "topology_preservation_weight": 1.20
+        }
+      },
+      "safe_ranges": {
+        "z_center_offset": [0.0, 0.08],
+        "thickness_scale": [1.0, 1.25],
+        "side_width_scale": [1.0, 1.4],
+        "side_authority_weight": [0.8, 1.35]
+      },
+      "expected_effect": "Equipment separates from the body in side view.",
+      "risk_notes": "Will be skipped if the asset has no nonempty equipment canonical part."
+    }
+  ]
+}

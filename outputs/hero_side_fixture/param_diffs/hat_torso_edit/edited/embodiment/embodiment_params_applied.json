@@ -1,0 +1,19 @@
+{
+  "schema": "spritespatial_embodiment_params_applied_v1",
+  "embodiment_params_loaded": true,
+  "embodiment_params_path": "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\embodiment_params.json",
+  "embodiment_params_using_defaults": false,
+  "parts_applied": [
+    "hair/hat",
+    "torso"
+  ],
+  "parts_skipped": {
+    "equipment/shield/sword": "part_not_present"
+  },
+  "parts_locked": [],
+  "embodiment_parts_modified": 2,
+  "notes": {
+    "hair/hat": "Pull the hat/cap farther toward the authored back while keeping front silhouette authority.",
+    "torso": "Slight torso fullness increase for a less papery side profile."
+  }
+}

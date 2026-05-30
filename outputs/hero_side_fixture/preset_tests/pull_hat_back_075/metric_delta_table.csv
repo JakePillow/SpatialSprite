@@ -1,0 +1,30 @@
+group,metric,base,edited,delta,changed
+embodiment,embodiment_parts_modified,0,1,1,True
+embodiment,embodiment_param_parts_applied,[],['hair/hat'],,True
+embodiment,embodiment_param_parts_skipped,"{'hair/hat': 'disabled', 'torso': 'disabled', 'equipment/shield/sword': 'disabled'}","{'torso': 'disabled', 'equipment/shield/sword': 'disabled'}",,True
+projection,front_projection_iou,0.9727767695099818,0.9727767695099818,0.0,False
+projection,back_projection_iou,0.9053030303030303,0.9053030303030303,0.0,False
+projection,side_projection_iou,0.5785997357992074,0.5812417437252312,0.0026420079260237594,True
+arbitration,conflict_zone_count,115,115,0,False
+arbitration,topology_risk_zone_count,194,194,0,False
+arbitration,weighted_blend_region_count,23,23,0,False
+arbitration,rejected_constraint_count,152,152,0,False
+morphology,hat_asymmetry_ratio,2.8036581307124817,3.506145075401276,0.7024869446887942,True
+morphology,directional_readability_score,0.2620183005928993,0.30265904366970064,0.04064074307680132,True
+morphology,front_hat_extension_score,0.013563421554863453,0.013563421554863453,0.0,False
+morphology,back_hat_extension_score,0.03802719712257385,0.04755532369017601,0.009528126567602158,True
+sdf,closed_volume_connected,True,True,,False
+sdf,connected_component_count,,,,False
+sdf,sdf_volume_shape,"[45, 34, 35]","[45, 34, 35]",,False
+sdf,side_constraint_voxels_filled,,,,False
+mesh,mesh_connected_components,1,1,0,False
+mesh,degenerate_face_count,0,0,0,False
+mesh,non_manifold_after_cleanup,6,6,0,False
+mesh,semantic_label_preservation_passed,True,True,,False
+mesh,surface_net_vertices,4326,4339,13,True
+mesh,surface_net_faces,4324,4338,14,True
+mesh,planar_macro_patch_count,5,5,0,False
+mesh,qef_acceptance_ratio,0.9798890429958391,0.9801797649227932,0.00029072192695411836,True
+render_material,source_colour_match_score,0.7534713446442359,0.7537479679453866,0.0002766233011506358,True
+render_material,voxel_face_readability_score,0.8492964252833066,0.8494101392568179,0.00011371397351123136,True
+render_material,internal_black_face_ratio,0.046022201665124884,0.045873674504379895,-0.00014852716074498923,True

@@ -1,0 +1,61 @@
+{
+  "schema": "spritespatial_embodiment_params_v1",
+  "name": "hero_side_fixture_default_embodiment_params",
+  "description": "Phase 8B baseline parameter file. All editable parts are present but disabled/defaulted so diffs can explain exactly what the edited file changes.",
+  "parts": {
+    "hair/hat": {
+      "part_id": "hair/hat",
+      "enabled": false,
+      "z_center_offset": 0.0,
+      "thickness_scale": 1.0,
+      "front_bias": 0.0,
+      "back_bias": 0.0,
+      "side_width_scale": 1.0,
+      "silhouette_weight": 1.0,
+      "front_authority_weight": 1.0,
+      "back_authority_weight": 1.0,
+      "side_authority_weight": 1.0,
+      "topology_preservation_weight": 1.0,
+      "taper_strength": 0.0,
+      "preserve_silhouette": true,
+      "lock_part": false,
+      "notes": "Default disabled baseline."
+    },
+    "torso": {
+      "part_id": "torso",
+      "enabled": false,
+      "z_center_offset": 0.0,
+      "thickness_scale": 1.0,
+      "front_bias": 0.0,
+      "back_bias": 0.0,
+      "side_width_scale": 1.0,
+      "silhouette_weight": 1.0,
+      "front_authority_weight": 1.0,
+      "back_authority_weight": 1.0,
+      "side_authority_weight": 1.0,
+      "topology_preservation_weight": 1.0,
+      "taper_strength": 0.0,
+      "preserve_silhouette": true,
+      "lock_part": false,
+      "notes": "Default disabled baseline."
+    },
+    "equipment/shield/sword": {
+      "part_id": "equipment/shield/sword",
+      "enabled": false,
+      "z_center_offset": 0.0,
+      "thickness_scale": 1.0,
+      "front_bias": 0.0,
+      "back_bias": 0.0,
+      "side_width_scale": 1.0,
+      "silhouette_weight": 1.0,
+      "front_authority_weight": 1.0,
+      "back_authority_weight": 1.0,
+      "side_authority_weight": 1.0,
+      "topology_preservation_weight": 1.0,
+      "taper_strength": 0.0,
+      "preserve_silhouette": true,
+      "lock_part": false,
+      "notes": "Default disabled baseline."
+    }
+  }
+}

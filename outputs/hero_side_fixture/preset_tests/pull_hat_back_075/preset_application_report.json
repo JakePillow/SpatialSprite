@@ -1,0 +1,80 @@
+{
+  "schema": "spritespatial_preset_application_report_v1",
+  "preset_id": "pull_hat_back",
+  "display_name": "Pull Hat Back",
+  "intensity": 0.75,
+  "target_parts": [
+    "hair/hat"
+  ],
+  "applied_parts": [
+    "hair/hat"
+  ],
+  "skipped_parts": [],
+  "parameter_changes": {
+    "hair/hat": {
+      "enabled": [
+        false,
+        true
+      ],
+      "z_center_offset": [
+        0.0,
+        -0.0225
+      ],
+      "thickness_scale": [
+        1.0,
+        1.1199999999999999
+      ],
+      "front_bias": [
+        0.0,
+        -0.03
+      ],
+      "back_bias": [
+        0.0,
+        0.18
+      ],
+      "side_width_scale": [
+        1.0,
+        0.9624999999999999
+      ],
+      "back_authority_weight": [
+        1.0,
+        1.0750000000000002
+      ],
+      "side_authority_weight": [
+        1.0,
+        0.985
+      ],
+      "topology_preservation_weight": [
+        1.0,
+        1.135
+      ],
+      "taper_strength": [
+        0.0,
+        0.18
+      ]
+    }
+  },
+  "warnings": [],
+  "valid_for_asset": true,
+  "expected_effect": "Hat reads as rounded/compressed at the front and trailing toward the back.",
+  "risk_notes": "Too much back bias can reduce directional readability or increase cleanup work.",
+  "generated_at": "2026-05-30T12:53:35.669428+00:00",
+  "asset": "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\spriteasset_v1.json",
+  "semantic_overrides": "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\semantic_overrides",
+  "base_params": "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\embodiment_params_default.json",
+  "out_params": "C:\\dev\\SpatialSprite\\outputs\\hero_side_fixture\\preset_tests\\pull_hat_back_075\\edited_params.json",
+  "preset_profile": "C:\\dev\\SpatialSprite\\profiles\\embodiment_presets\\fantasy_humanoid.json",
+  "preset_profile_id": "fantasy_humanoid",
+  "available_parts": [
+    "boots/feet",
+    "face",
+    "hair/hat",
+    "head",
+    "left_arm",
+    "left_leg",
+    "outline",
+    "right_arm",
+    "right_leg",
+    "torso"
+  ]
+}

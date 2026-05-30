@@ -1,0 +1,37 @@
+{
+  "schema": "spritespatial_sdf_delta_v1",
+  "metrics": {
+    "closed_volume_connected": {
+      "base": true,
+      "edited": true,
+      "delta": null,
+      "changed": false
+    },
+    "connected_component_count": {
+      "base": null,
+      "edited": null,
+      "delta": null,
+      "changed": false
+    },
+    "sdf_volume_shape": {
+      "base": [
+        45,
+        34,
+        35
+      ],
+      "edited": [
+        45,
+        34,
+        35
+      ],
+      "delta": null,
+      "changed": false
+    },
+    "side_constraint_voxels_filled": {
+      "base": null,
+      "edited": null,
+      "delta": null,
+      "changed": false
+    }
+  }
+}

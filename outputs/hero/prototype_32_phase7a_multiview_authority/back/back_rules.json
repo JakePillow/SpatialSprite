@@ -1,0 +1,28 @@
+{
+  "mode": "front_back_sprite",
+  "front_back_sprite_deferred": false,
+  "back_geometry_authority": "authored_back",
+  "back_sprite_path": "C:\\dev\\SpatialSprite\\assets\\samples\\hero\\hero_back.png",
+  "comparison_back_sprite_path": "",
+  "scales": {
+    "outline": 0.12,
+    "head": 1.0,
+    "face": 0.2,
+    "hair/hat": 1.2,
+    "torso": 0.85,
+    "left_arm": 1.0,
+    "right_arm": 1.0,
+    "left_leg": 0.9,
+    "right_leg": 0.9
+  },
+  "front_alpha_pixel_count": 271,
+  "back_alpha_pixel_count": 266,
+  "front_back_alpha_iou": 0.9178571428571428,
+  "front_only_pixel_count": 14,
+  "back_only_pixel_count": 9,
+  "z_back_min": -0.42131152749061584,
+  "z_back_max": 0.0,
+  "same_silhouette_seam": true,
+  "missing_critical_back_regions": [],
+  "back_region_exceeds_configured_max_depth": false
+}

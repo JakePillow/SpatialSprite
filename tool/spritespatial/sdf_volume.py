@@ -101,12 +101,26 @@ def build_sdf_volume(
     adaptive_resolution_profile: dict[str, Any] | None = None,
     resolution_output_dir: Path | None = None,
     emit_resolution_debug: bool = False,
+    view_authority: dict[str, Any] | None = None,
+    view_authority_output_dir: Path | None = None,
+    emit_view_authority_debug: bool = False,
 ) -> dict[str, Any]:
     output_dir.mkdir(parents=True, exist_ok=True)
     slices_dir = output_dir / "sdf_slices"
     slices_dir.mkdir(parents=True, exist_ok=True)
     source_shape = list(alpha_mask.shape)
     source_label_by_pixel = dict(label_by_pixel)
+    view_authority_result: dict[str, Any] = {}
+    if view_authority and view_authority.get("enabled", False):
+        z_front, z_back, alpha_mask, label_by_pixel, view_authority_result = _apply_view_authority_depth_inputs(
+            z_front,
+            z_back,
+            alpha_mask,
+            label_by_pixel,
+            view_authority,
+            view_authority_output_dir,
+            emit_view_authority_debug,
+        )
     resolution_scale = max(1.0, float(sdf_resolution_scale))
     resolution_strategy = "adaptive" if adaptive_resolution_profile else ("uniform" if resolution_scale > 1.0001 or z_samples != (base_z_samples or z_samples) else "uniform")
     highres_downsampled = bool(
@@ -123,6 +137,12 @@ def build_sdf_volume(
             label_by_pixel,
             resolution_scale,
         )
+        if view_authority_result:
+            view_authority_result["constraints"] = _scale_view_authority_constraints(
+                view_authority_result.get("constraints", {}),
+                resolution_scale,
+                alpha_mask.shape,
+            )
     height, width = alpha_mask.shape
     resolution_debug_paths: dict[str, Path] = {}
     resolution_report: dict[str, Any] = {}
@@ -175,6 +195,23 @@ def build_sdf_volume(
                 occupancy[y, x, inside] = True
                 semantic_volume[y, x, inside] = label_id
 
+    if view_authority_result:
+        enforcement = _enforce_view_authority_occupancy(
+            occupancy,
+            semantic_volume,
+            z_axis,
+            label_by_pixel,
+            view_authority_result.get("constraints", {}),
+            view_authority_output_dir,
+            emit_view_authority_debug,
+        )
+        occupancy = enforcement["occupancy"]
+        semantic_volume = enforcement["semantic_volume"]
+        view_authority_result["report"] = {
+            **dict(view_authority_result.get("report", {})),
+            **enforcement.get("report", {}),
+        }
+
     isolated_outline_voxels_removed = _remove_isolated_outline_components(occupancy, semantic_volume)
     tiny_noncritical_voxels_removed = _remove_tiny_noncritical_components(occupancy, semantic_volume)
 
@@ -210,6 +247,26 @@ def build_sdf_volume(
         )
         occupancy = surface_flow_result["occupancy"].astype(bool, copy=False)
         semantic_volume = surface_flow_result["semantic_volume"].astype(np.int32, copy=False)
+
+    if view_authority_result:
+        projection_result = _view_authority_projection_result(
+            occupancy,
+            z_axis,
+            view_authority_result.get("constraints", {}),
+        )
+        view_authority_result["report"] = {
+            **dict(view_authority_result.get("report", {})),
+            **projection_result["report"],
+        }
+        if view_authority_output_dir is not None:
+            _write_projection_report(
+                view_authority_output_dir,
+                projection_result["report"],
+                projection_result["front_projection"],
+                projection_result["back_projection"],
+                projection_result.get("side_projection"),
+                emit_view_authority_debug,
+            )
 
     sdf = _occupancy_signed_distance(occupancy).astype(np.float32)
     if surface_flow_result:
@@ -259,6 +316,38 @@ def build_sdf_volume(
         "isolated_outline_voxels_removed": isolated_outline_voxels_removed,
         "tiny_noncritical_voxels_removed": tiny_noncritical_voxels_removed,
     }
+    if view_authority_result:
+        authority_report = view_authority_result.get("report", {})
+        summary.update(
+            {
+                "multi_view_authority_enabled": True,
+                "front_geometry_authority": authority_report.get("front_geometry_authority", "authored_front"),
+                "back_geometry_authority": authority_report.get("back_geometry_authority", ""),
+                "side_geometry_authority": authority_report.get("side_geometry_authority", ""),
+                "side_semantic_authority": authority_report.get("side_semantic_authority", ""),
+                "front_back_sprite_backend_enabled": bool(authority_report.get("front_back_sprite_backend_enabled", False)),
+                "front_back_side_backend_enabled": bool(authority_report.get("front_back_side_backend_enabled", False)),
+                "front_back_correspondence_passed": bool(authority_report.get("front_back_correspondence_passed", False)),
+                "side_authority_used": bool(authority_report.get("side_authority_used", False)),
+                "side_view_correspondence_passed": bool(authority_report.get("side_view_correspondence_passed", True)),
+                "side_mirror_fallback_used": bool(authority_report.get("side_mirror_fallback_used", False)),
+                "view_constraint_conflict_count": int(authority_report.get("view_constraint_conflict_count", 0)),
+                "side_constraint_conflict_count": int(authority_report.get("side_constraint_conflict_count", 0)),
+                "front_projection_iou": float(authority_report.get("front_projection_iou", 0.0)),
+                "back_projection_iou": float(authority_report.get("back_projection_iou", 0.0)),
+                "side_projection_iou": float(authority_report.get("side_projection_iou", 0.0)),
+                "constraint_arbitration_enabled": bool(authority_report.get("constraint_arbitration_enabled", False)),
+                "conflict_zone_count": int(authority_report.get("conflict_zone_count", 0)),
+                "topology_risk_zone_count": int(authority_report.get("topology_risk_zone_count", 0)),
+                "weighted_blend_region_count": int(authority_report.get("weighted_blend_region_count", 0)),
+                "rejected_constraint_count": int(authority_report.get("rejected_constraint_count", 0)),
+                "constraint_arbitration_report": authority_report.get("constraint_arbitration_report", {}),
+                "view_authority_report": authority_report,
+            }
+        )
+    else:
+        summary["multi_view_authority_enabled"] = False
+        summary["constraint_arbitration_enabled"] = False
     if semantic_depth_result:
         depth_report = semantic_depth_result.get("report", {})
         summary.update(
@@ -274,6 +363,17 @@ def build_sdf_volume(
                 "outline_shell_ratio": depth_report.get("outline_shell_ratio", 0.0),
                 "side_projection_entropy": depth_report.get("side_projection_entropy", 0.0),
                 "side_profile_readability_score": depth_report.get("side_profile_readability_score", 0.0),
+                "embodiment_params_enabled": depth_report.get("embodiment_params_enabled", False),
+                "embodiment_params_loaded": depth_report.get("embodiment_params_loaded", False),
+                "embodiment_params_using_defaults": depth_report.get("embodiment_params_using_defaults", False),
+                "embodiment_params_path": depth_report.get("embodiment_params_path", ""),
+                "embodiment_param_parts_requested": depth_report.get("embodiment_param_parts_requested", []),
+                "embodiment_param_parts_applied": depth_report.get("embodiment_param_parts_applied", []),
+                "embodiment_param_parts_skipped": depth_report.get("embodiment_param_parts_skipped", {}),
+                "embodiment_param_locked_parts": depth_report.get("embodiment_param_locked_parts", []),
+                "embodiment_param_applied_count": depth_report.get("embodiment_param_applied_count", 0),
+                "embodiment_parts_modified": depth_report.get("embodiment_parts_modified", 0),
+                "embodiment_param_report": depth_report.get("embodiment_param_report", {}),
                 "directional_morphology_enabled": depth_report.get("directional_morphology_enabled", False),
                 "morphology_profile": depth_report.get("morphology_profile", ""),
                 "directional_semantic_count": depth_report.get("directional_semantic_count", 0),
@@ -344,6 +444,7 @@ def build_sdf_volume(
         "directional_morphology": semantic_depth_result.get("directional_morphology", {}) if semantic_depth_result else {},
         "surface_flow": surface_flow_result,
         "rfd": rfd_result,
+        "view_authority": view_authority_result,
         "paths": {
             "sdf_volume": output_dir / "sdf_volume.npy",
             "semantic_volume": output_dir / "semantic_volume.npy",
@@ -401,6 +502,408 @@ def _scale_sampling_grid(
     z_front_scaled[~alpha_scaled] = 0.0
     z_back_scaled[~alpha_scaled] = 0.0
     return z_front_scaled, z_back_scaled, alpha_scaled, labels_scaled
+
+
+def _apply_view_authority_depth_inputs(
+    z_front: np.ndarray,
+    z_back: np.ndarray,
+    alpha_mask: np.ndarray,
+    label_by_pixel: dict[Pixel, str],
+    view_authority: dict[str, Any],
+    output_dir: Path | None,
+    emit_debug: bool,
+) -> tuple[np.ndarray, np.ndarray, np.ndarray, dict[Pixel, str], dict[str, Any]]:
+    front_alpha = np.asarray(view_authority.get("front_alpha", alpha_mask), dtype=bool)
+    back_alpha_raw = view_authority.get("back_alpha")
+    back_alpha = np.asarray(back_alpha_raw, dtype=bool) if back_alpha_raw is not None else None
+    side_alpha_raw = view_authority.get("side_alpha")
+    side_alpha = np.asarray(side_alpha_raw, dtype=bool) if side_alpha_raw is not None else None
+    if front_alpha.shape != alpha_mask.shape:
+        front_alpha = _resize_bool_array(front_alpha, alpha_mask.shape)
+    if back_alpha is not None and back_alpha.shape != alpha_mask.shape:
+        back_alpha = _resize_bool_array(back_alpha, alpha_mask.shape)
+    if side_alpha is not None and side_alpha.shape != alpha_mask.shape:
+        side_alpha = _resize_bool_array(side_alpha, alpha_mask.shape)
+    support = front_alpha | (back_alpha if back_alpha is not None else alpha_mask)
+    labels = _fill_missing_labels(support, label_by_pixel)
+    z_front_out = np.array(z_front, dtype=np.float32, copy=True)
+    z_back_out = np.array(z_back, dtype=np.float32, copy=True)
+    median_front = float(np.median(z_front[z_front > 0.0])) if bool(np.any(z_front > 0.0)) else 0.12
+    if back_alpha is not None:
+        back_only = back_alpha & ~front_alpha
+        z_front_out[back_only] = 0.0
+        z_back_out[back_only] = -max(median_front * 0.75, 0.06)
+        z_back_out[~back_alpha] = np.minimum(z_back_out[~back_alpha], 0.0)
+    z_front_out[~support] = 0.0
+    z_back_out[~support] = 0.0
+    report = {
+        **dict(view_authority.get("report", {})),
+        "multi_view_depth_inputs_applied": True,
+        "support_pixel_count": int(np.count_nonzero(support)),
+        "front_constraint_pixel_count": int(np.count_nonzero(front_alpha)),
+        "back_constraint_pixel_count": int(np.count_nonzero(back_alpha)) if back_alpha is not None else 0,
+        "side_constraint_pixel_count": int(np.count_nonzero(side_alpha)) if side_alpha is not None else 0,
+        "view_constraint_conflict_count": int(np.count_nonzero(front_alpha ^ back_alpha)) if back_alpha is not None else 0,
+    }
+    result = {
+        "constraints": {
+            **dict(view_authority),
+            "front_alpha": front_alpha,
+            "back_alpha": back_alpha,
+            "side_alpha": side_alpha,
+        },
+        "report": report,
+    }
+    if output_dir is not None:
+        _update_view_authority_json(output_dir, report, emit_debug)
+    return z_front_out, z_back_out, support, labels, result
+
+
+def _scale_view_authority_constraints(
+    constraints: dict[str, Any],
+    scale: float,
+    shape: tuple[int, int],
+) -> dict[str, Any]:
+    result = dict(constraints)
+    for key in ("front_alpha", "back_alpha", "side_alpha"):
+        value = result.get(key)
+        if value is None:
+            continue
+        result[key] = _resize_bool_array(np.asarray(value, dtype=bool), shape)
+    arbitration = result.get("constraint_arbitration")
+    if isinstance(arbitration, dict):
+        source_shape = arbitration.get("source_shape", [])
+        source_height = int(source_shape[0]) if isinstance(source_shape, list) and source_shape else 0
+        rejected_rows = arbitration.get("rejected_side_rows", [])
+        if source_height > 0 and isinstance(rejected_rows, list):
+            scaled_rows = sorted(
+                {
+                    max(0, min(int(shape[0]) - 1, int(round(float(row) * float(shape[0]) / float(source_height)))))
+                    for row in rejected_rows
+                }
+            )
+            arbitration = dict(arbitration)
+            arbitration["rejected_side_rows"] = scaled_rows
+            arbitration["scaled_from_shape"] = source_shape
+            arbitration["scaled_to_shape"] = [int(shape[0]), int(shape[1])]
+            result["constraint_arbitration"] = arbitration
+    result["resolution_scale"] = float(scale)
+    return result
+
+
+def _enforce_view_authority_occupancy(
+    occupancy: np.ndarray,
+    semantic_volume: np.ndarray,
+    z_axis: np.ndarray,
+    label_by_pixel: dict[Pixel, str],
+    constraints: dict[str, Any],
+    output_dir: Path | None,
+    emit_debug: bool,
+) -> dict[str, Any]:
+    front_alpha = np.asarray(constraints.get("front_alpha", occupancy.any(axis=2)), dtype=bool)
+    back_raw = constraints.get("back_alpha")
+    back_alpha = np.asarray(back_raw, dtype=bool) if back_raw is not None else None
+    side_raw = constraints.get("side_alpha")
+    side_alpha = np.asarray(side_raw, dtype=bool) if side_raw is not None else None
+    if front_alpha.shape != occupancy.shape[:2]:
+        front_alpha = _resize_bool_array(front_alpha, occupancy.shape[:2])
+    if back_alpha is not None and back_alpha.shape != occupancy.shape[:2]:
+        back_alpha = _resize_bool_array(back_alpha, occupancy.shape[:2])
+    if side_alpha is not None and side_alpha.shape[0] != occupancy.shape[0]:
+        side_alpha = _resize_bool_array(side_alpha, occupancy.shape[:2])
+    result_occupancy = occupancy.copy()
+    result_semantic = semantic_volume.copy()
+    front_positive = z_axis > 0.0
+    back_negative = z_axis < 0.0
+    center_index = int(np.argmin(np.abs(z_axis)))
+    if bool(np.any(front_positive)):
+        for zi in np.flatnonzero(front_positive):
+            result_occupancy[:, :, int(zi)][~front_alpha] = False
+            result_semantic[:, :, int(zi)][~front_alpha] = 0
+        _ensure_projection_voxels(result_occupancy, result_semantic, front_alpha, front_positive, label_by_pixel)
+    if back_alpha is not None and bool(np.any(back_negative)):
+        for zi in np.flatnonzero(back_negative):
+            result_occupancy[:, :, int(zi)][~back_alpha] = False
+            result_semantic[:, :, int(zi)][~back_alpha] = 0
+        _ensure_projection_voxels(result_occupancy, result_semantic, back_alpha, back_negative, label_by_pixel)
+    support = front_alpha | (back_alpha if back_alpha is not None else result_occupancy.any(axis=2))
+    result_occupancy[~support, :] = False
+    result_semantic[~support, :] = 0
+    for y, x in np.argwhere(support):
+        result_occupancy[int(y), int(x), center_index] = True
+        if result_semantic[y, x, center_index] == 0:
+            result_semantic[y, x, center_index] = SEMANTIC_LABEL_IDS.get(label_by_pixel.get((int(x), int(y)), "unknown"), SEMANTIC_LABEL_IDS["unknown"])
+    _fill_authority_column_gaps(result_occupancy, result_semantic, support, label_by_pixel)
+    side_enforcement_report: dict[str, Any] = {}
+    if side_alpha is not None and constraints.get("side_authority_used", False):
+        side_enforcement_report = _apply_side_projection_constraint(
+            result_occupancy,
+            result_semantic,
+            side_alpha,
+            label_by_pixel,
+            constraints,
+        )
+    projection_result = _view_authority_projection_result(result_occupancy, z_axis, constraints)
+    report = {**projection_result["report"], **side_enforcement_report}
+    arbitration = constraints.get("constraint_arbitration", {})
+    if isinstance(arbitration, dict) and isinstance(arbitration.get("report"), dict):
+        arbitration_report = arbitration["report"]
+        report.update(
+            {
+                "constraint_arbitration_enabled": bool(arbitration_report.get("constraint_arbitration_enabled", False)),
+                "conflict_zone_count": int(arbitration_report.get("conflict_zone_count", 0)),
+                "topology_risk_zone_count": int(arbitration_report.get("topology_risk_zone_count", 0)),
+                "weighted_blend_region_count": int(arbitration_report.get("weighted_blend_region_count", 0)),
+                "rejected_constraint_count": int(arbitration_report.get("rejected_constraint_count", 0))
+                + int(side_enforcement_report.get("side_constraint_voxels_skipped_by_arbitration", 0))
+                + (1 if side_enforcement_report.get("side_constraint_rejected_for_topology", False) else 0),
+                "constraint_arbitration_report": arbitration_report,
+            }
+        )
+    front_projection = projection_result["front_projection"]
+    back_projection = projection_result["back_projection"]
+    if output_dir is not None:
+        _write_projection_report(output_dir, report, front_projection, back_projection, projection_result.get("side_projection"), emit_debug)
+    return {"occupancy": result_occupancy, "semantic_volume": result_semantic, "report": report}
+
+
+def _view_authority_projection_result(
+    occupancy: np.ndarray,
+    z_axis: np.ndarray,
+    constraints: dict[str, Any],
+) -> dict[str, Any]:
+    front_alpha = np.asarray(constraints.get("front_alpha", occupancy.any(axis=2)), dtype=bool)
+    back_raw = constraints.get("back_alpha")
+    back_alpha = np.asarray(back_raw, dtype=bool) if back_raw is not None else None
+    side_raw = constraints.get("side_alpha")
+    side_alpha = np.asarray(side_raw, dtype=bool) if side_raw is not None else None
+    if front_alpha.shape != occupancy.shape[:2]:
+        front_alpha = _resize_bool_array(front_alpha, occupancy.shape[:2])
+    if back_alpha is not None and back_alpha.shape != occupancy.shape[:2]:
+        back_alpha = _resize_bool_array(back_alpha, occupancy.shape[:2])
+    if side_alpha is not None and side_alpha.shape != occupancy.shape[:2]:
+        side_alpha = _resize_bool_array(side_alpha, occupancy.shape[:2])
+    front_positive = z_axis > 0.0
+    back_negative = z_axis < 0.0
+    front_projection = occupancy[:, :, front_positive].any(axis=2) if bool(np.any(front_positive)) else occupancy.any(axis=2)
+    back_projection = occupancy[:, :, back_negative].any(axis=2) if bool(np.any(back_negative)) else occupancy.any(axis=2)
+    side_projection = np.zeros((occupancy.shape[0], occupancy.shape[2]), dtype=bool)
+    report = {
+        "front_projection_iou": _mask_iou(front_projection, front_alpha),
+        "back_projection_iou": _mask_iou(back_projection, back_alpha) if back_alpha is not None else 0.0,
+        "side_projection_iou": 0.0,
+        "front_projection_pixel_count": int(np.count_nonzero(front_projection)),
+        "back_projection_pixel_count": int(np.count_nonzero(back_projection)),
+        "front_constraint_pixel_count": int(np.count_nonzero(front_alpha)),
+        "back_constraint_pixel_count": int(np.count_nonzero(back_alpha)) if back_alpha is not None else 0,
+        "side_constraint_pixel_count": int(np.count_nonzero(side_alpha)) if side_alpha is not None else 0,
+        "side_authority_used": bool(side_alpha is not None and constraints.get("side_authority_used", False)),
+        "side_geometry_authority": str(constraints.get("side_geometry_authority", "")),
+        "side_semantic_authority": str(constraints.get("side_semantic_authority", "")),
+        "front_back_side_backend_enabled": bool(constraints.get("front_back_side_backend_enabled", False)),
+        "side_view_correspondence_passed": bool(
+            constraints.get("report", {}).get("side_view_correspondence_passed", True)
+            if isinstance(constraints.get("report", {}), dict)
+            else True
+        ),
+        "side_mirror_fallback_used": bool(constraints.get("side_mirror_fallback_used", False)),
+        "view_constraint_conflict_count": int(np.count_nonzero(front_alpha ^ back_alpha)) if back_alpha is not None else 0,
+        "side_constraint_conflict_count": 0,
+        "projection_measurement_stage": "post_volume_cleanup",
+    }
+    if side_alpha is not None and constraints.get("side_authority_used", False):
+        side_target = _resize_side_target(side_alpha, (occupancy.shape[0], occupancy.shape[2]))
+        side_projection = occupancy.any(axis=1)
+        report["side_projection_iou"] = _mask_iou(side_projection, side_target)
+        report["side_projection_pixel_count"] = int(np.count_nonzero(side_projection))
+        report["side_constraint_resampled_pixel_count"] = int(np.count_nonzero(side_target))
+        report["side_constraint_conflict_count"] = int(np.count_nonzero(side_projection ^ side_target))
+    return {
+        "report": report,
+        "front_projection": front_projection,
+        "back_projection": back_projection,
+        "side_projection": side_projection,
+    }
+
+
+def _apply_side_projection_constraint(
+    occupancy: np.ndarray,
+    semantic_volume: np.ndarray,
+    side_alpha: np.ndarray,
+    label_by_pixel: dict[Pixel, str],
+    constraints: dict[str, Any] | None = None,
+) -> dict[str, Any]:
+    constraints = constraints or {}
+    side_target = _resize_side_target(side_alpha, (occupancy.shape[0], occupancy.shape[2]))
+    before_projection = occupancy.any(axis=1)
+    before_iou = _mask_iou(before_projection, side_target)
+    before_occupancy = occupancy.copy()
+    before_semantic = semantic_volume.copy()
+    before_components = _volume_component_count(before_occupancy)
+    after_projection = occupancy.any(axis=1)
+    missing = side_target & ~after_projection
+    filled = 0
+    skipped_for_arbitration = 0
+    unknown_id = SEMANTIC_LABEL_IDS["unknown"]
+    arbitration = constraints.get("constraint_arbitration", {})
+    rejected_rows = set()
+    if isinstance(arbitration, dict):
+        rejected_rows = {int(row) for row in arbitration.get("rejected_side_rows", []) if isinstance(row, int) or str(row).isdigit()}
+    for y, z in np.argwhere(missing):
+        if int(y) in rejected_rows:
+            skipped_for_arbitration += 1
+            continue
+        source_xs = np.flatnonzero(occupancy[int(y), :, :].any(axis=1))
+        if not len(source_xs):
+            continue
+        x = int(source_xs[len(source_xs) // 2])
+        if not _has_occupied_neighbour(occupancy, int(y), x, int(z)):
+            continue
+        occupancy[int(y), x, int(z)] = True
+        label = label_by_pixel.get((x, int(y)), "unknown")
+        semantic_volume[int(y), x, int(z)] = SEMANTIC_LABEL_IDS.get(label, unknown_id)
+        filled += 1
+    after_projection = occupancy.any(axis=1)
+    after_components = _volume_component_count(occupancy)
+    rejected_for_topology = False
+    if after_components > max(1, before_components):
+        occupancy[:, :, :] = before_occupancy
+        semantic_volume[:, :, :] = before_semantic
+        after_projection = before_projection
+        rejected_for_topology = True
+        filled = 0
+    return {
+        "side_projection_iou_before_enforcement": before_iou,
+        "side_projection_iou_after_enforcement": _mask_iou(after_projection, side_target),
+        "side_constraint_conflict_count": int(np.count_nonzero(before_projection ^ side_target)),
+        "side_constraint_voxels_filled": filled,
+        "side_constraint_voxels_skipped_by_arbitration": skipped_for_arbitration,
+        "side_constraint_rejected_for_topology": rejected_for_topology,
+        "side_constraint_components_before": int(before_components),
+        "side_constraint_components_after": int(_volume_component_count(occupancy)),
+        "side_constraint_partially_weighted": before_iou < 0.85,
+    }
+
+
+def _has_occupied_neighbour(occupancy: np.ndarray, y: int, x: int, z: int) -> bool:
+    height, width, depth = occupancy.shape
+    for dy, dx, dz in ((1, 0, 0), (-1, 0, 0), (0, 1, 0), (0, -1, 0), (0, 0, 1), (0, 0, -1)):
+        ny, nx, nz = y + dy, x + dx, z + dz
+        if 0 <= ny < height and 0 <= nx < width and 0 <= nz < depth and bool(occupancy[ny, nx, nz]):
+            return True
+    return False
+
+
+def _fill_authority_column_gaps(
+    occupancy: np.ndarray,
+    semantic_volume: np.ndarray,
+    support: np.ndarray,
+    label_by_pixel: dict[Pixel, str],
+) -> int:
+    filled = 0
+    outline_id = SEMANTIC_LABEL_IDS["outline"]
+    unknown_id = SEMANTIC_LABEL_IDS["unknown"]
+    for y, x in np.argwhere(support):
+        key = (int(x), int(y))
+        label_id = SEMANTIC_LABEL_IDS.get(label_by_pixel.get(key, "unknown"), unknown_id)
+        if label_id == outline_id:
+            continue
+        z_indices = np.flatnonzero(occupancy[int(y), int(x), :])
+        if len(z_indices) < 2:
+            continue
+        z_min = int(z_indices[0])
+        z_max = int(z_indices[-1])
+        if z_max <= z_min + 1:
+            continue
+        gap = ~occupancy[int(y), int(x), z_min : z_max + 1]
+        filled += int(np.count_nonzero(gap))
+        occupancy[int(y), int(x), z_min : z_max + 1] = True
+        empty_semantics = semantic_volume[int(y), int(x), z_min : z_max + 1] == 0
+        semantic_volume[int(y), int(x), z_min : z_max + 1][empty_semantics] = label_id
+    return filled
+
+
+def _ensure_projection_voxels(
+    occupancy: np.ndarray,
+    semantic_volume: np.ndarray,
+    mask: np.ndarray,
+    z_mask: np.ndarray,
+    label_by_pixel: dict[Pixel, str],
+) -> None:
+    z_indices = np.flatnonzero(z_mask)
+    if not len(z_indices):
+        return
+    index = int(z_indices[len(z_indices) // 2])
+    projection = occupancy[:, :, z_mask].any(axis=2)
+    missing = mask & ~projection
+    for y, x in np.argwhere(missing):
+        label = label_by_pixel.get((int(x), int(y)), "unknown")
+        occupancy[y, x, index] = True
+        semantic_volume[y, x, index] = SEMANTIC_LABEL_IDS.get(label, SEMANTIC_LABEL_IDS["unknown"])
+
+
+def _fill_missing_labels(mask: np.ndarray, label_by_pixel: dict[Pixel, str]) -> dict[Pixel, str]:
+    result = dict(label_by_pixel)
+    known = list(label_by_pixel.items())
+    if not known:
+        return {(int(x), int(y)): "unknown" for y, x in np.argwhere(mask)}
+    for y, x in np.argwhere(mask):
+        key = (int(x), int(y))
+        if key in result:
+            continue
+        nearest = min(known, key=lambda item: (item[0][0] - key[0]) ** 2 + (item[0][1] - key[1]) ** 2)
+        result[key] = str(nearest[1])
+    return result
+
+
+def _resize_bool_array(mask: np.ndarray, shape: tuple[int, int]) -> np.ndarray:
+    image = Image.fromarray(mask.astype(np.uint8) * 255, mode="L")
+    resized = image.resize((int(shape[1]), int(shape[0])), Image.Resampling.NEAREST)
+    return np.asarray(resized, dtype=np.uint8) > 0
+
+
+def _resize_side_target(mask: np.ndarray, shape: tuple[int, int]) -> np.ndarray:
+    image = Image.fromarray(mask.astype(np.uint8) * 255, mode="L")
+    resized = image.resize((int(shape[1]), int(shape[0])), Image.Resampling.NEAREST)
+    return np.asarray(resized, dtype=np.uint8) > 0
+
+
+def _mask_iou(a: np.ndarray, b: np.ndarray | None) -> float:
+    if b is None:
+        return 0.0
+    if a.shape != b.shape:
+        b = _resize_bool_array(b, a.shape)
+    intersection = int(np.count_nonzero(a & b))
+    union = int(np.count_nonzero(a | b))
+    return float(intersection) / float(max(union, 1))
+
+
+def _write_projection_report(
+    output_dir: Path,
+    report: dict[str, Any],
+    front_projection: np.ndarray,
+    back_projection: np.ndarray,
+    side_projection: np.ndarray | None = None,
+    emit_debug: bool = False,
+) -> None:
+    output_dir.mkdir(parents=True, exist_ok=True)
+    projection_path = output_dir / "projection_iou_report.json"
+    existing = json.loads(projection_path.read_text(encoding="utf-8")) if projection_path.exists() else {}
+    projection_path.write_text(json.dumps({**existing, **report}, indent=2) + "\n", encoding="utf-8")
+    _write_mask(front_projection, output_dir / "front_projection_mask.png")
+    _write_mask(back_projection, output_dir / "back_projection_mask.png")
+    if side_projection is not None:
+        _write_mask(side_projection, output_dir / "side_projection_mask.png")
+    _update_view_authority_json(output_dir, report, emit_debug)
+
+
+def _update_view_authority_json(output_dir: Path, report: dict[str, Any], emit_debug: bool) -> None:
+    output_dir.mkdir(parents=True, exist_ok=True)
+    path = output_dir / "view_authority_report.json"
+    existing = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+    path.write_text(json.dumps({**existing, **report}, indent=2) + "\n", encoding="utf-8")
+    if not emit_debug:
+        pass
 
 
 def _resize_float_grid(values: np.ndarray, width: int, height: int) -> np.ndarray:
@@ -642,7 +1145,7 @@ def _volume_component_count(occupancy: np.ndarray) -> int:
 def _remove_isolated_outline_components(
     occupancy: np.ndarray,
     semantic_volume: np.ndarray,
-    max_voxels: int = 8,
+    max_voxels: int = 32,
 ) -> int:
     remaining = {tuple(int(v) for v in item) for item in np.argwhere(occupancy)}
     removed = 0

@@ -1,0 +1,37 @@
+{
+  "schema": "spritespatial_view_authority_v1",
+  "multi_view_authority_enabled": true,
+  "view_authority_mode": "front_back_sprite",
+  "front_geometry_authority": "authored_front",
+  "back_geometry_authority": "authored_back",
+  "side_geometry_authority": "placeholder",
+  "front_back_sprite_backend_enabled": true,
+  "side_authority_used": false,
+  "front_back_correspondence_passed": true,
+  "view_constraint_conflict_count": 38,
+  "initial_projection": {
+    "front_back_alpha_iou": 0.9178571428571428,
+    "front_pixel_count": 271,
+    "back_pixel_count": 266,
+    "front_only_pixel_count": 14,
+    "back_only_pixel_count": 9,
+    "side_pixel_count": 0
+  },
+  "back_sprite_path": "C:\\dev\\SpatialSprite\\assets\\samples\\hero\\hero_back.png",
+  "side_sprite_path": "",
+  "warnings": [
+    "Side geometry authority is not used because side status is placeholder."
+  ],
+  "passed": true,
+  "multi_view_depth_inputs_applied": true,
+  "support_pixel_count": 280,
+  "front_constraint_pixel_count": 536,
+  "back_constraint_pixel_count": 528,
+  "side_constraint_pixel_count": 0,
+  "front_projection_iou": 0.9727767695099818,
+  "back_projection_iou": 0.8939393939393939,
+  "side_projection_iou": 0.0,
+  "front_projection_pixel_count": 551,
+  "back_projection_pixel_count": 472,
+  "projection_measurement_stage": "post_volume_cleanup"
+}

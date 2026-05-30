@@ -1,0 +1,56 @@
+{
+  "schema": "spritespatial_preset_application_report_v1",
+  "preset_id": "thicken_torso",
+  "display_name": "Thicken Torso",
+  "intensity": 0.5,
+  "target_parts": [
+    "torso"
+  ],
+  "applied_parts": [
+    "torso"
+  ],
+  "skipped_parts": [],
+  "parameter_changes": {
+    "torso": {
+      "enabled": [
+        false,
+        true
+      ],
+      "thickness_scale": [
+        1.0,
+        1.0899999999999999
+      ],
+      "topology_preservation_weight": [
+        1.0,
+        1.1
+      ],
+      "side_authority_weight": [
+        1.0,
+        0.975
+      ]
+    }
+  },
+  "warnings": [],
+  "valid_for_asset": true,
+  "expected_effect": "Torso becomes less flat while staying topology-safe.",
+  "risk_notes": "May slightly lower side projection fit.",
+  "generated_at": "2026-05-30T12:54:15.725691+00:00",
+  "asset": "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\spriteasset_v1.json",
+  "semantic_overrides": "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\semantic_overrides",
+  "base_params": "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\embodiment_params_default.json",
+  "out_params": "C:\\dev\\SpatialSprite\\outputs\\hero_side_fixture\\preset_tests\\thicken_torso_050\\edited_params.json",
+  "preset_profile": "C:\\dev\\SpatialSprite\\profiles\\embodiment_presets\\fantasy_humanoid.json",
+  "preset_profile_id": "fantasy_humanoid",
+  "available_parts": [
+    "boots/feet",
+    "face",
+    "hair/hat",
+    "head",
+    "left_arm",
+    "left_leg",
+    "outline",
+    "right_arm",
+    "right_leg",
+    "torso"
+  ]
+}

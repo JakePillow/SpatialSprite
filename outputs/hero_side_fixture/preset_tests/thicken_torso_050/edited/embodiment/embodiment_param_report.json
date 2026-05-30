@@ -1,0 +1,49 @@
+{
+  "schema": "spritespatial_embodiment_param_report_v1",
+  "embodiment_params_enabled": true,
+  "embodiment_params_path": "C:\\dev\\SpatialSprite\\outputs\\hero_side_fixture\\preset_tests\\thicken_torso_050\\edited_params.json",
+  "embodiment_params_name": "hero_side_fixture_default_embodiment_params_thicken_torso_050",
+  "embodiment_params_loaded": true,
+  "embodiment_params_using_defaults": false,
+  "embodiment_param_parts_requested": [
+    "equipment/shield/sword",
+    "hair/hat",
+    "torso"
+  ],
+  "embodiment_param_parts_applied": [
+    "torso"
+  ],
+  "embodiment_param_parts_skipped": {
+    "hair/hat": "disabled",
+    "equipment/shield/sword": "disabled"
+  },
+  "embodiment_param_locked_parts": [],
+  "embodiment_param_applied_count": 1,
+  "embodiment_parts_modified": 1,
+  "embodiment_param_depth_deltas": {
+    "torso": {
+      "before": {
+        "z_center_fraction": 0.0,
+        "half_thickness_fraction": 0.4,
+        "profile_type": "rounded_cuboid",
+        "taper_curve": "neck_waist",
+        "asymmetry": 0.0,
+        "depth_priority": 80,
+        "silhouette_preservation_weight": 0.92
+      },
+      "after": {
+        "z_center_fraction": 0.0,
+        "half_thickness_fraction": 0.43599999999999994,
+        "profile_type": "rounded_cuboid",
+        "taper_curve": "neck_waist",
+        "asymmetry": 0.0,
+        "depth_priority": 80,
+        "silhouette_preservation_weight": 0.92
+      }
+    }
+  },
+  "embodiment_param_morphology_deltas": {},
+  "embodiment_param_notes": {
+    "torso": "Gives the torso more body depth."
+  }
+}

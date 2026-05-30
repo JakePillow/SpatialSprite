@@ -1,0 +1,53 @@
+{
+  "schema": "spritespatial_mesh_delta_v1",
+  "metrics": {
+    "mesh_connected_components": {
+      "base": 1,
+      "edited": 1,
+      "delta": 0,
+      "changed": false
+    },
+    "degenerate_face_count": {
+      "base": 0,
+      "edited": 0,
+      "delta": 0,
+      "changed": false
+    },
+    "non_manifold_after_cleanup": {
+      "base": 6,
+      "edited": 7,
+      "delta": 1,
+      "changed": true
+    },
+    "semantic_label_preservation_passed": {
+      "base": true,
+      "edited": true,
+      "delta": null,
+      "changed": false
+    },
+    "surface_net_vertices": {
+      "base": 4326,
+      "edited": 4368,
+      "delta": 42,
+      "changed": true
+    },
+    "surface_net_faces": {
+      "base": 4324,
+      "edited": 4366,
+      "delta": 42,
+      "changed": true
+    },
+    "planar_macro_patch_count": {
+      "base": 5,
+      "edited": 5,
+      "delta": 0,
+      "changed": false
+    },
+    "qef_acceptance_ratio": {
+      "base": 0.9798890429958391,
+      "edited": 0.9787087912087912,
+      "delta": -0.0011802517870479479,
+      "changed": true
+    }
+  }
+}

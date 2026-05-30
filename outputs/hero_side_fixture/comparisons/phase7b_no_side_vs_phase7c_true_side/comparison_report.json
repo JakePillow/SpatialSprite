@@ -1,0 +1,118 @@
+{
+  "schema": "spritespatial_phase7c_side_authority_comparison_v1",
+  "baseline": "outputs\\hero\\prototype_32_phase7b_side_authority",
+  "candidate": "outputs\\hero_side_fixture\\prototype_32_phase7c_true_side_authority",
+  "summary": {
+    "side_authority_activated": true,
+    "baseline_side_authority_used": false,
+    "side_projection_iou_before": 0.0,
+    "side_projection_iou_after": 0.5785997357992074,
+    "mesh_remained_connected": true,
+    "degenerate_faces_remained_zero": true,
+    "validation_passed": true,
+    "verdict": "side_authority_path_proven"
+  },
+  "metrics": [
+    {
+      "metric": "passed",
+      "phase7b_no_side": true,
+      "phase7c_side_fixture": true,
+      "delta": ""
+    },
+    {
+      "metric": "front_back_side_backend_enabled",
+      "phase7b_no_side": true,
+      "phase7c_side_fixture": true,
+      "delta": ""
+    },
+    {
+      "metric": "side_geometry_authority",
+      "phase7b_no_side": "placeholder",
+      "phase7c_side_fixture": "authored_side_fixture",
+      "delta": ""
+    },
+    {
+      "metric": "side_semantic_authority",
+      "phase7b_no_side": "missing",
+      "phase7c_side_fixture": "semantic_masks",
+      "delta": ""
+    },
+    {
+      "metric": "side_authority_used",
+      "phase7b_no_side": false,
+      "phase7c_side_fixture": true,
+      "delta": ""
+    },
+    {
+      "metric": "side_projection_iou",
+      "phase7b_no_side": 0.0,
+      "phase7c_side_fixture": 0.5785997357992074,
+      "delta": 0.5785997357992074
+    },
+    {
+      "metric": "side_constraint_conflict_count",
+      "phase7b_no_side": 0,
+      "phase7c_side_fixture": 319,
+      "delta": 319
+    },
+    {
+      "metric": "front_projection_iou",
+      "phase7b_no_side": 0.9727767695099818,
+      "phase7c_side_fixture": 0.9727767695099818,
+      "delta": 0.0
+    },
+    {
+      "metric": "back_projection_iou",
+      "phase7b_no_side": 0.8939393939393939,
+      "phase7c_side_fixture": 0.9053030303030303,
+      "delta": 0.011363636363636354
+    },
+    {
+      "metric": "mesh_connected_components",
+      "phase7b_no_side": 1,
+      "phase7c_side_fixture": 1,
+      "delta": 0
+    },
+    {
+      "metric": "degenerate_face_count",
+      "phase7b_no_side": 0,
+      "phase7c_side_fixture": 0,
+      "delta": 0
+    },
+    {
+      "metric": "non_manifold_after_cleanup",
+      "phase7b_no_side": 5,
+      "phase7c_side_fixture": 6,
+      "delta": 1
+    },
+    {
+      "metric": "semantic_label_preservation_passed",
+      "phase7b_no_side": true,
+      "phase7c_side_fixture": true,
+      "delta": ""
+    },
+    {
+      "metric": "hat_asymmetry_ratio",
+      "phase7b_no_side": 2.8036581307124817,
+      "phase7c_side_fixture": 2.8036581307124817,
+      "delta": 0.0
+    },
+    {
+      "metric": "surface_net_vertices",
+      "phase7b_no_side": 4166,
+      "phase7c_side_fixture": 4326,
+      "delta": 160
+    },
+    {
+      "metric": "surface_net_faces",
+      "phase7b_no_side": 4154,
+      "phase7c_side_fixture": 4324,
+      "delta": 170
+    }
+  ],
+  "notes": [
+    "Phase 7C uses a synthetic authored_side_fixture, not production art.",
+    "Side SDF enforcement is topology-preserving and partially weighted for this fixture.",
+    "The meaningful proof is side_authority_used=true with connected mesh and validation passed."
+  ]
+}

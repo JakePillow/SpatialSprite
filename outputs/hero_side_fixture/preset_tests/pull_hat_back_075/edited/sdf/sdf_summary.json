@@ -1,0 +1,736 @@
+{
+  "schema": "spritespatial_closed_sdf_v1",
+  "shape": [
+    45,
+    34,
+    35
+  ],
+  "source_shape": [
+    32,
+    24
+  ],
+  "sdf_resolution_scale": 1.420615826752797,
+  "adaptive_sdf_resolution_enabled": true,
+  "resolution_profile": "prototype_adaptive",
+  "effective_voxel_budget_multiplier": 2.7890625,
+  "adaptive_high_detail_region_count": 4,
+  "silhouette_band_high_res_enabled": true,
+  "semantic_boundary_high_res_enabled": true,
+  "sdf_resolution_strategy": "highres_internal_downsampled",
+  "z_samples": 35,
+  "z_axis_min": -0.4076867997646332,
+  "z_axis_max": 0.4307797849178314,
+  "sdf_min": -5.0,
+  "sdf_max": 20.248456954956055,
+  "occupied_voxels": 4557,
+  "sdf_dtype": "float32",
+  "semantic_dtype": "int32",
+  "semantic_volume_labels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    12
+  ],
+  "sdf_sign_consistency": true,
+  "closed_volume_connected": true,
+  "connected_component_count": 1,
+  "hollow_gap_ratio": 0.0,
+  "front_back_connected_through_seam": true,
+  "sdf_slice_contact_sheet": "C:\\dev\\SpatialSprite\\outputs\\hero_side_fixture\\preset_tests\\pull_hat_back_075\\edited\\sdf\\sdf_slice_contact_sheet.png",
+  "isolated_outline_voxels_removed": 61,
+  "tiny_noncritical_voxels_removed": 0,
+  "multi_view_authority_enabled": true,
+  "front_geometry_authority": "authored_front",
+  "back_geometry_authority": "authored_back",
+  "side_geometry_authority": "authored_side_fixture",
+  "side_semantic_authority": "semantic_masks",
+  "front_back_sprite_backend_enabled": true,
+  "front_back_side_backend_enabled": true,
+  "front_back_correspondence_passed": true,
+  "side_authority_used": true,
+  "side_view_correspondence_passed": true,
+  "side_mirror_fallback_used": false,
+  "view_constraint_conflict_count": 38,
+  "side_constraint_conflict_count": 317,
+  "front_projection_iou": 0.9727767695099818,
+  "back_projection_iou": 0.9053030303030303,
+  "side_projection_iou": 0.5812417437252312,
+  "constraint_arbitration_enabled": true,
+  "conflict_zone_count": 115,
+  "topology_risk_zone_count": 194,
+  "weighted_blend_region_count": 23,
+  "rejected_constraint_count": 152,
+  "constraint_arbitration_report": {
+    "schema": "spritespatial_constraint_arbitration_v1",
+    "constraint_arbitration_enabled": true,
+    "source_shape": [
+      32,
+      24
+    ],
+    "policy": [
+      "preserve topology first",
+      "preserve authored silhouettes second",
+      "preserve inferred priors last",
+      "blend only where constraints disagree and topology risk is low"
+    ],
+    "authority_weights": {
+      "silhouette_weight": 1.0,
+      "front_authority_weight": 1.0,
+      "back_authority_weight": 1.0750000000000002,
+      "side_authority_weight": 0.985,
+      "topology_preservation_weight": 1.135
+    },
+    "front_pixel_count": 271,
+    "back_pixel_count": 266,
+    "side_pixel_count": 302,
+    "conflict_zone_count": 115,
+    "front_back_conflict_count": 23,
+    "side_row_conflict_count": 92,
+    "topology_risk_zone_count": 194,
+    "weighted_blend_region_count": 23,
+    "rejected_constraint_count": 8,
+    "rejected_side_rows": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      30,
+      31
+    ],
+    "authority_winner_counts": {
+      "topology": 194,
+      "front": 14,
+      "back": 7,
+      "side": 12,
+      "weighted_blend": 23
+    },
+    "passed": true
+  },
+  "view_authority_report": {
+    "schema": "spritespatial_view_authority_v1",
+    "multi_view_authority_enabled": true,
+    "view_authority_mode": "front_back_side",
+    "front_geometry_authority": "authored_front",
+    "back_geometry_authority": "authored_back",
+    "side_geometry_authority": "authored_side_fixture",
+    "side_semantic_authority": "semantic_masks",
+    "front_back_sprite_backend_enabled": true,
+    "front_back_side_backend_enabled": true,
+    "side_authority_used": true,
+    "side_mirror_fallback_used": false,
+    "front_back_correspondence_passed": true,
+    "side_view_correspondence_passed": true,
+    "view_constraint_conflict_count": 38,
+    "side_constraint_conflict_count": 317,
+    "initial_projection": {
+      "front_back_alpha_iou": 0.9178571428571428,
+      "front_pixel_count": 271,
+      "back_pixel_count": 266,
+      "front_only_pixel_count": 14,
+      "back_only_pixel_count": 9,
+      "side_pixel_count": 302
+    },
+    "back_sprite_path": "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\hero_back.png",
+    "side_sprite_path": "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\hero_side_fixture_left.png;C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\hero_side_fixture_right.png",
+    "warnings": [],
+    "passed": true,
+    "constraint_arbitration_enabled": true,
+    "source_shape": [
+      32,
+      24
+    ],
+    "policy": [
+      "preserve topology first",
+      "preserve authored silhouettes second",
+      "preserve inferred priors last",
+      "blend only where constraints disagree and topology risk is low"
+    ],
+    "authority_weights": {
+      "silhouette_weight": 1.0,
+      "front_authority_weight": 1.0,
+      "back_authority_weight": 1.0750000000000002,
+      "side_authority_weight": 0.985,
+      "topology_preservation_weight": 1.135
+    },
+    "front_pixel_count": 271,
+    "back_pixel_count": 266,
+    "side_pixel_count": 302,
+    "conflict_zone_count": 115,
+    "front_back_conflict_count": 23,
+    "side_row_conflict_count": 92,
+    "topology_risk_zone_count": 194,
+    "weighted_blend_region_count": 23,
+    "rejected_constraint_count": 152,
+    "rejected_side_rows": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      30,
+      31
+    ],
+    "authority_winner_counts": {
+      "topology": 194,
+      "front": 14,
+      "back": 7,
+      "side": 12,
+      "weighted_blend": 23
+    },
+    "constraint_arbitration_report": {
+      "schema": "spritespatial_constraint_arbitration_v1",
+      "constraint_arbitration_enabled": true,
+      "source_shape": [
+        32,
+        24
+      ],
+      "policy": [
+        "preserve topology first",
+        "preserve authored silhouettes second",
+        "preserve inferred priors last",
+        "blend only where constraints disagree and topology risk is low"
+      ],
+      "authority_weights": {
+        "silhouette_weight": 1.0,
+        "front_authority_weight": 1.0,
+        "back_authority_weight": 1.0750000000000002,
+        "side_authority_weight": 0.985,
+        "topology_preservation_weight": 1.135
+      },
+      "front_pixel_count": 271,
+      "back_pixel_count": 266,
+      "side_pixel_count": 302,
+      "conflict_zone_count": 115,
+      "front_back_conflict_count": 23,
+      "side_row_conflict_count": 92,
+      "topology_risk_zone_count": 194,
+      "weighted_blend_region_count": 23,
+      "rejected_constraint_count": 8,
+      "rejected_side_rows": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        30,
+        31
+      ],
+      "authority_winner_counts": {
+        "topology": 194,
+        "front": 14,
+        "back": 7,
+        "side": 12,
+        "weighted_blend": 23
+      },
+      "passed": true
+    },
+    "multi_view_depth_inputs_applied": true,
+    "support_pixel_count": 280,
+    "front_constraint_pixel_count": 536,
+    "back_constraint_pixel_count": 528,
+    "side_constraint_pixel_count": 632,
+    "front_projection_iou": 0.9727767695099818,
+    "back_projection_iou": 0.9053030303030303,
+    "side_projection_iou": 0.5812417437252312,
+    "front_projection_pixel_count": 551,
+    "back_projection_pixel_count": 478,
+    "projection_measurement_stage": "post_volume_cleanup",
+    "side_projection_pixel_count": 524,
+    "side_constraint_resampled_pixel_count": 673,
+    "side_projection_iou_before_enforcement": 0.49538866930171277,
+    "side_projection_iou_after_enforcement": 0.5836627140974967,
+    "side_constraint_voxels_filled": 67,
+    "side_constraint_voxels_skipped_by_arbitration": 144,
+    "side_constraint_rejected_for_topology": false,
+    "side_constraint_components_before": 19,
+    "side_constraint_components_after": 18,
+    "side_constraint_partially_weighted": true
+  },
+  "semantic_depth_profiles_enabled": true,
+  "semantic_depth_profile": "humanoid_voxel",
+  "semantic_depth_profile_report": {
+    "semantic_depth_profiles_enabled": true,
+    "uniform_slab_ratio": 0.007259528130671506,
+    "semantic_depth_variance": 41.20070266723633,
+    "head_depth_ratio": 0.7904761723109655,
+    "torso_depth_ratio": 0.30864197867257254,
+    "limb_depth_ratio": 0.20850943497249058,
+    "outline_shell_ratio": 1.0,
+    "side_projection_entropy": 0.8749897395624777,
+    "side_profile_readability_score": 0.9397526423312457,
+    "depth_ratio_by_label": {
+      "face": 0.12857142857142856,
+      "hair/hat": 0.06335403578622001,
+      "head": 0.7904761723109655,
+      "left_arm": 0.22735561643327987,
+      "left_leg": 0.23126683916364396,
+      "outline": 0.02857142857142857,
+      "right_arm": 0.17807309286934989,
+      "right_leg": 0.1973421914236886,
+      "torso": 0.30864197867257254,
+      "unknown": 0.02857142857142857
+    },
+    "depth_variance_by_label": {
+      "face": 1.25,
+      "hair/hat": 1.4744800329208374,
+      "head": 12.888888359069824,
+      "left_arm": 15.189676284790039,
+      "left_leg": 15.632609367370605,
+      "outline": 0.0,
+      "right_arm": 11.759870529174805,
+      "right_leg": 11.433207511901855,
+      "torso": 54.8375244140625,
+      "unknown": 0.0
+    },
+    "z_axis_min": -0.4076867997646332,
+    "z_axis_max": 0.4307797849178314,
+    "outline_max_voxel_thickness": 1.0,
+    "schema": "spritespatial_semantic_depth_profiles_v1",
+    "profile_set": "humanoid_voxel",
+    "profile_assignment_counts": {
+      "outline": 149,
+      "hair/hat": 23,
+      "unknown": 7,
+      "head": 6,
+      "torso": 162,
+      "face": 18,
+      "left_arm": 47,
+      "right_arm": 43,
+      "left_leg": 53,
+      "right_leg": 43
+    },
+    "profiles": {
+      "head": {
+        "z_center_fraction": 0.02,
+        "half_thickness_fraction": 0.46,
+        "profile_type": "hemisphere",
+        "taper_curve": "round",
+        "asymmetry": 0.05,
+        "depth_priority": 90,
+        "silhouette_preservation_weight": 0.95
+      },
+      "face": {
+        "z_center_fraction": 0.28,
+        "half_thickness_fraction": 0.22,
+        "profile_type": "rounded_front",
+        "taper_curve": "front_pad",
+        "asymmetry": 0.35,
+        "depth_priority": 92,
+        "silhouette_preservation_weight": 0.98
+      },
+      "torso": {
+        "z_center_fraction": 0.0,
+        "half_thickness_fraction": 0.4,
+        "profile_type": "rounded_cuboid",
+        "taper_curve": "neck_waist",
+        "asymmetry": 0.0,
+        "depth_priority": 80,
+        "silhouette_preservation_weight": 0.92
+      },
+      "left_arm": {
+        "z_center_fraction": 0.0,
+        "half_thickness_fraction": 0.3,
+        "profile_type": "capsule_chain",
+        "taper_curve": "limb",
+        "asymmetry": 0.0,
+        "depth_priority": 70,
+        "silhouette_preservation_weight": 0.88
+      },
+      "right_arm": {
+        "z_center_fraction": 0.0,
+        "half_thickness_fraction": 0.3,
+        "profile_type": "capsule_chain",
+        "taper_curve": "limb",
+        "asymmetry": 0.0,
+        "depth_priority": 70,
+        "silhouette_preservation_weight": 0.88
+      },
+      "left_leg": {
+        "z_center_fraction": 0.0,
+        "half_thickness_fraction": 0.32,
+        "profile_type": "tapered_capsule_chain",
+        "taper_curve": "limb_taper",
+        "asymmetry": 0.0,
+        "depth_priority": 68,
+        "silhouette_preservation_weight": 0.88
+      },
+      "right_leg": {
+        "z_center_fraction": 0.0,
+        "half_thickness_fraction": 0.32,
+        "profile_type": "tapered_capsule_chain",
+        "taper_curve": "limb_taper",
+        "asymmetry": 0.0,
+        "depth_priority": 68,
+        "silhouette_preservation_weight": 0.88
+      },
+      "boots/feet": {
+        "z_center_fraction": 0.06,
+        "half_thickness_fraction": 0.18,
+        "profile_type": "flattened_rounded_box",
+        "taper_curve": "foot",
+        "asymmetry": 0.12,
+        "depth_priority": 74,
+        "silhouette_preservation_weight": 0.9
+      },
+      "hair/hat": {
+        "z_center_fraction": 0.1975,
+        "half_thickness_fraction": 0.1568,
+        "profile_type": "shell_offset",
+        "taper_curve": "layer",
+        "asymmetry": 0.17900000000000002,
+        "depth_priority": 85,
+        "silhouette_preservation_weight": 0.96
+      },
+      "outline": {
+        "z_center_fraction": 0.0,
+        "half_thickness_fraction": 0.04,
+        "profile_type": "outline_shell",
+        "taper_curve": "shell",
+        "asymmetry": 0.0,
+        "depth_priority": 100,
+        "silhouette_preservation_weight": 1.0
+      },
+      "equipment/shield/sword": {
+        "z_center_fraction": 0.18,
+        "half_thickness_fraction": 0.16,
+        "profile_type": "shell_offset",
+        "taper_curve": "rigid",
+        "asymmetry": 0.2,
+        "depth_priority": 88,
+        "silhouette_preservation_weight": 0.96
+      },
+      "unknown": {
+        "z_center_fraction": 0.0,
+        "half_thickness_fraction": 0.28,
+        "profile_type": "rounded_cuboid",
+        "taper_curve": "neutral",
+        "asymmetry": 0.0,
+        "depth_priority": 40,
+        "silhouette_preservation_weight": 0.85
+      }
+    },
+    "embodiment_params_enabled": true,
+    "embodiment_params_loaded": true,
+    "embodiment_params_using_defaults": false,
+    "embodiment_params_path": "C:\\dev\\SpatialSprite\\outputs\\hero_side_fixture\\preset_tests\\pull_hat_back_075\\edited_params.json",
+    "embodiment_param_parts_requested": [
+      "equipment/shield/sword",
+      "hair/hat",
+      "torso"
+    ],
+    "embodiment_param_parts_applied": [
+      "hair/hat"
+    ],
+    "embodiment_param_parts_skipped": {
+      "torso": "disabled",
+      "equipment/shield/sword": "disabled"
+    },
+    "embodiment_param_locked_parts": [],
+    "embodiment_param_applied_count": 1,
+    "embodiment_parts_modified": 1,
+    "embodiment_param_report": {
+      "schema": "spritespatial_embodiment_param_report_v1",
+      "embodiment_params_enabled": true,
+      "embodiment_params_path": "C:\\dev\\SpatialSprite\\outputs\\hero_side_fixture\\preset_tests\\pull_hat_back_075\\edited_params.json",
+      "embodiment_params_name": "hero_side_fixture_default_embodiment_params_pull_hat_back_075",
+      "embodiment_params_loaded": true,
+      "embodiment_params_using_defaults": false,
+      "embodiment_param_parts_requested": [
+        "equipment/shield/sword",
+        "hair/hat",
+        "torso"
+      ],
+      "embodiment_param_parts_applied": [
+        "hair/hat"
+      ],
+      "embodiment_param_parts_skipped": {
+        "torso": "disabled",
+        "equipment/shield/sword": "disabled"
+      },
+      "embodiment_param_locked_parts": [],
+      "embodiment_param_applied_count": 1,
+      "embodiment_parts_modified": 1,
+      "embodiment_param_depth_deltas": {
+        "hair/hat": {
+          "before": {
+            "z_center_fraction": 0.22,
+            "half_thickness_fraction": 0.14,
+            "profile_type": "shell_offset",
+            "taper_curve": "layer",
+            "asymmetry": 0.2,
+            "depth_priority": 85,
+            "silhouette_preservation_weight": 0.96
+          },
+          "after": {
+            "z_center_fraction": 0.1975,
+            "half_thickness_fraction": 0.1568,
+            "profile_type": "shell_offset",
+            "taper_curve": "layer",
+            "asymmetry": 0.17900000000000002,
+            "depth_priority": 85,
+            "silhouette_preservation_weight": 0.96
+          }
+        }
+      },
+      "embodiment_param_morphology_deltas": {
+        "hair/hat": {
+          "before": {
+            "profile_type": "HAT_POINTED_BACK",
+            "forward_bias": 0.0,
+            "backward_bias": 0.88,
+            "lateral_bias": -0.48,
+            "upward_bias": 0.06,
+            "downward_bias": 0.32,
+            "taper_direction": "back",
+            "asymmetry_strength": 0.82,
+            "curvature_bias": 0.34,
+            "trailing_profile": "curved_down_tail",
+            "compression_profile": "compressed_front",
+            "front_profile": "rounded_compressed",
+            "back_profile": "elongated_taper",
+            "front_scale": 0.25,
+            "back_scale": 1.2,
+            "front_taper": 0.12,
+            "back_taper": 0.84,
+            "suppress_front_projection": true,
+            "rear_extension_bias": 0.86
+          },
+          "after": {
+            "profile_type": "HAT_POINTED_BACK",
+            "forward_bias": -0.03,
+            "backward_bias": 1.06,
+            "lateral_bias": -0.508125,
+            "upward_bias": 0.06,
+            "downward_bias": 0.32,
+            "taper_direction": "back",
+            "asymmetry_strength": 0.8724999999999999,
+            "curvature_bias": 0.34,
+            "trailing_profile": "curved_down_tail",
+            "compression_profile": "compressed_front",
+            "front_profile": "rounded_compressed",
+            "back_profile": "elongated_taper",
+            "front_scale": 0.248125,
+            "back_scale": 1.2755999999999998,
+            "front_taper": 0.183,
+            "back_taper": 1.0,
+            "suppress_front_projection": true,
+            "rear_extension_bias": 0.923
+          }
+        }
+      },
+      "embodiment_param_notes": {
+        "hair/hat": "Extends hat/hair volume rearward while keeping the front compressed."
+      }
+    },
+    "directional_morphology_enabled": true,
+    "morphology_profile": "fantasy_humanoid",
+    "directional_semantic_count": 2,
+    "directional_semantic_labels": [
+      "face",
+      "hair/hat"
+    ],
+    "directional_profile_types": [
+      "HAT_POINTED_BACK",
+      "NOSE_FORWARD"
+    ],
+    "anisotropic_region_ratio": 0.07441016333938294,
+    "rearward_extension_score": 0.26155489683151245,
+    "front_compression_score": 0.3392964005470276,
+    "directional_readability_score": 0.30265904366970064,
+    "symmetric_volume_penalty": 0.6816543936729431,
+    "mean_center_shift": -0.02914826199412346,
+    "hat_pointed_back_present": true,
+    "front_hat_extension_score": 0.013563421554863453,
+    "back_hat_extension_score": 0.04755532369017601,
+    "hat_asymmetry_ratio": 3.506145075401276,
+    "rules": {
+      "hair/hat": {
+        "profile_type": "HAT_POINTED_BACK",
+        "forward_bias": -0.03,
+        "backward_bias": 1.06,
+        "lateral_bias": -0.508125,
+        "upward_bias": 0.06,
+        "downward_bias": 0.32,
+        "taper_direction": "back",
+        "asymmetry_strength": 0.8724999999999999,
+        "curvature_bias": 0.34,
+        "trailing_profile": "curved_down_tail",
+        "compression_profile": "compressed_front",
+        "front_profile": "rounded_compressed",
+        "back_profile": "elongated_taper",
+        "front_scale": 0.248125,
+        "back_scale": 1.2755999999999998,
+        "front_taper": 0.183,
+        "back_taper": 1.0,
+        "suppress_front_projection": true,
+        "rear_extension_bias": 0.923
+      },
+      "face": {
+        "profile_type": "NOSE_FORWARD",
+        "forward_bias": 0.46,
+        "backward_bias": 0.02,
+        "lateral_bias": -0.1,
+        "upward_bias": 0.0,
+        "downward_bias": 0.0,
+        "taper_direction": "front",
+        "asymmetry_strength": 0.52,
+        "curvature_bias": 0.16,
+        "trailing_profile": "none",
+        "compression_profile": "flat_back",
+        "front_profile": "inherit",
+        "back_profile": "inherit",
+        "front_scale": 1.0,
+        "back_scale": 1.0,
+        "front_taper": 0.0,
+        "back_taper": 0.0,
+        "suppress_front_projection": false,
+        "rear_extension_bias": 0.0
+      }
+    }
+  },
+  "uniform_slab_ratio": 0.007259528130671506,
+  "semantic_depth_variance": 41.20070266723633,
+  "head_depth_ratio": 0.7904761723109655,
+  "torso_depth_ratio": 0.30864197867257254,
+  "limb_depth_ratio": 0.20850943497249058,
+  "outline_shell_ratio": 1.0,
+  "side_projection_entropy": 0.8749897395624777,
+  "side_profile_readability_score": 0.9397526423312457,
+  "embodiment_params_enabled": true,
+  "embodiment_params_loaded": true,
+  "embodiment_params_using_defaults": false,
+  "embodiment_params_path": "C:\\dev\\SpatialSprite\\outputs\\hero_side_fixture\\preset_tests\\pull_hat_back_075\\edited_params.json",
+  "embodiment_param_parts_requested": [
+    "equipment/shield/sword",
+    "hair/hat",
+    "torso"
+  ],
+  "embodiment_param_parts_applied": [
+    "hair/hat"
+  ],
+  "embodiment_param_parts_skipped": {
+    "torso": "disabled",
+    "equipment/shield/sword": "disabled"
+  },
+  "embodiment_param_locked_parts": [],
+  "embodiment_param_applied_count": 1,
+  "embodiment_parts_modified": 1,
+  "embodiment_param_report": {
+    "schema": "spritespatial_embodiment_param_report_v1",
+    "embodiment_params_enabled": true,
+    "embodiment_params_path": "C:\\dev\\SpatialSprite\\outputs\\hero_side_fixture\\preset_tests\\pull_hat_back_075\\edited_params.json",
+    "embodiment_params_name": "hero_side_fixture_default_embodiment_params_pull_hat_back_075",
+    "embodiment_params_loaded": true,
+    "embodiment_params_using_defaults": false,
+    "embodiment_param_parts_requested": [
+      "equipment/shield/sword",
+      "hair/hat",
+      "torso"
+    ],
+    "embodiment_param_parts_applied": [
+      "hair/hat"
+    ],
+    "embodiment_param_parts_skipped": {
+      "torso": "disabled",
+      "equipment/shield/sword": "disabled"
+    },
+    "embodiment_param_locked_parts": [],
+    "embodiment_param_applied_count": 1,
+    "embodiment_parts_modified": 1,
+    "embodiment_param_depth_deltas": {
+      "hair/hat": {
+        "before": {
+          "z_center_fraction": 0.22,
+          "half_thickness_fraction": 0.14,
+          "profile_type": "shell_offset",
+          "taper_curve": "layer",
+          "asymmetry": 0.2,
+          "depth_priority": 85,
+          "silhouette_preservation_weight": 0.96
+        },
+        "after": {
+          "z_center_fraction": 0.1975,
+          "half_thickness_fraction": 0.1568,
+          "profile_type": "shell_offset",
+          "taper_curve": "layer",
+          "asymmetry": 0.17900000000000002,
+          "depth_priority": 85,
+          "silhouette_preservation_weight": 0.96
+        }
+      }
+    },
+    "embodiment_param_morphology_deltas": {
+      "hair/hat": {
+        "before": {
+          "profile_type": "HAT_POINTED_BACK",
+          "forward_bias": 0.0,
+          "backward_bias": 0.88,
+          "lateral_bias": -0.48,
+          "upward_bias": 0.06,
+          "downward_bias": 0.32,
+          "taper_direction": "back",
+          "asymmetry_strength": 0.82,
+          "curvature_bias": 0.34,
+          "trailing_profile": "curved_down_tail",
+          "compression_profile": "compressed_front",
+          "front_profile": "rounded_compressed",
+          "back_profile": "elongated_taper",
+          "front_scale": 0.25,
+          "back_scale": 1.2,
+          "front_taper": 0.12,
+          "back_taper": 0.84,
+          "suppress_front_projection": true,
+          "rear_extension_bias": 0.86
+        },
+        "after": {
+          "profile_type": "HAT_POINTED_BACK",
+          "forward_bias": -0.03,
+          "backward_bias": 1.06,
+          "lateral_bias": -0.508125,
+          "upward_bias": 0.06,
+          "downward_bias": 0.32,
+          "taper_direction": "back",
+          "asymmetry_strength": 0.8724999999999999,
+          "curvature_bias": 0.34,
+          "trailing_profile": "curved_down_tail",
+          "compression_profile": "compressed_front",
+          "front_profile": "rounded_compressed",
+          "back_profile": "elongated_taper",
+          "front_scale": 0.248125,
+          "back_scale": 1.2755999999999998,
+          "front_taper": 0.183,
+          "back_taper": 1.0,
+          "suppress_front_projection": true,
+          "rear_extension_bias": 0.923
+        }
+      }
+    },
+    "embodiment_param_notes": {
+      "hair/hat": "Extends hat/hair volume rearward while keeping the front compressed."
+    }
+  },
+  "directional_morphology_enabled": true,
+  "morphology_profile": "fantasy_humanoid",
+  "directional_semantic_count": 2,
+  "anisotropic_region_ratio": 0.07441016333938294,
+  "rearward_extension_score": 0.26155489683151245,
+  "front_compression_score": 0.3392964005470276,
+  "directional_readability_score": 0.30265904366970064,
+  "symmetric_volume_penalty": 0.6816543936729431,
+  "hat_pointed_back_present": true,
+  "front_hat_extension_score": 0.013563421554863453,
+  "back_hat_extension_score": 0.04755532369017601,
+  "hat_asymmetry_ratio": 3.506145075401276,
+  "surface_flow_enabled": false,
+  "rfd_enabled": false
+}

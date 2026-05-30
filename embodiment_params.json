@@ -1,0 +1,103 @@
+{
+  "schema": "spritespatial_embodiment_params_v1",
+  "name": "editable_prototype_embodiment_params",
+  "description": "Editor-facing manual embodiment controls. This file is intentionally small and safe: edit per semantic part, rerun the builder, and inspect embodiment_params/ plus validation_report.json.",
+  "parts": {
+    "hair/hat": {
+      "enabled": true,
+      "z_center_offset": -0.03,
+      "thickness_scale": 1.18,
+      "front_bias": -0.05,
+      "back_bias": 0.35,
+      "side_width_scale": 0.92,
+      "taper_strength": 0.25,
+      "preserve_silhouette": true,
+      "lock_part": false,
+      "notes": "Example edit: pull the hat farther toward the back while keeping the front silhouette pinned."
+    },
+    "face": {
+      "enabled": false,
+      "z_center_offset": 0.04,
+      "thickness_scale": 1.08,
+      "front_bias": 0.25,
+      "back_bias": 0.0,
+      "side_width_scale": 1.0,
+      "taper_strength": 0.1,
+      "preserve_silhouette": true,
+      "lock_part": false,
+      "notes": "Enable to push nose/face features forward."
+    },
+    "torso": {
+      "enabled": false,
+      "z_center_offset": 0.0,
+      "thickness_scale": 1.15,
+      "front_bias": 0.0,
+      "back_bias": 0.0,
+      "side_width_scale": 1.1,
+      "taper_strength": 0.0,
+      "preserve_silhouette": true,
+      "lock_part": false,
+      "notes": "Enable to make the torso fuller."
+    },
+    "left_arm": {
+      "enabled": false,
+      "z_center_offset": 0.0,
+      "thickness_scale": 1.0,
+      "front_bias": 0.0,
+      "back_bias": 0.0,
+      "side_width_scale": 1.15,
+      "taper_strength": 0.2,
+      "preserve_silhouette": true,
+      "lock_part": false,
+      "notes": "Enable to widen/taper the left arm."
+    },
+    "right_arm": {
+      "enabled": false,
+      "z_center_offset": 0.0,
+      "thickness_scale": 1.0,
+      "front_bias": 0.0,
+      "back_bias": 0.0,
+      "side_width_scale": 1.15,
+      "taper_strength": 0.2,
+      "preserve_silhouette": true,
+      "lock_part": false,
+      "notes": "Enable to widen/taper the right arm."
+    },
+    "left_leg": {
+      "enabled": false,
+      "z_center_offset": 0.0,
+      "thickness_scale": 1.05,
+      "front_bias": 0.0,
+      "back_bias": 0.0,
+      "side_width_scale": 1.0,
+      "taper_strength": 0.25,
+      "preserve_silhouette": true,
+      "lock_part": false,
+      "notes": "Enable to taper or thicken the left leg."
+    },
+    "right_leg": {
+      "enabled": false,
+      "z_center_offset": 0.0,
+      "thickness_scale": 1.05,
+      "front_bias": 0.0,
+      "back_bias": 0.0,
+      "side_width_scale": 1.0,
+      "taper_strength": 0.25,
+      "preserve_silhouette": true,
+      "lock_part": false,
+      "notes": "Enable to taper or thicken the right leg."
+    },
+    "equipment/shield/sword": {
+      "enabled": false,
+      "z_center_offset": 0.05,
+      "thickness_scale": 1.2,
+      "front_bias": 0.1,
+      "back_bias": 0.0,
+      "side_width_scale": 1.25,
+      "taper_strength": 0.0,
+      "preserve_silhouette": true,
+      "lock_part": false,
+      "notes": "Enable for shield/sword style side-biased extrusion."
+    }
+  }
+}

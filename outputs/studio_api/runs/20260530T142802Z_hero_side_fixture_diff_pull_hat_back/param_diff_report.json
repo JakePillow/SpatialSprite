@@ -1,0 +1,26 @@
+{
+  "schema": "spritespatial_embodiment_param_diff_v1",
+  "fast_smoke": true,
+  "asset_id": "hero_side_fixture",
+  "base": {
+    "label": "default",
+    "params": "assets\\samples\\hero_side_fixture\\embodiment_params_default.json"
+  },
+  "edited": {
+    "label": "pull_hat_back",
+    "params": "outputs\\studio_api\\runs\\20260530T142802Z_hero_side_fixture_pull_hat_back_075\\edited_params.json"
+  },
+  "changed_parts": {
+    "schema": "spritespatial_changed_parts_v1",
+    "changed_parts": [],
+    "skipped_parts": []
+  },
+  "edit_valid": true,
+  "edit_changed_geometry": false,
+  "edit_preserved_hard_gates": true,
+  "likely_improvement": null,
+  "helpful_deltas": [],
+  "harmful_deltas": [],
+  "neutral_deltas": [],
+  "recommended_next_edit": "Fast smoke mode did not run reconstruction."
+}

@@ -1,0 +1,80 @@
+{
+  "schema": "spritespatial_side_view_correspondence_v1",
+  "side_sprite_paths": [
+    "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\hero_side_fixture_left.png",
+    "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\hero_side_fixture_right.png"
+  ],
+  "side_geometry_authority": "authored_side_fixture",
+  "side_semantic_authority": "semantic_masks",
+  "labels_present_front": [
+    "face",
+    "hair/hat",
+    "head",
+    "left_arm",
+    "left_leg",
+    "outline",
+    "right_arm",
+    "right_leg",
+    "torso"
+  ],
+  "labels_present_side": [
+    "boots/feet",
+    "hair/hat",
+    "head",
+    "left_arm",
+    "left_leg",
+    "outline",
+    "right_arm",
+    "right_leg",
+    "torso"
+  ],
+  "labels_missing_from_side": [],
+  "label_overlap": {
+    "face": {
+      "front_pixel_count": 8,
+      "side_overlap_or_mask_pixels": 8,
+      "overlap_ratio": 1.0
+    },
+    "hair/hat": {
+      "front_pixel_count": 12,
+      "side_overlap_or_mask_pixels": 51,
+      "overlap_ratio": 1.0
+    },
+    "head": {
+      "front_pixel_count": 4,
+      "side_overlap_or_mask_pixels": 76,
+      "overlap_ratio": 1.0
+    },
+    "left_arm": {
+      "front_pixel_count": 23,
+      "side_overlap_or_mask_pixels": 36,
+      "overlap_ratio": 1.0
+    },
+    "left_leg": {
+      "front_pixel_count": 27,
+      "side_overlap_or_mask_pixels": 36,
+      "overlap_ratio": 1.0
+    },
+    "outline": {
+      "front_pixel_count": 75,
+      "side_overlap_or_mask_pixels": 289,
+      "overlap_ratio": 1.0
+    },
+    "right_arm": {
+      "front_pixel_count": 19,
+      "side_overlap_or_mask_pixels": 36,
+      "overlap_ratio": 1.0
+    },
+    "right_leg": {
+      "front_pixel_count": 20,
+      "side_overlap_or_mask_pixels": 36,
+      "overlap_ratio": 1.0
+    },
+    "torso": {
+      "front_pixel_count": 83,
+      "side_overlap_or_mask_pixels": 88,
+      "overlap_ratio": 1.0
+    }
+  },
+  "passed": true
+}

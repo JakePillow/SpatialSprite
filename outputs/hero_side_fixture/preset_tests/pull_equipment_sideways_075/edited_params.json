@@ -1,0 +1,84 @@
+{
+  "schema": "spritespatial_embodiment_params_v1",
+  "name": "hero_side_fixture_default_embodiment_params_pull_equipment_sideways_075",
+  "description": "Phase 8B baseline parameter file. All editable parts are present but disabled/defaulted so diffs can explain exactly what the edited file changes.",
+  "parts": {
+    "hair/hat": {
+      "enabled": false,
+      "z_center_offset": 0.0,
+      "thickness_scale": 1.0,
+      "front_bias": 0.0,
+      "back_bias": 0.0,
+      "side_width_scale": 1.0,
+      "silhouette_weight": 1.0,
+      "front_authority_weight": 1.0,
+      "back_authority_weight": 1.0,
+      "side_authority_weight": 1.0,
+      "topology_preservation_weight": 1.0,
+      "taper_strength": 0.0,
+      "preserve_silhouette": true,
+      "lock_part": false,
+      "notes": "Default disabled baseline.",
+      "part_id": "hair/hat"
+    },
+    "torso": {
+      "enabled": false,
+      "z_center_offset": 0.0,
+      "thickness_scale": 1.0,
+      "front_bias": 0.0,
+      "back_bias": 0.0,
+      "side_width_scale": 1.0,
+      "silhouette_weight": 1.0,
+      "front_authority_weight": 1.0,
+      "back_authority_weight": 1.0,
+      "side_authority_weight": 1.0,
+      "topology_preservation_weight": 1.0,
+      "taper_strength": 0.0,
+      "preserve_silhouette": true,
+      "lock_part": false,
+      "notes": "Default disabled baseline.",
+      "part_id": "torso"
+    },
+    "equipment/shield/sword": {
+      "enabled": false,
+      "z_center_offset": 0.0,
+      "thickness_scale": 1.0,
+      "front_bias": 0.0,
+      "back_bias": 0.0,
+      "side_width_scale": 1.0,
+      "silhouette_weight": 1.0,
+      "front_authority_weight": 1.0,
+      "back_authority_weight": 1.0,
+      "side_authority_weight": 1.0,
+      "topology_preservation_weight": 1.0,
+      "taper_strength": 0.0,
+      "preserve_silhouette": true,
+      "lock_part": false,
+      "notes": "Default disabled baseline.",
+      "part_id": "equipment/shield/sword"
+    }
+  },
+  "preset_application": {
+    "schema": "spritespatial_preset_application_report_v1",
+    "preset_id": "pull_equipment_sideways",
+    "display_name": "Pull Equipment Sideways",
+    "intensity": 0.75,
+    "target_parts": [
+      "equipment/shield/sword"
+    ],
+    "applied_parts": [],
+    "skipped_parts": [
+      {
+        "part_id": "equipment/shield/sword",
+        "reason": "part_not_present"
+      }
+    ],
+    "parameter_changes": {},
+    "warnings": [
+      "Preset target 'equipment/shield/sword' is not present for this asset."
+    ],
+    "valid_for_asset": false,
+    "expected_effect": "Equipment separates from the body in side view.",
+    "risk_notes": "Will be skipped if the asset has no nonempty equipment canonical part."
+  }
+}

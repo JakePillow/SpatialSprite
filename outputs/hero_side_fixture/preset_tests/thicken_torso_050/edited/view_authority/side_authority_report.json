@@ -1,0 +1,15 @@
+{
+  "schema": "spritespatial_side_authority_report_v1",
+  "side_geometry_authority": "authored_side_fixture",
+  "side_semantic_authority": "semantic_masks",
+  "side_authority_used": true,
+  "side_mirror_fallback_used": false,
+  "side_sprite_paths": [
+    "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\hero_side_fixture_left.png",
+    "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\hero_side_fixture_right.png"
+  ],
+  "left_status": "authored_side_fixture",
+  "right_status": "authored_side_fixture",
+  "side_view_correspondence_passed": true,
+  "warnings": []
+}

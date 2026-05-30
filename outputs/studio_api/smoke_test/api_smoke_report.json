@@ -1,0 +1,41 @@
+{
+  "schema": "spritespatial_studio_api_smoke_report_v1",
+  "checks": [
+    {
+      "name": "apply_preset_and_fast_diff",
+      "ok": true,
+      "payload": {
+        "edited_params": "outputs\\studio_api\\runs\\20260530T143202Z_hero_side_fixture_pull_hat_back_075\\edited_params.json",
+        "diff_out": "outputs\\studio_api\\runs\\20260530T143202Z_hero_side_fixture_diff_pull_hat_back"
+      }
+    },
+    {
+      "name": "assets",
+      "ok": true,
+      "payload": {
+        "asset_count": 3
+      }
+    },
+    {
+      "name": "health",
+      "ok": true,
+      "payload": {
+        "ok": true,
+        "service": "spritespatial-studio-api",
+        "version": "0.1",
+        "local_only": true
+      }
+    },
+    {
+      "name": "presets",
+      "ok": true,
+      "payload": {
+        "profiles": [
+          "fantasy_humanoid",
+          "humanoid_common",
+          "platformer_common"
+        ]
+      }
+    }
+  ]
+}

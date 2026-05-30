@@ -1,0 +1,23 @@
+{
+  "schema": "spritespatial_projection_delta_v1",
+  "metrics": {
+    "front_projection_iou": {
+      "base": 0.9727767695099818,
+      "edited": 0.9727767695099818,
+      "delta": 0.0,
+      "changed": false
+    },
+    "back_projection_iou": {
+      "base": 0.9053030303030303,
+      "edited": 0.9053030303030303,
+      "delta": 0.0,
+      "changed": false
+    },
+    "side_projection_iou": {
+      "base": 0.5785997357992074,
+      "edited": 0.5812417437252312,
+      "delta": 0.0026420079260237594,
+      "changed": true
+    }
+  }
+}

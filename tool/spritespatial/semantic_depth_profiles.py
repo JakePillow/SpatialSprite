@@ -188,6 +188,38 @@ def synthesize_semantic_occupancy(
             "profiles": {label: asdict(profile) for label, profile in profiles.items()},
         }
     )
+    embodiment_report = profile_set.get("embodiment_params_report")
+    if isinstance(embodiment_report, dict):
+        report.update(
+            {
+                "embodiment_params_enabled": bool(embodiment_report.get("embodiment_params_enabled", False)),
+                "embodiment_params_loaded": bool(embodiment_report.get("embodiment_params_loaded", False)),
+                "embodiment_params_using_defaults": bool(embodiment_report.get("embodiment_params_using_defaults", False)),
+                "embodiment_params_path": embodiment_report.get("embodiment_params_path", ""),
+                "embodiment_param_parts_requested": embodiment_report.get("embodiment_param_parts_requested", []),
+                "embodiment_param_parts_applied": embodiment_report.get("embodiment_param_parts_applied", []),
+                "embodiment_param_parts_skipped": embodiment_report.get("embodiment_param_parts_skipped", {}),
+                "embodiment_param_locked_parts": embodiment_report.get("embodiment_param_locked_parts", []),
+                "embodiment_param_applied_count": int(embodiment_report.get("embodiment_param_applied_count", 0)),
+                "embodiment_parts_modified": int(embodiment_report.get("embodiment_parts_modified", 0)),
+                "embodiment_param_report": embodiment_report,
+            }
+        )
+    else:
+        report.update(
+            {
+                "embodiment_params_enabled": False,
+                "embodiment_params_loaded": False,
+                "embodiment_params_using_defaults": False,
+                "embodiment_params_path": "",
+                "embodiment_param_parts_requested": [],
+                "embodiment_param_parts_applied": [],
+                "embodiment_param_parts_skipped": {},
+                "embodiment_param_locked_parts": [],
+                "embodiment_param_applied_count": 0,
+                "embodiment_parts_modified": 0,
+            }
+        )
     directional_result: dict[str, Any] = {}
     if directional_morphology:
         directional_report = build_directional_report(

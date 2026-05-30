@@ -1,0 +1,16 @@
+{
+  "override_pixels_applied": 271,
+  "override_overlap_count": 145,
+  "override_overlap_ratio": 0.5350553505535055,
+  "unlabelled_opaque_pixel_ratio": 0.0,
+  "critical_label_coverage": {
+    "head": 4,
+    "torso": 79,
+    "left_leg": 27,
+    "right_leg": 20
+  },
+  "torso_head_overlap_count_after_override": 0,
+  "disconnected_critical_labels_after_override": 0,
+  "passed": true,
+  "failures": []
+}

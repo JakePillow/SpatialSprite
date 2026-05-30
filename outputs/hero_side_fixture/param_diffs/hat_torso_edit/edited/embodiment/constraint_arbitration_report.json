@@ -1,0 +1,48 @@
+{
+  "schema": "spritespatial_constraint_arbitration_v1",
+  "constraint_arbitration_enabled": true,
+  "source_shape": [
+    32,
+    24
+  ],
+  "policy": [
+    "preserve topology first",
+    "preserve authored silhouettes second",
+    "preserve inferred priors last",
+    "blend only where constraints disagree and topology risk is low"
+  ],
+  "authority_weights": {
+    "silhouette_weight": 1.0,
+    "front_authority_weight": 0.9833333333333334,
+    "back_authority_weight": 1.01,
+    "side_authority_weight": 1.0266666666666666,
+    "topology_preservation_weight": 1.1933333333333334
+  },
+  "front_pixel_count": 271,
+  "back_pixel_count": 266,
+  "side_pixel_count": 302,
+  "conflict_zone_count": 115,
+  "front_back_conflict_count": 23,
+  "side_row_conflict_count": 92,
+  "topology_risk_zone_count": 194,
+  "weighted_blend_region_count": 23,
+  "rejected_constraint_count": 8,
+  "rejected_side_rows": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    30,
+    31
+  ],
+  "authority_winner_counts": {
+    "topology": 194,
+    "front": 14,
+    "back": 7,
+    "side": 12,
+    "weighted_blend": 23
+  },
+  "passed": true
+}

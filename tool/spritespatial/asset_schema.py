@@ -20,6 +20,7 @@ class AssetSchema:
     pixel_scale: float
     collision: dict[str, Any]
     upscaling: dict[str, Any]
+    source_coverage_metadata: dict[str, Any]
     source_dir: Path
 
     @classmethod
@@ -59,6 +60,7 @@ class AssetSchema:
             pixel_scale=float(data["pixel_scale"]),
             collision=data["collision"],
             upscaling=data.get("upscaling", {"method": "nearest_integer"}),
+            source_coverage_metadata=data.get("source_coverage", {}),
             source_dir=file_path.parent,
         )
 

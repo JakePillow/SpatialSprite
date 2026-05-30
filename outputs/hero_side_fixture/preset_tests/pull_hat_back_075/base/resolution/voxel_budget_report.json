@@ -1,0 +1,30 @@
+{
+  "schema": "spritespatial_resolution_profile_report_v1",
+  "adaptive_sdf_resolution_enabled": true,
+  "resolution_profile": "prototype_adaptive",
+  "sdf_resolution_strategy": "highres_internal_downsampled",
+  "base_xy_scale": 1.0,
+  "base_z_scale": 1.0,
+  "effective_xy_scale": 1.420615826752797,
+  "effective_z_samples": 35,
+  "base_z_samples": 25,
+  "effective_voxel_budget_multiplier": 2.7890625,
+  "adaptive_high_detail_region_count": 4,
+  "adaptive_regions_present": [
+    "face",
+    "hair/hat",
+    "head",
+    "outline"
+  ],
+  "medium_detail_regions_present": [
+    "left_arm",
+    "left_leg",
+    "right_arm",
+    "right_leg",
+    "torso"
+  ],
+  "silhouette_band_high_res_enabled": true,
+  "semantic_boundary_high_res_enabled": true,
+  "max_voxel_budget_multiplier": 3.0,
+  "max_non_manifold_edge_increase": 15
+}

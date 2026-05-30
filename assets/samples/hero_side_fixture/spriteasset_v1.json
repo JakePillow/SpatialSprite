@@ -1,0 +1,39 @@
+{
+  "schema_version": "spriteasset_v1",
+  "asset_name": "hero_side_fixture",
+  "asset_type": "character",
+  "source_sprites": {
+    "front": "hero_front.png",
+    "back": "hero_back.png",
+    "left": "hero_side_fixture_left.png",
+    "right": "hero_side_fixture_right.png"
+  },
+  "render_mode": "directional_sprite_3d",
+  "pixel_scale": 0.06,
+  "upscaling": {
+    "method": "nearest_integer",
+    "scale_factor": 2,
+    "generates_new_art_content": false,
+    "deterministic": true,
+    "output_format": "png",
+    "external_hooks": {
+      "real_esrgan": "placeholder_not_implemented",
+      "waifu2x": "placeholder_not_implemented"
+    },
+    "output_dir": "debug/deterministic_upscale/hero_nearest_2x"
+  },
+  "collision": {
+    "type": "capsule",
+    "height": 1.6,
+    "radius": 0.35
+  },
+  "source_coverage": {
+    "front": "authored",
+    "back": "authored",
+    "left": "authored_side_fixture",
+    "right": "authored_side_fixture",
+    "side_geometry_authority": "authored_side_fixture",
+    "candidate_selection_method": "synthetic_fixture",
+    "fixture_note": "Synthetic side-view fixture for Phase 7C authority validation only; not production art."
+  }
+}

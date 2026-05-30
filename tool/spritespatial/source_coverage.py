@@ -33,12 +33,13 @@ def analyze_source_coverage(
         }
 
     details = {direction: _sprite_signature(asset.sprite_path(direction)) for direction in SOURCE_DIRECTIONS}
+    metadata = getattr(asset, "source_coverage_metadata", {}) or {}
     front_status = "authored" if details["front"]["exists"] else "missing"
-    back_status = _classify_back(details, back_mode)
-    left_status = _classify_side(details, "left", back_mode)
-    right_status = _classify_side(details, "right", back_mode)
+    back_status = str(metadata.get("back", _classify_back(details, back_mode)))
+    left_status = str(metadata.get("left", _classify_side(details, "left", back_mode)))
+    right_status = str(metadata.get("right", _classify_side(details, "right", back_mode)))
     back_recommended = back_status != "authored"
-    side_recommended = left_status != "authored" or right_status != "authored"
+    side_recommended = not (_is_authored_side(left_status) or _is_authored_side(right_status))
     fidelity = _fidelity_limit(front_status, back_status, left_status, right_status)
     back_geometry_authority = _back_geometry_authority(back_mode, details["back"].get("exists", False))
     warnings = []
@@ -54,6 +55,7 @@ def analyze_source_coverage(
         "back": back_status,
         "left": left_status,
         "right": right_status,
+        "side_geometry_authority": str(metadata.get("side_geometry_authority", _side_geometry_authority(left_status, right_status))),
         "back_reference_recommended": back_recommended,
         "side_reference_recommended": side_recommended,
         "fidelity_limit": fidelity,
@@ -129,31 +131,43 @@ def _classify_back(details: dict[str, dict[str, Any]], back_mode: str) -> str:
 
 def _classify_side(details: dict[str, dict[str, Any]], direction: str, back_mode: str) -> str:
     front = details["front"]
+    back = details["back"]
     side = details[direction]
     opposite = details["right" if direction == "left" else "left"]
     if not side.get("exists"):
         return "inferred" if back_mode in {"semantic_rules", "symmetric"} and front.get("exists") else "missing"
     if not front.get("exists"):
-        return "authored"
-    if side.get("sha256") == front.get("sha256"):
+        return f"authored_{direction}"
+    if side.get("sha256") == front.get("sha256") or side.get("alpha_sha256") == front.get("alpha_sha256"):
         return "inferred"
     if side.get("sha256") == front.get("mirror_sha256"):
         return "mirrored_placeholder"
-    if side.get("alpha_sha256") == front.get("alpha_sha256"):
-        return "inferred"
+    if side.get("alpha_sha256") == front.get("mirror_alpha_sha256"):
+        return "mirrored_placeholder"
+    if back.get("exists"):
+        if side.get("sha256") == back.get("sha256") or side.get("alpha_sha256") == back.get("alpha_sha256"):
+            return "mirrored_placeholder"
+        if side.get("sha256") == back.get("mirror_sha256") or side.get("alpha_sha256") == back.get("mirror_alpha_sha256"):
+            return "mirrored_placeholder"
     if side.get("sha256") == opposite.get("mirror_sha256"):
         return "mirrored_placeholder"
-    return "authored"
+    if side.get("alpha_sha256") == opposite.get("mirror_alpha_sha256"):
+        return "mirrored_placeholder"
+    if _alpha_similarity(side, front) > 0.96:
+        return "inferred"
+    if back.get("exists") and _alpha_similarity(side, back) > 0.96:
+        return "mirrored_placeholder"
+    return f"authored_{direction}"
 
 
 def _fidelity_limit(front: str, back: str, left: str, right: str) -> str:
     if front != "authored":
         return "no_authoritative_front"
-    if back != "authored" and left != "authored" and right != "authored":
+    if back != "authored" and not _is_authored_side(left) and not _is_authored_side(right):
         return "front_only_inferred_back"
     if back != "authored":
         return "back_inferred"
-    if left != "authored" or right != "authored":
+    if not (_is_authored_side(left) or _is_authored_side(right)):
         return "side_inferred"
     return "multi_view_authoritative"
 
@@ -163,7 +177,7 @@ def _fail_conditions(profile: dict[str, Any], back: str, left: str, right: str) 
     require_authored_sides = bool(profile.get("require_authored_side_sprites", False))
     return {
         "quality_requires_authored_back": require_authored_back and back != "authored",
-        "quality_requires_authored_sides": require_authored_sides and (left != "authored" or right != "authored"),
+        "quality_requires_authored_sides": require_authored_sides and not (_is_authored_side(left) or _is_authored_side(right)),
     }
 
 
@@ -173,6 +187,40 @@ def _back_geometry_authority(back_mode: str, back_exists: bool) -> str:
     if back_mode in {"semantic_rules", "symmetric"}:
         return back_mode
     return "missing"
+
+
+def _is_authored_side(status: str) -> bool:
+    return status in {"authored", "authored_left", "authored_right", "authored_side", "authored_side_fixture"}
+
+
+def _side_geometry_authority(left: str, right: str) -> str:
+    if _is_authored_side(left) or _is_authored_side(right):
+        if "authored_side_fixture" in {left, right}:
+            return "authored_side_fixture"
+        return "authored_side"
+    statuses = {left, right}
+    if "mirrored_placeholder" in statuses:
+        return "placeholder"
+    if "inferred" in statuses:
+        return "inferred"
+    return "missing"
+
+
+def _alpha_similarity(a: dict[str, Any], b: dict[str, Any]) -> float:
+    path_a = Path(str(a.get("path", "")))
+    path_b = Path(str(b.get("path", "")))
+    if not path_a.exists() or not path_b.exists():
+        return 0.0
+    image_a = Image.open(path_a).convert("RGBA")
+    image_b = Image.open(path_b).convert("RGBA")
+    if image_a.size != image_b.size:
+        image_b = image_b.resize(image_a.size, Image.Resampling.NEAREST)
+    alpha_a = np.asarray(image_a.getchannel("A"), dtype=np.uint8) > 16
+    alpha_b = np.asarray(image_b.getchannel("A"), dtype=np.uint8) > 16
+    union = int(np.count_nonzero(alpha_a | alpha_b))
+    if union == 0:
+        return 1.0
+    return float(np.count_nonzero(alpha_a & alpha_b)) / float(union)
 
 
 def _find_source_sheet(asset: AssetSchema, raw_search_root: Path) -> Path | None:

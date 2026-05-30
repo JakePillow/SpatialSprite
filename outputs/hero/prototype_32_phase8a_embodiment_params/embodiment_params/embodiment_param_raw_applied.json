@@ -1,0 +1,101 @@
+{
+  "schema": "spritespatial_embodiment_param_report_v1",
+  "embodiment_params_enabled": true,
+  "embodiment_params_path": "C:\\dev\\SpatialSprite\\embodiment_params.json",
+  "embodiment_params_name": "editable_prototype_embodiment_params",
+  "embodiment_param_parts_requested": [
+    "equipment/shield/sword",
+    "face",
+    "hair/hat",
+    "left_arm",
+    "left_leg",
+    "right_arm",
+    "right_leg",
+    "torso"
+  ],
+  "embodiment_param_parts_applied": [
+    "hair/hat"
+  ],
+  "embodiment_param_parts_skipped": {
+    "face": "disabled",
+    "torso": "disabled",
+    "left_arm": "disabled",
+    "right_arm": "disabled",
+    "left_leg": "disabled",
+    "right_leg": "disabled",
+    "equipment/shield/sword": "disabled"
+  },
+  "embodiment_param_locked_parts": [],
+  "embodiment_param_applied_count": 1,
+  "embodiment_param_depth_deltas": {
+    "hair/hat": {
+      "before": {
+        "z_center_fraction": 0.22,
+        "half_thickness_fraction": 0.14,
+        "profile_type": "shell_offset",
+        "taper_curve": "layer",
+        "asymmetry": 0.2,
+        "depth_priority": 85,
+        "silhouette_preservation_weight": 0.96
+      },
+      "after": {
+        "z_center_fraction": 0.19,
+        "half_thickness_fraction": 0.1652,
+        "profile_type": "shell_offset",
+        "taper_curve": "layer",
+        "asymmetry": 0.16,
+        "depth_priority": 85,
+        "silhouette_preservation_weight": 0.96
+      }
+    }
+  },
+  "embodiment_param_morphology_deltas": {
+    "hair/hat": {
+      "before": {
+        "profile_type": "HAT_POINTED_BACK",
+        "forward_bias": 0.0,
+        "backward_bias": 0.88,
+        "lateral_bias": -0.48,
+        "upward_bias": 0.06,
+        "downward_bias": 0.32,
+        "taper_direction": "back",
+        "asymmetry_strength": 0.82,
+        "curvature_bias": 0.34,
+        "trailing_profile": "curved_down_tail",
+        "compression_profile": "compressed_front",
+        "front_profile": "rounded_compressed",
+        "back_profile": "elongated_taper",
+        "front_scale": 0.25,
+        "back_scale": 1.2,
+        "front_taper": 0.12,
+        "back_taper": 0.84,
+        "suppress_front_projection": true,
+        "rear_extension_bias": 0.86
+      },
+      "after": {
+        "profile_type": "HAT_POINTED_BACK",
+        "forward_bias": -0.05,
+        "backward_bias": 1.23,
+        "lateral_bias": -0.5399999999999999,
+        "upward_bias": 0.06,
+        "downward_bias": 0.32,
+        "taper_direction": "back",
+        "asymmetry_strength": 0.9199999999999999,
+        "curvature_bias": 0.34,
+        "trailing_profile": "curved_down_tail",
+        "compression_profile": "compressed_front",
+        "front_profile": "rounded_compressed",
+        "back_profile": "elongated_taper",
+        "front_scale": 0.246875,
+        "back_scale": 1.347,
+        "front_taper": 0.2075,
+        "back_taper": 1.0,
+        "suppress_front_projection": true,
+        "rear_extension_bias": 0.9824999999999999
+      }
+    }
+  },
+  "embodiment_param_notes": {
+    "hair/hat": "Example edit: pull the hat farther toward the back while keeping the front silhouette pinned."
+  }
+}

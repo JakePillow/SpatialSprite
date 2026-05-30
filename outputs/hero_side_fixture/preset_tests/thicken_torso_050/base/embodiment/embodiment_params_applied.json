@@ -1,0 +1,15 @@
+{
+  "schema": "spritespatial_embodiment_params_applied_v1",
+  "embodiment_params_loaded": true,
+  "embodiment_params_path": "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\embodiment_params_default.json",
+  "embodiment_params_using_defaults": false,
+  "parts_applied": [],
+  "parts_skipped": {
+    "hair/hat": "disabled",
+    "torso": "disabled",
+    "equipment/shield/sword": "disabled"
+  },
+  "parts_locked": [],
+  "embodiment_parts_modified": 0,
+  "notes": {}
+}

@@ -32,13 +32,16 @@ def build_back_hemisphere(
     output_dir: Path,
     mode: str = "semantic_rules",
     back_sprite_path: Path | None = None,
+    front_alpha_mask: np.ndarray | None = None,
 ) -> dict[str, Any]:
     output_dir.mkdir(parents=True, exist_ok=True)
     scale_map = np.ones(z_front.shape, dtype=np.float32)
     back_geometry_authority = _back_geometry_authority(mode, back_sprite_path)
+    front_alpha = front_alpha_mask if front_alpha_mask is not None else z_front > 0.0
+    back_alpha = _load_back_alpha(back_sprite_path, z_front.shape) if back_geometry_authority == "authored_back" else None
     rules: dict[str, Any] = {
         "mode": mode,
-        "front_back_sprite_deferred": mode == "front_back_sprite",
+        "front_back_sprite_deferred": bool(mode == "front_back_sprite" and back_alpha is None),
         "back_geometry_authority": back_geometry_authority,
         "back_sprite_path": str(back_sprite_path) if back_geometry_authority == "authored_back" else "",
         "comparison_back_sprite_path": str(back_sprite_path)
@@ -53,9 +56,17 @@ def build_back_hemisphere(
             scale = SEMANTIC_BACK_SCALE.get(label, SEMANTIC_BACK_SCALE["unknown"])
             scale_map[y, x] = scale
             rules["scales"][label] = scale
-    z_back = (-z_front * scale_map).astype(np.float32)
-    z_back[seam_mask] = 0.0
-    z_back[z_front <= 0.0] = 0.0
+    if back_geometry_authority == "authored_back" and back_alpha is not None:
+        z_back = _authored_back_depth(z_front, scale_map, front_alpha, back_alpha, label_by_pixel).astype(np.float32)
+        back_seam = _silhouette_seam(back_alpha)
+        z_back[back_seam] = 0.0
+        z_back[seam_mask] = 0.0
+        z_back[~back_alpha] = 0.0
+        rules.update(_authored_back_report(front_alpha, back_alpha))
+    else:
+        z_back = (-z_front * scale_map).astype(np.float32)
+        z_back[seam_mask] = 0.0
+        z_back[z_front <= 0.0] = 0.0
 
     z_back_path = output_dir / "z_back.npy"
     z_back_png = output_dir / "z_back.png"
@@ -95,6 +106,72 @@ def _back_geometry_authority(mode: str, back_sprite_path: Path | None) -> str:
     if mode in {"semantic_rules", "symmetric"}:
         return mode
     return "missing"
+
+
+def _load_back_alpha(path: Path | None, shape: tuple[int, int]) -> np.ndarray | None:
+    if not path or not path.exists():
+        return None
+    image = Image.open(path).convert("RGBA")
+    width, height = int(shape[1]), int(shape[0])
+    if image.size != (width, height):
+        image = image.resize((width, height), Image.Resampling.NEAREST)
+    return np.asarray(image.getchannel("A"), dtype=np.uint8) > 16
+
+
+def _authored_back_depth(
+    z_front: np.ndarray,
+    scale_map: np.ndarray,
+    front_alpha: np.ndarray,
+    back_alpha: np.ndarray,
+    label_by_pixel: dict[Pixel, str],
+) -> np.ndarray:
+    median_depth = float(np.median(z_front[z_front > 0.0])) if bool(np.any(z_front > 0.0)) else 0.18
+    default_depth = max(median_depth * 0.75, 0.08)
+    z_back = np.zeros_like(z_front, dtype=np.float32)
+    nearest_labels = _fill_missing_labels(back_alpha, label_by_pixel)
+    for y, x in np.argwhere(back_alpha):
+        label = nearest_labels.get((int(x), int(y)), label_by_pixel.get((int(x), int(y)), "unknown"))
+        scale = SEMANTIC_BACK_SCALE.get(label, SEMANTIC_BACK_SCALE["unknown"])
+        source_depth = float(z_front[y, x]) if bool(front_alpha[y, x]) and z_front[y, x] > 0.0 else default_depth
+        z_back[y, x] = -max(source_depth * max(scale, 0.08), 0.025)
+    return z_back
+
+
+def _fill_missing_labels(mask: np.ndarray, label_by_pixel: dict[Pixel, str]) -> dict[Pixel, str]:
+    result = dict(label_by_pixel)
+    known = list(label_by_pixel.items())
+    if not known:
+        return result
+    for y, x in np.argwhere(mask):
+        key = (int(x), int(y))
+        if key in result:
+            continue
+        nearest = min(known, key=lambda item: (item[0][0] - key[0]) ** 2 + (item[0][1] - key[1]) ** 2)
+        result[key] = nearest[1]
+    return result
+
+
+def _silhouette_seam(mask: np.ndarray) -> np.ndarray:
+    seam = np.zeros(mask.shape, dtype=bool)
+    height, width = mask.shape
+    for y, x in np.argwhere(mask):
+        for nx, ny in ((x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)):
+            if nx < 0 or ny < 0 or nx >= width or ny >= height or not bool(mask[ny, nx]):
+                seam[y, x] = True
+                break
+    return seam
+
+
+def _authored_back_report(front_alpha: np.ndarray, back_alpha: np.ndarray) -> dict[str, Any]:
+    intersection = int(np.count_nonzero(front_alpha & back_alpha))
+    union = int(np.count_nonzero(front_alpha | back_alpha))
+    return {
+        "front_alpha_pixel_count": int(np.count_nonzero(front_alpha)),
+        "back_alpha_pixel_count": int(np.count_nonzero(back_alpha)),
+        "front_back_alpha_iou": float(intersection) / float(max(union, 1)),
+        "front_only_pixel_count": int(np.count_nonzero(front_alpha & ~back_alpha)),
+        "back_only_pixel_count": int(np.count_nonzero(back_alpha & ~front_alpha)),
+    }
 
 
 def _missing_critical(label_by_pixel: dict[Pixel, str], z_back: np.ndarray) -> list[str]:

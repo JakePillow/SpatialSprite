@@ -27,7 +27,12 @@ def side_profile_authority(source_coverage: dict[str, Any] | None = None) -> str
     source_coverage = source_coverage or {}
     left = str(source_coverage.get("left", "missing"))
     right = str(source_coverage.get("right", "missing"))
-    if left == "authored" and right == "authored":
+    if left in {"authored", "authored_left", "authored_right", "authored_side"} or right in {
+        "authored",
+        "authored_left",
+        "authored_right",
+        "authored_side",
+    }:
         return "authored"
     if left == "missing" and right == "missing":
         return "missing"

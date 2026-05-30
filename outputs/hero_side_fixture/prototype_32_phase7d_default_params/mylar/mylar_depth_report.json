@@ -1,0 +1,112 @@
+{
+  "schema": "spritespatial_mylar_depth_v1",
+  "max_total_depth": 0.6,
+  "z_min": 0.0,
+  "z_max": 0.44591259956359863,
+  "silhouette_pin_confirmed": true,
+  "isolated_spike_count": 0,
+  "opaque_semantic_pixels": 271,
+  "valid_depth_pixels": 271,
+  "outline_full_depth_slab": false,
+  "regions": [
+    {
+      "index": 0,
+      "name": "outline",
+      "semantic_label": "outline",
+      "profile": "linear",
+      "max_depth": 0.04,
+      "pixel_count": 75,
+      "actual_max_depth": 0.03999999910593033,
+      "actual_mean_depth": 0.02108561433851719,
+      "debug": "C:\\dev\\SpatialSprite\\outputs\\hero_side_fixture\\prototype_32_phase7d_default_params\\mylar\\z_regions\\00_outline.png"
+    },
+    {
+      "index": 1,
+      "name": "head",
+      "semantic_label": "head",
+      "profile": "cosine",
+      "max_depth": 0.45,
+      "pixel_count": 4,
+      "actual_max_depth": 0.44999998807907104,
+      "actual_mean_depth": 0.44999998807907104,
+      "debug": "C:\\dev\\SpatialSprite\\outputs\\hero_side_fixture\\prototype_32_phase7d_default_params\\mylar\\z_regions\\01_head.png"
+    },
+    {
+      "index": 2,
+      "name": "face",
+      "semantic_label": "face",
+      "profile": "cosine",
+      "max_depth": 0.18,
+      "pixel_count": 8,
+      "actual_max_depth": 0.18000000715255737,
+      "actual_mean_depth": 0.18000000715255737,
+      "debug": "C:\\dev\\SpatialSprite\\outputs\\hero_side_fixture\\prototype_32_phase7d_default_params\\mylar\\z_regions\\02_face.png"
+    },
+    {
+      "index": 3,
+      "name": "hair_hat",
+      "semantic_label": "hair/hat",
+      "profile": "concave",
+      "max_depth": 0.12,
+      "pixel_count": 12,
+      "actual_max_depth": 0.11999999731779099,
+      "actual_mean_depth": 0.11999999731779099,
+      "debug": "C:\\dev\\SpatialSprite\\outputs\\hero_side_fixture\\prototype_32_phase7d_default_params\\mylar\\z_regions\\03_hair_hat.png"
+    },
+    {
+      "index": 4,
+      "name": "torso",
+      "semantic_label": "torso",
+      "profile": "cosine",
+      "max_depth": 0.4,
+      "pixel_count": 83,
+      "actual_max_depth": 0.4000000059604645,
+      "actual_mean_depth": 0.1705085039138794,
+      "debug": "C:\\dev\\SpatialSprite\\outputs\\hero_side_fixture\\prototype_32_phase7d_default_params\\mylar\\z_regions\\04_torso.png"
+    },
+    {
+      "index": 5,
+      "name": "left_arm",
+      "semantic_label": "left_arm",
+      "profile": "convex",
+      "max_depth": 0.3,
+      "pixel_count": 23,
+      "actual_max_depth": 0.30000001192092896,
+      "actual_mean_depth": 0.22167108952999115,
+      "debug": "C:\\dev\\SpatialSprite\\outputs\\hero_side_fixture\\prototype_32_phase7d_default_params\\mylar\\z_regions\\05_left_arm.png"
+    },
+    {
+      "index": 6,
+      "name": "right_arm",
+      "semantic_label": "right_arm",
+      "profile": "convex",
+      "max_depth": 0.3,
+      "pixel_count": 19,
+      "actual_max_depth": 0.30000001192092896,
+      "actual_mean_depth": 0.2166351079940796,
+      "debug": "C:\\dev\\SpatialSprite\\outputs\\hero_side_fixture\\prototype_32_phase7d_default_params\\mylar\\z_regions\\06_right_arm.png"
+    },
+    {
+      "index": 7,
+      "name": "left_leg",
+      "semantic_label": "left_leg",
+      "profile": "convex",
+      "max_depth": 0.35,
+      "pixel_count": 27,
+      "actual_max_depth": 0.3499999940395355,
+      "actual_mean_depth": 0.25281956791877747,
+      "debug": "C:\\dev\\SpatialSprite\\outputs\\hero_side_fixture\\prototype_32_phase7d_default_params\\mylar\\z_regions\\07_left_leg.png"
+    },
+    {
+      "index": 8,
+      "name": "right_leg",
+      "semantic_label": "right_leg",
+      "profile": "convex",
+      "max_depth": 0.35,
+      "pixel_count": 20,
+      "actual_max_depth": 0.3499999940395355,
+      "actual_mean_depth": 0.2350313663482666,
+      "debug": "C:\\dev\\SpatialSprite\\outputs\\hero_side_fixture\\prototype_32_phase7d_default_params\\mylar\\z_regions\\08_right_leg.png"
+    }
+  ]
+}

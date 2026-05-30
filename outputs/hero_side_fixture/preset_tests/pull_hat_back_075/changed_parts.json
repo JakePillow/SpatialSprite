@@ -1,0 +1,57 @@
+{
+  "schema": "spritespatial_changed_parts_v1",
+  "changed_parts": [
+    {
+      "part_id": "hair/hat",
+      "changed_fields": {
+        "enabled": [
+          false,
+          true
+        ],
+        "z_center_offset": [
+          0.0,
+          -0.0225
+        ],
+        "thickness_scale": [
+          1.0,
+          1.1199999999999999
+        ],
+        "front_bias": [
+          0.0,
+          -0.03
+        ],
+        "back_bias": [
+          0.0,
+          0.18
+        ],
+        "side_width_scale": [
+          1.0,
+          0.9624999999999999
+        ],
+        "back_authority_weight": [
+          1.0,
+          1.0750000000000002
+        ],
+        "side_authority_weight": [
+          1.0,
+          0.985
+        ],
+        "topology_preservation_weight": [
+          1.0,
+          1.135
+        ],
+        "taper_strength": [
+          0.0,
+          0.18
+        ],
+        "notes": [
+          "Default disabled baseline.",
+          "Extends hat/hair volume rearward while keeping the front compressed."
+        ]
+      },
+      "applied": true,
+      "skipped_reason": null
+    }
+  ],
+  "skipped_parts": []
+}

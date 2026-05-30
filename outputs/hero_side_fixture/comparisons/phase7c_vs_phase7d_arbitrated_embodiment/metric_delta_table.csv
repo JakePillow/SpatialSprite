@@ -1,0 +1,22 @@
+metric,phase7c_baseline,phase7d_default_params,phase7d_edited_params,edited_minus_default
+passed,True,True,True,0
+constraint_arbitration_enabled,,True,True,0
+conflict_zone_count,,115,115,0
+topology_risk_zone_count,,194,194,0
+weighted_blend_region_count,,23,23,0
+rejected_constraint_count,,152,152,0
+embodiment_params_loaded,,True,True,0
+embodiment_parts_modified,,0,2,2
+embodiment_param_parts_applied,,[],"['hair/hat', 'torso']",
+front_projection_iou,0.9727767695099818,0.9727767695099818,0.9727767695099818,0.0
+back_projection_iou,0.9053030303030303,0.9053030303030303,0.9034090909090909,-0.0018939393939393367
+side_projection_iou,0.5785997357992074,0.5785997357992074,0.5751633986928104,-0.003436337106397014
+closed_volume_connected,True,True,True,0
+mesh_connected_components,1,1,1,0
+degenerate_face_count,0,0,0,0
+non_manifold_after_cleanup,6,6,7,1
+hat_asymmetry_ratio,2.8036581307124817,2.8036581307124817,3.5040642730619114,0.7004061423494297
+directional_readability_score,0.2620183005928993,0.2620183005928993,0.3024684086441994,0.04045010805130006
+surface_flow_after,0.48053185755676253,0.48053185755676253,0.4756485369977852,-0.004883320558977333
+planar_macro_patch_count,5,5,6,1
+side_constraint_conflict_count,319,319,325,6

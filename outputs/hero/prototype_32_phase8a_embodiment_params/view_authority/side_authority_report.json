@@ -1,0 +1,14 @@
+{
+  "schema": "spritespatial_side_authority_report_v1",
+  "side_geometry_authority": "placeholder",
+  "side_semantic_authority": "missing",
+  "side_authority_used": false,
+  "side_mirror_fallback_used": false,
+  "side_sprite_paths": [],
+  "left_status": "mirrored_placeholder",
+  "right_status": "mirrored_placeholder",
+  "side_view_correspondence_passed": true,
+  "warnings": [
+    "Side geometry authority is not used because side status is placeholder."
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "schema": "spritespatial_embodiment_params_v1",
+  "name": "hero_side_fixture_phase7d_depth_pull",
+  "description": "Phase 7D editable embodiment test. This intentionally edits only JSON to pull the hat backward, thicken the torso, and bias equipment sideways before SDF reconstruction.",
+  "parts": {
+    "hair/hat": {
+      "part_id": "hair/hat",
+      "enabled": true,
+      "z_center_offset": -0.025,
+      "thickness_scale": 1.12,
+      "front_bias": -0.03,
+      "back_bias": 0.18,
+      "side_width_scale": 0.96,
+      "silhouette_weight": 1.0,
+      "front_authority_weight": 1.0,
+      "back_authority_weight": 1.08,
+      "side_authority_weight": 0.98,
+      "topology_preservation_weight": 1.18,
+      "taper_strength": 0.18,
+      "preserve_silhouette": true,
+      "lock_part": false,
+      "notes": "Pull the hat/cap farther toward the authored back while keeping front silhouette authority."
+    },
+    "torso": {
+      "part_id": "torso",
+      "enabled": true,
+      "z_center_offset": 0.0,
+      "thickness_scale": 1.08,
+      "front_bias": 0.0,
+      "back_bias": 0.0,
+      "side_width_scale": 1.0,
+      "silhouette_weight": 1.0,
+      "front_authority_weight": 1.0,
+      "back_authority_weight": 1.0,
+      "side_authority_weight": 0.90,
+      "topology_preservation_weight": 1.20,
+      "taper_strength": 0.0,
+      "preserve_silhouette": true,
+      "lock_part": false,
+      "notes": "Slight torso fullness increase for a less papery side profile."
+    },
+    "equipment/shield/sword": {
+      "part_id": "equipment/shield/sword",
+      "enabled": true,
+      "z_center_offset": 0.04,
+      "thickness_scale": 1.15,
+      "front_bias": 0.0,
+      "back_bias": 0.0,
+      "side_width_scale": 1.30,
+      "silhouette_weight": 1.0,
+      "front_authority_weight": 0.95,
+      "back_authority_weight": 0.95,
+      "side_authority_weight": 1.20,
+      "topology_preservation_weight": 1.20,
+      "taper_strength": 0.0,
+      "preserve_silhouette": true,
+      "lock_part": false,
+      "notes": "Bias shield/sword/equipment outward in side width if the part exists."
+    }
+  }
+}

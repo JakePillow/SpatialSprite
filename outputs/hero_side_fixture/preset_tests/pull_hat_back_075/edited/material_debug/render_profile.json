@@ -1,0 +1,16 @@
+{
+  "name": "voxel_sprite",
+  "description": "Flat voxel sprite material profile: source-colour front faces, darkened side faces, boosted top faces, and suppressed internal black seams.",
+  "side_darkening": 0.62,
+  "top_light_boost": 1.16,
+  "bottom_darkening": 0.52,
+  "back_darkening": 0.82,
+  "outline_strength": 0.92,
+  "semantic_colour_mode": "source_then_semantic_fallback",
+  "face_snap_to_pixel_grid": true,
+  "ambient_occlusion_fake": 0.18,
+  "black_seam_suppression": true,
+  "material_flatness": 1.0,
+  "internal_outline_darkening": 0.58,
+  "path": "C:\\dev\\SpatialSprite\\profiles\\render_profiles\\voxel_sprite.json"
+}

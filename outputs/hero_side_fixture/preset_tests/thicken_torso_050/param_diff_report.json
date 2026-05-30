@@ -1,0 +1,662 @@
+{
+  "schema": "spritespatial_embodiment_param_diff_v1",
+  "generated_at": "2026-05-30T12:54:41.695689+00:00",
+  "asset": "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\spriteasset_v1.json",
+  "profile": "C:\\dev\\SpatialSprite\\profiles\\prototype_32.json",
+  "semantic_overrides": "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\semantic_overrides",
+  "base": {
+    "label": "base",
+    "params": "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\embodiment_params_default.json",
+    "output_dir": "C:\\dev\\SpatialSprite\\outputs\\hero_side_fixture\\preset_tests\\thicken_torso_050\\base",
+    "build": {
+      "skipped": false,
+      "command": [
+        "C:\\Users\\jakep\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/build_topological_sprite_model.py",
+        "--asset",
+        "assets\\samples\\hero_side_fixture\\spriteasset_v1.json",
+        "--profile",
+        "profiles\\prototype_32.json",
+        "--semantic-overrides",
+        "assets\\samples\\hero_side_fixture\\semantic_overrides",
+        "--semantic-override-mode",
+        "supplement",
+        "--semantic-parts",
+        "--semantic-depth-profiles",
+        "--semantic-depth-profile",
+        "humanoid_voxel",
+        "--directional-morphology",
+        "--morphology-profile",
+        "fantasy_humanoid",
+        "--embodiment-params",
+        "assets\\samples\\hero_side_fixture\\embodiment_params_default.json",
+        "--depth-mode",
+        "mylar_edt",
+        "--closed-body",
+        "--back-mode",
+        "front_back_sprite",
+        "--multi-view-authority",
+        "--view-authority-mode",
+        "front_back_side",
+        "--constraint-arbitration",
+        "--mesh-backend",
+        "surface_nets_patch",
+        "--patch-profile",
+        "humanoid_voxel",
+        "--macro-patches",
+        "--macro-patch-profile",
+        "humanoid_voxel",
+        "--adaptive-sdf-resolution",
+        "--resolution-profile",
+        "prototype_adaptive",
+        "--surface-net-vertex-placement",
+        "patch_qef",
+        "--qef-regularization",
+        "0.001",
+        "--qef-max-displacement",
+        "0.35",
+        "--topology-cleanup",
+        "--surface-net-smoothing-alpha",
+        "0.65",
+        "--preserve-silhouette-edges",
+        "--render-profile",
+        "voxel_sprite",
+        "--emit-semantic-parts-debug",
+        "--emit-directional-debug",
+        "--emit-embodiment-debug",
+        "--emit-patch-debug",
+        "--emit-macro-patch-debug",
+        "--emit-resolution-debug",
+        "--emit-qef-debug",
+        "--emit-topology-cleanup-debug",
+        "--emit-view-authority-debug",
+        "--out",
+        "outputs\\hero_side_fixture\\preset_tests\\thicken_torso_050\\base"
+      ],
+      "exit_code": 0,
+      "stdout_tail": "Built Track C3 topological sprite model\n  Regions: 64\n  Model: C:\\dev\\SpatialSprite\\outputs\\hero_side_fixture\\preset_tests\\thicken_torso_050\\base\\topological_model.json\n  Part graph: C:\\dev\\SpatialSprite\\outputs\\hero_side_fixture\\preset_tests\\thicken_torso_050\\base\\part_graph.json\n  Validation: C:\\dev\\SpatialSprite\\outputs\\hero_side_fixture\\preset_tests\\thicken_torso_050\\base\\validation_report.json",
+      "stderr_tail": ""
+    }
+  },
+  "edited": {
+    "label": "thicken_torso",
+    "params": "C:\\dev\\SpatialSprite\\outputs\\hero_side_fixture\\preset_tests\\thicken_torso_050\\edited_params.json",
+    "output_dir": "C:\\dev\\SpatialSprite\\outputs\\hero_side_fixture\\preset_tests\\thicken_torso_050\\edited",
+    "build": {
+      "skipped": false,
+      "command": [
+        "C:\\Users\\jakep\\AppData\\Local\\Programs\\Python\\Python312\\python.exe",
+        "tools/build_topological_sprite_model.py",
+        "--asset",
+        "assets\\samples\\hero_side_fixture\\spriteasset_v1.json",
+        "--profile",
+        "profiles\\prototype_32.json",
+        "--semantic-overrides",
+        "assets\\samples\\hero_side_fixture\\semantic_overrides",
+        "--semantic-override-mode",
+        "supplement",
+        "--semantic-parts",
+        "--semantic-depth-profiles",
+        "--semantic-depth-profile",
+        "humanoid_voxel",
+        "--directional-morphology",
+        "--morphology-profile",
+        "fantasy_humanoid",
+        "--embodiment-params",
+        "outputs\\hero_side_fixture\\preset_tests\\thicken_torso_050\\edited_params.json",
+        "--depth-mode",
+        "mylar_edt",
+        "--closed-body",
+        "--back-mode",
+        "front_back_sprite",
+        "--multi-view-authority",
+        "--view-authority-mode",
+        "front_back_side",
+        "--constraint-arbitration",
+        "--mesh-backend",
+        "surface_nets_patch",
+        "--patch-profile",
+        "humanoid_voxel",
+        "--macro-patches",
+        "--macro-patch-profile",
+        "humanoid_voxel",
+        "--adaptive-sdf-resolution",
+        "--resolution-profile",
+        "prototype_adaptive",
+        "--surface-net-vertex-placement",
+        "patch_qef",
+        "--qef-regularization",
+        "0.001",
+        "--qef-max-displacement",
+        "0.35",
+        "--topology-cleanup",
+        "--surface-net-smoothing-alpha",
+        "0.65",
+        "--preserve-silhouette-edges",
+        "--render-profile",
+        "voxel_sprite",
+        "--emit-semantic-parts-debug",
+        "--emit-directional-debug",
+        "--emit-embodiment-debug",
+        "--emit-patch-debug",
+        "--emit-macro-patch-debug",
+        "--emit-resolution-debug",
+        "--emit-qef-debug",
+        "--emit-topology-cleanup-debug",
+        "--emit-view-authority-debug",
+        "--out",
+        "outputs\\hero_side_fixture\\preset_tests\\thicken_torso_050\\edited"
+      ],
+      "exit_code": 0,
+      "stdout_tail": "Built Track C3 topological sprite model\n  Regions: 64\n  Model: C:\\dev\\SpatialSprite\\outputs\\hero_side_fixture\\preset_tests\\thicken_torso_050\\edited\\topological_model.json\n  Part graph: C:\\dev\\SpatialSprite\\outputs\\hero_side_fixture\\preset_tests\\thicken_torso_050\\edited\\part_graph.json\n  Validation: C:\\dev\\SpatialSprite\\outputs\\hero_side_fixture\\preset_tests\\thicken_torso_050\\edited\\validation_report.json",
+      "stderr_tail": ""
+    }
+  },
+  "changed_parts": {
+    "schema": "spritespatial_changed_parts_v1",
+    "changed_parts": [
+      {
+        "part_id": "torso",
+        "changed_fields": {
+          "enabled": [
+            false,
+            true
+          ],
+          "thickness_scale": [
+            1.0,
+            1.0899999999999999
+          ],
+          "side_authority_weight": [
+            1.0,
+            0.975
+          ],
+          "topology_preservation_weight": [
+            1.0,
+            1.1
+          ],
+          "notes": [
+            "Default disabled baseline.",
+            "Gives the torso more body depth."
+          ]
+        },
+        "applied": true,
+        "skipped_reason": null
+      }
+    ],
+    "skipped_parts": []
+  },
+  "metric_deltas": {
+    "embodiment": {
+      "embodiment_parts_modified": {
+        "base": 0,
+        "edited": 1,
+        "delta": 1,
+        "changed": true
+      },
+      "embodiment_param_parts_applied": {
+        "base": [],
+        "edited": [
+          "torso"
+        ],
+        "delta": null,
+        "changed": true
+      },
+      "embodiment_param_parts_skipped": {
+        "base": {
+          "hair/hat": "disabled",
+          "torso": "disabled",
+          "equipment/shield/sword": "disabled"
+        },
+        "edited": {
+          "hair/hat": "disabled",
+          "equipment/shield/sword": "disabled"
+        },
+        "delta": null,
+        "changed": true
+      }
+    },
+    "projection": {
+      "front_projection_iou": {
+        "base": 0.9727767695099818,
+        "edited": 0.9727767695099818,
+        "delta": 0.0,
+        "changed": false
+      },
+      "back_projection_iou": {
+        "base": 0.9053030303030303,
+        "edited": 0.9034090909090909,
+        "delta": -0.0018939393939393367,
+        "changed": true
+      },
+      "side_projection_iou": {
+        "base": 0.5785997357992074,
+        "edited": 0.5710560625814863,
+        "delta": -0.007543673217721092,
+        "changed": true
+      }
+    },
+    "arbitration": {
+      "conflict_zone_count": {
+        "base": 115,
+        "edited": 115,
+        "delta": 0,
+        "changed": false
+      },
+      "topology_risk_zone_count": {
+        "base": 194,
+        "edited": 194,
+        "delta": 0,
+        "changed": false
+      },
+      "weighted_blend_region_count": {
+        "base": 23,
+        "edited": 23,
+        "delta": 0,
+        "changed": false
+      },
+      "rejected_constraint_count": {
+        "base": 152,
+        "edited": 152,
+        "delta": 0,
+        "changed": false
+      }
+    },
+    "morphology": {
+      "hat_asymmetry_ratio": {
+        "base": 2.8036581307124817,
+        "edited": 2.8036581307124817,
+        "delta": 0.0,
+        "changed": false
+      },
+      "directional_readability_score": {
+        "base": 0.2620183005928993,
+        "edited": 0.2620183005928993,
+        "delta": 0.0,
+        "changed": false
+      },
+      "front_hat_extension_score": {
+        "base": 0.013563421554863453,
+        "edited": 0.013563421554863453,
+        "delta": 0.0,
+        "changed": false
+      },
+      "back_hat_extension_score": {
+        "base": 0.03802719712257385,
+        "edited": 0.03802719712257385,
+        "delta": 0.0,
+        "changed": false
+      }
+    },
+    "sdf": {
+      "closed_volume_connected": {
+        "base": true,
+        "edited": true,
+        "delta": null,
+        "changed": false
+      },
+      "connected_component_count": {
+        "base": null,
+        "edited": null,
+        "delta": null,
+        "changed": false
+      },
+      "sdf_volume_shape": {
+        "base": [
+          45,
+          34,
+          35
+        ],
+        "edited": [
+          45,
+          34,
+          35
+        ],
+        "delta": null,
+        "changed": false
+      },
+      "side_constraint_voxels_filled": {
+        "base": null,
+        "edited": null,
+        "delta": null,
+        "changed": false
+      }
+    },
+    "mesh": {
+      "mesh_connected_components": {
+        "base": 1,
+        "edited": 1,
+        "delta": 0,
+        "changed": false
+      },
+      "degenerate_face_count": {
+        "base": 0,
+        "edited": 0,
+        "delta": 0,
+        "changed": false
+      },
+      "non_manifold_after_cleanup": {
+        "base": 6,
+        "edited": 7,
+        "delta": 1,
+        "changed": true
+      },
+      "semantic_label_preservation_passed": {
+        "base": true,
+        "edited": true,
+        "delta": null,
+        "changed": false
+      },
+      "surface_net_vertices": {
+        "base": 4326,
+        "edited": 4368,
+        "delta": 42,
+        "changed": true
+      },
+      "surface_net_faces": {
+        "base": 4324,
+        "edited": 4366,
+        "delta": 42,
+        "changed": true
+      },
+      "planar_macro_patch_count": {
+        "base": 5,
+        "edited": 5,
+        "delta": 0,
+        "changed": false
+      },
+      "qef_acceptance_ratio": {
+        "base": 0.9798890429958391,
+        "edited": 0.9787087912087912,
+        "delta": -0.0011802517870479479,
+        "changed": true
+      }
+    },
+    "render_material": {
+      "source_colour_match_score": {
+        "base": 0.7534713446442359,
+        "edited": 0.7536055159652797,
+        "delta": 0.0001341713210437634,
+        "changed": true
+      },
+      "voxel_face_readability_score": {
+        "base": 0.8492964252833066,
+        "edited": 0.8492343641845326,
+        "delta": -6.206109877404664e-05,
+        "changed": true
+      },
+      "internal_black_face_ratio": {
+        "base": 0.046022201665124884,
+        "edited": 0.04557947778286761,
+        "delta": -0.0004427238822572732,
+        "changed": true
+      }
+    }
+  },
+  "edit_valid": true,
+  "edit_changed_geometry": true,
+  "edit_preserved_hard_gates": true,
+  "hard_gates": {
+    "validation_passed": true,
+    "mesh_connected": true,
+    "degenerate_faces_zero": true,
+    "semantic_labels_preserved": true,
+    "closed_volume_connected": true
+  },
+  "likely_improvement": true,
+  "helpful_deltas": [
+    {
+      "group": "mesh",
+      "metric": "surface_net_vertices",
+      "base": 4326,
+      "edited": 4368,
+      "delta": 42,
+      "changed": true
+    },
+    {
+      "group": "mesh",
+      "metric": "surface_net_faces",
+      "base": 4324,
+      "edited": 4366,
+      "delta": 42,
+      "changed": true
+    },
+    {
+      "group": "render_material",
+      "metric": "source_colour_match_score",
+      "base": 0.7534713446442359,
+      "edited": 0.7536055159652797,
+      "delta": 0.0001341713210437634,
+      "changed": true
+    },
+    {
+      "group": "render_material",
+      "metric": "internal_black_face_ratio",
+      "base": 0.046022201665124884,
+      "edited": 0.04557947778286761,
+      "delta": -0.0004427238822572732,
+      "changed": true
+    }
+  ],
+  "harmful_deltas": [
+    {
+      "group": "projection",
+      "metric": "back_projection_iou",
+      "base": 0.9053030303030303,
+      "edited": 0.9034090909090909,
+      "delta": -0.0018939393939393367,
+      "changed": true
+    },
+    {
+      "group": "projection",
+      "metric": "side_projection_iou",
+      "base": 0.5785997357992074,
+      "edited": 0.5710560625814863,
+      "delta": -0.007543673217721092,
+      "changed": true
+    },
+    {
+      "group": "mesh",
+      "metric": "non_manifold_after_cleanup",
+      "base": 6,
+      "edited": 7,
+      "delta": 1,
+      "changed": true
+    },
+    {
+      "group": "mesh",
+      "metric": "qef_acceptance_ratio",
+      "base": 0.9798890429958391,
+      "edited": 0.9787087912087912,
+      "delta": -0.0011802517870479479,
+      "changed": true
+    },
+    {
+      "group": "render_material",
+      "metric": "voxel_face_readability_score",
+      "base": 0.8492964252833066,
+      "edited": 0.8492343641845326,
+      "delta": -6.206109877404664e-05,
+      "changed": true
+    }
+  ],
+  "neutral_deltas": [
+    {
+      "group": "embodiment",
+      "metric": "embodiment_parts_modified",
+      "base": 0,
+      "edited": 1,
+      "delta": 1,
+      "changed": true
+    },
+    {
+      "group": "embodiment",
+      "metric": "embodiment_param_parts_applied",
+      "base": [],
+      "edited": [
+        "torso"
+      ],
+      "delta": null,
+      "changed": true
+    },
+    {
+      "group": "embodiment",
+      "metric": "embodiment_param_parts_skipped",
+      "base": {
+        "hair/hat": "disabled",
+        "torso": "disabled",
+        "equipment/shield/sword": "disabled"
+      },
+      "edited": {
+        "hair/hat": "disabled",
+        "equipment/shield/sword": "disabled"
+      },
+      "delta": null,
+      "changed": true
+    },
+    {
+      "group": "projection",
+      "metric": "front_projection_iou",
+      "base": 0.9727767695099818,
+      "edited": 0.9727767695099818,
+      "delta": 0.0,
+      "changed": false
+    },
+    {
+      "group": "arbitration",
+      "metric": "conflict_zone_count",
+      "base": 115,
+      "edited": 115,
+      "delta": 0,
+      "changed": false
+    },
+    {
+      "group": "arbitration",
+      "metric": "topology_risk_zone_count",
+      "base": 194,
+      "edited": 194,
+      "delta": 0,
+      "changed": false
+    },
+    {
+      "group": "arbitration",
+      "metric": "weighted_blend_region_count",
+      "base": 23,
+      "edited": 23,
+      "delta": 0,
+      "changed": false
+    },
+    {
+      "group": "arbitration",
+      "metric": "rejected_constraint_count",
+      "base": 152,
+      "edited": 152,
+      "delta": 0,
+      "changed": false
+    },
+    {
+      "group": "morphology",
+      "metric": "hat_asymmetry_ratio",
+      "base": 2.8036581307124817,
+      "edited": 2.8036581307124817,
+      "delta": 0.0,
+      "changed": false
+    },
+    {
+      "group": "morphology",
+      "metric": "directional_readability_score",
+      "base": 0.2620183005928993,
+      "edited": 0.2620183005928993,
+      "delta": 0.0,
+      "changed": false
+    },
+    {
+      "group": "morphology",
+      "metric": "front_hat_extension_score",
+      "base": 0.013563421554863453,
+      "edited": 0.013563421554863453,
+      "delta": 0.0,
+      "changed": false
+    },
+    {
+      "group": "morphology",
+      "metric": "back_hat_extension_score",
+      "base": 0.03802719712257385,
+      "edited": 0.03802719712257385,
+      "delta": 0.0,
+      "changed": false
+    },
+    {
+      "group": "sdf",
+      "metric": "closed_volume_connected",
+      "base": true,
+      "edited": true,
+      "delta": null,
+      "changed": false
+    },
+    {
+      "group": "sdf",
+      "metric": "connected_component_count",
+      "base": null,
+      "edited": null,
+      "delta": null,
+      "changed": false
+    },
+    {
+      "group": "sdf",
+      "metric": "sdf_volume_shape",
+      "base": [
+        45,
+        34,
+        35
+      ],
+      "edited": [
+        45,
+        34,
+        35
+      ],
+      "delta": null,
+      "changed": false
+    },
+    {
+      "group": "sdf",
+      "metric": "side_constraint_voxels_filled",
+      "base": null,
+      "edited": null,
+      "delta": null,
+      "changed": false
+    },
+    {
+      "group": "mesh",
+      "metric": "mesh_connected_components",
+      "base": 1,
+      "edited": 1,
+      "delta": 0,
+      "changed": false
+    },
+    {
+      "group": "mesh",
+      "metric": "degenerate_face_count",
+      "base": 0,
+      "edited": 0,
+      "delta": 0,
+      "changed": false
+    },
+    {
+      "group": "mesh",
+      "metric": "semantic_label_preservation_passed",
+      "base": true,
+      "edited": true,
+      "delta": null,
+      "changed": false
+    },
+    {
+      "group": "mesh",
+      "metric": "planar_macro_patch_count",
+      "base": 5,
+      "edited": 5,
+      "delta": 0,
+      "changed": false
+    }
+  ],
+  "recommended_next_edit": "Keep this edit family and try a small follow-up pass on the same part; adjust one field at a time so the next diff remains explainable."
+}

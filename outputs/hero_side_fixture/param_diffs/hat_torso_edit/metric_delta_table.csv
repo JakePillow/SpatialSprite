@@ -1,0 +1,30 @@
+group,metric,base,edited,delta,changed
+embodiment,embodiment_parts_modified,0,2,2,True
+embodiment,embodiment_param_parts_applied,[],"['hair/hat', 'torso']",,True
+embodiment,embodiment_param_parts_skipped,"{'hair/hat': 'disabled', 'torso': 'disabled', 'equipment/shield/sword': 'disabled'}",{'equipment/shield/sword': 'part_not_present'},,True
+projection,front_projection_iou,0.9727767695099818,0.9727767695099818,0.0,False
+projection,back_projection_iou,0.9053030303030303,0.9034090909090909,-0.0018939393939393367,True
+projection,side_projection_iou,0.5785997357992074,0.5751633986928104,-0.003436337106397014,True
+arbitration,conflict_zone_count,115,115,0,False
+arbitration,topology_risk_zone_count,194,194,0,False
+arbitration,weighted_blend_region_count,23,23,0,False
+arbitration,rejected_constraint_count,152,152,0,False
+morphology,hat_asymmetry_ratio,2.8036581307124817,3.5040642730619114,0.7004061423494297,True
+morphology,directional_readability_score,0.2620183005928993,0.3024684086441994,0.04045010805130006,True
+morphology,front_hat_extension_score,0.013563421554863453,0.013563421554863453,0.0,False
+morphology,back_hat_extension_score,0.03802719712257385,0.04752710089087486,0.00949990376830101,True
+sdf,closed_volume_connected,True,True,,False
+sdf,connected_component_count,,,,False
+sdf,sdf_volume_shape,"[45, 34, 35]","[45, 34, 35]",,False
+sdf,side_constraint_voxels_filled,,,,False
+mesh,mesh_connected_components,1,1,0,False
+mesh,degenerate_face_count,0,0,0,False
+mesh,non_manifold_after_cleanup,6,7,1,True
+mesh,semantic_label_preservation_passed,True,True,,False
+mesh,surface_net_vertices,4326,4377,51,True
+mesh,surface_net_faces,4324,4376,52,True
+mesh,planar_macro_patch_count,5,6,1,True
+mesh,qef_acceptance_ratio,0.9798890429958391,0.9794379712131597,-0.00045107178267944636,True
+render_material,source_colour_match_score,0.7534713446442359,0.7539456503793573,0.0004743057351214164,True
+render_material,voxel_face_readability_score,0.8492964252833066,0.84935064514485,5.421986154341418e-05,True
+render_material,internal_black_face_ratio,0.046022201665124884,0.045475319926873856,-0.0005468817382510288,True

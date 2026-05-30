@@ -1,0 +1,152 @@
+{
+  "schema": "spritespatial_embodiment_preset_profile_v1",
+  "profile_id": "platformer_common",
+  "display_name": "Platformer Common",
+  "description": "Embodiment presets for compact platformer characters.",
+  "presets": [
+    {
+      "preset_id": "push_face_forward",
+      "display_name": "Push Face Forward",
+      "description": "Adds a little forward face/nose depth.",
+      "target_parts": ["face"],
+      "parameter_changes": {
+        "face": {
+          "enabled": true,
+          "z_center_offset": 0.04,
+          "front_bias": 0.28,
+          "thickness_scale": 1.08
+        }
+      },
+      "safe_ranges": {
+        "z_center_offset": [0.0, 0.08],
+        "front_bias": [0.0, 0.38],
+        "thickness_scale": [1.0, 1.16]
+      },
+      "expected_effect": "Face reads from side and oblique views.",
+      "risk_notes": "May invent a nose-like protrusion if the sprite does not imply one."
+    },
+    {
+      "preset_id": "thicken_torso",
+      "display_name": "Thicken Torso",
+      "description": "Adds rounder body volume.",
+      "target_parts": ["torso"],
+      "parameter_changes": {
+        "torso": {
+          "enabled": true,
+          "thickness_scale": 1.20,
+          "side_width_scale": 1.04,
+          "topology_preservation_weight": 1.25
+        }
+      },
+      "safe_ranges": {
+        "thickness_scale": [1.0, 1.28],
+        "side_width_scale": [1.0, 1.12]
+      },
+      "expected_effect": "Body feels less flat.",
+      "risk_notes": "Can overinflate small sprites."
+    },
+    {
+      "preset_id": "slim_torso",
+      "display_name": "Slim Torso",
+      "description": "Reduces body depth.",
+      "target_parts": ["torso"],
+      "parameter_changes": {
+        "torso": {
+          "enabled": true,
+          "thickness_scale": 0.86,
+          "side_width_scale": 0.94
+        }
+      },
+      "safe_ranges": {
+        "thickness_scale": [0.75, 1.0],
+        "side_width_scale": [0.85, 1.0]
+      },
+      "expected_effect": "Useful for over-round platformer bodies.",
+      "risk_notes": "Can become too papery."
+    },
+    {
+      "preset_id": "thicken_limbs",
+      "display_name": "Thicken Limbs",
+      "description": "Adds depth to chunky platformer limbs.",
+      "target_parts": ["left_arm", "right_arm", "left_leg", "right_leg"],
+      "parameter_changes": {
+        "left_arm": {"enabled": true, "thickness_scale": 1.15},
+        "right_arm": {"enabled": true, "thickness_scale": 1.15},
+        "left_leg": {"enabled": true, "thickness_scale": 1.12},
+        "right_leg": {"enabled": true, "thickness_scale": 1.12}
+      },
+      "safe_ranges": {
+        "thickness_scale": [1.0, 1.25]
+      },
+      "expected_effect": "Hands/legs feel less flat.",
+      "risk_notes": "Can merge with torso on tiny sprites."
+    },
+    {
+      "preset_id": "taper_limbs",
+      "display_name": "Taper Limbs",
+      "description": "Adds light taper to limbs.",
+      "target_parts": ["left_arm", "right_arm", "left_leg", "right_leg"],
+      "parameter_changes": {
+        "left_arm": {"enabled": true, "taper_strength": 0.14},
+        "right_arm": {"enabled": true, "taper_strength": 0.14},
+        "left_leg": {"enabled": true, "taper_strength": 0.18},
+        "right_leg": {"enabled": true, "taper_strength": 0.18}
+      },
+      "safe_ranges": {
+        "taper_strength": [0.0, 0.28]
+      },
+      "expected_effect": "Limbs avoid pure tube/cube read.",
+      "risk_notes": "Can make small feet feel detached."
+    },
+    {
+      "preset_id": "widen_side_profile",
+      "display_name": "Widen Side Profile",
+      "description": "Gives the character a broader side silhouette.",
+      "target_parts": ["torso", "head"],
+      "parameter_changes": {
+        "torso": {"enabled": true, "side_width_scale": 1.10},
+        "head": {"enabled": true, "side_width_scale": 1.08}
+      },
+      "safe_ranges": {
+        "side_width_scale": [1.0, 1.18]
+      },
+      "expected_effect": "Side view looks less like a thin card.",
+      "risk_notes": "May conflict with authored side if strict."
+    },
+    {
+      "preset_id": "soften_side_profile",
+      "display_name": "Soften Side Profile",
+      "description": "Reduces side width for cleaner rotations.",
+      "target_parts": ["torso", "head"],
+      "parameter_changes": {
+        "torso": {"enabled": true, "side_width_scale": 0.95},
+        "head": {"enabled": true, "side_width_scale": 0.96}
+      },
+      "safe_ranges": {
+        "side_width_scale": [0.85, 1.0]
+      },
+      "expected_effect": "Side view becomes tighter.",
+      "risk_notes": "Can look too flat if combined with slim torso."
+    },
+    {
+      "preset_id": "pull_equipment_sideways",
+      "display_name": "Pull Equipment Sideways",
+      "description": "Pushes carried equipment outward if present.",
+      "target_parts": ["equipment/shield/sword"],
+      "parameter_changes": {
+        "equipment/shield/sword": {
+          "enabled": true,
+          "side_width_scale": 1.25,
+          "thickness_scale": 1.12,
+          "side_authority_weight": 1.15
+        }
+      },
+      "safe_ranges": {
+        "side_width_scale": [1.0, 1.35],
+        "thickness_scale": [1.0, 1.2]
+      },
+      "expected_effect": "Equipment separates from body volume.",
+      "risk_notes": "Skipped when no equipment part exists."
+    }
+  ]
+}

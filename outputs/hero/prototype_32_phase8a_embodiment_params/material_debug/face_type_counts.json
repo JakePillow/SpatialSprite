@@ -1,0 +1,20 @@
+{
+  "schema": "spritespatial_voxel_render_profile_report_v1",
+  "render_profile": "voxel_sprite",
+  "profile_path": "C:\\dev\\SpatialSprite\\profiles\\render_profiles\\voxel_sprite.json",
+  "face_counts": {
+    "front_faces": 0,
+    "back_faces": 1245,
+    "side_faces": 1380,
+    "top_faces": 1553,
+    "bottom_faces": 0,
+    "outer_outline_faces": 360,
+    "internal_black_faces": 186,
+    "internal_black_faces_suppressed": 186
+  },
+  "internal_black_face_ratio": 0.04451890856869316,
+  "outer_outline_preservation_score": 0.6593406593406593,
+  "source_colour_match_score": 0.760342120946067,
+  "side_face_shading_score": 1.0,
+  "voxel_face_readability_score": 0.8415650225010736
+}

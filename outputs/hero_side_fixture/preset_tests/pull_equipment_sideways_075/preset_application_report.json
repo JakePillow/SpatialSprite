@@ -1,0 +1,42 @@
+{
+  "schema": "spritespatial_preset_application_report_v1",
+  "preset_id": "pull_equipment_sideways",
+  "display_name": "Pull Equipment Sideways",
+  "intensity": 0.75,
+  "target_parts": [
+    "equipment/shield/sword"
+  ],
+  "applied_parts": [],
+  "skipped_parts": [
+    {
+      "part_id": "equipment/shield/sword",
+      "reason": "part_not_present"
+    }
+  ],
+  "parameter_changes": {},
+  "warnings": [
+    "Preset target 'equipment/shield/sword' is not present for this asset."
+  ],
+  "valid_for_asset": false,
+  "expected_effect": "Equipment separates from the body in side view.",
+  "risk_notes": "Will be skipped if the asset has no nonempty equipment canonical part.",
+  "generated_at": "2026-05-30T12:55:08.479415+00:00",
+  "asset": "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\spriteasset_v1.json",
+  "semantic_overrides": "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\semantic_overrides",
+  "base_params": "C:\\dev\\SpatialSprite\\assets\\samples\\hero_side_fixture\\embodiment_params_default.json",
+  "out_params": "C:\\dev\\SpatialSprite\\outputs\\hero_side_fixture\\preset_tests\\pull_equipment_sideways_075\\edited_params.json",
+  "preset_profile": "C:\\dev\\SpatialSprite\\profiles\\embodiment_presets\\fantasy_humanoid.json",
+  "preset_profile_id": "fantasy_humanoid",
+  "available_parts": [
+    "boots/feet",
+    "face",
+    "hair/hat",
+    "head",
+    "left_arm",
+    "left_leg",
+    "outline",
+    "right_arm",
+    "right_leg",
+    "torso"
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "schema": "spritespatial_embodiment_params_applied_v1",
+  "embodiment_params_loaded": true,
+  "embodiment_params_path": "C:\\dev\\SpatialSprite\\outputs\\hero_side_fixture\\preset_tests\\thicken_torso_050\\edited_params.json",
+  "embodiment_params_using_defaults": false,
+  "parts_applied": [
+    "torso"
+  ],
+  "parts_skipped": {
+    "hair/hat": "disabled",
+    "equipment/shield/sword": "disabled"
+  },
+  "parts_locked": [],
+  "embodiment_parts_modified": 1,
+  "notes": {
+    "torso": "Gives the torso more body depth."
+  }
+}

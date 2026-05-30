@@ -1,0 +1,29 @@
+{
+  "schema": "spritespatial_arbitration_delta_v1",
+  "metrics": {
+    "conflict_zone_count": {
+      "base": 115,
+      "edited": 115,
+      "delta": 0,
+      "changed": false
+    },
+    "topology_risk_zone_count": {
+      "base": 194,
+      "edited": 194,
+      "delta": 0,
+      "changed": false
+    },
+    "weighted_blend_region_count": {
+      "base": 23,
+      "edited": 23,
+      "delta": 0,
+      "changed": false
+    },
+    "rejected_constraint_count": {
+      "base": 152,
+      "edited": 152,
+      "delta": 0,
+      "changed": false
+    }
+  }
+}

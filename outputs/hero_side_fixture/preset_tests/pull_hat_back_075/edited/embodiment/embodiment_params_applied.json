@@ -1,0 +1,18 @@
+{
+  "schema": "spritespatial_embodiment_params_applied_v1",
+  "embodiment_params_loaded": true,
+  "embodiment_params_path": "C:\\dev\\SpatialSprite\\outputs\\hero_side_fixture\\preset_tests\\pull_hat_back_075\\edited_params.json",
+  "embodiment_params_using_defaults": false,
+  "parts_applied": [
+    "hair/hat"
+  ],
+  "parts_skipped": {
+    "torso": "disabled",
+    "equipment/shield/sword": "disabled"
+  },
+  "parts_locked": [],
+  "embodiment_parts_modified": 1,
+  "notes": {
+    "hair/hat": "Extends hat/hair volume rearward while keeping the front compressed."
+  }
+}

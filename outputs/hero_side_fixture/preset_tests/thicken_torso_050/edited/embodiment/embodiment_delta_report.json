@@ -1,0 +1,31 @@
+{
+  "schema": "spritespatial_embodiment_delta_report_v1",
+  "modified_part_count": 1,
+  "depth_delta_parts": [
+    "torso"
+  ],
+  "morphology_delta_parts": [],
+  "depth_deltas": {
+    "torso": {
+      "before": {
+        "z_center_fraction": 0.0,
+        "half_thickness_fraction": 0.4,
+        "profile_type": "rounded_cuboid",
+        "taper_curve": "neck_waist",
+        "asymmetry": 0.0,
+        "depth_priority": 80,
+        "silhouette_preservation_weight": 0.92
+      },
+      "after": {
+        "z_center_fraction": 0.0,
+        "half_thickness_fraction": 0.43599999999999994,
+        "profile_type": "rounded_cuboid",
+        "taper_curve": "neck_waist",
+        "asymmetry": 0.0,
+        "depth_priority": 80,
+        "silhouette_preservation_weight": 0.92
+      }
+    }
+  },
+  "morphology_deltas": {}
+}
