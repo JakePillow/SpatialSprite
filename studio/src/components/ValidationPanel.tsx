@@ -13,7 +13,7 @@ export function ValidationPanel({ validation }: ValidationPanelProps) {
         {validation.metrics.map((metric) => (
           <div
             key={metric.key}
-            className="grid grid-cols-[1fr_auto] items-center gap-3 border border-studio-border bg-studio-panelAlt px-2 py-2 text-xs"
+            className="studio-panel-chrome grid grid-cols-[1fr_auto] items-center gap-3 border border-studio-border bg-studio-panelAlt px-2 py-2 text-xs"
           >
             <span className="truncate font-mono text-studio-muted">{metric.key}</span>
             <div className="flex items-center gap-2">

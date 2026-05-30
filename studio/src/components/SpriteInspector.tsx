@@ -21,8 +21,8 @@ export function SpriteInspector({ asset, mode, onModeChange }: SpriteInspectorPr
               key={option}
               type="button"
               onClick={() => onModeChange(option)}
-              className={`px-2 py-1 text-xs ${
-                mode === option ? "bg-studio-accent text-white" : "text-studio-muted hover:text-studio-text"
+              className={`studio-readout px-2 py-1 text-[10px] uppercase ${
+                mode === option ? "bg-studio-accent text-black" : "text-studio-muted hover:text-studio-text"
               }`}
               aria-pressed={mode === option}
             >
@@ -34,11 +34,11 @@ export function SpriteInspector({ asset, mode, onModeChange }: SpriteInspectorPr
     >
       <div className="grid h-full grid-cols-3 gap-3">
         {views.map((view) => (
-          <figure key={view} className="flex min-w-0 flex-col border border-studio-border bg-[#0f1318]">
-            <figcaption className="border-b border-studio-border px-2 py-1 text-xs uppercase tracking-wide text-studio-muted">
+          <figure key={view} className="studio-panel-chrome flex min-w-0 flex-col border border-studio-border bg-[#120c18]">
+            <figcaption className="studio-readout border-b border-studio-border bg-studio-panelAlt px-2 py-1 text-[10px] uppercase tracking-wide text-studio-muted">
               {view}
             </figcaption>
-            <div className="relative flex flex-1 items-center justify-center p-3">
+            <div className="studio-grid-bg relative flex flex-1 items-center justify-center p-3">
               <img
                 src={asset.sprites[view]}
                 alt={`${asset.id} ${view} sprite`}
@@ -46,7 +46,7 @@ export function SpriteInspector({ asset, mode, onModeChange }: SpriteInspectorPr
               />
               {mode === "semantic" ? (
                 <div
-                  className="pointer-events-none absolute inset-3 border border-studio-accent/70 bg-studio-accent/10 mix-blend-screen"
+                  className="pointer-events-none absolute inset-3 border border-studio-magenta/70 bg-studio-magenta/10 mix-blend-screen"
                   aria-hidden="true"
                 />
               ) : null}

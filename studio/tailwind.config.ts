@@ -6,16 +6,17 @@ export default {
     extend: {
       colors: {
         studio: {
-          bg: "#101114",
-          panel: "#17191d",
-          panelAlt: "#1d2026",
-          border: "#2a2e36",
-          text: "#e8edf3",
-          muted: "#8d99a8",
-          accent: "#4ea1ff",
-          pass: "#38b77a",
-          warn: "#d7a642",
-          fail: "#ef5d5d"
+          bg: "var(--studio-bg)",
+          panel: "var(--studio-panel)",
+          panelAlt: "var(--studio-panel-alt)",
+          border: "var(--studio-border)",
+          text: "var(--studio-text)",
+          muted: "var(--studio-muted)",
+          accent: "var(--studio-cyan)",
+          magenta: "var(--studio-magenta)",
+          pass: "var(--studio-lime)",
+          warn: "var(--studio-warn)",
+          fail: "var(--studio-fail)"
         }
       },
       fontFamily: {

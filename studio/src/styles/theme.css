@@ -1,0 +1,74 @@
+:root {
+  --studio-bg: #0d0714;
+  --studio-bg-grid: rgba(88, 225, 255, 0.08);
+  --studio-panel: #18111f;
+  --studio-panel-alt: #21172d;
+  --studio-panel-high: #2b1b3c;
+  --studio-border: #633a86;
+  --studio-border-soft: rgba(126, 90, 170, 0.55);
+  --studio-text: #f4f1ff;
+  --studio-muted: #b5a8ce;
+  --studio-cyan: #58e1ff;
+  --studio-magenta: #ff4fbc;
+  --studio-lime: #9dff73;
+  --studio-warn: #ffd15f;
+  --studio-fail: #ff5c7a;
+  --studio-shadow-cyan: 0 0 12px rgba(88, 225, 255, 0.28);
+  --studio-shadow-magenta: 0 0 12px rgba(255, 79, 188, 0.25);
+}
+
+.studio-root {
+  background:
+    radial-gradient(ellipse at 50% 120%, rgba(255, 79, 188, 0.2), transparent 52%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent 38%),
+    var(--studio-bg);
+}
+
+.studio-grid-bg {
+  background-image:
+    linear-gradient(var(--studio-bg-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--studio-bg-grid) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+.studio-chrome {
+  background:
+    linear-gradient(180deg, rgba(244, 241, 255, 0.18), rgba(255, 255, 255, 0.03) 36%, rgba(0, 0, 0, 0.28)),
+    linear-gradient(90deg, rgba(88, 225, 255, 0.16), rgba(255, 79, 188, 0.18));
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.22),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.55);
+}
+
+.studio-panel-chrome {
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.08),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(0, 0, 0, 0.45);
+}
+
+.studio-scanlines::after {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0,
+    transparent 2px,
+    rgba(0, 0, 0, 0.16) 2px,
+    rgba(0, 0, 0, 0.16) 3px
+  );
+  mix-blend-mode: multiply;
+}
+
+.studio-wordmark {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(88, 225, 255, 0.45);
+}
+
+.studio-readout {
+  font-family: "JetBrains Mono", Consolas, monospace;
+  letter-spacing: 0.04em;
+}

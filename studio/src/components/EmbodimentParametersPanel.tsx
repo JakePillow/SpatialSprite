@@ -30,7 +30,7 @@ export function EmbodimentParametersPanel({ params, onChange }: EmbodimentParame
               step={field.step}
               value={params[field.key]}
               onChange={(event) => onChange(field.key, Number(event.target.value))}
-              className="w-full border border-studio-border bg-studio-panelAlt px-2 py-1 text-right font-mono text-studio-text outline-none focus:border-studio-accent"
+              className="studio-readout w-full border border-studio-border bg-studio-panelAlt px-2 py-1 text-right text-[11px] text-studio-text outline-none focus:border-studio-accent"
             />
           </label>
         ))}

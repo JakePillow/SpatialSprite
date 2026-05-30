@@ -6,7 +6,12 @@ import { Panel } from "./Panel";
 
 type CameraView = "front" | "side" | "back";
 
-export function MeshViewer() {
+interface MeshViewerProps {
+  selectedRunId?: string;
+  mode?: "LIVE" | "MOCK";
+}
+
+export function MeshViewer({ selectedRunId, mode = "MOCK" }: MeshViewerProps) {
   const mountRef = useRef<HTMLDivElement | null>(null);
   const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
   const controlsRef = useRef<OrbitControls | null>(null);
@@ -127,7 +132,7 @@ export function MeshViewer() {
   return (
     <Panel
       title="Mesh Preview"
-      subtitle="Three.js placeholder cube"
+      subtitle={selectedRunId ? "Run selected: mesh unavailable, showing placeholder" : "No run selected, placeholder preview"}
       actions={
         <>
           <button
@@ -175,7 +180,12 @@ export function MeshViewer() {
       }
       className="min-h-0"
     >
-      <div ref={mountRef} className="h-full min-h-[280px] border border-studio-border bg-[#0d1015]" />
+      <div className="relative h-full min-h-[280px] border border-studio-border bg-[#0d1015]">
+        <div ref={mountRef} className="h-full w-full" />
+        <div className="studio-readout pointer-events-none absolute bottom-2 left-2 border border-studio-border bg-studio-panel/90 px-2 py-1 text-[10px] uppercase text-studio-muted">
+          {selectedRunId ? `${mode} run selected; mesh.json API pending` : "placeholder cube"}
+        </div>
+      </div>
     </Panel>
   );
 }

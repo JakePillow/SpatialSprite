@@ -1,3 +1,4 @@
+@import "./styles/theme.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,8 +11,8 @@ body,
 
 body {
   margin: 0;
-  background: #101114;
-  color: #e8edf3;
+  background: var(--studio-bg);
+  color: var(--studio-text);
   font-family: Inter, "Segoe UI", Arial, sans-serif;
 }
 

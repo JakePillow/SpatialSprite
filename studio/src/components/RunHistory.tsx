@@ -19,10 +19,10 @@ export function RunHistory({ runs, selectedRunId, onSelectRun }: RunHistoryProps
               key={run.id}
               type="button"
               onClick={() => onSelectRun(run.id)}
-              className={`flex w-full items-center gap-3 border px-3 py-2 text-left ${
+              className={`studio-panel-chrome flex w-full items-center gap-3 border px-3 py-2 text-left ${
                 selected
-                  ? "border-studio-accent bg-studio-accent/15"
-                  : "border-studio-border bg-studio-panelAlt hover:border-studio-muted"
+                  ? "border-studio-accent bg-studio-accent/15 shadow-[var(--studio-shadow-cyan)]"
+                  : "border-studio-border bg-studio-panelAlt hover:border-studio-accent/80"
               }`}
               aria-pressed={selected}
             >
@@ -33,6 +33,11 @@ export function RunHistory({ runs, selectedRunId, onSelectRun }: RunHistoryProps
                   {run.asset} / {run.preset}
                 </span>
               </span>
+              {run.hasParamDiffReport ? (
+                <span className="studio-readout border border-studio-pass/60 bg-studio-pass/10 px-1.5 py-0.5 text-[9px] text-studio-pass">
+                  diff
+                </span>
+              ) : null}
             </button>
           );
         })}

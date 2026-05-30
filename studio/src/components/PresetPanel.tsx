@@ -7,6 +7,7 @@ interface PresetPanelProps {
   selectedPresetId: string;
   intensity: number;
   lastAppliedPreset: string | null;
+  isApplying?: boolean;
   onSelectPreset: (presetId: string) => void;
   onIntensityChange: (value: number) => void;
   onApply: () => void;
@@ -17,6 +18,7 @@ export function PresetPanel({
   selectedPresetId,
   intensity,
   lastAppliedPreset,
+  isApplying = false,
   onSelectPreset,
   onIntensityChange,
   onApply
@@ -33,7 +35,7 @@ export function PresetPanel({
           id="preset-select"
           value={selectedPresetId}
           onChange={(event) => onSelectPreset(event.target.value)}
-          className="w-full border border-studio-border bg-studio-panelAlt px-3 py-2 text-sm text-studio-text outline-none focus:border-studio-accent"
+          className="studio-readout w-full border border-studio-border bg-studio-panelAlt px-3 py-2 text-xs text-studio-text outline-none focus:border-studio-accent"
         >
           {presets.map((preset) => (
             <option key={preset.id} value={preset.id}>
@@ -63,13 +65,14 @@ export function PresetPanel({
         <button
           type="button"
           onClick={onApply}
-          className="flex w-full items-center justify-center gap-2 border border-studio-accent bg-studio-accent px-3 py-2 text-sm font-semibold text-white hover:bg-[#368de8]"
+          disabled={isApplying}
+          className="studio-readout flex w-full items-center justify-center gap-2 border border-studio-accent bg-studio-accent px-3 py-2 text-xs font-black uppercase text-black shadow-[var(--studio-shadow-cyan)] hover:brightness-110 disabled:cursor-wait disabled:opacity-60"
         >
           <Play size={15} aria-hidden="true" />
-          Apply Preset
+          {isApplying ? "Applying..." : "Apply Preset"}
         </button>
 
-        <div className="border border-studio-border bg-studio-panelAlt px-3 py-2 text-xs text-studio-muted">
+        <div className="studio-readout border border-studio-border bg-studio-panelAlt px-3 py-2 text-[10px] text-studio-muted">
           Last applied: <span className="font-mono text-studio-text">{lastAppliedPreset ?? "none"}</span>
         </div>
       </div>
