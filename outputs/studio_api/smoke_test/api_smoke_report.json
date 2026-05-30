@@ -5,8 +5,8 @@
       "name": "apply_preset_and_fast_diff",
       "ok": true,
       "payload": {
-        "edited_params": "outputs\\studio_api\\runs\\20260530T143202Z_hero_side_fixture_pull_hat_back_075\\edited_params.json",
-        "diff_out": "outputs\\studio_api\\runs\\20260530T143202Z_hero_side_fixture_diff_pull_hat_back"
+        "edited_params": "outputs\\studio_api\\runs\\20260530T153232Z_hero_side_fixture_pull_hat_back_075\\edited_params.json",
+        "diff_out": "outputs\\studio_api\\runs\\20260530T153232Z_hero_side_fixture_diff_pull_hat_back"
       }
     },
     {
