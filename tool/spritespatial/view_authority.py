@@ -45,8 +45,15 @@ def build_view_authority_constraints(
     side_used = bool(side_alpha is not None and mode in {"front_back_side", "auto"})
     correspondence = _front_back_correspondence(parts, back_alpha, back_sprite_path, back_authority)
     side_semantic = _load_side_semantic_masks(semantic_overrides_dir, front.size)
-    side_semantic_authority = "semantic_masks" if side_semantic["label_masks"] else ("silhouette_only" if side_alpha is not None else "missing")
-    side_correspondence = _side_correspondence(parts, side_alpha, side_paths, side_authority, side_semantic_authority, side_semantic["label_masks"])
+    derived_side_semantic = _derive_side_semantic_masks_from_colour(parts, side_paths, front.size)
+    side_label_masks = _merge_label_masks(side_semantic["label_masks"], derived_side_semantic["label_masks"])
+    side_semantic_authority = (
+        "semantic_masks"
+        if side_semantic["label_masks"]
+        else ("colour_correspondence" if derived_side_semantic["label_masks"] else ("silhouette_only" if side_alpha is not None else "missing"))
+    )
+    side_depth_extents = _side_depth_extents(side_label_masks)
+    side_correspondence = _side_correspondence(parts, side_alpha, side_paths, side_authority, side_semantic_authority, side_label_masks)
     conflict_mask = np.zeros(front_alpha.shape, dtype=bool)
     if back_alpha is not None:
         conflict_mask = front_alpha ^ back_alpha
@@ -75,6 +82,8 @@ def build_view_authority_constraints(
         "side_view_correspondence_passed": side_correspondence_passed,
         "view_constraint_conflict_count": int(np.count_nonzero(conflict_mask)),
         "side_constraint_conflict_count": 0,
+        "side_semantic_label_count": len(side_label_masks),
+        "side_depth_extents": side_depth_extents,
         "initial_projection": initial_projection,
         "back_sprite_path": str(back_sprite_path) if back_sprite_path else "",
         "side_sprite_path": ";".join(str(path) for path in side_paths),
@@ -91,6 +100,8 @@ def build_view_authority_constraints(
         "left_status": left_status,
         "right_status": right_status,
         "side_view_correspondence_passed": side_correspondence_passed,
+        "side_semantic_label_count": len(side_label_masks),
+        "side_depth_extents": side_depth_extents,
         "warnings": report["warnings"],
     }
     paths = {
@@ -122,7 +133,7 @@ def build_view_authority_constraints(
     _write_side_conflict(side_alpha, front_alpha, back_alpha, paths["side_conflict_map"])
     _write_front_back_side_conflict(front_alpha, back_alpha, side_alpha, paths["front_back_side_conflict_map"])
     _write_correspondence_overlay(front.size, parts, back_alpha, paths["semantic_correspondence_overlay"])
-    _write_side_correspondence_overlay(front.size, side_alpha, side_semantic["label_masks"], paths["semantic_side_correspondence_overlay"])
+    _write_side_correspondence_overlay(front.size, side_alpha, side_label_masks, paths["semantic_side_correspondence_overlay"])
     if not emit_debug:
         # Required debug artefacts are intentionally always written; this flag is reserved for future heavy dumps.
         pass
@@ -133,7 +144,8 @@ def build_view_authority_constraints(
             "front_alpha": front_alpha,
             "back_alpha": back_alpha,
             "side_alpha": side_alpha if side_used else None,
-            "side_semantic_masks": side_semantic["label_masks"] if side_used else {},
+            "side_semantic_masks": side_label_masks if side_used else {},
+            "side_depth_extents": side_depth_extents if side_used else {},
             "front_geometry_authority": "authored_front",
             "back_geometry_authority": back_authority,
             "side_geometry_authority": side_authority,
@@ -235,6 +247,93 @@ def _load_side_semantic_masks(root: Path | None, size: tuple[int, int]) -> dict[
                 continue
             label_masks[label] = mask if label not in label_masks else (label_masks[label] | mask)
     return {"label_masks": label_masks, "dirs_checked": [str(path) for path in dirs]}
+
+
+def _derive_side_semantic_masks_from_colour(
+    parts: list[dict[str, Any]],
+    side_paths: list[Path],
+    size: tuple[int, int],
+) -> dict[str, Any]:
+    label_colours = _label_colour_signatures(parts)
+    label_masks: dict[str, np.ndarray] = {}
+    if not side_paths or not label_colours:
+        return {"label_masks": label_masks, "method": "disabled"}
+    threshold = 64.0
+    for path in side_paths:
+        if not path.exists():
+            continue
+        image = Image.open(path).convert("RGBA").resize(size, Image.Resampling.NEAREST)
+        pixels = image.load()
+        for y in range(image.height):
+            for x in range(image.width):
+                red, green, blue, alpha = pixels[x, y]
+                if alpha <= 16:
+                    continue
+                label = _nearest_colour_label((red, green, blue), label_colours, threshold)
+                if label is None:
+                    continue
+                label_masks.setdefault(label, np.zeros((size[1], size[0]), dtype=bool))[y, x] = True
+    return {
+        "label_masks": {label: mask for label, mask in label_masks.items() if bool(np.any(mask))},
+        "method": "nearest_front_part_colour",
+    }
+
+
+def _label_colour_signatures(parts: list[dict[str, Any]]) -> dict[str, list[tuple[int, int, int]]]:
+    signatures: dict[str, list[tuple[int, int, int]]] = {}
+    for part in parts:
+        label = _canonical_label(str(part.get("semantic_label", part.get("name", "unknown"))))
+        colour = part.get("dominant_colour")
+        if not isinstance(colour, (list, tuple)) or len(colour) < 3:
+            continue
+        red, green, blue = int(colour[0]), int(colour[1]), int(colour[2])
+        signatures.setdefault(label, []).append((red, green, blue))
+    return signatures
+
+
+def _nearest_colour_label(
+    colour: tuple[int, int, int],
+    signatures: dict[str, list[tuple[int, int, int]]],
+    threshold: float,
+) -> str | None:
+    if max(colour) <= 48 and "outline" in signatures:
+        return "outline"
+    best_label = None
+    best_distance = float("inf")
+    for label, colours in signatures.items():
+        for candidate in colours:
+            distance = sum((float(a) - float(b)) ** 2 for a, b in zip(colour, candidate)) ** 0.5
+            if distance < best_distance:
+                best_distance = distance
+                best_label = label
+    return best_label if best_label is not None and best_distance <= threshold else None
+
+
+def _merge_label_masks(*groups: dict[str, np.ndarray]) -> dict[str, np.ndarray]:
+    merged: dict[str, np.ndarray] = {}
+    for group in groups:
+        for label, mask in group.items():
+            canonical = _canonical_label(label)
+            merged[canonical] = np.asarray(mask, dtype=bool) if canonical not in merged else (merged[canonical] | np.asarray(mask, dtype=bool))
+    return {label: mask for label, mask in merged.items() if bool(np.any(mask))}
+
+
+def _side_depth_extents(label_masks: dict[str, np.ndarray]) -> dict[str, Any]:
+    extents: dict[str, Any] = {}
+    for label, mask in sorted(label_masks.items()):
+        coords = np.argwhere(mask)
+        if len(coords) == 0:
+            continue
+        ys = coords[:, 0]
+        xs = coords[:, 1]
+        extents[label] = {
+            "pixel_count": int(len(coords)),
+            "min_side_x": int(xs.min()),
+            "max_side_x": int(xs.max()),
+            "min_y": int(ys.min()),
+            "max_y": int(ys.max()),
+        }
+    return extents
 
 
 def _side_correspondence(

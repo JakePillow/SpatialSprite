@@ -132,4 +132,29 @@ describe("Studio API client", () => {
     expect(fetchMock.mock.calls[0][0]).toContain("/assets/old_asset");
     expect(fetchMock.mock.calls[0][1].method).toBe("DELETE");
   });
+
+  it("falls back to the delete action route when DELETE is method-blocked", async () => {
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(
+        new Response(JSON.stringify({ detail: "Method Not Allowed" }), {
+          status: 405,
+          headers: { "Content-Type": "application/json" }
+        })
+      )
+      .mockResolvedValueOnce(
+        new Response(JSON.stringify({ ok: true, asset_id: "old_asset" }), {
+          status: 200,
+          headers: { "Content-Type": "application/json" }
+        })
+      );
+    vi.stubGlobal("fetch", fetchMock);
+
+    await deleteAsset("old_asset");
+
+    expect(fetchMock.mock.calls[0][0]).toContain("/assets/old_asset");
+    expect(fetchMock.mock.calls[0][1].method).toBe("DELETE");
+    expect(fetchMock.mock.calls[1][0]).toContain("/assets/old_asset/delete");
+    expect(fetchMock.mock.calls[1][1].method).toBe("POST");
+  });
 });

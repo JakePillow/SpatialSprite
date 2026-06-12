@@ -56,8 +56,20 @@ export async function renameAsset(assetId: string, newAssetId: string) {
 }
 
 export async function deleteAsset(assetId: string) {
-  return requestJson<{ ok: boolean; asset_id: string }>(`/assets/${encodeURIComponent(assetId)}`, {
-    method: "DELETE",
-    timeoutMs: 10000
-  });
+  const path = `/assets/${encodeURIComponent(assetId)}`;
+  try {
+    return await requestJson<{ ok: boolean; asset_id: string }>(path, {
+      method: "DELETE",
+      timeoutMs: 10000
+    });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : "";
+    if (!message.includes("405")) {
+      throw error;
+    }
+    return requestJson<{ ok: boolean; asset_id: string }>(`${path}/delete`, {
+      method: "POST",
+      timeoutMs: 10000
+    });
+  }
 }

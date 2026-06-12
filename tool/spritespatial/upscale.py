@@ -203,16 +203,14 @@ def validate_upscale(
 def _scale2x(source: Image.Image) -> Image.Image:
     width, height = source.size
     output = Image.new("RGBA", (width * 2, height * 2))
-    src = source.load()
-    dst = output.load()
 
     for y in range(height):
         for x in range(width):
-            a = _get_pixel(src, width, height, x, y - 1)
-            b = _get_pixel(src, width, height, x - 1, y)
-            c = _get_pixel(src, width, height, x + 1, y)
-            d = _get_pixel(src, width, height, x, y + 1)
-            p = src[x, y]
+            a = _get_pixel_safe(source, width, height, x, y - 1)
+            b = _get_pixel_safe(source, width, height, x - 1, y)
+            c = _get_pixel_safe(source, width, height, x + 1, y)
+            d = _get_pixel_safe(source, width, height, x, y + 1)
+            p = source.getpixel((x, y))
 
             if b != c and a != d:
                 e0 = b if a == b else p
@@ -224,10 +222,10 @@ def _scale2x(source: Image.Image) -> Image.Image:
 
             ox = x * 2
             oy = y * 2
-            dst[ox, oy] = e0
-            dst[ox + 1, oy] = e1
-            dst[ox, oy + 1] = e2
-            dst[ox + 1, oy + 1] = e3
+            output.putpixel((ox, oy), e0)
+            output.putpixel((ox + 1, oy), e1)
+            output.putpixel((ox, oy + 1), e2)
+            output.putpixel((ox + 1, oy + 1), e3)
 
     return output
 
@@ -253,20 +251,18 @@ def waifu2x_placeholder(*args: Any, **kwargs: Any) -> None:
 def _scale3x(source: Image.Image) -> Image.Image:
     width, height = source.size
     output = Image.new("RGBA", (width * 3, height * 3))
-    src = source.load()
-    dst = output.load()
 
     for y in range(height):
         for x in range(width):
-            a = _get_pixel(src, width, height, x - 1, y - 1)
-            b = _get_pixel(src, width, height, x, y - 1)
-            c = _get_pixel(src, width, height, x + 1, y - 1)
-            d = _get_pixel(src, width, height, x - 1, y)
-            e = src[x, y]
-            f = _get_pixel(src, width, height, x + 1, y)
-            g = _get_pixel(src, width, height, x - 1, y + 1)
-            h = _get_pixel(src, width, height, x, y + 1)
-            i = _get_pixel(src, width, height, x + 1, y + 1)
+            a = _get_pixel_safe(source, width, height, x - 1, y - 1)
+            b = _get_pixel_safe(source, width, height, x, y - 1)
+            c = _get_pixel_safe(source, width, height, x + 1, y - 1)
+            d = _get_pixel_safe(source, width, height, x - 1, y)
+            e = source.getpixel((x, y))
+            f = _get_pixel_safe(source, width, height, x + 1, y)
+            g = _get_pixel_safe(source, width, height, x - 1, y + 1)
+            h = _get_pixel_safe(source, width, height, x, y + 1)
+            i = _get_pixel_safe(source, width, height, x + 1, y + 1)
 
             if d != f and b != h:
                 block = [
@@ -287,15 +283,16 @@ def _scale3x(source: Image.Image) -> Image.Image:
             oy = y * 3
             for row in range(3):
                 for col in range(3):
-                    dst[ox + col, oy + row] = block[row * 3 + col]
+                    output.putpixel((ox + col, oy + row), block[row * 3 + col])
 
     return output
 
 
-def _get_pixel(pixels: Any, width: int, height: int, x: int, y: int) -> tuple[int, int, int, int]:
+def _get_pixel_safe(image: Image.Image, width: int, height: int, x: int, y: int) -> tuple[int, int, int, int]:
+    """Get pixel from image with clamped coordinates, avoiding load() which can return None."""
     clamped_x = min(max(x, 0), width - 1)
     clamped_y = min(max(y, 0), height - 1)
-    return pixels[clamped_x, clamped_y]
+    return image.getpixel((clamped_x, clamped_y))
 
 
 def _palette(image: Image.Image) -> set[tuple[int, int, int, int]]:

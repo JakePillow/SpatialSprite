@@ -32,6 +32,7 @@ TEST_ASSET_IDS = (
     "studio_test_prototype_10a",
     "studio_test_rename_source_10c",
     "studio_test_renamed_10c",
+    "studio_test_delete_action_10c",
 )
 TEST_RAW_SHEETS = (
     "studio_upload_sheet_10b.png",
@@ -300,6 +301,36 @@ class StudioApiSmokeTests(unittest.TestCase):
         delete_response = self.client.delete(f"/assets/{renamed_id}")
         self.assertEqual(delete_response.status_code, 200)
         self.assertFalse(renamed_dir.exists())
+
+    def test_delete_asset_action_fallback(self) -> None:
+        asset_id = "studio_test_delete_action_10c"
+        shutil.rmtree(WORKSPACE_ROOT / "assets" / "samples" / asset_id, ignore_errors=True)
+        run_dir = self._write_candidate_run_fixture(
+            "delete_action_asset",
+            [
+                {"candidate_id": 0, "color": (255, 0, 0, 255), "deterministic_pose_hint": "front"},
+                {"candidate_id": 1, "color": (0, 255, 0, 255), "deterministic_pose_hint": "back"},
+                {"candidate_id": 2, "color": (0, 0, 255, 255), "deterministic_pose_hint": "side"},
+            ],
+        )
+        create_response = self.client.post(
+            "/assets/from-candidates",
+            json={
+                "asset_id": asset_id,
+                "candidate_run_dir": run_dir,
+                "selection_version": "view_selection_v1",
+                "mode": "strict",
+                "selection": {"front": 0, "side": 2, "back": 1},
+                "source_coverage": {"front": "authored", "side": "authored", "back": "authored"},
+            },
+        )
+        self.assertEqual(create_response.status_code, 200)
+        asset_dir = WORKSPACE_ROOT / "assets" / "samples" / asset_id
+        self.assertTrue(asset_dir.exists())
+
+        delete_response = self.client.post(f"/assets/{asset_id}/delete")
+        self.assertEqual(delete_response.status_code, 200)
+        self.assertFalse(asset_dir.exists())
 
     def test_create_asset_rejects_bad_inputs(self) -> None:
         fixture = self._candidate_fixture(2)

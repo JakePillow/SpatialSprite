@@ -69,6 +69,11 @@ def delete_asset(asset_id: str) -> dict:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
 
 
+@app.post("/assets/{asset_id}/delete")
+def delete_asset_fallback(asset_id: str) -> dict:
+    return delete_asset(asset_id)
+
+
 @app.get("/raw-sheets")
 def list_raw_sheets() -> dict:
     return {"ok": True, "sheets": services.list_raw_sheets()}
