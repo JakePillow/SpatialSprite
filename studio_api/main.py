@@ -1,9 +1,10 @@
 from __future__ import annotations
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
 
-from studio_api.models import ApiResponse, ApplyPresetRequest, RunDiffRequest
+from studio_api.models import ApiResponse, ApplyPresetRequest, BuildAssetRequest, CreateAssetFromCandidatesRequest, RenameAssetRequest, RunDiffRequest, ViewCandidatesRequest
 from studio_api import services
 
 
@@ -19,6 +20,7 @@ app.add_middleware(
         "http://127.0.0.1:5173",
         "http://localhost:5173",
     ],
+    allow_origin_regex=r"^http://(127\.0\.0\.1|localhost):\d+$",
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -45,6 +47,51 @@ def get_asset(asset_id: str) -> dict:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
 
 
+@app.patch("/assets/{asset_id}")
+def rename_asset(asset_id: str, request: RenameAssetRequest) -> dict:
+    try:
+        return services.rename_asset_service(asset_id, request.new_asset_id)
+    except FileExistsError as exc:
+        raise HTTPException(status_code=409, detail=str(exc)) from exc
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail=f"Asset not found: {asset_id}") from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+
+@app.delete("/assets/{asset_id}")
+def delete_asset(asset_id: str) -> dict:
+    try:
+        return services.delete_asset_service(asset_id)
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail=f"Asset not found: {asset_id}") from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+
+@app.get("/raw-sheets")
+def list_raw_sheets() -> dict:
+    return {"ok": True, "sheets": services.list_raw_sheets()}
+
+
+@app.post("/raw-sheets/upload")
+async def upload_raw_sheet(request: Request, filename: str = Query(..., min_length=1)) -> dict:
+    try:
+        return services.upload_raw_sheet_service(filename, await request.body())
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+
+@app.get("/file")
+def serve_file(path: str = Query(..., min_length=1)) -> FileResponse:
+    try:
+        return FileResponse(services.file_response_path(path))
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail=f"File not found: {path}") from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+
 @app.get("/presets")
 def list_presets() -> dict:
     return {"ok": True, "profiles": services.list_preset_profiles()}
@@ -56,6 +103,67 @@ def get_preset_profile(profile_id: str) -> dict:
         return {"ok": True, "profile": services.get_preset_profile(profile_id)}
     except FileNotFoundError as exc:
         raise HTTPException(status_code=404, detail=f"Preset profile not found: {profile_id}") from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+
+@app.post("/view-candidates")
+def extract_view_candidates(request: ViewCandidatesRequest) -> dict:
+    try:
+        return services.extract_view_candidates_service(
+            request.sheet_path,
+            request.asset_id,
+            request.max_candidates,
+            request.ai_rank,
+        )
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except RuntimeError as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
+
+
+@app.post("/assets/from-candidates")
+def create_asset_from_candidates(request: CreateAssetFromCandidatesRequest) -> dict:
+    try:
+        return services.create_asset_from_candidates_service(
+            request.asset_id,
+            request.candidate_run_dir,
+            request.selection_version,
+            request.mode,
+            request.selection,
+            request.source_coverage,
+        )
+    except FileExistsError as exc:
+        raise HTTPException(status_code=409, detail=str(exc)) from exc
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+
+@app.post("/jobs/build-asset")
+def start_build_asset_job(request: BuildAssetRequest) -> dict:
+    try:
+        return services.start_build_asset_job_service(request.asset_id)
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+
+@app.get("/jobs")
+def list_jobs() -> dict:
+    return {"ok": True, "jobs": services.list_build_jobs()}
+
+
+@app.get("/jobs/{job_id}")
+def get_job(job_id: str) -> dict:
+    try:
+        return {"ok": True, "job": services.get_build_job(job_id)}
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail=f"Job not found: {job_id}") from exc
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
 

@@ -3,4 +3,5 @@ numpy>=1.21.0
 pytest>=7.0.0
 fastapi>=0.100.0
 uvicorn>=0.20.0
+httpx>=0.28.0
 # scikit-image is optional for advanced validation metrics in validators.py

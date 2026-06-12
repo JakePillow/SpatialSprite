@@ -1,3 +1,14 @@
 studio/node_modules/
 studio/*.tsbuildinfo
 studio/node_modules/.vite/
+__pycache__/
+*.pyc
+outputs/studio_api/chrome_*/
+outputs/studio_api/*.log
+outputs/studio_builds/
+outputs/*/view_candidates/
+outputs/studio_api/jobs/
+outputs/studio_api/manual_smoke/
+outputs/studio_api/runs/
+outputs/my_character*/
+outputs/phase10a_*/

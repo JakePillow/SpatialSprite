@@ -1,7 +1,9 @@
 import type {
   DiffSummaryData,
   EmbodimentParameters,
+  BuildJob,
   PresetOption,
+  RawSheet,
   RunHistoryItem,
   StudioAsset,
   ValidationData
@@ -81,5 +83,38 @@ export const mockRuns: RunHistoryItem[] = [
     id: "run_001",
     preset: "pull_hat_back",
     asset: "hero_side_fixture"
+  }
+];
+
+export const mockBuildJobs: BuildJob[] = [
+  {
+    job_id: "build_mock_001",
+    asset_id: "hero_side_fixture",
+    status: "completed",
+    created_at: "2026-05-31T00:00:00Z",
+    output_dir: "outputs/studio_builds/build_mock_001",
+    validation_passed: true,
+    validation_report: {
+      passed: true,
+      mesh_connected_components: 1,
+      degenerate_face_count: 0,
+      non_manifold_after_cleanup: 0,
+      semantic_label_preservation_passed: true
+    },
+    artifacts: {
+      validation_report: "outputs/studio_builds/build_mock_001/validation_report.json",
+      manifest: "outputs/studio_builds/build_mock_001/manifest.json"
+    }
+  }
+];
+
+export const mockRawSheets: RawSheet[] = [
+  {
+    sheet_id: "mock_mario_sheet.png",
+    filename: "SNES - Super Mario World - Playable Characters - Mario.png",
+    path: "assets/raw/SNES - Super Mario World - Playable Characters - Mario.png",
+    width: 405,
+    height: 2464,
+    size_bytes: 279728
   }
 ];

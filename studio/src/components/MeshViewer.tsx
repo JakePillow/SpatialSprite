@@ -1,22 +1,59 @@
 import { Box, Eye, RotateCcw, SquareCode } from "lucide-react";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import type { BuildJob } from "../types/studio";
 import { Panel } from "./Panel";
+import { fileUrl } from "../api/sheets";
+import { buildMeshGeometry } from "../lib/buildMeshGeometry";
 
 type CameraView = "front" | "side" | "back";
+type MeshViewMode = "SOLID" | "WIREFRAME" | "VERTEX_COLOR";
+type MeshStatus = "idle" | "loading" | "loaded" | "no-mesh" | "failed";
 
 interface MeshViewerProps {
-  selectedRunId?: string;
+  job?: BuildJob | null;
   mode?: "LIVE" | "MOCK";
 }
 
-export function MeshViewer({ selectedRunId, mode = "MOCK" }: MeshViewerProps) {
+interface MeshArtifactSelection {
+  key: string;
+  path: string;
+}
+
+interface MeshStats {
+  vertices: number;
+  faces: number;
+}
+
+export function MeshViewer({ job, mode = "MOCK" }: MeshViewerProps) {
   const mountRef = useRef<HTMLDivElement | null>(null);
+  const sceneRef = useRef<THREE.Scene | null>(null);
   const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
   const controlsRef = useRef<OrbitControls | null>(null);
-  const meshRef = useRef<THREE.Mesh<THREE.BoxGeometry, THREE.MeshStandardMaterial> | null>(null);
-  const [wireframe, setWireframe] = useState(false);
+  const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
+  const placeholderRef = useRef<THREE.Mesh<THREE.BoxGeometry, THREE.MeshStandardMaterial> | null>(null);
+  const loadedMeshRef = useRef<THREE.Mesh<THREE.BufferGeometry, THREE.MeshStandardMaterial> | null>(null);
+  const [viewMode, setViewMode] = useState<MeshViewMode>("VERTEX_COLOR");
+  const [meshStatus, setMeshStatus] = useState<MeshStatus>("idle");
+  const [meshMessage, setMeshMessage] = useState<string | null>(null);
+  const [meshData, setMeshData] = useState<unknown | null>(null);
+  const [meshHasColors, setMeshHasColors] = useState(false);
+  const [meshStats, setMeshStats] = useState<MeshStats | null>(null);
+
+  const selectedArtifact = useMemo<MeshArtifactSelection | null>(() => {
+    const artifacts = job?.artifacts;
+    if (!artifacts) {
+      return null;
+    }
+    for (const key of ["mesh", "mesh_topology_cleaned", "topological_model"]) {
+      const path = artifacts[key];
+      if (path) {
+        return { key, path };
+      }
+    }
+    return null;
+  }, [job?.artifacts]);
 
   const setCameraView = useCallback((view: CameraView) => {
     const camera = cameraRef.current;
@@ -44,6 +81,7 @@ export function MeshViewer({ selectedRunId, mode = "MOCK" }: MeshViewerProps) {
 
     const scene = new THREE.Scene();
     scene.background = new THREE.Color("#0d1015");
+    sceneRef.current = scene;
 
     const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 100);
     camera.position.set(3.8, 2.4, 4.8);
@@ -53,30 +91,31 @@ export function MeshViewer({ selectedRunId, mode = "MOCK" }: MeshViewerProps) {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.domElement.className = "h-full w-full";
     mount.appendChild(renderer.domElement);
+    rendererRef.current = renderer;
 
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;
     controls.dampingFactor = 0.08;
     controlsRef.current = controls;
 
-    const cube = new THREE.Mesh(
+    const placeholder = new THREE.Mesh(
       new THREE.BoxGeometry(1.8, 2.4, 1.25),
       new THREE.MeshStandardMaterial({
         color: "#5aa9ff",
         roughness: 0.9,
         metalness: 0,
-        wireframe
+        wireframe: false
       })
     );
-    cube.rotation.y = -0.25;
-    meshRef.current = cube;
-    scene.add(cube);
+    placeholder.rotation.y = -0.25;
+    placeholderRef.current = placeholder;
+    scene.add(placeholder);
 
     const edgeLines = new THREE.LineSegments(
-      new THREE.EdgesGeometry(cube.geometry),
+      new THREE.EdgesGeometry(placeholder.geometry),
       new THREE.LineBasicMaterial({ color: "#101114" })
     );
-    cube.add(edgeLines);
+    placeholder.add(edgeLines);
 
     scene.add(new THREE.AmbientLight("#ffffff", 1.7));
     const keyLight = new THREE.DirectionalLight("#ffffff", 1.2);
@@ -113,42 +152,189 @@ export function MeshViewer({ selectedRunId, mode = "MOCK" }: MeshViewerProps) {
       resizeObserver.disconnect();
       controls.dispose();
       renderer.dispose();
-      cube.geometry.dispose();
-      cube.material.dispose();
+      placeholder.geometry.dispose();
+      placeholder.material.dispose();
+      if (loadedMeshRef.current) {
+        loadedMeshRef.current.geometry.dispose();
+        loadedMeshRef.current.material.dispose();
+      }
       mount.removeChild(renderer.domElement);
+      sceneRef.current = null;
       cameraRef.current = null;
       controlsRef.current = null;
-      meshRef.current = null;
+      rendererRef.current = null;
+      placeholderRef.current = null;
+      loadedMeshRef.current = null;
     };
   }, []);
 
   useEffect(() => {
-    if (meshRef.current) {
-      meshRef.current.material.wireframe = wireframe;
-      meshRef.current.material.needsUpdate = true;
+    if (!job || job.status !== "completed") {
+      setMeshStatus("idle");
+      setMeshMessage(null);
+      setMeshData(null);
+      setMeshHasColors(false);
+      setMeshStats(null);
+      return;
     }
-  }, [wireframe]);
+
+    if (!selectedArtifact) {
+      setMeshStatus("no-mesh");
+      setMeshMessage("No mesh artifact is available for this completed run.");
+      setMeshData(null);
+      setMeshHasColors(false);
+      setMeshStats(null);
+      return;
+    }
+
+    setMeshStatus("loading");
+    setMeshMessage(`Fetching ${selectedArtifact.key}: ${selectedArtifact.path}`);
+    setMeshData(null);
+    setMeshHasColors(false);
+    setMeshStats(null);
+
+    fetch(fileUrl(selectedArtifact.path))
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Unable to fetch mesh artifact: ${response.statusText}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setMeshData(data);
+        setMeshHasColors(meshJsonHasColors(data));
+        setMeshStatus("loaded");
+        setMeshMessage("Mesh loaded.");
+      })
+      .catch((error) => {
+        setMeshStatus("failed");
+        setMeshMessage(error instanceof Error ? error.message : String(error));
+        setMeshData(null);
+        setMeshHasColors(false);
+      });
+  }, [job?.job_id, job?.status, selectedArtifact]);
+
+  const [meshGeometry, setMeshGeometry] = useState<THREE.BufferGeometry | null>(null);
+
+  useEffect(() => {
+    if (meshStatus !== "loaded" || !meshData) {
+      setMeshGeometry(null);
+      setMeshStats(null);
+      return;
+    }
+    try {
+      const geometry = buildMeshGeometry(meshData);
+      centerAndScaleGeometry(geometry);
+      const vertexCount = geometry.getAttribute("position")?.count ?? 0;
+      const faceCount = geometry.index ? geometry.index.count / 3 : vertexCount / 3;
+      setMeshStats({ vertices: vertexCount, faces: faceCount });
+      setMeshGeometry(geometry);
+    } catch (error) {
+      setMeshGeometry(null);
+      setMeshStats(null);
+      setMeshStatus("failed");
+      setMeshMessage(error instanceof Error ? error.message : "Unable to parse mesh data.");
+    }
+  }, [meshData, meshStatus]);
+
+  useEffect(() => {
+    const scene = sceneRef.current;
+    if (!scene) {
+      return;
+    }
+
+    const placeholder = placeholderRef.current;
+    const existing = loadedMeshRef.current;
+
+    if (meshGeometry) {
+      if (placeholder && scene.children.includes(placeholder)) {
+        scene.remove(placeholder);
+      }
+      if (existing) {
+        existing.geometry.dispose();
+        existing.material.dispose();
+        scene.remove(existing);
+      }
+
+      const material = new THREE.MeshStandardMaterial({
+        color: "#8dadea",
+        roughness: 0.65,
+        metalness: 0.1,
+        side: THREE.DoubleSide,
+        wireframe: viewMode === "WIREFRAME",
+        vertexColors: viewMode === "VERTEX_COLOR" && meshHasColors
+      });
+      const mesh = new THREE.Mesh(meshGeometry, material);
+      mesh.position.set(0, 0, 0);
+      loadedMeshRef.current = mesh;
+      scene.add(mesh);
+      setCameraView("front");
+    } else {
+      if (existing) {
+        existing.geometry.dispose();
+        existing.material.dispose();
+        scene.remove(existing);
+        loadedMeshRef.current = null;
+      }
+      if (placeholder && !scene.children.includes(placeholder)) {
+        scene.add(placeholder);
+      }
+    }
+  }, [meshGeometry, viewMode, meshHasColors, setCameraView]);
+
+  useEffect(() => {
+    if (!loadedMeshRef.current) {
+      return;
+    }
+    loadedMeshRef.current.material.wireframe = viewMode === "WIREFRAME";
+    loadedMeshRef.current.material.vertexColors = viewMode === "VERTEX_COLOR" && meshHasColors;
+    loadedMeshRef.current.material.needsUpdate = true;
+  }, [viewMode, meshHasColors]);
+
+  const statusLabel = useMemo(() => {
+    if (meshStatus === "loading") {
+      return "Loading Mesh...";
+    }
+    if (meshStatus === "no-mesh") {
+      return "No Mesh Available";
+    }
+    if (meshStatus === "failed") {
+      return `Mesh Load Failed: ${meshMessage}`;
+    }
+    if (meshStatus === "loaded") {
+      if (viewMode === "VERTEX_COLOR") {
+        return meshHasColors ? "Vertex Color mode" : "Vertex Color unavailable";
+      }
+      return viewMode === "WIREFRAME" ? "Wireframe mode" : "Solid mode";
+    }
+    return job ? "Completed run selected; waiting for mesh" : "No run selected";
+  }, [job, meshStatus, meshMessage, viewMode, meshHasColors]);
+
+  const viewModeButtons = ["SOLID", "WIREFRAME", "VERTEX_COLOR"] as const;
 
   return (
     <Panel
       title="Mesh Preview"
-      subtitle={selectedRunId ? "Run selected: mesh unavailable, showing placeholder" : "No run selected, placeholder preview"}
+      subtitle={job ? `Run selected: ${job.job_id}` : "No build run selected"}
       actions={
-        <>
-          <button
-            type="button"
-            onClick={() => setWireframe((current) => !current)}
-            title="Toggle wireframe"
-            aria-label="Toggle wireframe"
-            aria-pressed={wireframe}
-            className={`border px-2 py-1 text-xs ${
-              wireframe
-                ? "border-studio-accent bg-studio-accent/20 text-studio-text"
-                : "border-studio-border bg-studio-panelAlt text-studio-muted hover:text-studio-text"
-            }`}
-          >
-            <SquareCode size={15} aria-hidden="true" />
-          </button>
+        <div className="flex flex-wrap gap-1">
+          {viewModeButtons.map((modeOption) => (
+            <button
+              key={modeOption}
+              type="button"
+              onClick={() => setViewMode(modeOption)}
+              title={modeOption}
+              aria-label={modeOption}
+              aria-pressed={viewMode === modeOption}
+              className={`border px-2 py-1 text-xs ${
+                viewMode === modeOption
+                  ? "border-studio-accent bg-studio-accent/20 text-studio-text"
+                  : "border-studio-border bg-studio-panelAlt text-studio-muted hover:text-studio-text"
+              }`}
+            >
+              {modeOption}
+            </button>
+          ))}
           <button
             type="button"
             onClick={() => setCameraView("front")}
@@ -176,16 +362,63 @@ export function MeshViewer({ selectedRunId, mode = "MOCK" }: MeshViewerProps) {
           >
             <RotateCcw size={15} aria-hidden="true" />
           </button>
-        </>
+        </div>
       }
       className="min-h-0"
     >
       <div className="relative h-full min-h-[280px] border border-studio-border bg-[#0d1015]">
         <div ref={mountRef} className="h-full w-full" />
-        <div className="studio-readout pointer-events-none absolute bottom-2 left-2 border border-studio-border bg-studio-panel/90 px-2 py-1 text-[10px] uppercase text-studio-muted">
-          {selectedRunId ? `${mode} run selected; mesh.json API pending` : "placeholder cube"}
+        <div className="studio-readout pointer-events-none absolute bottom-2 left-2 max-w-[min(32rem,calc(100%-1rem))] border border-studio-border bg-studio-panel/90 px-2 py-1 text-[10px] uppercase text-studio-muted">
+          <p className={meshStatus === "failed" ? "text-studio-fail" : "text-studio-muted"}>{statusLabel}</p>
+          <dl className="mt-1 grid grid-cols-[92px_1fr] gap-x-2 gap-y-0.5 normal-case">
+            <DebugRow label="job" value={job?.job_id ?? "none"} />
+            <DebugRow label="artifact" value={selectedArtifact ? selectedArtifact.key : "none"} />
+            <DebugRow label="path" value={selectedArtifact?.path ?? "none"} />
+            <DebugRow label="fetch" value={meshStatus} />
+            <DebugRow label="parse" value={meshGeometry ? "parsed" : meshStatus === "failed" ? "failed" : "pending"} />
+            <DebugRow label="message" value={meshMessage ?? "none"} />
+            <DebugRow label="vertices" value={meshStats ? String(meshStats.vertices) : "0"} />
+            <DebugRow label="faces" value={meshStats ? String(meshStats.faces) : "0"} />
+            <DebugRow label="mode" value={viewMode} />
+          </dl>
         </div>
       </div>
     </Panel>
   );
+}
+
+function DebugRow({ label, value }: { label: string; value: string }) {
+  return (
+    <>
+      <dt className="text-studio-muted">{label}</dt>
+      <dd className="truncate text-studio-text">{value}</dd>
+    </>
+  );
+}
+
+function meshJsonHasColors(data: unknown): boolean {
+  if (!data || typeof data !== "object") {
+    return false;
+  }
+  const body = data as { colors?: unknown; mesh?: { colors?: unknown } };
+  return Array.isArray(body.colors) || Array.isArray(body.mesh?.colors);
+}
+
+function centerAndScaleGeometry(geometry: THREE.BufferGeometry) {
+  geometry.computeBoundingBox();
+  const box = geometry.boundingBox;
+  if (!box) {
+    return;
+  }
+  const center = new THREE.Vector3();
+  const size = new THREE.Vector3();
+  box.getCenter(center);
+  box.getSize(size);
+  geometry.translate(-center.x, -center.y, -center.z);
+  const maxDimension = Math.max(size.x, size.y, size.z);
+  if (maxDimension > 0) {
+    geometry.scale(2.6 / maxDimension, 2.6 / maxDimension, 2.6 / maxDimension);
+  }
+  geometry.computeBoundingBox();
+  geometry.computeBoundingSphere();
 }

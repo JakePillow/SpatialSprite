@@ -7,6 +7,7 @@ interface TopStatusBarProps {
   selectedPresetId: string;
   selectedRunId?: string;
   workflowError?: string | null;
+  onReconnect?: () => void;
 }
 
 export function TopStatusBar({
@@ -15,11 +16,12 @@ export function TopStatusBar({
   selectedAssetId,
   selectedPresetId,
   selectedRunId,
-  workflowError
+  workflowError,
+  onReconnect
 }: TopStatusBarProps) {
   return (
-    <header className="studio-chrome flex h-11 shrink-0 items-center justify-between border-2 border-studio-border px-3 text-[11px]">
-      <div className="flex min-w-0 items-center gap-3">
+    <header className="studio-chrome flex h-11 min-w-0 shrink-0 items-center justify-between gap-3 overflow-hidden border-2 border-studio-border px-3 text-[11px]">
+      <div className="flex min-w-0 shrink items-center gap-3">
         <div className="flex h-7 w-7 items-center justify-center border-2 border-studio-border bg-studio-magenta text-sm font-black text-black shadow-[var(--studio-shadow-magenta)]">
           S
         </div>
@@ -31,7 +33,7 @@ export function TopStatusBar({
         </div>
       </div>
 
-      <div className="studio-readout flex items-center gap-2 text-[10px] uppercase">
+      <div className="studio-readout flex min-w-0 shrink items-center gap-2 text-[10px] uppercase">
         <span
           className={`border px-2 py-1 font-black ${
             mode === "LIVE"
@@ -41,13 +43,22 @@ export function TopStatusBar({
         >
           {mode}
         </span>
-        <span className="border border-studio-border bg-studio-panelAlt px-2 py-1 text-studio-muted">
+        {mode !== "LIVE" && onReconnect ? (
+          <button
+            type="button"
+            onClick={onReconnect}
+            className="border border-studio-cyan bg-studio-cyan/15 px-2 py-1 font-black text-studio-cyan"
+          >
+            reconnect api
+          </button>
+        ) : null}
+        <span className="min-w-0 max-w-72 truncate border border-studio-border bg-studio-panelAlt px-2 py-1 text-studio-muted">
           asset <b className="text-studio-text">{selectedAssetId}</b>
         </span>
-        <span className="border border-studio-border bg-studio-panelAlt px-2 py-1 text-studio-muted">
+        <span className="min-w-0 max-w-44 truncate border border-studio-border bg-studio-panelAlt px-2 py-1 text-studio-muted">
           preset <b className="text-studio-text">{selectedPresetId}</b>
         </span>
-        <span className="border border-studio-border bg-studio-panelAlt px-2 py-1 text-studio-muted">
+        <span className="min-w-0 max-w-72 truncate border border-studio-border bg-studio-panelAlt px-2 py-1 text-studio-muted">
           run <b className="text-studio-text">{selectedRunId || "none"}</b>
         </span>
       </div>

@@ -1,36 +1,17 @@
-import type { SpriteMode, StudioAsset } from "../types/studio";
+import type { StudioAsset } from "../types/studio";
 import { Panel } from "./Panel";
 
 interface SpriteInspectorProps {
   asset: StudioAsset;
-  mode: SpriteMode;
-  onModeChange: (mode: SpriteMode) => void;
 }
 
 const views = ["front", "back", "side"] as const;
 
-export function SpriteInspector({ asset, mode, onModeChange }: SpriteInspectorProps) {
+export function SpriteInspector({ asset }: SpriteInspectorProps) {
   return (
     <Panel
-      title="Sprite View"
-      subtitle={asset.id}
-      actions={
-        <div className="flex border border-studio-border bg-studio-panelAlt" aria-label="Sprite display mode">
-          {(["raw", "semantic"] as const).map((option) => (
-            <button
-              key={option}
-              type="button"
-              onClick={() => onModeChange(option)}
-              className={`studio-readout px-2 py-1 text-[10px] uppercase ${
-                mode === option ? "bg-studio-accent text-black" : "text-studio-muted hover:text-studio-text"
-              }`}
-              aria-pressed={mode === option}
-            >
-              {option === "raw" ? "Raw" : "Semantic Overlay"}
-            </button>
-          ))}
-        </div>
-      }
+      title="Asset Viewer"
+      subtitle={`${asset.id} / authoritative crops`}
     >
       <div className="grid h-full grid-cols-3 gap-3">
         {views.map((view) => (
@@ -44,12 +25,6 @@ export function SpriteInspector({ asset, mode, onModeChange }: SpriteInspectorPr
                 alt={`${asset.id} ${view} sprite`}
                 className="h-full max-h-36 w-auto max-w-full object-contain [image-rendering:pixelated]"
               />
-              {mode === "semantic" ? (
-                <div
-                  className="pointer-events-none absolute inset-3 border border-studio-magenta/70 bg-studio-magenta/10 mix-blend-screen"
-                  aria-hidden="true"
-                />
-              ) : null}
             </div>
           </figure>
         ))}

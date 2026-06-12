@@ -10,7 +10,7 @@ interface RunHistoryProps {
 
 export function RunHistory({ runs, selectedRunId, onSelectRun }: RunHistoryProps) {
   return (
-    <Panel title="Run History" subtitle="Mock local runs">
+    <Panel title="Run History" subtitle="Build jobs">
       <div className="space-y-2">
         {runs.map((run) => {
           const selected = run.id === selectedRunId;
@@ -30,13 +30,24 @@ export function RunHistory({ runs, selectedRunId, onSelectRun }: RunHistoryProps
               <span className="min-w-0 flex-1">
                 <span className="block truncate text-sm font-medium text-studio-text">{run.id}</span>
                 <span className="block truncate text-xs text-studio-muted">
-                  {run.asset} / {run.preset}
+                  {run.asset} / {run.status ?? run.preset}
                 </span>
+                {run.createdAt ? <span className="studio-readout block truncate text-[10px] text-studio-muted">{run.createdAt}</span> : null}
               </span>
-              {run.hasParamDiffReport ? (
-                <span className="studio-readout border border-studio-pass/60 bg-studio-pass/10 px-1.5 py-0.5 text-[9px] text-studio-pass">
-                  diff
+              {run.status ? (
+                <span
+                  className={`studio-readout border px-1.5 py-0.5 text-[9px] ${
+                    run.status === "completed"
+                      ? "border-studio-pass/60 bg-studio-pass/10 text-studio-pass"
+                      : run.status === "failed"
+                        ? "border-studio-fail/60 bg-studio-fail/10 text-studio-fail"
+                        : "border-studio-warn/60 bg-studio-warn/10 text-studio-warn"
+                  }`}
+                >
+                  {run.validationPassed === false ? "FAIL" : run.status}
                 </span>
+              ) : run.hasParamDiffReport ? (
+                <span className="studio-readout border border-studio-pass/60 bg-studio-pass/10 px-1.5 py-0.5 text-[9px] text-studio-pass">diff</span>
               ) : null}
             </button>
           );

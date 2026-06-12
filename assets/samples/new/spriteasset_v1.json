@@ -1,0 +1,134 @@
+{
+  "schema_version": "spriteasset_v1",
+  "asset_name": "new",
+  "asset_type": "character",
+  "source_sprites": {
+    "front": "front.png",
+    "back": "back.png",
+    "left": "side.png",
+    "right": "side.png"
+  },
+  "render_mode": "directional_sprite_3d",
+  "pixel_scale": 0.06,
+  "upscaling": {
+    "method": "nearest_integer",
+    "scale_factor": 2,
+    "generates_new_art_content": false,
+    "deterministic": true,
+    "output_format": "png"
+  },
+  "collision": {
+    "type": "capsule",
+    "height": 1.6,
+    "radius": 0.35
+  },
+  "source_coverage": {
+    "front": "authored",
+    "back": "authored",
+    "left": "authored_side",
+    "right": "authored_side",
+    "candidate_selection_method": "studio_manual"
+  },
+  "candidate_selection": {
+    "side": {
+      "candidate_id": 2,
+      "image_path": "outputs/my_character_a8mva7/view_candidates/20260612T011848Z_my_character_a8mva7_sheet_candidates/candidates/candidate_002.png",
+      "bbox": [
+        22,
+        49,
+        42,
+        75
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    "front": {
+      "candidate_id": 17,
+      "image_path": "outputs/my_character_a8mva7/view_candidates/20260612T011848Z_my_character_a8mva7_sheet_candidates/candidates/candidate_017.png",
+      "bbox": [
+        22,
+        113,
+        42,
+        139
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "deterministic_pose_hint": "standing_or_unknown"
+    },
+    "back": {
+      "candidate_id": 22,
+      "image_path": "outputs/my_character_a8mva7/view_candidates/20260612T011848Z_my_character_a8mva7_sheet_candidates/candidates/candidate_022.png",
+      "bbox": [
+        386,
+        113,
+        406,
+        139
+      ],
+      "size": [
+        40,
+        48
+      ],
+      "deterministic_pose_hint": "standing_or_unknown"
+    }
+  },
+  "view_selection": {
+    "version": "view_selection_v1",
+    "front": {
+      "candidate_id": 17,
+      "authority": "user_selected",
+      "required": true,
+      "image_path": "outputs/my_character_a8mva7/view_candidates/20260612T011848Z_my_character_a8mva7_sheet_candidates/candidates/candidate_017.png",
+      "bbox": [
+        22,
+        113,
+        42,
+        139
+      ],
+      "size": [
+        40,
+        48
+      ]
+    },
+    "side": {
+      "candidate_id": 2,
+      "authority": "user_selected",
+      "required": true,
+      "image_path": "outputs/my_character_a8mva7/view_candidates/20260612T011848Z_my_character_a8mva7_sheet_candidates/candidates/candidate_002.png",
+      "bbox": [
+        22,
+        49,
+        42,
+        75
+      ],
+      "size": [
+        40,
+        48
+      ]
+    },
+    "back": {
+      "candidate_id": 22,
+      "authority": "user_selected",
+      "required": true,
+      "image_path": "outputs/my_character_a8mva7/view_candidates/20260612T011848Z_my_character_a8mva7_sheet_candidates/candidates/candidate_022.png",
+      "bbox": [
+        386,
+        113,
+        406,
+        139
+      ],
+      "size": [
+        40,
+        48
+      ]
+    },
+    "mode": "strict",
+    "warnings": [
+      "Side may be front-like. Confirm manually."
+    ]
+  }
+}

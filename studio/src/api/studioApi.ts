@@ -1,8 +1,10 @@
 import type { ApplyPresetResponse } from "../types/studio";
-import { getAsset, listAssets } from "./assets";
+import { createAssetFromCandidates, deleteAsset, getAsset, listAssets, renameAsset } from "./assets";
 import { requestJson } from "./client";
+import { getJob, listJobs, startBuildAsset } from "./jobs";
 import { getPresetProfile, listPresetProfiles } from "./presets";
 import { getRun, listRuns } from "./runs";
+import { extractViewCandidates, listRawSheets, uploadRawSheet } from "./sheets";
 
 export interface ApplyPresetPayload {
   asset_id: string;
@@ -47,10 +49,19 @@ export const studioApi = {
   health,
   listAssets,
   getAsset,
+  createAssetFromCandidates,
+  renameAsset,
+  deleteAsset,
   listPresetProfiles,
   getPresetProfile,
   applyPreset,
   runDiff,
   listRuns,
-  getRun
+  getRun,
+  listRawSheets,
+  uploadRawSheet,
+  extractViewCandidates,
+  startBuildAsset,
+  listJobs,
+  getJob
 };

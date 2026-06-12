@@ -24,6 +24,30 @@ class RunDiffRequest(BaseModel):
     fast_smoke: bool = False
 
 
+class ViewCandidatesRequest(BaseModel):
+    sheet_path: str
+    asset_id: str
+    max_candidates: int = Field(default=320, ge=1, le=1000)
+    ai_rank: bool = False
+
+
+class CreateAssetFromCandidatesRequest(BaseModel):
+    asset_id: str
+    candidate_run_dir: str
+    selection_version: str = "view_selection_v1"
+    mode: str = Field(default="strict", pattern="^(strict|prototype)$")
+    selection: dict[str, int | None] = Field(default_factory=dict)
+    source_coverage: dict[str, str] = Field(default_factory=dict)
+
+
+class BuildAssetRequest(BaseModel):
+    asset_id: str
+
+
+class RenameAssetRequest(BaseModel):
+    new_asset_id: str
+
+
 class ApiResponse(BaseModel):
     ok: bool
     run_id: str | None = None

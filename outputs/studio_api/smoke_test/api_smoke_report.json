@@ -5,15 +5,44 @@
       "name": "apply_preset_and_fast_diff",
       "ok": true,
       "payload": {
-        "edited_params": "outputs\\studio_api\\runs\\20260530T153232Z_hero_side_fixture_pull_hat_back_075\\edited_params.json",
-        "diff_out": "outputs\\studio_api\\runs\\20260530T153232Z_hero_side_fixture_diff_pull_hat_back"
+        "edited_params": "outputs/studio_api/runs/20260612T012134Z_hero_side_fixture_pull_hat_back_075/edited_params.json",
+        "diff_out": "outputs/studio_api/runs/20260612T012134Z_hero_side_fixture_diff_pull_hat_back"
       }
     },
     {
       "name": "assets",
       "ok": true,
       "payload": {
-        "asset_count": 3
+        "asset_count": 14
+      }
+    },
+    {
+      "name": "build_job_failed_state_with_mocked_builder",
+      "ok": true,
+      "payload": {
+        "job_id": "build_20260612T012135039906Z_hero_side_fixture"
+      }
+    },
+    {
+      "name": "build_job_lifecycle_with_mocked_builder",
+      "ok": true,
+      "payload": {
+        "job_id": "build_20260612T012135342638Z_hero_side_fixture"
+      }
+    },
+    {
+      "name": "create_asset_from_candidate_fixture",
+      "ok": true,
+      "payload": {
+        "asset_id": "studio_test_asset_9d",
+        "asset_dir": "assets/samples/studio_test_asset_9d"
+      }
+    },
+    {
+      "name": "create_asset_rejects_duplicate_asset",
+      "ok": true,
+      "payload": {
+        "asset_id": "studio_test_duplicate_9d"
       }
     },
     {
@@ -35,6 +64,15 @@
           "humanoid_common",
           "platformer_common"
         ]
+      }
+    },
+    {
+      "name": "raw_sheets_file_serving_and_candidates",
+      "ok": true,
+      "payload": {
+        "sheet": "assets/raw/SNES - Super Mario World - Playable Characters - Mario.png",
+        "candidate_count": 12,
+        "out_dir": "outputs/mario/view_candidates/20260612T012154Z_mario_sheet_candidates"
       }
     }
   ]

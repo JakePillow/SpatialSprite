@@ -1,6 +1,11 @@
 from __future__ import annotations
 
 import argparse
+import sys
+from pathlib import Path
+
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
 
 
 def parse_args() -> argparse.Namespace:
@@ -15,6 +20,8 @@ def main() -> int:
     args = parse_args()
     if args.host not in {"127.0.0.1", "localhost"}:
         raise SystemExit("Refusing to bind non-local host in API v0.1. Use 127.0.0.1 or localhost.")
+    if str(REPO_ROOT) not in sys.path:
+        sys.path.insert(0, str(REPO_ROOT))
     try:
         import uvicorn
     except ImportError as exc:

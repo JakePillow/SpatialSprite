@@ -1,5 +1,7 @@
 export type AssetCoverage = "front_back" | "front_back_side";
 export type StudioMode = "LIVE" | "MOCK";
+export type ViewRole = "front" | "side" | "back" | "left" | "right";
+export type ViewSelectionMode = "strict" | "prototype";
 
 export interface StudioAsset {
   id: string;
@@ -77,9 +79,65 @@ export interface RunHistoryItem {
   outDir?: string;
   hasPresetReport?: boolean;
   hasParamDiffReport?: boolean;
+  status?: string;
+  createdAt?: string;
+  validationPassed?: boolean | null;
 }
 
-export type SpriteMode = "raw" | "semantic";
+export interface RawSheet {
+  sheet_id: string;
+  filename: string;
+  path: string;
+  width: number;
+  height: number;
+  size_bytes?: number;
+}
+
+export interface CandidateRecord {
+  candidate_id: number;
+  path: string;
+  bbox?: number[];
+  size?: number[];
+  has_alpha?: boolean;
+  alpha_coverage?: number;
+  complete_score?: number;
+  deterministic_pose_hint?: string;
+}
+
+export interface CandidateRun {
+  run_id: string;
+  out_dir: string;
+  candidate_contact_sheet: string;
+  candidates: CandidateRecord[];
+  candidate_report?: Record<string, unknown>;
+}
+
+export type ViewAssignments = Partial<Record<ViewRole, number>>;
+
+export interface CreateAssetResponse {
+  ok: boolean;
+  asset_id: string;
+  asset_dir: string;
+  spriteasset_path: string;
+  created_files: string[];
+  source_coverage?: Record<string, string>;
+  view_selection_path?: string;
+  warnings?: string[];
+}
+
+export interface BuildJob {
+  job_id: string;
+  asset_id: string;
+  status: "queued" | "running" | "completed" | "failed";
+  created_at?: string;
+  finished_at?: string | null;
+  output_dir?: string;
+  validation_report?: Record<string, unknown> | null;
+  validation?: Record<string, unknown> | null;
+  artifacts?: Record<string, string>;
+  error?: string | null;
+  validation_passed?: boolean | null;
+}
 
 export interface ApplyPresetResponse {
   ok: boolean;

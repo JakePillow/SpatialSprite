@@ -1,0 +1,60 @@
+{
+  "selection_version": "view_selection_v1",
+  "asset_id": "phase10a_mario_manual_1780756814187",
+  "candidate_run_id": "20260606T144017Z_phase10a_mario_manual_1780756814187_sheet_candidates",
+  "candidate_run_dir": "outputs/phase10a_mario_manual_1780756814187/view_candidates/20260606T144017Z_phase10a_mario_manual_1780756814187_sheet_candidates",
+  "mode": "strict",
+  "views": {
+    "front": {
+      "candidate_id": 0,
+      "authority": "user_selected",
+      "required": true,
+      "image_path": "outputs/phase10a_mario_manual_1780756814187/view_candidates/20260606T144017Z_phase10a_mario_manual_1780756814187_sheet_candidates/candidates/candidate_000.png",
+      "bbox": [
+        74,
+        48,
+        95,
+        75
+      ],
+      "size": [
+        40,
+        48
+      ]
+    },
+    "side": {
+      "candidate_id": 1,
+      "authority": "user_selected",
+      "required": true,
+      "image_path": "outputs/phase10a_mario_manual_1780756814187/view_candidates/20260606T144017Z_phase10a_mario_manual_1780756814187_sheet_candidates/candidates/candidate_001.png",
+      "bbox": [
+        698,
+        48,
+        719,
+        75
+      ],
+      "size": [
+        40,
+        48
+      ]
+    },
+    "back": {
+      "candidate_id": 2,
+      "authority": "user_selected",
+      "required": true,
+      "image_path": "outputs/phase10a_mario_manual_1780756814187/view_candidates/20260606T144017Z_phase10a_mario_manual_1780756814187_sheet_candidates/candidates/candidate_002.png",
+      "bbox": [
+        22,
+        49,
+        42,
+        75
+      ],
+      "size": [
+        40,
+        48
+      ]
+    }
+  },
+  "warnings": [
+    "Side may be front-like. Confirm manually."
+  ]
+}
