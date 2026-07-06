@@ -1,0 +1,143 @@
+{
+  "schema": "spritespatial_depth_field_v1",
+  "asset_id": "hair_shell",
+  "pipeline_version": "0.4.0",
+  "semantic_version": "0.2.1",
+  "depth_version": "0.3.0",
+  "mesher_version": "0.1.0",
+  "profile_pack": "humanoid_default_v2",
+  "shape": [
+    22,
+    22
+  ],
+  "region_profiles": {
+    "head": {
+      "semantic_class": "HEAD",
+      "profile": "cosine",
+      "max_depth_factor": 0.45,
+      "anisotropy": [
+        1.8,
+        0.6
+      ],
+      "blend_radius_px": 2,
+      "silhouette_pin": true,
+      "back_scale": 0.88,
+      "global_weight": 0.25,
+      "region_weight": 0.75,
+      "local_detail_weight": 0.0,
+      "layer": "region",
+      "primitive_hint": "ellipsoid",
+      "depth_priority": 90,
+      "explicit": true
+    },
+    "hair": {
+      "semantic_class": "HAIR",
+      "profile": "concave_shell",
+      "max_depth_factor": 0.12,
+      "anisotropy": [
+        2.0,
+        0.4
+      ],
+      "blend_radius_px": 2,
+      "silhouette_pin": true,
+      "back_scale": 0.35,
+      "global_weight": 0.05,
+      "region_weight": 0.55,
+      "local_detail_weight": 0.4,
+      "layer": "region",
+      "primitive_hint": "shell",
+      "depth_priority": 80,
+      "explicit": true
+    }
+  },
+  "blend_junctions": [
+    {
+      "class_a": "HAIR",
+      "class_b": "HEAD",
+      "pixel_count": 30,
+      "max_discontinuity_before": 0.27302780002355576,
+      "max_discontinuity_after": 0.17216937243938446
+    }
+  ],
+  "diagnostics": {
+    "regions": [
+      {
+        "region_id": "hair",
+        "semantic_class": "HAIR",
+        "profile_name": "concave_shell",
+        "max_depth": 0.12,
+        "actual_depth_min": 0.0,
+        "actual_depth_max": 0.48749998211860657,
+        "actual_depth_mean": 0.1296568065881729,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.07347794893818593,
+        "primitive_residual_estimate": 1.1511824740743175,
+        "explicit_profile": true,
+        "warnings": [
+          "high_primitive_residual_estimate"
+        ]
+      },
+      {
+        "region_id": "head",
+        "semantic_class": "HEAD",
+        "profile_name": "cosine",
+        "max_depth": 0.45,
+        "actual_depth_min": 0.0,
+        "actual_depth_max": 0.48749998211860657,
+        "actual_depth_mean": 0.25487497448921204,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.8287729229088183,
+        "primitive_residual_estimate": 0.6825524120444074,
+        "explicit_profile": true,
+        "warnings": []
+      }
+    ],
+    "silhouette_pin_passed": true,
+    "isolated_spike_count": 0,
+    "join_discontinuity_max": 0.17216937243938446,
+    "assigned_pixel_count": 174,
+    "opaque_pixel_count": 174
+  },
+  "validation": {
+    "schema": "spritespatial_validation_report_v1",
+    "stage": "depth_synthesis",
+    "passed": true,
+    "fatal": false,
+    "highest_severity": "WARNING",
+    "counts": {
+      "INFO": 0,
+      "WARNING": 1,
+      "ERROR": 0,
+      "FATAL": 0
+    },
+    "issues": [
+      {
+        "code": "join_discontinuity",
+        "message": "Depth discontinuity remains between HAIR and HEAD.",
+        "severity": "WARNING",
+        "region_id": null,
+        "context": {
+          "maximum": 0.17216937243938446,
+          "limit": 0.14
+        }
+      }
+    ],
+    "metadata": {}
+  },
+  "artifacts": {
+    "global_depth_field": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\hair_shell\\arrays\\global_depth_field.npy",
+    "blended_depth_field": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\hair_shell\\arrays\\blended_depth_field.npy",
+    "pinned_depth_field": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\hair_shell\\arrays\\pinned_depth_field.npy",
+    "depth_report": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\hair_shell\\depth_field_report.json",
+    "region_depth_fields": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\hair_shell\\arrays\\regions",
+    "global_depth_heatmap": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\hair_shell\\visuals\\global_depth_field.png",
+    "blended_depth_heatmap": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\hair_shell\\visuals\\blended_depth_field.png",
+    "pinned_depth_heatmap": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\hair_shell\\visuals\\pinned_depth_field.png",
+    "silhouette_pin_mask": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\hair_shell\\visuals\\silhouette_pin_mask.png",
+    "region_overlay": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\hair_shell\\visuals\\region_depth_overlay.png",
+    "cross_section": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\hair_shell\\visuals\\depth_cross_section.png",
+    "regions": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\hair_shell\\visuals\\regions"
+  }
+}

@@ -17,7 +17,7 @@ const fields: Array<{ key: keyof EmbodimentParameters; min: number; max: number;
 
 export function EmbodimentParametersPanel({ params, onChange }: EmbodimentParametersPanelProps) {
   return (
-    <Panel title="Embodiment Parameters" subtitle="Editable local state">
+    <Panel title="Embodiment Parameters" subtitle="Parameter edits">
       <div className="space-y-3">
         {fields.map((field) => (
           <label key={field.key} className="grid grid-cols-[1fr_4.5rem] items-center gap-3 text-xs text-studio-muted">

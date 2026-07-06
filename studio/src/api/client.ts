@@ -12,6 +12,9 @@ export class StudioApiError extends Error {
   }
 }
 
+export const STUDIO_MUTATION_HEADER = "X-SpriteSpatial-Studio";
+export const STUDIO_MUTATION_HEADER_VALUE = "local-api";
+
 export function getApiBase(): string {
   return (import.meta.env.VITE_STUDIO_API_BASE || "http://127.0.0.1:8787").replace(/\/+$/, "");
 }
@@ -21,6 +24,11 @@ export async function requestJson<T>(path: string, options: RequestOptions = {})
   const controller = new AbortController();
   const timeout = window.setTimeout(() => controller.abort(), timeoutMs);
   const url = `${getApiBase()}${path.startsWith("/") ? path : `/${path}`}`;
+  const method = (requestOptions.method ?? "GET").toUpperCase();
+  const mutationHeaders =
+    method === "GET" || method === "HEAD"
+      ? {}
+      : { [STUDIO_MUTATION_HEADER]: STUDIO_MUTATION_HEADER_VALUE };
 
   try {
     const response = await fetch(url, {
@@ -28,6 +36,7 @@ export async function requestJson<T>(path: string, options: RequestOptions = {})
       signal: controller.signal,
       headers: {
         "Content-Type": "application/json",
+        ...mutationHeaders,
         ...headers
       }
     });

@@ -1,0 +1,143 @@
+{
+  "schema": "spritespatial_depth_field_v1",
+  "asset_id": "weapon_plate",
+  "pipeline_version": "0.4.0",
+  "semantic_version": "0.2.1",
+  "depth_version": "0.3.0",
+  "mesher_version": "0.1.0",
+  "profile_pack": "humanoid_default_v2",
+  "shape": [
+    18,
+    28
+  ],
+  "region_profiles": {
+    "arm": {
+      "semantic_class": "ARM",
+      "profile": "convex",
+      "max_depth_factor": 0.3,
+      "anisotropy": [
+        0.65,
+        1.8
+      ],
+      "blend_radius_px": 2,
+      "silhouette_pin": true,
+      "back_scale": 0.88,
+      "global_weight": 0.15,
+      "region_weight": 0.8,
+      "local_detail_weight": 0.05,
+      "layer": "region",
+      "primitive_hint": "capsule",
+      "depth_priority": 60,
+      "explicit": true
+    },
+    "blade": {
+      "semantic_class": "WEAPON",
+      "profile": "linear",
+      "max_depth_factor": 0.14,
+      "anisotropy": [
+        2.2,
+        0.35
+      ],
+      "blend_radius_px": 1,
+      "silhouette_pin": true,
+      "back_scale": 0.55,
+      "global_weight": 0.0,
+      "region_weight": 0.85,
+      "local_detail_weight": 0.15,
+      "layer": "region",
+      "primitive_hint": "plate",
+      "depth_priority": 90,
+      "explicit": true
+    }
+  },
+  "blend_junctions": [
+    {
+      "class_a": "ARM",
+      "class_b": "WEAPON",
+      "pixel_count": 4,
+      "max_discontinuity_before": 0.26076228357851505,
+      "max_discontinuity_after": 0.16033225506544113
+    }
+  ],
+  "diagnostics": {
+    "regions": [
+      {
+        "region_id": "arm",
+        "semantic_class": "ARM",
+        "profile_name": "convex",
+        "max_depth": 0.3,
+        "actual_depth_min": 0.0,
+        "actual_depth_max": 0.3450000286102295,
+        "actual_depth_mean": 0.1693757027387619,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.16649669408798218,
+        "primitive_residual_estimate": 0.8921131373282678,
+        "explicit_profile": true,
+        "warnings": [
+          "high_primitive_residual_estimate"
+        ]
+      },
+      {
+        "region_id": "blade",
+        "semantic_class": "WEAPON",
+        "profile_name": "linear",
+        "max_depth": 0.14,
+        "actual_depth_min": 0.0,
+        "actual_depth_max": 0.0,
+        "actual_depth_mean": 0.0,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 1.0,
+        "primitive_residual_estimate": 0.0,
+        "explicit_profile": true,
+        "warnings": []
+      }
+    ],
+    "silhouette_pin_passed": true,
+    "isolated_spike_count": 0,
+    "join_discontinuity_max": 0.16033225506544113,
+    "assigned_pixel_count": 88,
+    "opaque_pixel_count": 88
+  },
+  "validation": {
+    "schema": "spritespatial_validation_report_v1",
+    "stage": "depth_synthesis",
+    "passed": true,
+    "fatal": false,
+    "highest_severity": "WARNING",
+    "counts": {
+      "INFO": 0,
+      "WARNING": 1,
+      "ERROR": 0,
+      "FATAL": 0
+    },
+    "issues": [
+      {
+        "code": "join_discontinuity",
+        "message": "Depth discontinuity remains between ARM and WEAPON.",
+        "severity": "WARNING",
+        "region_id": null,
+        "context": {
+          "maximum": 0.16033225506544113,
+          "limit": 0.14
+        }
+      }
+    ],
+    "metadata": {}
+  },
+  "artifacts": {
+    "global_depth_field": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\weapon_plate\\arrays\\global_depth_field.npy",
+    "blended_depth_field": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\weapon_plate\\arrays\\blended_depth_field.npy",
+    "pinned_depth_field": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\weapon_plate\\arrays\\pinned_depth_field.npy",
+    "depth_report": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\weapon_plate\\depth_field_report.json",
+    "region_depth_fields": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\weapon_plate\\arrays\\regions",
+    "global_depth_heatmap": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\weapon_plate\\visuals\\global_depth_field.png",
+    "blended_depth_heatmap": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\weapon_plate\\visuals\\blended_depth_field.png",
+    "pinned_depth_heatmap": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\weapon_plate\\visuals\\pinned_depth_field.png",
+    "silhouette_pin_mask": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\weapon_plate\\visuals\\silhouette_pin_mask.png",
+    "region_overlay": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\weapon_plate\\visuals\\region_depth_overlay.png",
+    "cross_section": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\weapon_plate\\visuals\\depth_cross_section.png",
+    "regions": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\weapon_plate\\visuals\\regions"
+  }
+}

@@ -1,5 +1,5 @@
 import type { CandidateRecord, RawSheet } from "../types/studio";
-import { getApiBase, requestJson } from "./client";
+import { getApiBase, requestJson, STUDIO_MUTATION_HEADER, STUDIO_MUTATION_HEADER_VALUE } from "./client";
 
 export interface ViewCandidatesPayload {
   sheet_path: string;
@@ -30,6 +30,7 @@ export async function uploadRawSheet(file: File) {
       body: file,
       signal: controller.signal,
       headers: {
+        [STUDIO_MUTATION_HEADER]: STUDIO_MUTATION_HEADER_VALUE,
         "Content-Type": file.type || "application/octet-stream"
       }
     });

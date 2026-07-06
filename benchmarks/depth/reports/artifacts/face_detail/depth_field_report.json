@@ -1,0 +1,184 @@
+{
+  "schema": "spritespatial_depth_field_v1",
+  "asset_id": "face_detail",
+  "pipeline_version": "0.4.0",
+  "semantic_version": "0.2.1",
+  "depth_version": "0.3.0",
+  "mesher_version": "0.1.0",
+  "profile_pack": "humanoid_default_v2",
+  "shape": [
+    20,
+    20
+  ],
+  "region_profiles": {
+    "head": {
+      "semantic_class": "HEAD",
+      "profile": "cosine",
+      "max_depth_factor": 0.45,
+      "anisotropy": [
+        1.8,
+        0.6
+      ],
+      "blend_radius_px": 2,
+      "silhouette_pin": true,
+      "back_scale": 0.88,
+      "global_weight": 0.25,
+      "region_weight": 0.75,
+      "local_detail_weight": 0.0,
+      "layer": "region",
+      "primitive_hint": "ellipsoid",
+      "depth_priority": 90,
+      "explicit": true
+    },
+    "face": {
+      "semantic_class": "FACE",
+      "profile": "cosine",
+      "max_depth_factor": 0.12,
+      "anisotropy": [
+        1.5,
+        0.55
+      ],
+      "blend_radius_px": 1,
+      "silhouette_pin": true,
+      "back_scale": 0.25,
+      "global_weight": 0.0,
+      "region_weight": 0.2,
+      "local_detail_weight": 0.8,
+      "layer": "detail",
+      "primitive_hint": "surface_detail",
+      "depth_priority": 100,
+      "explicit": true
+    },
+    "eyes": {
+      "semantic_class": "EYE_DETAIL",
+      "profile": "plateau",
+      "max_depth_factor": 0.05,
+      "anisotropy": [
+        1.0,
+        1.0
+      ],
+      "blend_radius_px": 1,
+      "silhouette_pin": true,
+      "back_scale": 0.25,
+      "global_weight": 0.0,
+      "region_weight": 0.2,
+      "local_detail_weight": 0.8,
+      "layer": "detail",
+      "primitive_hint": "surface_detail",
+      "depth_priority": 100,
+      "explicit": true
+    }
+  },
+  "blend_junctions": [
+    {
+      "class_a": "EYE_DETAIL",
+      "class_b": "FACE",
+      "pixel_count": 28,
+      "max_discontinuity_before": 0.07000000029802322,
+      "max_discontinuity_after": 0.08389483392238617
+    },
+    {
+      "class_a": "FACE",
+      "class_b": "HEAD",
+      "pixel_count": 60,
+      "max_discontinuity_before": 0.3668232634663582,
+      "max_discontinuity_after": 0.23491665720939636
+    }
+  ],
+  "diagnostics": {
+    "regions": [
+      {
+        "region_id": "head",
+        "semantic_class": "HEAD",
+        "profile_name": "cosine",
+        "max_depth": 0.45,
+        "actual_depth_min": 0.0,
+        "actual_depth_max": 0.4291890561580658,
+        "actual_depth_mean": 0.12443457543849945,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.7703937915395256,
+        "primitive_residual_estimate": 0.9541107694083691,
+        "explicit_profile": true,
+        "warnings": [
+          "high_primitive_residual_estimate"
+        ]
+      },
+      {
+        "region_id": "face",
+        "semantic_class": "FACE",
+        "profile_name": "cosine",
+        "max_depth": 0.12,
+        "actual_depth_min": 0.04775796830654144,
+        "actual_depth_max": 0.14119870960712433,
+        "actual_depth_mean": 0.0832955539226532,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.3296161788748577,
+        "primitive_residual_estimate": 0.3828062191070633,
+        "explicit_profile": true,
+        "warnings": []
+      },
+      {
+        "region_id": "eyes",
+        "semantic_class": "EYE_DETAIL",
+        "profile_name": "plateau",
+        "max_depth": 0.05,
+        "actual_depth_min": 0.04775796830654144,
+        "actual_depth_max": 0.05962132662534714,
+        "actual_depth_mean": 0.05389459803700447,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.5354054402559996,
+        "primitive_residual_estimate": 0.08175848008404656,
+        "explicit_profile": true,
+        "warnings": []
+      }
+    ],
+    "silhouette_pin_passed": true,
+    "isolated_spike_count": 0,
+    "join_discontinuity_max": 0.23491665720939636,
+    "assigned_pixel_count": 224,
+    "opaque_pixel_count": 224
+  },
+  "validation": {
+    "schema": "spritespatial_validation_report_v1",
+    "stage": "depth_synthesis",
+    "passed": true,
+    "fatal": false,
+    "highest_severity": "WARNING",
+    "counts": {
+      "INFO": 0,
+      "WARNING": 1,
+      "ERROR": 0,
+      "FATAL": 0
+    },
+    "issues": [
+      {
+        "code": "join_discontinuity",
+        "message": "Depth discontinuity remains between FACE and HEAD.",
+        "severity": "WARNING",
+        "region_id": null,
+        "context": {
+          "maximum": 0.23491665720939636,
+          "limit": 0.14
+        }
+      }
+    ],
+    "metadata": {}
+  },
+  "artifacts": {
+    "global_depth_field": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\face_detail\\arrays\\global_depth_field.npy",
+    "blended_depth_field": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\face_detail\\arrays\\blended_depth_field.npy",
+    "pinned_depth_field": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\face_detail\\arrays\\pinned_depth_field.npy",
+    "depth_report": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\face_detail\\depth_field_report.json",
+    "region_depth_fields": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\face_detail\\arrays\\regions",
+    "global_depth_heatmap": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\face_detail\\visuals\\global_depth_field.png",
+    "blended_depth_heatmap": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\face_detail\\visuals\\blended_depth_field.png",
+    "pinned_depth_heatmap": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\face_detail\\visuals\\pinned_depth_field.png",
+    "silhouette_pin_mask": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\face_detail\\visuals\\silhouette_pin_mask.png",
+    "region_overlay": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\face_detail\\visuals\\region_depth_overlay.png",
+    "cross_section": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\face_detail\\visuals\\depth_cross_section.png",
+    "regions": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\face_detail\\visuals\\regions"
+  }
+}

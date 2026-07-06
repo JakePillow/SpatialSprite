@@ -2447,6 +2447,13 @@ def _build_phase5a_closed_body(
     model = {
         "schema": "spritespatial_phase5a_closed_sdf_v1",
         "pipeline": "phase5a_closed_sdf",
+        "versions": {
+            "pipeline_version": mylar["report"].get("pipeline_version", "0.4.0"),
+            "semantic_version": mylar["report"].get("semantic_version", "0.2.1"),
+            "depth_version": mylar["report"].get("depth_version", "0.3.0"),
+            "mesher_version": "0.1.0",
+            "profile_pack": mylar["report"].get("profile_pack", "humanoid_default_v2"),
+        },
         "front_texture": _res_path(cleaned_path),
         "region_overlay": _res_path(region_overlay),
         "region_id_map": _res_path(region_id_map),

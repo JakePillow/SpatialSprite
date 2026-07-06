@@ -35,6 +35,13 @@ STUDIO_BUILDS_ROOT = OUTPUTS_ROOT / "studio_builds"
 IMAGE_EXTENSIONS = {".png", ".jpg", ".jpeg", ".webp", ".gif"}
 SERVE_EXTENSIONS = IMAGE_EXTENSIONS | {".json"}
 FILE_SERVE_ROOTS = (RAW_ROOT, ASSETS_ROOT, OUTPUTS_ROOT)
+MAX_UPLOAD_BYTES = 16 * 1024 * 1024
+CANDIDATE_EXTRACTION_TIMEOUT_SECONDS = 180
+PARAM_DIFF_TIMEOUT_SECONDS = 300
+BUILD_TIMEOUT_SECONDS = 900
+MAX_ACTIVE_BUILD_JOBS = 1
+_ACTIVE_BUILD_JOB_IDS: set[str] = set()
+_BUILD_JOB_LOCK = threading.Lock()
 SEMANTIC_OVERRIDE_LABELS = (
     "outline",
     "head",
@@ -146,6 +153,9 @@ def list_raw_sheets() -> list[dict[str, Any]]:
 def upload_raw_sheet_service(filename: str, content: bytes) -> dict[str, Any]:
     if not content:
         raise ValueError("Uploaded sheet is empty.")
+    if len(content) > MAX_UPLOAD_BYTES:
+        max_mb = MAX_UPLOAD_BYTES // (1024 * 1024)
+        raise ValueError(f"Uploaded sheet must be {max_mb} MB or smaller.")
     safe_name = _safe_upload_filename(filename)
     target = _unique_raw_sheet_path(safe_name)
     RAW_ROOT.mkdir(parents=True, exist_ok=True)
@@ -195,7 +205,7 @@ def extract_view_candidates_service(
     ]
     if ai_rank:
         command.append("--ai-rank")
-    completed = subprocess.run(command, cwd=WORKSPACE_ROOT, text=True, capture_output=True)
+    completed = _run_command(command, timeout_seconds=CANDIDATE_EXTRACTION_TIMEOUT_SECONDS, label="Candidate extraction")
     if completed.returncode != 0:
         raise RuntimeError(completed.stderr.strip() or completed.stdout.strip() or "Candidate extraction failed.")
     report_path = run_dir / "candidate_report.json"
@@ -341,9 +351,17 @@ def start_build_asset_job_service(asset_id: str) -> dict[str, Any]:
         "error": None,
         "command": _build_command(asset_dir / "spriteasset_v1.json", output_dir),
     }
-    _write_job_record(record)
-    thread = threading.Thread(target=_execute_build_job, args=(job_id,), daemon=True)
-    thread.start()
+    with _BUILD_JOB_LOCK:
+        if len(_ACTIVE_BUILD_JOB_IDS) >= MAX_ACTIVE_BUILD_JOBS:
+            raise ValueError("A Studio build is already running. Wait for it to finish before starting another.")
+        _write_job_record(record)
+        _ACTIVE_BUILD_JOB_IDS.add(job_id)
+        thread = threading.Thread(target=_execute_build_job, args=(job_id,), daemon=True)
+        try:
+            thread.start()
+        except Exception:
+            _ACTIVE_BUILD_JOB_IDS.discard(job_id)
+            raise
     return {"ok": True, "job_id": job_id, "status": "queued"}
 
 
@@ -504,7 +522,7 @@ def run_diff_service(
             "--out",
             _rel(run_dir),
         ]
-        completed = subprocess.run(command, cwd=WORKSPACE_ROOT, text=True, capture_output=True)
+        completed = _run_command(command, timeout_seconds=PARAM_DIFF_TIMEOUT_SECONDS, label="Parameter diff")
         if completed.returncode != 0:
             return {
                 "ok": False,
@@ -995,49 +1013,48 @@ def _build_command(asset_path: Path, output_dir: Path) -> list[str]:
 
 def _execute_build_job(job_id: str) -> None:
     try:
-        record = _read_job_record(job_id)
-    except (FileNotFoundError, ValueError):
-        return
-    output_dir = (WORKSPACE_ROOT / str(record["output_dir"])).resolve()
-    output_dir.mkdir(parents=True, exist_ok=True)
-    record["status"] = "running"
-    record["started_at"] = _now_iso()
-    _write_job_record(record)
-    try:
-        completed = subprocess.run(
-            record["command"],
-            cwd=WORKSPACE_ROOT,
-            text=True,
-            capture_output=True,
-        )
-        if completed.returncode == 0:
-            _write_studio_preview_mesh(str(record.get("asset_id", "")), output_dir)
-        artifacts = _discover_build_artifacts(output_dir)
-        validation = _read_json(output_dir / "validation_report.json")
-        record["artifacts"] = artifacts
-        record["validation_report"] = validation or None
-        record["validation"] = validation or None
-        record["stdout_tail"] = completed.stdout[-4000:]
-        record["stderr_tail"] = completed.stderr[-4000:]
-        record["finished_at"] = _now_iso()
-        if completed.returncode == 0:
-            if _has_renderable_mesh_artifact(artifacts):
-                record["status"] = "completed"
-                record["error"] = None
+        try:
+            record = _read_job_record(job_id)
+        except (FileNotFoundError, ValueError):
+            return
+        output_dir = (WORKSPACE_ROOT / str(record["output_dir"])).resolve()
+        output_dir.mkdir(parents=True, exist_ok=True)
+        record["status"] = "running"
+        record["started_at"] = _now_iso()
+        _write_job_record(record)
+        try:
+            completed = _run_command(record["command"], timeout_seconds=BUILD_TIMEOUT_SECONDS, label="Studio build")
+            if completed.returncode == 0:
+                _write_studio_preview_mesh(str(record.get("asset_id", "")), output_dir)
+            artifacts = _discover_build_artifacts(output_dir)
+            validation = _read_json(output_dir / "validation_report.json")
+            record["artifacts"] = artifacts
+            record["validation_report"] = validation or None
+            record["validation"] = validation or None
+            record["stdout_tail"] = completed.stdout[-4000:]
+            record["stderr_tail"] = completed.stderr[-4000:]
+            record["finished_at"] = _now_iso()
+            if completed.returncode == 0:
+                if _has_renderable_mesh_artifact(artifacts):
+                    record["status"] = "completed"
+                    record["error"] = None
+                else:
+                    record["status"] = "failed"
+                    record["error"] = "Builder completed without a renderable mesh artifact."
             else:
                 record["status"] = "failed"
-                record["error"] = "Builder completed without a renderable mesh artifact."
-        else:
+                record["error"] = completed.stderr.strip() or completed.stdout.strip() or f"Builder exited {completed.returncode}"
+        except Exception as exc:  # pragma: no cover - defensive for background worker
             record["status"] = "failed"
-            record["error"] = completed.stderr.strip() or completed.stdout.strip() or f"Builder exited {completed.returncode}"
-    except Exception as exc:  # pragma: no cover - defensive for background worker
-        record["status"] = "failed"
-        record["finished_at"] = _now_iso()
-        record["error"] = str(exc)
-        record["artifacts"] = _discover_build_artifacts(output_dir)
-        record["validation_report"] = _read_json(output_dir / "validation_report.json") or None
-        record["validation"] = record["validation_report"]
-    _write_job_record(record)
+            record["finished_at"] = _now_iso()
+            record["error"] = str(exc)
+            record["artifacts"] = _discover_build_artifacts(output_dir)
+            record["validation_report"] = _read_json(output_dir / "validation_report.json") or None
+            record["validation"] = record["validation_report"]
+        _write_job_record(record)
+    finally:
+        with _BUILD_JOB_LOCK:
+            _ACTIVE_BUILD_JOB_IDS.discard(job_id)
 
 
 def _discover_build_artifacts(output_dir: Path) -> dict[str, str]:
@@ -1047,6 +1064,11 @@ def _discover_build_artifacts(output_dir: Path) -> dict[str, str]:
         "mesh": "mesh.json",
         "mesh_topology_cleaned": "mesh_topology_cleaned.json",
         "manifest": "manifest.json",
+        "depth_field_report": "mylar/depth_field_report.json",
+        "depth_heatmap": "mylar/visuals/pinned_depth_field.png",
+        "depth_region_overlay": "mylar/visuals/region_depth_overlay.png",
+        "depth_silhouette_pin": "mylar/visuals/silhouette_pin_mask.png",
+        "depth_cross_section": "mylar/visuals/depth_cross_section.png",
     }
     artifacts = {}
     for key, name in names.items():
@@ -1064,9 +1086,6 @@ def _hydrate_job_record(record: dict[str, Any]) -> dict[str, Any]:
     if not _is_under(output_dir, STUDIO_BUILDS_ROOT) or not output_dir.exists():
         return record
     artifacts = _discover_build_artifacts(output_dir)
-    if record.get("status") == "completed" and "mesh" not in artifacts:
-        _write_studio_preview_mesh(str(record.get("asset_id", "")), output_dir)
-        artifacts = _discover_build_artifacts(output_dir)
     record = {**record, "artifacts": artifacts}
     if record.get("status") == "completed" and not _has_renderable_mesh_artifact(artifacts):
         record["status"] = "failed"
@@ -1326,7 +1345,22 @@ def _read_json(path: Path) -> dict[str, Any]:
 
 def _write_json(path: Path, data: dict[str, Any]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+    temp_path = path.with_name(f".{path.name}.{threading.get_ident()}.tmp")
+    temp_path.write_text(json.dumps(data, indent=2) + "\n", encoding="utf-8")
+    temp_path.replace(path)
+
+
+def _run_command(command: list[str], timeout_seconds: int, label: str) -> subprocess.CompletedProcess[str]:
+    try:
+        return subprocess.run(
+            command,
+            cwd=WORKSPACE_ROOT,
+            text=True,
+            capture_output=True,
+            timeout=timeout_seconds,
+        )
+    except subprocess.TimeoutExpired as exc:
+        raise RuntimeError(f"{label} timed out after {timeout_seconds} seconds.") from exc
 
 
 def _rewrite_asset_identity(asset_dir: Path, old_id: str, new_id: str) -> None:

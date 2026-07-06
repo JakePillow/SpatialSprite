@@ -1,8 +1,8 @@
 # SpriteSpatial Studio
 
-Minimal local frontend shell for SpriteSpatial Studio.
+Local frontend for SpriteSpatial authoring and inspection workflows.
 
-Phase 9A is mock-only. It does not connect to the Studio API, run reconstruction, launch Godot, or load real SpriteSpatial meshes yet.
+The Studio runs in LIVE mode when `studio_api` is reachable and falls back to MOCK mode when the backend is unavailable. LIVE mode can browse real sample assets, upload raw sheets, extract view candidates, create assets, apply embodiment presets, start local reconstruction builds, inspect build artifacts, and load renderable mesh JSON outputs.
 
 ## Install
 
@@ -11,6 +11,14 @@ npm install
 ```
 
 ## Run
+
+Start the local API from the repository root:
+
+```bash
+python tools/run_studio_api.py
+```
+
+Then start the frontend:
 
 ```bash
 npm run dev
@@ -30,21 +38,16 @@ npm run test
 
 ## Current Scope
 
-- Asset browser with mock `hero` and `hero_side_fixture` assets
-- Sprite inspector with raw and semantic overlay mock modes
-- Preset controls with local state
-- Editable embodiment parameter fields
-- Mock validation metrics
-- Mock parameter diff summary
-- Mock run history
-- Three.js placeholder mesh viewer with orbit controls, wireframe toggle, and front/side/back camera buttons
+- Asset browser backed by `assets/samples` in LIVE mode with MOCK fallback assets
+- Source sheet upload, browsing, candidate extraction, and candidate-to-view assignment
+- Asset creation from selected front, side, and back candidates
+- Embodiment preset application and parameter-diff summaries from the Studio API
+- Build-job launch, polling, validation summaries, artifact links, mesh preview, and depth diagnostics
+- Three.js mesh viewer with orbit controls, wireframe toggle, and front/side/back camera buttons
 
 ## Not Implemented Yet
 
-- Backend API connection
-- Real sprite or mesh loading
-- Real run execution
-- Persistence
-- Authentication
+- Authentication beyond local Studio request headers
+- Production persistence or multi-user coordination
 - Godot integration
-- Production UI polish
+- Production packaging/polish

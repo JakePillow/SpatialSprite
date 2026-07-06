@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from fastapi import FastAPI, HTTPException, Query, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, JSONResponse
 
 from studio_api.models import ApiResponse, ApplyPresetRequest, BuildAssetRequest, CreateAssetFromCandidatesRequest, RenameAssetRequest, RunDiffRequest, ViewCandidatesRequest
 from studio_api import services
@@ -25,6 +25,21 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+STUDIO_MUTATION_HEADER = "x-spritespatial-studio"
+STUDIO_MUTATION_HEADER_VALUE = "local-api"
+MUTATING_METHODS = {"POST", "PUT", "PATCH", "DELETE"}
+
+
+@app.middleware("http")
+async def require_local_studio_header(request: Request, call_next):
+    if request.method.upper() in MUTATING_METHODS:
+        if request.headers.get(STUDIO_MUTATION_HEADER) != STUDIO_MUTATION_HEADER_VALUE:
+            return JSONResponse(
+                status_code=403,
+                content={"detail": f"Missing required {STUDIO_MUTATION_HEADER} header."},
+            )
+    return await call_next(request)
 
 
 @app.get("/health")
@@ -82,6 +97,9 @@ def list_raw_sheets() -> dict:
 @app.post("/raw-sheets/upload")
 async def upload_raw_sheet(request: Request, filename: str = Query(..., min_length=1)) -> dict:
     try:
+        content_length = request.headers.get("content-length")
+        if content_length and int(content_length) > services.MAX_UPLOAD_BYTES:
+            raise HTTPException(status_code=413, detail="Uploaded sheet is too large.")
         return services.upload_raw_sheet_service(filename, await request.body())
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
@@ -217,6 +235,8 @@ def run_diff(request: RunDiffRequest) -> ApiResponse:
         raise HTTPException(status_code=404, detail=str(exc)) from exc
     except ValueError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except RuntimeError as exc:
+        raise HTTPException(status_code=500, detail=str(exc)) from exc
 
 
 @app.get("/runs")

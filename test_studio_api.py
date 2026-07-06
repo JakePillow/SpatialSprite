@@ -44,6 +44,7 @@ class StudioApiSmokeTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls) -> None:
         cls.client = TestClient(app)
+        cls.client.headers.update({"X-SpriteSpatial-Studio": "local-api"})
         SMOKE_DIR.mkdir(parents=True, exist_ok=True)
         cls.report: dict[str, object] = {"schema": "spritespatial_studio_api_smoke_report_v1", "checks": []}
 
@@ -124,6 +125,14 @@ class StudioApiSmokeTests(unittest.TestCase):
         data = response.json()
         self.assertTrue(data["ok"])
         self._record("health", True, data)
+
+    def test_mutating_endpoint_requires_studio_header(self) -> None:
+        isolated_client = TestClient(app)
+        response = isolated_client.post(
+            "/jobs/build-asset",
+            json={"asset_id": "hero_side_fixture"},
+        )
+        self.assertEqual(response.status_code, 403)
 
     def test_assets_endpoint(self) -> None:
         response = self.client.get("/assets")
@@ -541,7 +550,7 @@ class StudioApiSmokeTests(unittest.TestCase):
         self.assertIn("Front sprite appears to be a full sheet", response.text)
 
     def test_build_job_lifecycle_with_mocked_builder(self) -> None:
-        def fake_run(command: list[str], cwd: Path, text: bool, capture_output: bool) -> subprocess.CompletedProcess:
+        def fake_run(command: list[str], cwd: Path, text: bool, capture_output: bool, timeout: int) -> subprocess.CompletedProcess:
             out_dir = Path(cwd) / command[command.index("--out") + 1]
             out_dir.mkdir(parents=True, exist_ok=True)
             (out_dir / "validation_report.json").write_text(
@@ -591,7 +600,7 @@ class StudioApiSmokeTests(unittest.TestCase):
         self.assertEqual(response.status_code, 404)
 
     def test_build_job_failed_state_with_mocked_builder(self) -> None:
-        def fake_fail(command: list[str], cwd: Path, text: bool, capture_output: bool) -> subprocess.CompletedProcess:
+        def fake_fail(command: list[str], cwd: Path, text: bool, capture_output: bool, timeout: int) -> subprocess.CompletedProcess:
             out_dir = Path(cwd) / command[command.index("--out") + 1]
             out_dir.mkdir(parents=True, exist_ok=True)
             return subprocess.CompletedProcess(command, 2, stdout="", stderr="mock builder failed")

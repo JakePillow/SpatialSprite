@@ -21,8 +21,8 @@
   },
   "passed": true,
   "files": {
-    "front_depth": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32\\front_depth.png",
-    "back_depth": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32\\back_depth.png",
-    "depth_debug_overlay": "C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32\\depth_debug_overlay.png"
+    "front_depth": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\hero\\prototype_32\\front_depth.png",
+    "back_depth": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\hero\\prototype_32\\back_depth.png",
+    "depth_debug_overlay": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\hero\\prototype_32\\depth_debug_overlay.png"
   }
 }

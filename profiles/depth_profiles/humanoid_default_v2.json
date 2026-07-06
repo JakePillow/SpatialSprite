@@ -1,0 +1,13 @@
+{
+  "name": "humanoid_default_v2",
+  "description": "Versioned layered depth-field profiles with semantic inheritance.",
+  "profiles": {
+    "HEAD": {"extends": "BODY_PART", "profile": "cosine", "max_depth_factor": 0.45, "anisotropy": [1.8, 0.6]},
+    "TORSO": {"extends": "BODY_PART", "profile": "cosine", "max_depth_factor": 0.4, "anisotropy": [1.35, 0.8]},
+    "ARM": {"extends": "BODY_PART", "profile": "convex", "max_depth_factor": 0.3, "anisotropy": [0.65, 1.8]},
+    "LEG": {"extends": "ARM", "max_depth_factor": 0.34, "anisotropy": [0.55, 2.0]},
+    "HAIR": {"extends": "SHELL_PART", "profile": "concave_shell", "max_depth_factor": 0.12, "anisotropy": [2.0, 0.4]},
+    "WEAPON": {"extends": "HARD_PROP", "profile": "linear", "max_depth_factor": 0.14, "anisotropy": [2.2, 0.35]},
+    "OUTLINE": {"extends": "LOCAL_DETAIL", "profile": "linear", "max_depth_factor": 0.0, "layer": "constraint", "global_weight": 0.0, "region_weight": 0.0, "local_detail_weight": 0.0}
+  }
+}

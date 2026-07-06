@@ -1,0 +1,48 @@
+{
+  "schema": "spritespatial_depth_benchmark_corpus_v1",
+  "cases": [
+    {
+      "id": "humanoid_blocks",
+      "size": [20, 28],
+      "regions": [
+        {"id": "head", "class": "head", "rect": [6, 2, 14, 10]},
+        {"id": "torso", "class": "torso", "rect": [5, 10, 15, 20]},
+        {"id": "left_leg", "class": "left_leg", "rect": [6, 20, 10, 27]},
+        {"id": "right_leg", "class": "right_leg", "rect": [10, 20, 14, 27]}
+      ]
+    },
+    {
+      "id": "hair_shell",
+      "size": [22, 22],
+      "regions": [
+        {"id": "head", "class": "head", "rect": [6, 5, 16, 17]},
+        {"id": "hair", "class": "hair", "rect": [4, 2, 18, 8]}
+      ]
+    },
+    {
+      "id": "weapon_plate",
+      "size": [28, 18],
+      "regions": [
+        {"id": "arm", "class": "right_arm", "rect": [3, 6, 13, 12]},
+        {"id": "blade", "class": "weapon", "rect": [13, 8, 27, 10]}
+      ]
+    },
+    {
+      "id": "cape_layer",
+      "size": [24, 30],
+      "regions": [
+        {"id": "torso", "class": "torso", "rect": [7, 5, 17, 19]},
+        {"id": "cape", "class": "cape", "rect": [4, 10, 20, 28]}
+      ]
+    },
+    {
+      "id": "face_detail",
+      "size": [20, 20],
+      "regions": [
+        {"id": "head", "class": "head", "rect": [3, 2, 17, 18]},
+        {"id": "face", "class": "face", "rect": [6, 7, 14, 15]},
+        {"id": "eyes", "class": "eye_detail", "rect": [7, 8, 13, 10]}
+      ]
+    }
+  ]
+}

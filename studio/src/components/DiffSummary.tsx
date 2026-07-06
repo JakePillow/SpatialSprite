@@ -7,7 +7,7 @@ interface DiffSummaryProps {
 
 export function DiffSummary({ diff }: DiffSummaryProps) {
   return (
-    <Panel title="Diff Summary" subtitle="Mock parameter delta">
+    <Panel title="Diff Summary" subtitle="Parameter delta">
       <div className="grid h-full grid-cols-3 gap-3 text-xs">
         <DiffColumn title="Helpful Deltas" items={diff.helpful} tone="text-studio-pass" />
         <DiffColumn title="Harmful Deltas" items={diff.harmful} tone="text-studio-warn" />

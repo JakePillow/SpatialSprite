@@ -1,0 +1,219 @@
+{
+  "schema": "spritespatial_depth_field_v1",
+  "asset_id": "humanoid_blocks",
+  "pipeline_version": "0.4.0",
+  "semantic_version": "0.2.1",
+  "depth_version": "0.3.0",
+  "mesher_version": "0.1.0",
+  "profile_pack": "humanoid_default_v2",
+  "shape": [
+    28,
+    20
+  ],
+  "region_profiles": {
+    "head": {
+      "semantic_class": "HEAD",
+      "profile": "cosine",
+      "max_depth_factor": 0.45,
+      "anisotropy": [
+        1.8,
+        0.6
+      ],
+      "blend_radius_px": 2,
+      "silhouette_pin": true,
+      "back_scale": 0.88,
+      "global_weight": 0.25,
+      "region_weight": 0.75,
+      "local_detail_weight": 0.0,
+      "layer": "region",
+      "primitive_hint": "ellipsoid",
+      "depth_priority": 90,
+      "explicit": true
+    },
+    "torso": {
+      "semantic_class": "TORSO",
+      "profile": "cosine",
+      "max_depth_factor": 0.4,
+      "anisotropy": [
+        1.35,
+        0.8
+      ],
+      "blend_radius_px": 2,
+      "silhouette_pin": true,
+      "back_scale": 0.88,
+      "global_weight": 0.3,
+      "region_weight": 0.65,
+      "local_detail_weight": 0.05,
+      "layer": "region",
+      "primitive_hint": "rounded_cuboid",
+      "depth_priority": 60,
+      "explicit": true
+    },
+    "left_leg": {
+      "semantic_class": "LEG",
+      "profile": "convex",
+      "max_depth_factor": 0.34,
+      "anisotropy": [
+        0.55,
+        2.0
+      ],
+      "blend_radius_px": 2,
+      "silhouette_pin": true,
+      "back_scale": 0.88,
+      "global_weight": 0.15,
+      "region_weight": 0.8,
+      "local_detail_weight": 0.05,
+      "layer": "region",
+      "primitive_hint": "tapered_capsule",
+      "depth_priority": 60,
+      "explicit": true
+    },
+    "right_leg": {
+      "semantic_class": "LEG",
+      "profile": "convex",
+      "max_depth_factor": 0.34,
+      "anisotropy": [
+        0.55,
+        2.0
+      ],
+      "blend_radius_px": 2,
+      "silhouette_pin": true,
+      "back_scale": 0.88,
+      "global_weight": 0.15,
+      "region_weight": 0.8,
+      "local_detail_weight": 0.05,
+      "layer": "region",
+      "primitive_hint": "tapered_capsule",
+      "depth_priority": 60,
+      "explicit": true
+    }
+  },
+  "blend_junctions": [
+    {
+      "class_a": "HEAD",
+      "class_b": "TORSO",
+      "pixel_count": 16,
+      "max_discontinuity_before": 0.18827806413173676,
+      "max_discontinuity_after": 0.10032826662063599
+    },
+    {
+      "class_a": "LEG",
+      "class_b": "TORSO",
+      "pixel_count": 16,
+      "max_discontinuity_before": 0.03949838876724243,
+      "max_discontinuity_after": 0.031497225165367126
+    }
+  ],
+  "diagnostics": {
+    "regions": [
+      {
+        "region_id": "torso",
+        "semantic_class": "TORSO",
+        "profile_name": "cosine",
+        "max_depth": 0.4,
+        "actual_depth_min": 0.0,
+        "actual_depth_max": 0.46000000834465027,
+        "actual_depth_mean": 0.24164287745952606,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.8801213270053267,
+        "primitive_residual_estimate": 0.6498680747409764,
+        "explicit_profile": true,
+        "warnings": []
+      },
+      {
+        "region_id": "left_leg",
+        "semantic_class": "LEG",
+        "profile_name": "convex",
+        "max_depth": 0.34,
+        "actual_depth_min": 0.0,
+        "actual_depth_max": 0.3530450761318207,
+        "actual_depth_mean": 0.16990037262439728,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 1.0,
+        "primitive_residual_estimate": 0.7837641899482548,
+        "explicit_profile": true,
+        "warnings": [
+          "high_primitive_residual_estimate"
+        ]
+      },
+      {
+        "region_id": "right_leg",
+        "semantic_class": "LEG",
+        "profile_name": "convex",
+        "max_depth": 0.34,
+        "actual_depth_min": 0.0,
+        "actual_depth_max": 0.3530450761318207,
+        "actual_depth_mean": 0.16990037262439728,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 1.0,
+        "primitive_residual_estimate": 0.7837641899482548,
+        "explicit_profile": true,
+        "warnings": [
+          "high_primitive_residual_estimate"
+        ]
+      },
+      {
+        "region_id": "head",
+        "semantic_class": "HEAD",
+        "profile_name": "cosine",
+        "max_depth": 0.45,
+        "actual_depth_min": 0.0,
+        "actual_depth_max": 0.4731762409210205,
+        "actual_depth_mean": 0.22728091478347778,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.7839120278755825,
+        "primitive_residual_estimate": 0.7999920537950209,
+        "explicit_profile": true,
+        "warnings": [
+          "high_primitive_residual_estimate"
+        ]
+      }
+    ],
+    "silhouette_pin_passed": true,
+    "isolated_spike_count": 0,
+    "join_discontinuity_max": 0.10032826662063599,
+    "assigned_pixel_count": 220,
+    "opaque_pixel_count": 220
+  },
+  "validation": {
+    "schema": "spritespatial_validation_report_v1",
+    "stage": "depth_synthesis",
+    "passed": true,
+    "fatal": false,
+    "highest_severity": "INFO",
+    "counts": {
+      "INFO": 1,
+      "WARNING": 0,
+      "ERROR": 0,
+      "FATAL": 0
+    },
+    "issues": [
+      {
+        "code": "depth_field_valid",
+        "message": "Depth field passed all acceptance criteria.",
+        "severity": "INFO",
+        "region_id": null,
+        "context": {}
+      }
+    ],
+    "metadata": {}
+  },
+  "artifacts": {
+    "global_depth_field": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\humanoid_blocks\\arrays\\global_depth_field.npy",
+    "blended_depth_field": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\humanoid_blocks\\arrays\\blended_depth_field.npy",
+    "pinned_depth_field": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\humanoid_blocks\\arrays\\pinned_depth_field.npy",
+    "depth_report": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\humanoid_blocks\\depth_field_report.json",
+    "region_depth_fields": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\humanoid_blocks\\arrays\\regions",
+    "global_depth_heatmap": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\humanoid_blocks\\visuals\\global_depth_field.png",
+    "blended_depth_heatmap": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\humanoid_blocks\\visuals\\blended_depth_field.png",
+    "pinned_depth_heatmap": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\humanoid_blocks\\visuals\\pinned_depth_field.png",
+    "silhouette_pin_mask": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\humanoid_blocks\\visuals\\silhouette_pin_mask.png",
+    "region_overlay": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\humanoid_blocks\\visuals\\region_depth_overlay.png",
+    "cross_section": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\humanoid_blocks\\visuals\\depth_cross_section.png",
+    "regions": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\humanoid_blocks\\visuals\\regions"
+  }
+}

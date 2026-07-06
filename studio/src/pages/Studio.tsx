@@ -1,7 +1,9 @@
 import { AssetBrowser } from "../components/AssetBrowser";
 import { AssetCreationPanel } from "../components/AssetCreationPanel";
 import { BuildArtifactsPanel } from "../components/BuildArtifactsPanel";
+import { BuildPanel } from "../components/BuildPanel";
 import { CandidateGrid } from "../components/CandidateGrid";
+import { DiffSummary } from "../components/DiffSummary";
 import { EmbodimentParametersPanel } from "../components/EmbodimentParametersPanel";
 import { MeshViewer } from "../components/MeshViewer";
 import { PresetPanel } from "../components/PresetPanel";
@@ -14,6 +16,7 @@ import { ValidationPanel } from "../components/ValidationPanel";
 import { ViewAssignmentPanel } from "../components/ViewAssignmentPanel";
 import { fileUrl } from "../api/sheets";
 import { useStudioState } from "../hooks/useStudioState";
+import { DepthPanel } from "../features/depth/DepthPanel";
 
 export function Studio() {
   const studio = useStudioState();
@@ -21,7 +24,7 @@ export function Studio() {
     studio.mode === "MOCK" && path && !path.startsWith("/") ? "/placeholders/front.svg" : fileUrl(path);
 
   return (
-    <main className="studio-root grid min-h-screen grid-rows-[auto_minmax(260px,35vh)_minmax(360px,48vh)_minmax(240px,32vh)_minmax(360px,58vh)_minmax(220px,32vh)_auto] gap-2 overflow-x-hidden overflow-y-auto p-2 text-studio-text">
+    <main className="studio-root grid min-h-screen grid-rows-[auto_minmax(260px,35vh)_minmax(360px,48vh)_minmax(240px,32vh)_minmax(360px,58vh)_minmax(220px,32vh)_minmax(220px,32vh)_auto] gap-2 overflow-x-hidden overflow-y-auto p-2 text-studio-text">
       <TopStatusBar
         mode={studio.mode}
         apiStatusMessage={studio.apiStatusMessage}
@@ -117,12 +120,26 @@ export function Studio() {
         onSelectCandidate={studio.selectCandidateForActiveView}
       />
 
-      <MeshViewer job={studio.selectedBuildJob} mode={studio.mode} />
+      <section className="grid min-h-0 min-w-0 grid-cols-2 gap-2">
+        <MeshViewer job={studio.selectedBuildJob} mode={studio.mode} />
+        <DepthPanel job={studio.selectedBuildJob} />
+      </section>
 
       <section className="grid min-h-0 min-w-0 grid-cols-[320px_minmax(420px,1fr)_300px] gap-2">
-        <ValidationPanel validation={studio.validation} />
+        <BuildPanel
+          asset={studio.selectedAsset}
+          job={studio.selectedBuildJob}
+          isStarting={studio.isStartingBuild}
+          error={studio.buildError}
+          onBuild={studio.startBuildAsset}
+        />
         <BuildArtifactsPanel job={studio.selectedBuildJob} />
         <RunHistory runs={studio.buildRunItems} selectedRunId={studio.selectedBuildJobId} onSelectRun={studio.selectBuildJob} />
+      </section>
+
+      <section className="grid min-h-0 min-w-0 grid-cols-[320px_minmax(420px,1fr)] gap-2">
+        <ValidationPanel validation={studio.validation} />
+        <DiffSummary diff={studio.diffSummary} />
       </section>
       <footer className="studio-chrome studio-readout flex h-7 items-center justify-between overflow-hidden border-2 border-studio-border px-3 text-[10px] uppercase text-studio-muted">
         <span>SpriteSpatial v0.1 local studio shell</span>

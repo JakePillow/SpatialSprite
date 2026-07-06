@@ -83,6 +83,6 @@
     ]
   },
   "validation_passed": true,
-  "timestamp": "2026-06-07T12:43:29.484740+00:00",
-  "command": "python tools/build_profiled_asset.py --asset C:\\dev\\SpatialSprite\\assets\\samples\\hero\\spriteasset_v1.json --profile C:\\dev\\SpatialSprite\\profiles\\prototype_32.json --out C:\\dev\\SpatialSprite\\outputs\\hero\\prototype_32"
+  "timestamp": "2026-07-06T12:30:53.186396+00:00",
+  "command": "python tools/build_profiled_asset.py --asset C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\assets\\samples\\hero\\spriteasset_v1.json --profile C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\profiles\\prototype_32.json --out C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\hero\\prototype_32"
 }

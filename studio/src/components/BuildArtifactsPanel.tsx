@@ -11,7 +11,12 @@ const artifactLabels: Record<string, string> = {
   topological_model: "topological_model.json",
   mesh: "mesh.json",
   mesh_topology_cleaned: "mesh_topology_cleaned.json",
-  manifest: "manifest.json"
+  manifest: "manifest.json",
+  depth_field_report: "depth_field_report.json",
+  depth_heatmap: "depth_field.png",
+  depth_region_overlay: "region_depth_overlay.png",
+  depth_silhouette_pin: "silhouette_pin_mask.png",
+  depth_cross_section: "depth_cross_section.png"
 };
 
 export function BuildArtifactsPanel({ job }: BuildArtifactsPanelProps) {

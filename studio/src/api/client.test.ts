@@ -68,6 +68,7 @@ describe("Studio API client", () => {
 
     expect(fetchMock.mock.calls[0][0]).toContain("/raw-sheets/upload?filename=sheet.png");
     expect(fetchMock.mock.calls[0][1].body).toBe(file);
+    expect(fetchMock.mock.calls[0][1].headers["X-SpriteSpatial-Studio"]).toBe("local-api");
   });
 
   it("sends candidate_id assignments when creating an asset", async () => {
@@ -100,6 +101,7 @@ describe("Studio API client", () => {
     const request = JSON.parse(fetchMock.mock.calls[0][1].body);
     expect(request.selection_version).toBe("view_selection_v1");
     expect(request.selection).toEqual({ front: 20, side: 30, back: 10 });
+    expect(fetchMock.mock.calls[0][1].headers["X-SpriteSpatial-Studio"]).toBe("local-api");
   });
 
   it("renames an asset", async () => {
@@ -131,6 +133,7 @@ describe("Studio API client", () => {
 
     expect(fetchMock.mock.calls[0][0]).toContain("/assets/old_asset");
     expect(fetchMock.mock.calls[0][1].method).toBe("DELETE");
+    expect(fetchMock.mock.calls[0][1].headers["X-SpriteSpatial-Studio"]).toBe("local-api");
   });
 
   it("falls back to the delete action route when DELETE is method-blocked", async () => {
@@ -156,5 +159,6 @@ describe("Studio API client", () => {
     expect(fetchMock.mock.calls[0][1].method).toBe("DELETE");
     expect(fetchMock.mock.calls[1][0]).toContain("/assets/old_asset/delete");
     expect(fetchMock.mock.calls[1][1].method).toBe("POST");
+    expect(fetchMock.mock.calls[1][1].headers["X-SpriteSpatial-Studio"]).toBe("local-api");
   });
 });

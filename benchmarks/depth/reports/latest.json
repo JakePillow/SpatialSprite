@@ -1,0 +1,58 @@
+{
+  "schema": "spritespatial_depth_benchmark_report_v1",
+  "case_count": 5,
+  "passed": true,
+  "failures": [],
+  "metrics": {
+    "humanoid_blocks": {
+      "z_max": 0.47317624,
+      "z_mean": 0.21920311,
+      "silhouette_pinned": true,
+      "isolated_spikes": 0,
+      "join_discontinuity_max": 0.10032827,
+      "region_count": 4,
+      "validation_passed": true,
+      "depth_version": "0.3.0"
+    },
+    "hair_shell": {
+      "z_max": 0.48749998,
+      "z_mean": 0.18830091,
+      "silhouette_pinned": true,
+      "isolated_spikes": 0,
+      "join_discontinuity_max": 0.17216937,
+      "region_count": 2,
+      "validation_passed": true,
+      "depth_version": "0.3.0"
+    },
+    "weapon_plate": {
+      "z_max": 0.34500003,
+      "z_mean": 0.11548343,
+      "silhouette_pinned": true,
+      "isolated_spikes": 0,
+      "join_discontinuity_max": 0.16033226,
+      "region_count": 2,
+      "validation_passed": true,
+      "depth_version": "0.3.0"
+    },
+    "cape_layer": {
+      "z_max": 0.37,
+      "z_mean": 0.06471106,
+      "silhouette_pinned": true,
+      "isolated_spikes": 0,
+      "join_discontinuity_max": 0.21962716,
+      "region_count": 2,
+      "validation_passed": true,
+      "depth_version": "0.3.0"
+    },
+    "face_detail": {
+      "z_max": 0.42918906,
+      "z_mean": 0.12443458,
+      "silhouette_pinned": true,
+      "isolated_spikes": 0,
+      "join_discontinuity_max": 0.23491666,
+      "region_count": 3,
+      "validation_passed": true,
+      "depth_version": "0.3.0"
+    }
+  }
+}

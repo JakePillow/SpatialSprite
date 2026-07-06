@@ -1,0 +1,145 @@
+{
+  "schema": "spritespatial_depth_field_v1",
+  "asset_id": "cape_layer",
+  "pipeline_version": "0.4.0",
+  "semantic_version": "0.2.1",
+  "depth_version": "0.3.0",
+  "mesher_version": "0.1.0",
+  "profile_pack": "humanoid_default_v2",
+  "shape": [
+    30,
+    24
+  ],
+  "region_profiles": {
+    "torso": {
+      "semantic_class": "TORSO",
+      "profile": "cosine",
+      "max_depth_factor": 0.4,
+      "anisotropy": [
+        1.35,
+        0.8
+      ],
+      "blend_radius_px": 2,
+      "silhouette_pin": true,
+      "back_scale": 0.88,
+      "global_weight": 0.3,
+      "region_weight": 0.65,
+      "local_detail_weight": 0.05,
+      "layer": "region",
+      "primitive_hint": "rounded_cuboid",
+      "depth_priority": 60,
+      "explicit": true
+    },
+    "cape": {
+      "semantic_class": "CAPE",
+      "profile": "concave_shell",
+      "max_depth_factor": 0.1,
+      "anisotropy": [
+        1.4,
+        0.45
+      ],
+      "blend_radius_px": 2,
+      "silhouette_pin": true,
+      "back_scale": 0.35,
+      "global_weight": 0.05,
+      "region_weight": 0.55,
+      "local_detail_weight": 0.4,
+      "layer": "region",
+      "primitive_hint": "shell",
+      "depth_priority": 80,
+      "explicit": true
+    }
+  },
+  "blend_junctions": [
+    {
+      "class_a": "CAPE",
+      "class_b": "TORSO",
+      "pixel_count": 20,
+      "max_discontinuity_before": 0.3658124804496765,
+      "max_discontinuity_after": 0.21962716430425644
+    }
+  ],
+  "diagnostics": {
+    "regions": [
+      {
+        "region_id": "torso",
+        "semantic_class": "TORSO",
+        "profile_name": "cosine",
+        "max_depth": 0.4,
+        "actual_depth_min": 0.0,
+        "actual_depth_max": 0.3700000047683716,
+        "actual_depth_mean": 0.10461101680994034,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.681050019338727,
+        "primitive_residual_estimate": 0.8538896303469646,
+        "explicit_profile": true,
+        "warnings": [
+          "high_primitive_residual_estimate"
+        ]
+      },
+      {
+        "region_id": "cape",
+        "semantic_class": "CAPE",
+        "profile_name": "concave_shell",
+        "max_depth": 0.1,
+        "actual_depth_min": 0.0,
+        "actual_depth_max": 0.1250000149011612,
+        "actual_depth_mean": 0.04949553683400154,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 1.0,
+        "primitive_residual_estimate": 0.8045933132761675,
+        "explicit_profile": true,
+        "warnings": [
+          "high_primitive_residual_estimate"
+        ]
+      }
+    ],
+    "silhouette_pin_passed": true,
+    "isolated_spike_count": 0,
+    "join_discontinuity_max": 0.21962716430425644,
+    "assigned_pixel_count": 338,
+    "opaque_pixel_count": 338
+  },
+  "validation": {
+    "schema": "spritespatial_validation_report_v1",
+    "stage": "depth_synthesis",
+    "passed": true,
+    "fatal": false,
+    "highest_severity": "WARNING",
+    "counts": {
+      "INFO": 0,
+      "WARNING": 1,
+      "ERROR": 0,
+      "FATAL": 0
+    },
+    "issues": [
+      {
+        "code": "join_discontinuity",
+        "message": "Depth discontinuity remains between CAPE and TORSO.",
+        "severity": "WARNING",
+        "region_id": null,
+        "context": {
+          "maximum": 0.21962716430425644,
+          "limit": 0.14
+        }
+      }
+    ],
+    "metadata": {}
+  },
+  "artifacts": {
+    "global_depth_field": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\cape_layer\\arrays\\global_depth_field.npy",
+    "blended_depth_field": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\cape_layer\\arrays\\blended_depth_field.npy",
+    "pinned_depth_field": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\cape_layer\\arrays\\pinned_depth_field.npy",
+    "depth_report": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\cape_layer\\depth_field_report.json",
+    "region_depth_fields": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\cape_layer\\arrays\\regions",
+    "global_depth_heatmap": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\cape_layer\\visuals\\global_depth_field.png",
+    "blended_depth_heatmap": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\cape_layer\\visuals\\blended_depth_field.png",
+    "pinned_depth_heatmap": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\cape_layer\\visuals\\pinned_depth_field.png",
+    "silhouette_pin_mask": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\cape_layer\\visuals\\silhouette_pin_mask.png",
+    "region_overlay": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\cape_layer\\visuals\\region_depth_overlay.png",
+    "cross_section": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\cape_layer\\visuals\\depth_cross_section.png",
+    "regions": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\benchmarks\\depth\\reports\\artifacts\\cape_layer\\visuals\\regions"
+  }
+}
