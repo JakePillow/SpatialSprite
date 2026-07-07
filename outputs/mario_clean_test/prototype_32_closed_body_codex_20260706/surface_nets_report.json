@@ -1,0 +1,45 @@
+{
+  "schema": "spritespatial_surface_nets_report_v1",
+  "meshing_backend_used": "surface_nets",
+  "surface_nets_input": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\mario_clean_test\\prototype_32_closed_body_codex_20260706\\meshing\\surface_nets_input.npz",
+  "surface_net_vertices": 2610,
+  "surface_net_faces": 2614,
+  "active_cell_count": 2610,
+  "semantic_boundary_edge_count": 671,
+  "silhouette_vertex_count": 0,
+  "degenerate_face_count": 0,
+  "non_manifold_edge_count": 21,
+  "mesh_connected_components": 1,
+  "semantic_labels_in_mesh": [
+    1,
+    5,
+    6,
+    8,
+    9,
+    10,
+    12
+  ],
+  "semantic_labels_in_volume": [
+    1,
+    5,
+    6,
+    8,
+    9,
+    10,
+    12
+  ],
+  "semantic_labels_missing_from_mesh": [],
+  "semantic_label_preservation_passed": true,
+  "material_groups": {
+    "1": 516,
+    "5": 499,
+    "6": 175,
+    "8": 889,
+    "9": 284,
+    "10": 216,
+    "12": 35
+  },
+  "surface_net_smoothing_alpha": 0.65,
+  "surface_net_vertex_placement": "average",
+  "passed": true
+}

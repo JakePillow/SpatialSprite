@@ -1,0 +1,60 @@
+{
+  "selection_version": "view_selection_v1",
+  "asset_id": "my_character_9bpud5",
+  "candidate_run_id": "20260706T143654Z_my_character_9bpud5_sheet_candidates",
+  "candidate_run_dir": "outputs/my_character_9bpud5/view_candidates/20260706T143654Z_my_character_9bpud5_sheet_candidates",
+  "mode": "strict",
+  "views": {
+    "front": {
+      "candidate_id": 20,
+      "authority": "user_selected",
+      "required": true,
+      "image_path": "outputs/my_character_9bpud5/view_candidates/20260706T143654Z_my_character_9bpud5_sheet_candidates/candidates/candidate_020.png",
+      "bbox": [
+        282,
+        113,
+        302,
+        139
+      ],
+      "size": [
+        40,
+        48
+      ]
+    },
+    "side": {
+      "candidate_id": 2,
+      "authority": "user_selected",
+      "required": true,
+      "image_path": "outputs/my_character_9bpud5/view_candidates/20260706T143654Z_my_character_9bpud5_sheet_candidates/candidates/candidate_002.png",
+      "bbox": [
+        22,
+        49,
+        42,
+        75
+      ],
+      "size": [
+        40,
+        48
+      ]
+    },
+    "back": {
+      "candidate_id": 22,
+      "authority": "user_selected",
+      "required": true,
+      "image_path": "outputs/my_character_9bpud5/view_candidates/20260706T143654Z_my_character_9bpud5_sheet_candidates/candidates/candidate_022.png",
+      "bbox": [
+        386,
+        113,
+        406,
+        139
+      ],
+      "size": [
+        40,
+        48
+      ]
+    }
+  },
+  "warnings": [
+    "Side may be front-like. Confirm manually."
+  ]
+}

@@ -10,6 +10,7 @@ import time
 from pathlib import Path
 from typing import Any, Sequence, cast
 
+import numpy as np
 from PIL import Image, ImageDraw
 
 WORKSPACE_ROOT = Path(__file__).resolve().parent.parent
@@ -22,6 +23,8 @@ from spritespatial.api_visual_judge import run_api_visual_judge  # noqa: E402
 from spritespatial.back_hemisphere import build_back_hemisphere  # noqa: E402
 from spritespatial.canonical_silhouette_optimizer import optimize_canonical_silhouette  # noqa: E402
 from spritespatial.canonical_views import canonical_view_records, write_canonical_view_records  # noqa: E402
+from spritespatial.colour_field import build_colour_field  # noqa: E402
+from spritespatial.depthfields.edt import euclidean_distance_transform, normalise_distance  # noqa: E402
 from spritespatial.continuity import apply_semantic_continuity  # noqa: E402
 from spritespatial.constraint_arbitration import arbitrate_constraints  # noqa: E402
 from spritespatial.directional_morphology import load_morphology_profile  # noqa: E402
@@ -29,6 +32,7 @@ from spritespatial.embodiment_params import apply_embodiment_params, load_embodi
 from spritespatial.hermite_qef import write_qef_debug  # noqa: E402
 from spritespatial.manifold_validation import build_phase5a_validation  # noqa: E402
 from spritespatial.metrics.silhouette_iou import compute_canonical_view_metrics  # noqa: E402
+from spritespatial.mesh_surface import MeshBuildConfig, build_surface_mesh  # noqa: E402
 from spritespatial.mylar_depth import build_mylar_front_depth  # noqa: E402
 from spritespatial.primitives import (  # noqa: E402
     assign_primitives,
@@ -158,7 +162,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--constraint-arbitration", action="store_true")
     parser.add_argument("--emit-sdf-debug", action="store_true")
     parser.add_argument("--emit-closure-debug", action="store_true")
-    parser.add_argument("--mesh-backend", choices=("greedy", "surface_nets", "surface_nets_patch"), default="greedy")
+    parser.add_argument("--mesh-backend", choices=("greedy", "surface_nets", "surface_nets_patch", "voxel_depth"), default="greedy")
     parser.add_argument("--surface-net-smoothing-alpha", type=float, default=0.65)
     parser.add_argument("--surface-net-vertex-placement", choices=("average", "qef", "patch_qef"), default="average")
     parser.add_argument("--qef-regularization", type=float, default=0.001)
@@ -1516,6 +1520,401 @@ def _vibrant_side_colour(colour: tuple[int, int, int, int]) -> list[float]:
     return [red / 255.0 * factor, green / 255.0 * factor, blue / 255.0 * factor, alpha / 255.0]
 
 
+def _apply_surface_net_vertex_colours(mesh: dict[str, Any], front: Image.Image) -> None:
+    source_rgba = front.convert("RGBA")
+    width, height = source_rgba.size
+    pixels = source_rgba.load()
+    source_scale = max(1.0, float(mesh.get("config", {}).get("sdf_resolution_scale", 1.0)))
+    vertices = mesh.get("vertices", [])
+    metadata = mesh.get("vertex_metadata", [])
+    colours: list[list[float]] = []
+
+    for index, vertex in enumerate(vertices):
+        item = metadata[index] if index < len(metadata) and isinstance(metadata[index], dict) else {}
+        source_cell = item.get("source_cell")
+        if isinstance(source_cell, list) and len(source_cell) >= 2:
+            sample_x = int(round(float(source_cell[1]) / source_scale))
+            sample_y = int(round(float(source_cell[0]) / source_scale))
+        elif isinstance(vertex, list) and len(vertex) >= 2:
+            sample_x = int(round(float(vertex[0]) / source_scale))
+            sample_y = int(round(float(vertex[1]) / source_scale))
+        else:
+            sample_x = 0
+            sample_y = 0
+        colours.append(_sample_surface_vertex_colour(pixels, width, height, sample_x, sample_y))
+
+    if colours:
+        mesh["colors"] = colours
+        mesh["color_source"] = "front_sprite_projected_from_surface_net_source_cells"
+        mesh["color_stats"] = {
+            "vertex_color_count": len(colours),
+            "vertex_count": len(vertices),
+            "source_scale": source_scale,
+            "unique_vertex_colours": len({tuple(round(channel, 4) for channel in colour[:3]) for colour in colours}),
+        }
+
+
+def _sample_surface_vertex_colour(pixels: Any, width: int, height: int, sample_x: int, sample_y: int) -> list[float]:
+    clamped_x = min(max(sample_x, 0), max(width - 1, 0))
+    clamped_y = min(max(sample_y, 0), max(height - 1, 0))
+    direct = pixels[clamped_x, clamped_y]
+    if direct[3] > 16:
+        return _rgba_float((int(direct[0]), int(direct[1]), int(direct[2]), int(direct[3])))
+    for radius in range(1, 5):
+        best: tuple[int, int, int, int] | None = None
+        best_distance = radius * radius * 4 + 1
+        for dy in range(-radius, radius + 1):
+            for dx in range(-radius, radius + 1):
+                x = clamped_x + dx
+                y = clamped_y + dy
+                if x < 0 or y < 0 or x >= width or y >= height:
+                    continue
+                pixel = pixels[x, y]
+                if pixel[3] <= 16:
+                    continue
+                distance = dx * dx + dy * dy
+                if distance < best_distance:
+                    best = (int(pixel[0]), int(pixel[1]), int(pixel[2]), int(pixel[3]))
+                    best_distance = distance
+        if best is not None:
+            return _rgba_float(best)
+    return [0.55, 0.57, 0.62, 1.0]
+
+
+def _build_voxel_depth_mesh(
+    front: Image.Image,
+    back_path: Path | None,
+    side_path: Path | None,
+    occupancy: np.ndarray,
+    args: argparse.Namespace,
+    output_dir: Path,
+) -> dict[str, Any]:
+    side = _voxel_depth_side_image(side_path, front)
+    relief_occupancy, relief_report = _build_front_led_voxel_occupancy(
+        front,
+        occupancy,
+        alpha_threshold=int(getattr(args, "alpha_threshold", 16)),
+        side=side,
+    )
+    volume = _volume_from_occupancy(relief_occupancy)
+    back = _voxel_depth_back_image(back_path, front)
+    colour_field, colour_report = build_colour_field(
+        front,
+        back,
+        volume,
+        mode="nearest_valid_edge",
+        alpha_threshold=int(getattr(args, "alpha_threshold", 16)),
+    )
+    mesh, mesh_report = build_surface_mesh(
+        volume,
+        colour_field,
+        MeshBuildConfig(
+            voxel_size=float(getattr(args, "voxel_size", 0.05)),
+            model_depth_units=float(getattr(args, "model_depth_units", 0.60)),
+            simplify_mesh=False,
+            cleanup_mode="exposed_voxel_faces",
+        ),
+    )
+    mesh.update(
+        {
+            "schema": "spritespatial_voxel_depth_mesh_v1",
+            "mesh_backend": "voxel_depth",
+            "color_source": "nearest_front_or_back_sprite_per_exposed_voxel_face",
+            "config": {
+                "mesh_backend": "voxel_depth",
+                "voxel_size": float(getattr(args, "voxel_size", 0.05)),
+                "model_depth_units": float(getattr(args, "model_depth_units", 0.60)),
+                "depth_slices": len(volume),
+                "colour_mode": "nearest_valid_edge",
+                "face_vertex_policy": "unique_vertices_per_face",
+                "pixel_art_interpolation": False,
+                "front_axis": "+z",
+                "y_axis": "image_top_maps_to_positive_y",
+                "geometry_authority": "front_sprite_relief",
+                "back_view_role": "colour_only",
+                "side_view_role": "bounded_depth_cap" if side is not None else "reference_only",
+            },
+        }
+    )
+    actual_dimensions = _mesh_bounding_box_dimensions(mesh.get("vertices", []))
+    report = {
+        "schema": "spritespatial_voxel_depth_report_v1",
+        "mesh_backend": "voxel_depth",
+        "passed": bool(mesh_report.get("vertex_count", 0) > 0 and mesh_report.get("triangle_count", 0) > 0),
+        "voxel_depth_vertices": int(mesh_report.get("vertex_count", 0)),
+        "voxel_depth_triangles": int(mesh_report.get("triangle_count", 0)),
+        "voxel_depth_exposed_faces": int(mesh_report.get("exposed_face_count", 0)),
+        "voxel_depth_internal_faces_removed": int(mesh_report.get("internal_faces_removed", 0)),
+        "voxel_depth_material_colour_count": int(mesh_report.get("material_colour_count", 0)),
+        "voxel_depth_black_side_face_percentage": float(mesh_report.get("black_side_face_percentage", 0.0)),
+        "voxel_depth_occupied_voxels": int(np.count_nonzero(relief_occupancy)),
+        "voxel_depth_shape": list(relief_occupancy.shape),
+        "colour_fallback_count": int(colour_report.get("fallback_colour_count", 0)),
+        "bounding_box_dimensions": actual_dimensions,
+        "voxel_grid_dimensions": mesh_report.get("bounding_box_dimensions", []),
+        **relief_report,
+        "back_view_colour_used": bool(back_path and back_path.exists()),
+    }
+    mesh_path = output_dir / "mesh.json"
+    report_path = output_dir / "voxel_depth_report.json"
+    write_mesh_json(mesh, mesh_path)
+    _write_json(report_path, report)
+    return {"mesh": mesh, "report": report, "paths": {"mesh": mesh_path, "voxel_depth_report": report_path}}
+
+
+def _build_front_led_voxel_occupancy(
+    front: Image.Image,
+    source_occupancy: np.ndarray,
+    alpha_threshold: int = 16,
+    side: Image.Image | None = None,
+) -> tuple[np.ndarray, dict[str, Any]]:
+    if source_occupancy.ndim != 3:
+        raise ValueError(f"Expected 3D occupancy volume, got shape {source_occupancy.shape}")
+    height, width, depth = source_occupancy.shape
+    rgba = np.asarray(
+        front.convert("RGBA").resize((width, height), Image.Resampling.NEAREST),
+        dtype=np.uint8,
+    )
+    alpha = rgba[:, :, 3] > int(alpha_threshold)
+    if not bool(np.any(alpha)) or depth <= 0:
+        return source_occupancy.copy(), {
+            "geometry_authority": "closed_sdf_fallback",
+            "front_relief_fallback": True,
+            "side_view_geometry_used": False,
+            "back_view_geometry_used": False,
+        }
+
+    coverage_by_slice = source_occupancy.sum(axis=(0, 1))
+    peak_coverage = int(coverage_by_slice.max()) if coverage_by_slice.size else 0
+    centre_candidates = np.flatnonzero(coverage_by_slice == peak_coverage)
+    centre_index = int(round(float(centre_candidates.mean()))) if centre_candidates.size else depth // 2
+
+    body_relief = normalise_distance(euclidean_distance_transform(alpha), alpha)
+    detail_relief, component_count = _connected_colour_relief(rgba, alpha)
+    visible_columns = int(np.count_nonzero(alpha.any(axis=0)))
+    target_span = min(depth, max(7, int(round(float(visible_columns) * 1.15))))
+    front_max_radius = max(4, int(round(float(target_span - 1) * 0.58)))
+    back_max_radius = max(2, target_span - 1 - front_max_radius)
+    front_max_radius = min(front_max_radius, max(0, depth - 1 - centre_index))
+    back_max_radius = min(back_max_radius, max(0, centre_index))
+    front_base = min(2, max(1, front_max_radius - 1))
+    back_base = min(2, max(1, back_max_radius - 1))
+    detail_budget = min(3, max(1, front_max_radius - front_base - 1))
+    body_front_budget = max(0, front_max_radius - front_base - detail_budget)
+    body_back_budget = max(0, back_max_radius - back_base)
+    side_caps, side_cap_report = _side_depth_caps(
+        side,
+        alpha,
+        target_span,
+        int(alpha_threshold),
+    )
+
+    occupancy = np.zeros_like(source_occupancy, dtype=bool)
+    thicknesses: list[int] = []
+    front_radii: list[int] = []
+    back_radii: list[int] = []
+    for y, x in np.argwhere(alpha):
+        body = float(body_relief[int(y), int(x)])
+        detail = float(detail_relief[int(y), int(x)])
+        front_radius = min(
+            front_max_radius,
+            front_base + int(round(body * body_front_budget + detail * detail_budget)),
+        )
+        back_radius = min(back_max_radius, back_base + int(round(body * body_back_budget)))
+        side_cap = side_caps.get(int(y))
+        if side_cap is not None:
+            capped_front = max(1, int(round(float(side_cap - 1) * 0.58)))
+            capped_back = max(1, side_cap - 1 - capped_front)
+            front_radius = min(front_radius, capped_front)
+            back_radius = min(back_radius, capped_back)
+        z_start = max(0, centre_index - back_radius)
+        z_end = min(depth - 1, centre_index + front_radius)
+        occupancy[int(y), int(x), z_start : z_end + 1] = True
+        thicknesses.append(z_end - z_start + 1)
+        front_radii.append(z_end - centre_index)
+        back_radii.append(centre_index - z_start)
+
+    occupied_slices = np.flatnonzero(occupancy.any(axis=(0, 1)))
+    return occupancy, {
+        "geometry_authority": "front_alpha_local_colour_relief",
+        "front_relief_fallback": False,
+        "front_relief_center_slice": centre_index,
+        "front_relief_colour_component_count": component_count,
+        "front_relief_target_depth_slices": target_span,
+        "front_relief_occupied_depth_slices": int(len(occupied_slices)),
+        "front_relief_peak_slices": max(front_radii, default=0),
+        "back_relief_peak_slices": max(back_radii, default=0),
+        "front_relief_min_column_slices": min(thicknesses, default=0),
+        "front_relief_max_column_slices": max(thicknesses, default=0),
+        "front_relief_mean_column_slices": float(np.mean(thicknesses)) if thicknesses else 0.0,
+        "side_view_geometry_used": bool(side_cap_report.get("side_view_depth_cap_used", False)),
+        **side_cap_report,
+        "back_view_geometry_used": False,
+    }
+
+
+def _side_depth_caps(
+    side: Image.Image | None,
+    front_alpha: np.ndarray,
+    target_span: int,
+    alpha_threshold: int,
+) -> tuple[dict[int, int], dict[str, Any]]:
+    disabled = {
+        "side_view_depth_cap_used": False,
+        "side_view_voxels_added": False,
+        "side_view_depth_cap_rows": 0,
+        "side_view_depth_cap_reason": "side_missing",
+    }
+    if side is None:
+        return {}, disabled
+
+    height, width = front_alpha.shape
+    side_rgba = np.asarray(
+        side.convert("RGBA").resize((width, height), Image.Resampling.NEAREST),
+        dtype=np.uint8,
+    )
+    side_alpha = side_rgba[:, :, 3] > int(alpha_threshold)
+    front_rows = np.flatnonzero(front_alpha.any(axis=1))
+    side_rows = np.flatnonzero(side_alpha.any(axis=1))
+    if front_rows.size == 0 or side_rows.size == 0:
+        return {}, {**disabled, "side_view_depth_cap_reason": "empty_silhouette"}
+
+    front_height = int(front_rows[-1] - front_rows[0] + 1)
+    side_height = int(side_rows[-1] - side_rows[0] + 1)
+    height_ratio = float(side_height / max(front_height, 1))
+    area_ratio = float(np.count_nonzero(side_alpha) / max(np.count_nonzero(front_alpha), 1))
+    if not (0.75 <= height_ratio <= 1.25 and 0.45 <= area_ratio <= 1.80):
+        return {}, {
+            **disabled,
+            "side_view_depth_cap_reason": "silhouette_mismatch",
+            "side_view_height_ratio": height_ratio,
+            "side_view_area_ratio": area_ratio,
+        }
+
+    side_spans: dict[int, int] = {}
+    for side_y in side_rows:
+        xs = np.flatnonzero(side_alpha[int(side_y)])
+        if xs.size:
+            side_spans[int(side_y)] = int(xs[-1] - xs[0] + 1)
+    max_side_span = max(side_spans.values(), default=0)
+    if max_side_span < 2:
+        return {}, {**disabled, "side_view_depth_cap_reason": "side_too_thin"}
+
+    caps: dict[int, int] = {}
+    for front_y in front_rows:
+        progress = float(int(front_y) - int(front_rows[0])) / float(max(front_height - 1, 1))
+        side_y = int(round(float(side_rows[0]) + progress * float(side_height - 1)))
+        span = side_spans.get(side_y)
+        if span is None:
+            nearest = min(side_spans, key=lambda candidate: abs(candidate - side_y))
+            span = side_spans[nearest]
+        caps[int(front_y)] = max(3, min(target_span, int(round(float(target_span) * span / max_side_span))))
+
+    return caps, {
+        "side_view_depth_cap_used": True,
+        "side_view_voxels_added": False,
+        "side_view_depth_cap_rows": len(caps),
+        "side_view_depth_cap_reason": "trusted_silhouette_envelope",
+        "side_view_height_ratio": height_ratio,
+        "side_view_area_ratio": area_ratio,
+        "side_view_max_source_span": max_side_span,
+        "side_view_min_depth_cap_slices": min(caps.values(), default=0),
+        "side_view_max_depth_cap_slices": max(caps.values(), default=0),
+    }
+
+
+def _connected_colour_relief(rgba: np.ndarray, alpha: np.ndarray) -> tuple[np.ndarray, int]:
+    height, width = alpha.shape
+    visited = np.zeros(alpha.shape, dtype=bool)
+    relief = np.zeros(alpha.shape, dtype=np.float32)
+    component_count = 0
+    for start_y, start_x in np.argwhere(alpha):
+        y = int(start_y)
+        x = int(start_x)
+        if visited[y, x]:
+            continue
+        component_count += 1
+        colour = tuple(int(channel) for channel in rgba[y, x, :3])
+        stack = [(y, x)]
+        visited[y, x] = True
+        component: list[tuple[int, int]] = []
+        while stack:
+            current_y, current_x = stack.pop()
+            component.append((current_y, current_x))
+            for next_y, next_x in (
+                (current_y - 1, current_x),
+                (current_y + 1, current_x),
+                (current_y, current_x - 1),
+                (current_y, current_x + 1),
+            ):
+                if next_y < 0 or next_x < 0 or next_y >= height or next_x >= width:
+                    continue
+                if visited[next_y, next_x] or not alpha[next_y, next_x]:
+                    continue
+                if tuple(int(channel) for channel in rgba[next_y, next_x, :3]) != colour:
+                    continue
+                visited[next_y, next_x] = True
+                stack.append((next_y, next_x))
+
+        ys, xs = zip(*component)
+        min_y, max_y = min(ys), max(ys)
+        min_x, max_x = min(xs), max(xs)
+        component_mask = np.zeros((max_y - min_y + 3, max_x - min_x + 3), dtype=bool)
+        local_ys = np.asarray(ys) - min_y + 1
+        local_xs = np.asarray(xs) - min_x + 1
+        component_mask[local_ys, local_xs] = True
+        component_relief = normalise_distance(
+            euclidean_distance_transform(component_mask),
+            component_mask,
+        )
+        area_weight = min(1.0, float(len(component)) ** 0.5 / 3.0)
+        if max(colour) <= 72:
+            area_weight *= 0.15
+        relief[np.asarray(ys), np.asarray(xs)] = np.maximum(
+            relief[np.asarray(ys), np.asarray(xs)],
+            component_relief[local_ys, local_xs] * area_weight,
+        )
+    return relief, component_count
+
+
+def _mesh_bounding_box_dimensions(vertices: list[list[float]]) -> list[float]:
+    if not vertices:
+        return [0.0, 0.0, 0.0]
+    array = np.asarray(vertices, dtype=np.float64)
+    return [float(value) for value in (array.max(axis=0) - array.min(axis=0))]
+
+
+def _volume_from_occupancy(occupancy: np.ndarray) -> list[list[list[bool]]]:
+    if occupancy.ndim != 3:
+        raise ValueError(f"Expected 3D occupancy volume, got shape {occupancy.shape}")
+    height, width, depth = occupancy.shape
+    return [
+        [
+            [bool(occupancy[y, x, z]) for x in range(width)]
+            for y in range(height)
+        ]
+        for z in range(depth)
+    ]
+
+
+def _voxel_depth_back_image(back_path: Path | None, front: Image.Image) -> Image.Image:
+    if back_path and back_path.exists():
+        back = Image.open(back_path).convert("RGBA")
+        if back.size != front.size:
+            back = back.resize(front.size, Image.Resampling.NEAREST)
+        return back
+    return front.convert("RGBA")
+
+
+def _voxel_depth_side_image(side_path: Path | None, front: Image.Image) -> Image.Image | None:
+    if not side_path or not side_path.exists():
+        return None
+    side = Image.open(side_path).convert("RGBA")
+    if side.size != front.size:
+        side = side.resize(front.size, Image.Resampling.NEAREST)
+    return side
+
+
 def _add_cuboid_front_sprite_shell(front: Image.Image, regions, vertices, normals, colors, indices, part_ids, args, z_front: float) -> int:
     source_rgba = front.convert("RGBA")
     width, height = front.size
@@ -2213,9 +2612,14 @@ def _build_phase5a_closed_body(
     meshing = emit_surface_nets_input(sdf["sdf"], sdf["semantic_volume"], output_dir / "meshing")
     mesh_backend = getattr(args, "mesh_backend", "greedy")
     surface_net_mesh: dict[str, Any] | None = None
+    output_mesh: dict[str, Any] | None = None
+    mesh_path: Path | None = None
+    raw_mesh_path: Path | None = None
     surface_net_report: dict[str, Any] = {}
     surface_net_paths: dict[str, Path] = {}
     surface_net_debug_paths: dict[str, Path] = {}
+    voxel_depth_result: dict[str, Any] = {}
+    voxel_depth_paths: dict[str, Path] = {}
     qef_debug_paths: dict[str, Path] = {}
     semantic_patch_result: dict[str, Any] = {}
     semantic_patch_paths: dict[str, Path] = {}
@@ -2247,6 +2651,7 @@ def _build_phase5a_closed_body(
             "adaptive_sdf_resolution": bool(getattr(args, "adaptive_sdf_resolution", False)),
             "resolution_profile": getattr(args, "resolution_profile", "prototype_adaptive"),
         }
+        _apply_surface_net_vertex_colours(surface_net_mesh, front)
         raw_mesh_path = write_mesh_json(surface_net_mesh, output_dir / "mesh.json")
         mesh_path = raw_mesh_path
         if getattr(args, "emit_qef_debug", False):
@@ -2381,6 +2786,25 @@ def _build_phase5a_closed_body(
                 surface_semantic,
                 output_dir / "debug",
             )
+        output_mesh = surface_net_mesh
+    elif mesh_backend == "voxel_depth":
+        side_path = getattr(args, "left", None) or getattr(args, "right", None)
+        voxel_depth_result = _build_voxel_depth_mesh(
+            front,
+            getattr(args, "back", None),
+            side_path,
+            sdf["occupancy"],
+            args,
+            output_dir,
+        )
+        output_mesh = voxel_depth_result["mesh"]
+        mesh_path = voxel_depth_result["paths"]["mesh"]
+        raw_mesh_path = mesh_path
+        voxel_depth_paths = {
+            key: path
+            for key, path in voxel_depth_result.get("paths", {}).items()
+            if isinstance(path, Path)
+        }
     validation_report = build_phase5a_validation(
         mylar,
         back,
@@ -2401,6 +2825,8 @@ def _build_phase5a_closed_body(
             float(getattr(args, "surface_net_smoothing_alpha", 0.65)),
             mesh_backend,
         )
+    if mesh_backend == "voxel_depth":
+        validation_report = _extend_voxel_depth_validation(validation_report, voxel_depth_result.get("report", {}))
     if semantic_patch_result:
         validation_report = _extend_semantic_patch_validation(validation_report, semantic_patch_result)
     if topology_cleanup_result or getattr(args, "adaptive_sdf_resolution", False):
@@ -2475,6 +2901,7 @@ def _build_phase5a_closed_body(
         "rfd": {key: _res_path(path) for key, path in rfd_paths.items()},
         "meshing": {key: _res_path(path) for key, path in meshing["paths"].items()},
         "surface_nets": {key: _res_path(path) for key, path in surface_net_paths.items()},
+        "voxel_depth": {key: _res_path(path) for key, path in voxel_depth_paths.items()},
         "surface_net_debug": {key: _res_path(path) for key, path in surface_net_debug_paths.items()},
         "qef": {key: _res_path(path) for key, path in qef_debug_paths.items()},
         "semantic_patch_nets": {key: _res_path(path) for key, path in semantic_patch_paths.items()},
@@ -2565,17 +2992,17 @@ def _build_phase5a_closed_body(
             "model_depth_units": args.model_depth_units,
             "total_depth_slices": args.total_depth_slices,
         },
-        "vertices": surface_net_mesh.get("vertices", []) if surface_net_mesh else [],
-        "normals": [],
-        "colors": [],
-        "indices": surface_net_mesh.get("indices", []) if surface_net_mesh else [],
-        "faces": surface_net_mesh.get("faces", []) if surface_net_mesh else [],
-        "vertex_metadata": surface_net_mesh.get("vertex_metadata", []) if surface_net_mesh else [],
-        "face_metadata": surface_net_mesh.get("face_metadata", []) if surface_net_mesh else [],
+        "vertices": output_mesh.get("vertices", []) if output_mesh else [],
+        "normals": output_mesh.get("normals", []) if output_mesh else [],
+        "colors": output_mesh.get("colors", []) if output_mesh else [],
+        "indices": output_mesh.get("indices", []) if output_mesh else [],
+        "faces": output_mesh.get("faces", []) if output_mesh else [],
+        "vertex_metadata": output_mesh.get("vertex_metadata", []) if output_mesh else [],
+        "face_metadata": output_mesh.get("face_metadata", []) if output_mesh else [],
         "part_ids": [
             int(item.get("semantic_label", 0))
-            for item in surface_net_mesh.get("face_metadata", [])
-        ] if surface_net_mesh else [],
+            for item in output_mesh.get("face_metadata", [])
+        ] if output_mesh else [],
         "parts": _parts_json_summary(parts),
         "semantic_regions": semantic_report["regions"],
         "validation_report": validation_report,
@@ -2686,6 +3113,41 @@ def _extend_phase5b_validation(
             "planar_surface_score_before_qef": float(surface_net_report.get("planar_surface_score_before_qef", 0.0)),
             "planar_surface_score_after_qef": float(surface_net_report.get("planar_surface_score_after_qef", 0.0)),
             "qef_quality_metric_improved": bool(surface_net_report.get("qef_quality_metric_improved", False)),
+            "fail_conditions": fail_conditions,
+            "passed": not any(fail_conditions.values()),
+        }
+    )
+    return report
+
+
+def _extend_voxel_depth_validation(
+    validation_report: dict[str, Any],
+    voxel_report: dict[str, Any],
+) -> dict[str, Any]:
+    report = dict(validation_report)
+    fail_conditions = dict(report.get("fail_conditions", {}))
+    vertices = int(voxel_report.get("voxel_depth_vertices", 0))
+    triangles = int(voxel_report.get("voxel_depth_triangles", 0))
+    material_count = int(voxel_report.get("voxel_depth_material_colour_count", 0))
+    fail_conditions.update(
+        {
+            "voxel_depth_zero_vertices": vertices <= 0,
+            "voxel_depth_zero_triangles": triangles <= 0,
+            "voxel_depth_missing_material_colours": material_count <= 0,
+        }
+    )
+    report.update(
+        {
+            "mesh_backend": "voxel_depth",
+            "voxel_depth_vertices": vertices,
+            "voxel_depth_triangles": triangles,
+            "voxel_depth_exposed_faces": int(voxel_report.get("voxel_depth_exposed_faces", 0)),
+            "voxel_depth_internal_faces_removed": int(voxel_report.get("voxel_depth_internal_faces_removed", 0)),
+            "voxel_depth_material_colour_count": material_count,
+            "voxel_depth_black_side_face_percentage": float(voxel_report.get("voxel_depth_black_side_face_percentage", 0.0)),
+            "voxel_depth_occupied_voxels": int(voxel_report.get("voxel_depth_occupied_voxels", 0)),
+            "voxel_depth_shape": voxel_report.get("voxel_depth_shape", []),
+            "voxel_depth_report": voxel_report,
             "fail_conditions": fail_conditions,
             "passed": not any(fail_conditions.values()),
         }

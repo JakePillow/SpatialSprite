@@ -1,0 +1,54 @@
+{
+  "disconnected_body_parts": [
+    {
+      "label": "torso",
+      "region_ids": [
+        0,
+        3,
+        4,
+        6
+      ],
+      "message": "label is split across multiple disconnected regions"
+    },
+    {
+      "label": "left_leg",
+      "region_ids": [
+        9,
+        10,
+        12,
+        15,
+        16,
+        17,
+        21
+      ],
+      "message": "label is split across multiple disconnected regions"
+    },
+    {
+      "label": "right_leg",
+      "region_ids": [
+        7,
+        8,
+        14,
+        19
+      ],
+      "message": "label is split across multiple disconnected regions"
+    },
+    {
+      "label": "boots/feet",
+      "region_ids": [
+        13,
+        18,
+        20,
+        22
+      ],
+      "message": "label is split across multiple disconnected regions"
+    }
+  ],
+  "tiny_orphan_regions": [],
+  "ambiguous_assignment": [],
+  "outline_regions_merged_into_body": [],
+  "left_right_confusion": [],
+  "torso_head_overlap": [],
+  "equipment_merged_into_body": [],
+  "depth_discontinuities": []
+}

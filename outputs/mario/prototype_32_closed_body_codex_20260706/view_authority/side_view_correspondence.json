@@ -1,0 +1,70 @@
+{
+  "schema": "spritespatial_side_view_correspondence_v1",
+  "side_sprite_paths": [],
+  "side_geometry_authority": "placeholder",
+  "side_semantic_authority": "missing",
+  "labels_present_front": [
+    "face",
+    "hair/hat",
+    "head",
+    "left_arm",
+    "left_leg",
+    "outline",
+    "right_leg",
+    "torso"
+  ],
+  "labels_present_side": [],
+  "labels_missing_from_side": [
+    "face",
+    "hair/hat",
+    "head",
+    "left_arm",
+    "left_leg",
+    "outline",
+    "right_leg",
+    "torso"
+  ],
+  "label_overlap": {
+    "face": {
+      "front_pixel_count": 24,
+      "side_overlap_or_mask_pixels": 0,
+      "overlap_ratio": 0.0
+    },
+    "hair/hat": {
+      "front_pixel_count": 28,
+      "side_overlap_or_mask_pixels": 0,
+      "overlap_ratio": 0.0
+    },
+    "head": {
+      "front_pixel_count": 34,
+      "side_overlap_or_mask_pixels": 0,
+      "overlap_ratio": 0.0
+    },
+    "left_arm": {
+      "front_pixel_count": 2,
+      "side_overlap_or_mask_pixels": 0,
+      "overlap_ratio": 0.0
+    },
+    "left_leg": {
+      "front_pixel_count": 34,
+      "side_overlap_or_mask_pixels": 0,
+      "overlap_ratio": 0.0
+    },
+    "outline": {
+      "front_pixel_count": 79,
+      "side_overlap_or_mask_pixels": 0,
+      "overlap_ratio": 0.0
+    },
+    "right_leg": {
+      "front_pixel_count": 28,
+      "side_overlap_or_mask_pixels": 0,
+      "overlap_ratio": 0.0
+    },
+    "torso": {
+      "front_pixel_count": 69,
+      "side_overlap_or_mask_pixels": 0,
+      "overlap_ratio": 0.0
+    }
+  },
+  "passed": true
+}

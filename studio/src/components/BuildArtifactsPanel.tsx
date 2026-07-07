@@ -11,6 +11,8 @@ const artifactLabels: Record<string, string> = {
   topological_model: "topological_model.json",
   mesh: "mesh.json",
   mesh_topology_cleaned: "mesh_topology_cleaned.json",
+  surface_nets_report: "surface_nets_report.json",
+  voxel_depth_report: "voxel_depth_report.json",
   manifest: "manifest.json",
   depth_field_report: "depth_field_report.json",
   depth_heatmap: "depth_field.png",

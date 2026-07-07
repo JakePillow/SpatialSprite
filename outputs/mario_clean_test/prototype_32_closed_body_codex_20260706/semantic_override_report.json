@@ -1,0 +1,79 @@
+{
+  "schema": "spritespatial_semantic_override_report_v1",
+  "mode": "supplement",
+  "override_dir": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\assets\\samples\\mario_clean_test\\semantic_overrides",
+  "loaded_masks": {
+    "head": {
+      "file": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\assets\\samples\\mario_clean_test\\semantic_overrides\\head.png",
+      "pixel_count": 0,
+      "coverage": 0.0
+    },
+    "face": {
+      "file": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\assets\\samples\\mario_clean_test\\semantic_overrides\\face.png",
+      "pixel_count": 0,
+      "coverage": 0.0
+    },
+    "hair": {
+      "file": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\assets\\samples\\mario_clean_test\\semantic_overrides\\hat_hair.png",
+      "pixel_count": 0,
+      "coverage": 0.0
+    },
+    "torso": {
+      "file": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\assets\\samples\\mario_clean_test\\semantic_overrides\\torso.png",
+      "pixel_count": 0,
+      "coverage": 0.0
+    },
+    "left_arm": {
+      "file": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\assets\\samples\\mario_clean_test\\semantic_overrides\\left_arm.png",
+      "pixel_count": 0,
+      "coverage": 0.0
+    },
+    "right_arm": {
+      "file": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\assets\\samples\\mario_clean_test\\semantic_overrides\\right_arm.png",
+      "pixel_count": 0,
+      "coverage": 0.0
+    },
+    "left_leg": {
+      "file": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\assets\\samples\\mario_clean_test\\semantic_overrides\\left_leg.png",
+      "pixel_count": 0,
+      "coverage": 0.0
+    },
+    "right_leg": {
+      "file": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\assets\\samples\\mario_clean_test\\semantic_overrides\\right_leg.png",
+      "pixel_count": 0,
+      "coverage": 0.0
+    },
+    "boots_feet": {
+      "file": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\assets\\samples\\mario_clean_test\\semantic_overrides\\boots_feet.png",
+      "pixel_count": 0,
+      "coverage": 0.0
+    },
+    "equipment": {
+      "file": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\assets\\samples\\mario_clean_test\\semantic_overrides\\equipment.png",
+      "pixel_count": 0,
+      "coverage": 0.0
+    },
+    "outline": {
+      "file": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\assets\\samples\\mario_clean_test\\semantic_overrides\\outline.png",
+      "pixel_count": 0,
+      "coverage": 0.0
+    }
+  },
+  "missing_masks": [],
+  "dimension_mismatches": [],
+  "override_pixels_applied": 216,
+  "override_overlap_count": 0,
+  "overlap_pixels": [],
+  "passed": true,
+  "failures": [],
+  "override_overlap_ratio": 0.0,
+  "unlabelled_opaque_pixel_ratio": 0.0,
+  "critical_label_coverage": {
+    "head": 0,
+    "torso": 25,
+    "left_leg": 70,
+    "right_leg": 19
+  },
+  "torso_head_overlap_count_after_override": 0,
+  "disconnected_critical_labels_after_override": 2
+}

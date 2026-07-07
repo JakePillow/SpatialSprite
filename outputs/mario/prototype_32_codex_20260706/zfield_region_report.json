@@ -1,0 +1,100 @@
+{
+  "regions": [
+    {
+      "part_id": 0,
+      "name": "outline",
+      "primitive_type": "shell",
+      "zfield_profile": "shell",
+      "pixel_count": 79,
+      "min_depth": 0.03291243567234113,
+      "max_depth": 0.05600000000000001,
+      "average_depth": 0.05043595937105451,
+      "occupied_voxels": 79,
+      "malformed": false
+    },
+    {
+      "part_id": 1,
+      "name": "head",
+      "primitive_type": "ellipsoid",
+      "zfield_profile": "ellipsoid",
+      "pixel_count": 34,
+      "min_depth": 0.14759999999999998,
+      "max_depth": 0.7709314828403905,
+      "average_depth": 0.5054313826324797,
+      "occupied_voxels": 208,
+      "malformed": false
+    },
+    {
+      "part_id": 2,
+      "name": "face",
+      "primitive_type": "rounded_cuboid",
+      "zfield_profile": "rounded",
+      "pixel_count": 24,
+      "min_depth": 0.261,
+      "max_depth": 0.58,
+      "average_depth": 0.3662348484848485,
+      "occupied_voxels": 103,
+      "malformed": false
+    },
+    {
+      "part_id": 3,
+      "name": "hair",
+      "primitive_type": "ellipsoid",
+      "zfield_profile": "ellipsoid",
+      "pixel_count": 28,
+      "min_depth": 0.1296,
+      "max_depth": 0.673258977743983,
+      "average_depth": 0.33301894522451836,
+      "occupied_voxels": 117,
+      "malformed": false
+    },
+    {
+      "part_id": 4,
+      "name": "torso",
+      "primitive_type": "rounded_cuboid",
+      "zfield_profile": "rounded",
+      "pixel_count": 69,
+      "min_depth": 0.279,
+      "max_depth": 0.61659,
+      "average_depth": 0.4347578398079067,
+      "occupied_voxels": 356,
+      "malformed": false
+    },
+    {
+      "part_id": 5,
+      "name": "left_arm",
+      "primitive_type": "tapered_prism",
+      "zfield_profile": "tapered",
+      "pixel_count": 2,
+      "min_depth": 0.3218634963615385,
+      "max_depth": 0.3218634963615385,
+      "average_depth": 0.3218634963615385,
+      "occupied_voxels": 8,
+      "malformed": false
+    },
+    {
+      "part_id": 6,
+      "name": "left_leg",
+      "primitive_type": "tapered_prism",
+      "zfield_profile": "tapered",
+      "pixel_count": 34,
+      "min_depth": 0.16231320781103392,
+      "max_depth": 0.5333277783563609,
+      "average_depth": 0.35318750962716583,
+      "occupied_voxels": 144,
+      "malformed": false
+    },
+    {
+      "part_id": 7,
+      "name": "right_leg",
+      "primitive_type": "tapered_prism",
+      "zfield_profile": "tapered",
+      "pixel_count": 28,
+      "min_depth": 0.17329473239950433,
+      "max_depth": 0.5296000000000001,
+      "average_depth": 0.34520849750064253,
+      "occupied_voxels": 116,
+      "malformed": false
+    }
+  ]
+}

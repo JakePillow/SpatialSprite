@@ -1,0 +1,156 @@
+{
+  "assignments": [
+    {
+      "part_id": 0,
+      "name": "outline",
+      "semantic_label": "outline",
+      "primitive_type": "shell",
+      "zfield_profile": "shell",
+      "local_depth": 0.14,
+      "z_offset": 0.42,
+      "smoothing_policy": "rim_only",
+      "boundary_policy": "outline_shell",
+      "fallback": false,
+      "pixel_count": 79,
+      "bbox": [
+        4,
+        6,
+        18,
+        31
+      ]
+    },
+    {
+      "part_id": 1,
+      "name": "head",
+      "semantic_label": "head",
+      "primitive_type": "ellipsoid",
+      "zfield_profile": "ellipsoid",
+      "local_depth": 0.82,
+      "z_offset": 0.12,
+      "smoothing_policy": "semantic_blend",
+      "boundary_policy": "soft_boundary",
+      "fallback": false,
+      "pixel_count": 34,
+      "bbox": [
+        5,
+        4,
+        18,
+        12
+      ]
+    },
+    {
+      "part_id": 2,
+      "name": "face",
+      "semantic_label": "face",
+      "primitive_type": "rounded_cuboid",
+      "zfield_profile": "rounded",
+      "local_depth": 0.58,
+      "z_offset": 0.2,
+      "smoothing_policy": "semantic_blend",
+      "boundary_policy": "soft_boundary",
+      "fallback": false,
+      "pixel_count": 24,
+      "bbox": [
+        6,
+        4,
+        19,
+        15
+      ]
+    },
+    {
+      "part_id": 3,
+      "name": "hair",
+      "semantic_label": "hair/hat",
+      "primitive_type": "ellipsoid",
+      "zfield_profile": "ellipsoid",
+      "local_depth": 0.72,
+      "z_offset": 0.14,
+      "smoothing_policy": "semantic_blend",
+      "boundary_policy": "soft_boundary",
+      "fallback": false,
+      "pixel_count": 28,
+      "bbox": [
+        6,
+        3,
+        18,
+        24
+      ]
+    },
+    {
+      "part_id": 4,
+      "name": "torso",
+      "semantic_label": "torso",
+      "primitive_type": "rounded_cuboid",
+      "zfield_profile": "rounded",
+      "local_depth": 0.62,
+      "z_offset": 0.0,
+      "smoothing_policy": "semantic_blend",
+      "boundary_policy": "soft_boundary",
+      "fallback": false,
+      "pixel_count": 69,
+      "bbox": [
+        5,
+        12,
+        18,
+        22
+      ]
+    },
+    {
+      "part_id": 5,
+      "name": "left_arm",
+      "semantic_label": "left_arm",
+      "primitive_type": "tapered_prism",
+      "zfield_profile": "tapered",
+      "local_depth": 0.52,
+      "z_offset": 0.08,
+      "smoothing_policy": "limb_taper",
+      "boundary_policy": "soft_boundary",
+      "fallback": false,
+      "pixel_count": 2,
+      "bbox": [
+        7,
+        29,
+        10,
+        30
+      ]
+    },
+    {
+      "part_id": 6,
+      "name": "left_leg",
+      "semantic_label": "left_leg",
+      "primitive_type": "tapered_prism",
+      "zfield_profile": "tapered",
+      "local_depth": 0.56,
+      "z_offset": -0.04,
+      "smoothing_policy": "limb_taper",
+      "boundary_policy": "soft_boundary",
+      "fallback": false,
+      "pixel_count": 34,
+      "bbox": [
+        6,
+        22,
+        12,
+        30
+      ]
+    },
+    {
+      "part_id": 7,
+      "name": "right_leg",
+      "semantic_label": "right_leg",
+      "primitive_type": "tapered_prism",
+      "zfield_profile": "tapered",
+      "local_depth": 0.56,
+      "z_offset": -0.04,
+      "smoothing_policy": "limb_taper",
+      "boundary_policy": "soft_boundary",
+      "fallback": false,
+      "pixel_count": 28,
+      "bbox": [
+        12,
+        22,
+        17,
+        30
+      ]
+    }
+  ]
+}

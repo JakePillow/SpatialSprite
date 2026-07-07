@@ -1,0 +1,1170 @@
+{
+  "required_labels": [
+    "head",
+    "hair/hat",
+    "face",
+    "torso",
+    "left_arm",
+    "right_arm",
+    "left_leg",
+    "right_leg",
+    "boots/feet",
+    "equipment/shield/sword",
+    "outline",
+    "unknown"
+  ],
+  "pass_order": [
+    "Pass A: connected-component extraction",
+    "Pass B: colour-region merging",
+    "Pass C: outline isolation",
+    "Pass D: anatomical heuristics",
+    "Pass E: equipment detection",
+    "Pass F: left/right assignment",
+    "Pass G: confidence scoring",
+    "Pass H: unknown-region fallback"
+  ],
+  "label_counts": {
+    "torso": 4,
+    "outline": 6,
+    "left_arm": 1,
+    "right_leg": 4,
+    "left_leg": 7,
+    "boots/feet": 4
+  },
+  "regions": [
+    {
+      "region_id": 0,
+      "pixel_count": 10,
+      "bbox": [
+        15,
+        25,
+        19,
+        30
+      ],
+      "centroid": [
+        17.0,
+        26.5
+      ],
+      "dominant_colour": [
+        248,
+        208,
+        192,
+        255
+      ],
+      "neighbour_regions": [
+        2,
+        3,
+        5
+      ],
+      "vertical_rank": 0.5638,
+      "horizontal_rank": 0.4359,
+      "confidence_score": 0.82,
+      "assigned_label": "torso",
+      "assignment_reason": "central middle high-area component classified as torso",
+      "pass_labels": {
+        "A_connected_component": "region_000",
+        "B_colour_region": "mixed",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "torso",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "torso",
+        "G_confidence_scoring": "0.820",
+        "H_unknown_fallback": "torso"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 1,
+      "pixel_count": 34,
+      "bbox": [
+        20,
+        26,
+        26,
+        36
+      ],
+      "centroid": [
+        22.059,
+        30.412
+      ],
+      "dominant_colour": [
+        0,
+        0,
+        0,
+        255
+      ],
+      "neighbour_regions": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11
+      ],
+      "vertical_rank": 0.6471,
+      "horizontal_rank": 0.5656,
+      "confidence_score": 1.0,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_001",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "1.000",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 2,
+      "pixel_count": 8,
+      "bbox": [
+        14,
+        27,
+        18,
+        30
+      ],
+      "centroid": [
+        15.5,
+        27.75
+      ],
+      "dominant_colour": [
+        248,
+        112,
+        104,
+        255
+      ],
+      "neighbour_regions": [
+        0,
+        5
+      ],
+      "vertical_rank": 0.5904,
+      "horizontal_rank": 0.3974,
+      "confidence_score": 0.82,
+      "assigned_label": "left_arm",
+      "assignment_reason": "side skin region left of centre classified as left arm",
+      "pass_labels": {
+        "A_connected_component": "region_002",
+        "B_colour_region": "skin",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "left_arm",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "left_arm",
+        "G_confidence_scoring": "0.820",
+        "H_unknown_fallback": "left_arm"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 3,
+      "pixel_count": 3,
+      "bbox": [
+        19,
+        27,
+        20,
+        30
+      ],
+      "centroid": [
+        19.0,
+        28.0
+      ],
+      "dominant_colour": [
+        136,
+        88,
+        24,
+        255
+      ],
+      "neighbour_regions": [
+        0,
+        1,
+        5
+      ],
+      "vertical_rank": 0.5957,
+      "horizontal_rank": 0.4872,
+      "confidence_score": 0.82,
+      "assigned_label": "torso",
+      "assignment_reason": "central middle high-area component classified as torso",
+      "pass_labels": {
+        "A_connected_component": "region_003",
+        "B_colour_region": "brown",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "torso",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "torso",
+        "G_confidence_scoring": "0.820",
+        "H_unknown_fallback": "torso"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 4,
+      "pixel_count": 8,
+      "bbox": [
+        24,
+        28,
+        26,
+        34
+      ],
+      "centroid": [
+        24.25,
+        30.0
+      ],
+      "dominant_colour": [
+        248,
+        64,
+        112,
+        255
+      ],
+      "neighbour_regions": [
+        1,
+        7
+      ],
+      "vertical_rank": 0.6383,
+      "horizontal_rank": 0.6218,
+      "confidence_score": 0.82,
+      "assigned_label": "torso",
+      "assignment_reason": "central middle high-area component classified as torso",
+      "pass_labels": {
+        "A_connected_component": "region_004",
+        "B_colour_region": "brown",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "torso",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "torso",
+        "G_confidence_scoring": "0.820",
+        "H_unknown_fallback": "torso"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 5,
+      "pixel_count": 19,
+      "bbox": [
+        12,
+        29,
+        20,
+        33
+      ],
+      "centroid": [
+        15.368,
+        30.263
+      ],
+      "dominant_colour": [
+        0,
+        0,
+        0,
+        255
+      ],
+      "neighbour_regions": [
+        0,
+        1,
+        2,
+        3,
+        9
+      ],
+      "vertical_rank": 0.6439,
+      "horizontal_rank": 0.3941,
+      "confidence_score": 1.0,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_005",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "1.000",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 6,
+      "pixel_count": 4,
+      "bbox": [
+        21,
+        30,
+        23,
+        33
+      ],
+      "centroid": [
+        21.75,
+        31.0
+      ],
+      "dominant_colour": [
+        248,
+        112,
+        104,
+        255
+      ],
+      "neighbour_regions": [
+        1,
+        9
+      ],
+      "vertical_rank": 0.6596,
+      "horizontal_rank": 0.5577,
+      "confidence_score": 0.82,
+      "assigned_label": "torso",
+      "assignment_reason": "central middle high-area component classified as torso",
+      "pass_labels": {
+        "A_connected_component": "region_006",
+        "B_colour_region": "skin",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "torso",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "torso",
+        "G_confidence_scoring": "0.820",
+        "H_unknown_fallback": "torso"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 7,
+      "pixel_count": 4,
+      "bbox": [
+        25,
+        30,
+        26,
+        34
+      ],
+      "centroid": [
+        25.0,
+        31.5
+      ],
+      "dominant_colour": [
+        176,
+        40,
+        96,
+        255
+      ],
+      "neighbour_regions": [
+        1,
+        4,
+        8
+      ],
+      "vertical_rank": 0.6702,
+      "horizontal_rank": 0.641,
+      "confidence_score": 0.76,
+      "assigned_label": "right_leg",
+      "assignment_reason": "lower component right of centre classified as right leg",
+      "pass_labels": {
+        "A_connected_component": "region_007",
+        "B_colour_region": "brown",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "right_leg",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "right_leg",
+        "G_confidence_scoring": "0.760",
+        "H_unknown_fallback": "right_leg"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 8,
+      "pixel_count": 4,
+      "bbox": [
+        26,
+        30,
+        27,
+        34
+      ],
+      "centroid": [
+        26.0,
+        31.5
+      ],
+      "dominant_colour": [
+        80,
+        0,
+        0,
+        255
+      ],
+      "neighbour_regions": [
+        7
+      ],
+      "vertical_rank": 0.6702,
+      "horizontal_rank": 0.6667,
+      "confidence_score": 0.76,
+      "assigned_label": "right_leg",
+      "assignment_reason": "lower component right of centre classified as right leg",
+      "pass_labels": {
+        "A_connected_component": "region_008",
+        "B_colour_region": "mixed",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "right_leg",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "right_leg",
+        "G_confidence_scoring": "0.760",
+        "H_unknown_fallback": "right_leg"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 9,
+      "pixel_count": 21,
+      "bbox": [
+        13,
+        31,
+        22,
+        35
+      ],
+      "centroid": [
+        16.952,
+        32.524
+      ],
+      "dominant_colour": [
+        248,
+        208,
+        192,
+        255
+      ],
+      "neighbour_regions": [
+        1,
+        5,
+        6,
+        10
+      ],
+      "vertical_rank": 0.692,
+      "horizontal_rank": 0.4347,
+      "confidence_score": 0.84,
+      "assigned_label": "left_leg",
+      "assignment_reason": "lower component left of centre classified as left leg",
+      "pass_labels": {
+        "A_connected_component": "region_009",
+        "B_colour_region": "mixed",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "left_leg",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "left_leg",
+        "G_confidence_scoring": "0.840",
+        "H_unknown_fallback": "left_leg"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 10,
+      "pixel_count": 18,
+      "bbox": [
+        14,
+        34,
+        22,
+        37
+      ],
+      "centroid": [
+        17.056,
+        35.111
+      ],
+      "dominant_colour": [
+        248,
+        112,
+        104,
+        255
+      ],
+      "neighbour_regions": [
+        1,
+        9,
+        11,
+        12
+      ],
+      "vertical_rank": 0.747,
+      "horizontal_rank": 0.4373,
+      "confidence_score": 0.84,
+      "assigned_label": "left_leg",
+      "assignment_reason": "lower component left of centre classified as left leg",
+      "pass_labels": {
+        "A_connected_component": "region_010",
+        "B_colour_region": "skin",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "left_leg",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "left_leg",
+        "G_confidence_scoring": "0.840",
+        "H_unknown_fallback": "left_leg"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 11,
+      "pixel_count": 4,
+      "bbox": [
+        21,
+        36,
+        25,
+        37
+      ],
+      "centroid": [
+        22.5,
+        36.0
+      ],
+      "dominant_colour": [
+        0,
+        0,
+        0,
+        255
+      ],
+      "neighbour_regions": [
+        1,
+        10,
+        13,
+        14
+      ],
+      "vertical_rank": 0.766,
+      "horizontal_rank": 0.5769,
+      "confidence_score": 0.96,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_011",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.960",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 12,
+      "pixel_count": 8,
+      "bbox": [
+        17,
+        37,
+        21,
+        40
+      ],
+      "centroid": [
+        18.75,
+        37.625
+      ],
+      "dominant_colour": [
+        64,
+        128,
+        152,
+        255
+      ],
+      "neighbour_regions": [
+        10,
+        13,
+        15,
+        17,
+        18
+      ],
+      "vertical_rank": 0.8005,
+      "horizontal_rank": 0.4808,
+      "confidence_score": 0.76,
+      "assigned_label": "left_leg",
+      "assignment_reason": "lower component left of centre classified as left leg",
+      "pass_labels": {
+        "A_connected_component": "region_012",
+        "B_colour_region": "blue",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "left_leg",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "left_leg",
+        "G_confidence_scoring": "0.760",
+        "H_unknown_fallback": "left_leg"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 13,
+      "pixel_count": 3,
+      "bbox": [
+        21,
+        37,
+        23,
+        39
+      ],
+      "centroid": [
+        21.333,
+        37.667
+      ],
+      "dominant_colour": [
+        176,
+        40,
+        96,
+        255
+      ],
+      "neighbour_regions": [
+        11,
+        12,
+        14,
+        18
+      ],
+      "vertical_rank": 0.8014,
+      "horizontal_rank": 0.547,
+      "confidence_score": 0.83,
+      "assigned_label": "boots/feet",
+      "assignment_reason": "lower brown/dark component classified as boots/feet",
+      "pass_labels": {
+        "A_connected_component": "region_013",
+        "B_colour_region": "brown",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "boots/feet",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "boots/feet",
+        "G_confidence_scoring": "0.830",
+        "H_unknown_fallback": "boots/feet"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 14,
+      "pixel_count": 4,
+      "bbox": [
+        22,
+        37,
+        24,
+        40
+      ],
+      "centroid": [
+        22.75,
+        37.75
+      ],
+      "dominant_colour": [
+        80,
+        0,
+        0,
+        255
+      ],
+      "neighbour_regions": [
+        11,
+        13,
+        18,
+        20
+      ],
+      "vertical_rank": 0.8032,
+      "horizontal_rank": 0.5833,
+      "confidence_score": 0.76,
+      "assigned_label": "right_leg",
+      "assignment_reason": "lower component right of centre classified as right leg",
+      "pass_labels": {
+        "A_connected_component": "region_014",
+        "B_colour_region": "mixed",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "right_leg",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "right_leg",
+        "G_confidence_scoring": "0.760",
+        "H_unknown_fallback": "right_leg"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 15,
+      "pixel_count": 9,
+      "bbox": [
+        15,
+        38,
+        18,
+        42
+      ],
+      "centroid": [
+        15.667,
+        39.333
+      ],
+      "dominant_colour": [
+        128,
+        216,
+        200,
+        255
+      ],
+      "neighbour_regions": [
+        12,
+        16,
+        17,
+        21
+      ],
+      "vertical_rank": 0.8369,
+      "horizontal_rank": 0.4017,
+      "confidence_score": 0.76,
+      "assigned_label": "left_leg",
+      "assignment_reason": "lower component left of centre classified as left leg",
+      "pass_labels": {
+        "A_connected_component": "region_015",
+        "B_colour_region": "green",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "left_leg",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "left_leg",
+        "G_confidence_scoring": "0.760",
+        "H_unknown_fallback": "left_leg"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 16,
+      "pixel_count": 3,
+      "bbox": [
+        14,
+        39,
+        15,
+        42
+      ],
+      "centroid": [
+        14.0,
+        40.0
+      ],
+      "dominant_colour": [
+        32,
+        48,
+        136,
+        255
+      ],
+      "neighbour_regions": [
+        15
+      ],
+      "vertical_rank": 0.8511,
+      "horizontal_rank": 0.359,
+      "confidence_score": 0.76,
+      "assigned_label": "left_leg",
+      "assignment_reason": "lower component left of centre classified as left leg",
+      "pass_labels": {
+        "A_connected_component": "region_016",
+        "B_colour_region": "blue",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "left_leg",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "left_leg",
+        "G_confidence_scoring": "0.760",
+        "H_unknown_fallback": "left_leg"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 17,
+      "pixel_count": 5,
+      "bbox": [
+        17,
+        39,
+        20,
+        41
+      ],
+      "centroid": [
+        17.8,
+        39.6
+      ],
+      "dominant_colour": [
+        248,
+        248,
+        248,
+        255
+      ],
+      "neighbour_regions": [
+        12,
+        15,
+        19,
+        21
+      ],
+      "vertical_rank": 0.8426,
+      "horizontal_rank": 0.4564,
+      "confidence_score": 0.76,
+      "assigned_label": "left_leg",
+      "assignment_reason": "lower component left of centre classified as left leg",
+      "pass_labels": {
+        "A_connected_component": "region_017",
+        "B_colour_region": "mixed",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "left_leg",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "left_leg",
+        "G_confidence_scoring": "0.760",
+        "H_unknown_fallback": "left_leg"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 18,
+      "pixel_count": 3,
+      "bbox": [
+        20,
+        39,
+        23,
+        40
+      ],
+      "centroid": [
+        21.0,
+        39.0
+      ],
+      "dominant_colour": [
+        136,
+        88,
+        24,
+        255
+      ],
+      "neighbour_regions": [
+        12,
+        13,
+        14,
+        19
+      ],
+      "vertical_rank": 0.8298,
+      "horizontal_rank": 0.5385,
+      "confidence_score": 0.83,
+      "assigned_label": "boots/feet",
+      "assignment_reason": "lower brown/dark component classified as boots/feet",
+      "pass_labels": {
+        "A_connected_component": "region_018",
+        "B_colour_region": "brown",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "boots/feet",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "boots/feet",
+        "G_confidence_scoring": "0.830",
+        "H_unknown_fallback": "boots/feet"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 19,
+      "pixel_count": 7,
+      "bbox": [
+        20,
+        40,
+        23,
+        43
+      ],
+      "centroid": [
+        21.286,
+        40.857
+      ],
+      "dominant_colour": [
+        248,
+        248,
+        248,
+        255
+      ],
+      "neighbour_regions": [
+        17,
+        18,
+        20,
+        22
+      ],
+      "vertical_rank": 0.8693,
+      "horizontal_rank": 0.5458,
+      "confidence_score": 0.76,
+      "assigned_label": "right_leg",
+      "assignment_reason": "lower component right of centre classified as right leg",
+      "pass_labels": {
+        "A_connected_component": "region_019",
+        "B_colour_region": "mixed",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "right_leg",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "right_leg",
+        "G_confidence_scoring": "0.760",
+        "H_unknown_fallback": "right_leg"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 20,
+      "pixel_count": 3,
+      "bbox": [
+        23,
+        40,
+        24,
+        43
+      ],
+      "centroid": [
+        23.0,
+        41.0
+      ],
+      "dominant_colour": [
+        136,
+        88,
+        24,
+        255
+      ],
+      "neighbour_regions": [
+        14,
+        19
+      ],
+      "vertical_rank": 0.8723,
+      "horizontal_rank": 0.5897,
+      "confidence_score": 0.83,
+      "assigned_label": "boots/feet",
+      "assignment_reason": "lower brown/dark component classified as boots/feet",
+      "pass_labels": {
+        "A_connected_component": "region_020",
+        "B_colour_region": "brown",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "boots/feet",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "boots/feet",
+        "G_confidence_scoring": "0.830",
+        "H_unknown_fallback": "boots/feet"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 21,
+      "pixel_count": 6,
+      "bbox": [
+        17,
+        41,
+        20,
+        43
+      ],
+      "centroid": [
+        18.0,
+        41.5
+      ],
+      "dominant_colour": [
+        64,
+        128,
+        152,
+        255
+      ],
+      "neighbour_regions": [
+        15,
+        17,
+        22,
+        23,
+        24
+      ],
+      "vertical_rank": 0.883,
+      "horizontal_rank": 0.4615,
+      "confidence_score": 0.76,
+      "assigned_label": "left_leg",
+      "assignment_reason": "lower component left of centre classified as left leg",
+      "pass_labels": {
+        "A_connected_component": "region_021",
+        "B_colour_region": "blue",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "left_leg",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "left_leg",
+        "G_confidence_scoring": "0.760",
+        "H_unknown_fallback": "left_leg"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 22,
+      "pixel_count": 9,
+      "bbox": [
+        19,
+        41,
+        23,
+        45
+      ],
+      "centroid": [
+        20.222,
+        43.0
+      ],
+      "dominant_colour": [
+        136,
+        88,
+        24,
+        255
+      ],
+      "neighbour_regions": [
+        19,
+        21,
+        24,
+        25
+      ],
+      "vertical_rank": 0.9149,
+      "horizontal_rank": 0.5185,
+      "confidence_score": 0.83,
+      "assigned_label": "boots/feet",
+      "assignment_reason": "lower brown/dark component classified as boots/feet",
+      "pass_labels": {
+        "A_connected_component": "region_022",
+        "B_colour_region": "brown",
+        "C_outline_isolation": "not_outline",
+        "D_anatomical_heuristics": "boots/feet",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "boots/feet",
+        "G_confidence_scoring": "0.830",
+        "H_unknown_fallback": "boots/feet"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 23,
+      "pixel_count": 2,
+      "bbox": [
+        16,
+        43,
+        18,
+        44
+      ],
+      "centroid": [
+        16.5,
+        43.0
+      ],
+      "dominant_colour": [
+        0,
+        0,
+        0,
+        255
+      ],
+      "neighbour_regions": [
+        21,
+        24,
+        25
+      ],
+      "vertical_rank": 0.9149,
+      "horizontal_rank": 0.4231,
+      "confidence_score": 0.81,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_023",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.810",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": false
+    },
+    {
+      "region_id": 24,
+      "pixel_count": 1,
+      "bbox": [
+        18,
+        43,
+        19,
+        44
+      ],
+      "centroid": [
+        18.0,
+        43.0
+      ],
+      "dominant_colour": [
+        0,
+        0,
+        0,
+        255
+      ],
+      "neighbour_regions": [
+        21,
+        22,
+        23,
+        25
+      ],
+      "vertical_rank": 0.9149,
+      "horizontal_rank": 0.4615,
+      "confidence_score": 0.81,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_024",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.810",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    },
+    {
+      "region_id": 25,
+      "pixel_count": 13,
+      "bbox": [
+        15,
+        44,
+        23,
+        46
+      ],
+      "centroid": [
+        18.154,
+        44.615
+      ],
+      "dominant_colour": [
+        0,
+        0,
+        0,
+        255
+      ],
+      "neighbour_regions": [
+        22,
+        23,
+        24
+      ],
+      "vertical_rank": 0.9493,
+      "horizontal_rank": 0.4655,
+      "confidence_score": 0.96,
+      "assigned_label": "outline",
+      "assignment_reason": "dark high-coverage component isolated as outline",
+      "pass_labels": {
+        "A_connected_component": "region_025",
+        "B_colour_region": "dark",
+        "C_outline_isolation": "outline",
+        "D_anatomical_heuristics": "outline",
+        "E_equipment_detection": "not_equipment",
+        "F_left_right_assignment": "outline",
+        "G_confidence_scoring": "0.960",
+        "H_unknown_fallback": "outline"
+      },
+      "is_outline": true
+    }
+  ],
+  "warnings": {
+    "disconnected_body_parts": [
+      {
+        "label": "torso",
+        "region_ids": [
+          0,
+          3,
+          4,
+          6
+        ],
+        "message": "label is split across multiple disconnected regions"
+      },
+      {
+        "label": "left_leg",
+        "region_ids": [
+          9,
+          10,
+          12,
+          15,
+          16,
+          17,
+          21
+        ],
+        "message": "label is split across multiple disconnected regions"
+      },
+      {
+        "label": "right_leg",
+        "region_ids": [
+          7,
+          8,
+          14,
+          19
+        ],
+        "message": "label is split across multiple disconnected regions"
+      },
+      {
+        "label": "boots/feet",
+        "region_ids": [
+          13,
+          18,
+          20,
+          22
+        ],
+        "message": "label is split across multiple disconnected regions"
+      }
+    ],
+    "tiny_orphan_regions": [],
+    "ambiguous_assignment": [],
+    "outline_regions_merged_into_body": [],
+    "left_right_confusion": [],
+    "torso_head_overlap": [],
+    "equipment_merged_into_body": [],
+    "depth_discontinuities": []
+  }
+}

@@ -1,0 +1,244 @@
+{
+  "assignments": [
+    {
+      "region_id": 0,
+      "label": "unknown",
+      "z_offset": 0.0,
+      "local_depth": 0.32,
+      "smoothing_strength": 0.2,
+      "merge_policy": "part"
+    },
+    {
+      "region_id": 1,
+      "label": "equipment",
+      "z_offset": 0.12,
+      "local_depth": 0.36,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 2,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 3,
+      "label": "equipment",
+      "z_offset": 0.12,
+      "local_depth": 0.36,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 4,
+      "label": "unknown",
+      "z_offset": 0.0,
+      "local_depth": 0.32,
+      "smoothing_strength": 0.2,
+      "merge_policy": "part"
+    },
+    {
+      "region_id": 5,
+      "label": "equipment",
+      "z_offset": 0.12,
+      "local_depth": 0.36,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 6,
+      "label": "head",
+      "z_offset": 0.18,
+      "local_depth": 0.42,
+      "smoothing_strength": 0.35,
+      "merge_policy": "part"
+    },
+    {
+      "region_id": 7,
+      "label": "torso",
+      "z_offset": 0.0,
+      "local_depth": 0.48,
+      "smoothing_strength": 0.35,
+      "merge_policy": "core"
+    },
+    {
+      "region_id": 8,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 9,
+      "label": "left_arm",
+      "z_offset": 0.12,
+      "local_depth": 0.36,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 10,
+      "label": "torso",
+      "z_offset": 0.0,
+      "local_depth": 0.48,
+      "smoothing_strength": 0.35,
+      "merge_policy": "core"
+    },
+    {
+      "region_id": 11,
+      "label": "torso",
+      "z_offset": 0.0,
+      "local_depth": 0.48,
+      "smoothing_strength": 0.35,
+      "merge_policy": "core"
+    },
+    {
+      "region_id": 12,
+      "label": "left_arm",
+      "z_offset": 0.12,
+      "local_depth": 0.36,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 13,
+      "label": "head",
+      "z_offset": 0.18,
+      "local_depth": 0.42,
+      "smoothing_strength": 0.35,
+      "merge_policy": "part"
+    },
+    {
+      "region_id": 14,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 15,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 16,
+      "label": "left_arm",
+      "z_offset": 0.12,
+      "local_depth": 0.36,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 17,
+      "label": "torso",
+      "z_offset": 0.0,
+      "local_depth": 0.48,
+      "smoothing_strength": 0.35,
+      "merge_policy": "core"
+    },
+    {
+      "region_id": 18,
+      "label": "unknown",
+      "z_offset": 0.0,
+      "local_depth": 0.32,
+      "smoothing_strength": 0.2,
+      "merge_policy": "part"
+    },
+    {
+      "region_id": 19,
+      "label": "legs",
+      "z_offset": -0.04,
+      "local_depth": 0.34,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 20,
+      "label": "right_arm",
+      "z_offset": 0.12,
+      "local_depth": 0.36,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 21,
+      "label": "legs",
+      "z_offset": -0.04,
+      "local_depth": 0.34,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 22,
+      "label": "equipment",
+      "z_offset": 0.12,
+      "local_depth": 0.36,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 23,
+      "label": "legs",
+      "z_offset": -0.04,
+      "local_depth": 0.34,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 24,
+      "label": "legs",
+      "z_offset": -0.04,
+      "local_depth": 0.34,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 25,
+      "label": "unknown",
+      "z_offset": 0.0,
+      "local_depth": 0.32,
+      "smoothing_strength": 0.2,
+      "merge_policy": "part"
+    },
+    {
+      "region_id": 26,
+      "label": "left_arm",
+      "z_offset": 0.12,
+      "local_depth": 0.36,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 27,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    },
+    {
+      "region_id": 28,
+      "label": "legs",
+      "z_offset": -0.04,
+      "local_depth": 0.34,
+      "smoothing_strength": 0.25,
+      "merge_policy": "bridge_contacts"
+    },
+    {
+      "region_id": 29,
+      "label": "outline",
+      "z_offset": 0.0,
+      "local_depth": 0.18,
+      "smoothing_strength": 0.15,
+      "merge_policy": "rim_bevel"
+    }
+  ]
+}

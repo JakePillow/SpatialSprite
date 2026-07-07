@@ -1,0 +1,413 @@
+{
+  "schema": "spritespatial_depth_field_v1",
+  "asset_id": "mylar",
+  "pipeline_version": "0.4.0",
+  "semantic_version": "0.2.1",
+  "depth_version": "0.3.0",
+  "mesher_version": "0.1.0",
+  "profile_pack": "humanoid_default_v2",
+  "shape": [
+    32,
+    24
+  ],
+  "region_profiles": {
+    "00_outline": {
+      "semantic_class": "OUTLINE",
+      "profile": "linear",
+      "max_depth_factor": 0.0,
+      "anisotropy": [
+        1.0,
+        1.0
+      ],
+      "blend_radius_px": 1,
+      "silhouette_pin": true,
+      "back_scale": 0.25,
+      "global_weight": 0.0,
+      "region_weight": 0.0,
+      "local_detail_weight": 0.0,
+      "layer": "constraint",
+      "primitive_hint": "none",
+      "depth_priority": 1000,
+      "explicit": true
+    },
+    "01_head": {
+      "semantic_class": "HEAD",
+      "profile": "cosine",
+      "max_depth_factor": 0.45,
+      "anisotropy": [
+        1.8,
+        0.6
+      ],
+      "blend_radius_px": 2,
+      "silhouette_pin": true,
+      "back_scale": 0.88,
+      "global_weight": 0.25,
+      "region_weight": 0.75,
+      "local_detail_weight": 0.0,
+      "layer": "region",
+      "primitive_hint": "ellipsoid",
+      "depth_priority": 90,
+      "explicit": true
+    },
+    "02_face": {
+      "semantic_class": "FACE",
+      "profile": "cosine",
+      "max_depth_factor": 0.12,
+      "anisotropy": [
+        1.5,
+        0.55
+      ],
+      "blend_radius_px": 1,
+      "silhouette_pin": true,
+      "back_scale": 0.25,
+      "global_weight": 0.0,
+      "region_weight": 0.2,
+      "local_detail_weight": 0.8,
+      "layer": "detail",
+      "primitive_hint": "surface_detail",
+      "depth_priority": 100,
+      "explicit": true
+    },
+    "03_hair_hat": {
+      "semantic_class": "HAIR",
+      "profile": "concave_shell",
+      "max_depth_factor": 0.12,
+      "anisotropy": [
+        2.0,
+        0.4
+      ],
+      "blend_radius_px": 2,
+      "silhouette_pin": true,
+      "back_scale": 0.35,
+      "global_weight": 0.05,
+      "region_weight": 0.55,
+      "local_detail_weight": 0.4,
+      "layer": "region",
+      "primitive_hint": "shell",
+      "depth_priority": 80,
+      "explicit": true
+    },
+    "04_torso": {
+      "semantic_class": "TORSO",
+      "profile": "cosine",
+      "max_depth_factor": 0.4,
+      "anisotropy": [
+        1.35,
+        0.8
+      ],
+      "blend_radius_px": 2,
+      "silhouette_pin": true,
+      "back_scale": 0.88,
+      "global_weight": 0.3,
+      "region_weight": 0.65,
+      "local_detail_weight": 0.05,
+      "layer": "region",
+      "primitive_hint": "rounded_cuboid",
+      "depth_priority": 60,
+      "explicit": true
+    },
+    "05_left_arm": {
+      "semantic_class": "ARM",
+      "profile": "convex",
+      "max_depth_factor": 0.3,
+      "anisotropy": [
+        0.65,
+        1.8
+      ],
+      "blend_radius_px": 2,
+      "silhouette_pin": true,
+      "back_scale": 0.88,
+      "global_weight": 0.15,
+      "region_weight": 0.8,
+      "local_detail_weight": 0.05,
+      "layer": "region",
+      "primitive_hint": "capsule",
+      "depth_priority": 60,
+      "explicit": true
+    },
+    "06_left_leg": {
+      "semantic_class": "LEG",
+      "profile": "convex",
+      "max_depth_factor": 0.34,
+      "anisotropy": [
+        0.55,
+        2.0
+      ],
+      "blend_radius_px": 2,
+      "silhouette_pin": true,
+      "back_scale": 0.88,
+      "global_weight": 0.15,
+      "region_weight": 0.8,
+      "local_detail_weight": 0.05,
+      "layer": "region",
+      "primitive_hint": "tapered_capsule",
+      "depth_priority": 60,
+      "explicit": true
+    },
+    "07_right_leg": {
+      "semantic_class": "LEG",
+      "profile": "convex",
+      "max_depth_factor": 0.34,
+      "anisotropy": [
+        0.55,
+        2.0
+      ],
+      "blend_radius_px": 2,
+      "silhouette_pin": true,
+      "back_scale": 0.88,
+      "global_weight": 0.15,
+      "region_weight": 0.8,
+      "local_detail_weight": 0.05,
+      "layer": "region",
+      "primitive_hint": "tapered_capsule",
+      "depth_priority": 60,
+      "explicit": true
+    }
+  },
+  "blend_junctions": [
+    {
+      "class_a": "ARM",
+      "class_b": "LEG",
+      "pixel_count": 2,
+      "max_discontinuity_before": 0.13762953877449036,
+      "max_discontinuity_after": 0.07301974296569824
+    },
+    {
+      "class_a": "FACE",
+      "class_b": "HAIR",
+      "pixel_count": 4,
+      "max_discontinuity_before": 0.05612495541572571,
+      "max_discontinuity_after": 0.03086872398853302
+    },
+    {
+      "class_a": "FACE",
+      "class_b": "HEAD",
+      "pixel_count": 25,
+      "max_discontinuity_before": 0.1482388973236084,
+      "max_discontinuity_after": 0.08659389615058899
+    },
+    {
+      "class_a": "FACE",
+      "class_b": "TORSO",
+      "pixel_count": 21,
+      "max_discontinuity_before": 0.1231040358543396,
+      "max_discontinuity_after": 0.06914301216602325
+    },
+    {
+      "class_a": "HAIR",
+      "class_b": "HEAD",
+      "pixel_count": 24,
+      "max_discontinuity_before": 0.3403338212519884,
+      "max_discontinuity_after": 0.1882137879729271
+    },
+    {
+      "class_a": "HAIR",
+      "class_b": "LEG",
+      "pixel_count": 16,
+      "max_discontinuity_before": 0.1812899075448513,
+      "max_discontinuity_after": 0.10691708326339722
+    },
+    {
+      "class_a": "HAIR",
+      "class_b": "TORSO",
+      "pixel_count": 28,
+      "max_discontinuity_before": 0.2695424519479275,
+      "max_discontinuity_after": 0.15661795437335968
+    },
+    {
+      "class_a": "HEAD",
+      "class_b": "TORSO",
+      "pixel_count": 12,
+      "max_discontinuity_before": 0.16502073407173157,
+      "max_discontinuity_after": 0.09301763772964478
+    },
+    {
+      "class_a": "LEG",
+      "class_b": "TORSO",
+      "pixel_count": 14,
+      "max_discontinuity_before": 0.08817027509212494,
+      "max_discontinuity_after": 0.05752003192901611
+    }
+  ],
+  "diagnostics": {
+    "regions": [
+      {
+        "region_id": "04_torso",
+        "semantic_class": "TORSO",
+        "profile_name": "cosine",
+        "max_depth": 0.4,
+        "actual_depth_min": 0.0,
+        "actual_depth_max": 0.4508680999279022,
+        "actual_depth_mean": 0.1852715015411377,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.838095186994626,
+        "primitive_residual_estimate": 0.6606665454873019,
+        "explicit_profile": true,
+        "warnings": []
+      },
+      {
+        "region_id": "05_left_arm",
+        "semantic_class": "ARM",
+        "profile_name": "convex",
+        "max_depth": 0.3,
+        "actual_depth_min": 0.23078840970993042,
+        "actual_depth_max": 0.26137489080429077,
+        "actual_depth_mean": 0.2460816502571106,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.31120172142982483,
+        "primitive_residual_estimate": 0.06214701718393679,
+        "explicit_profile": true,
+        "warnings": []
+      },
+      {
+        "region_id": "06_left_leg",
+        "semantic_class": "LEG",
+        "profile_name": "convex",
+        "max_depth": 0.34,
+        "actual_depth_min": 0.0,
+        "actual_depth_max": 0.3178931474685669,
+        "actual_depth_mean": 0.18765303492546082,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.6575668923744635,
+        "primitive_residual_estimate": 0.5309586965391273,
+        "explicit_profile": true,
+        "warnings": []
+      },
+      {
+        "region_id": "07_right_leg",
+        "semantic_class": "LEG",
+        "profile_name": "convex",
+        "max_depth": 0.34,
+        "actual_depth_min": 0.0,
+        "actual_depth_max": 0.3399661183357239,
+        "actual_depth_mean": 0.1869644820690155,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.6882632656508134,
+        "primitive_residual_estimate": 0.6382203390235766,
+        "explicit_profile": true,
+        "warnings": []
+      },
+      {
+        "region_id": "03_hair_hat",
+        "semantic_class": "HAIR",
+        "profile_name": "concave_shell",
+        "max_depth": 0.12,
+        "actual_depth_min": 0.0,
+        "actual_depth_max": 0.137037456035614,
+        "actual_depth_mean": 0.04002012684941292,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.10552610138741625,
+        "primitive_residual_estimate": 1.3678044156185791,
+        "explicit_profile": true,
+        "warnings": [
+          "high_primitive_residual_estimate"
+        ]
+      },
+      {
+        "region_id": "01_head",
+        "semantic_class": "HEAD",
+        "profile_name": "cosine",
+        "max_depth": 0.45,
+        "actual_depth_min": 0.0,
+        "actual_depth_max": 0.34812477231025696,
+        "actual_depth_mean": 0.1564580798149109,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.7241725036759435,
+        "primitive_residual_estimate": 0.39013861221494966,
+        "explicit_profile": true,
+        "warnings": []
+      },
+      {
+        "region_id": "02_face",
+        "semantic_class": "FACE",
+        "profile_name": "cosine",
+        "max_depth": 0.12,
+        "actual_depth_min": 0.0,
+        "actual_depth_max": 0.12550711631774902,
+        "actual_depth_mean": 0.07485184073448181,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.44333808783155215,
+        "primitive_residual_estimate": 0.5057013705545962,
+        "explicit_profile": true,
+        "warnings": []
+      },
+      {
+        "region_id": "00_outline",
+        "semantic_class": "OUTLINE",
+        "profile_name": "linear",
+        "max_depth": 0.0,
+        "actual_depth_min": 0.0,
+        "actual_depth_max": 0.0,
+        "actual_depth_mean": 0.0,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.0,
+        "primitive_residual_estimate": 0.0,
+        "explicit_profile": true,
+        "warnings": []
+      }
+    ],
+    "silhouette_pin_passed": true,
+    "isolated_spike_count": 0,
+    "join_discontinuity_max": 0.1882137879729271,
+    "assigned_pixel_count": 298,
+    "opaque_pixel_count": 298
+  },
+  "validation": {
+    "schema": "spritespatial_validation_report_v1",
+    "stage": "depth_synthesis",
+    "passed": true,
+    "fatal": false,
+    "highest_severity": "WARNING",
+    "counts": {
+      "INFO": 0,
+      "WARNING": 2,
+      "ERROR": 0,
+      "FATAL": 0
+    },
+    "issues": [
+      {
+        "code": "join_discontinuity",
+        "message": "Depth discontinuity remains between HAIR and HEAD.",
+        "severity": "WARNING",
+        "region_id": null,
+        "context": {
+          "maximum": 0.1882137879729271,
+          "limit": 0.14
+        }
+      },
+      {
+        "code": "join_discontinuity",
+        "message": "Depth discontinuity remains between HAIR and TORSO.",
+        "severity": "WARNING",
+        "region_id": null,
+        "context": {
+          "maximum": 0.15661795437335968,
+          "limit": 0.14
+        }
+      }
+    ],
+    "metadata": {}
+  },
+  "artifacts": {
+    "global_depth_field": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\mario\\prototype_32_closed_body_codex_20260706\\mylar\\arrays\\global_depth_field.npy",
+    "blended_depth_field": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\mario\\prototype_32_closed_body_codex_20260706\\mylar\\arrays\\blended_depth_field.npy",
+    "pinned_depth_field": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\mario\\prototype_32_closed_body_codex_20260706\\mylar\\arrays\\pinned_depth_field.npy",
+    "depth_report": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\mario\\prototype_32_closed_body_codex_20260706\\mylar\\depth_field_report.json",
+    "region_depth_fields": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\mario\\prototype_32_closed_body_codex_20260706\\mylar\\arrays\\regions",
+    "global_depth_heatmap": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\mario\\prototype_32_closed_body_codex_20260706\\mylar\\visuals\\global_depth_field.png",
+    "blended_depth_heatmap": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\mario\\prototype_32_closed_body_codex_20260706\\mylar\\visuals\\blended_depth_field.png",
+    "pinned_depth_heatmap": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\mario\\prototype_32_closed_body_codex_20260706\\mylar\\visuals\\pinned_depth_field.png",
+    "silhouette_pin_mask": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\mario\\prototype_32_closed_body_codex_20260706\\mylar\\visuals\\silhouette_pin_mask.png",
+    "region_overlay": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\mario\\prototype_32_closed_body_codex_20260706\\mylar\\visuals\\region_depth_overlay.png",
+    "cross_section": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\mario\\prototype_32_closed_body_codex_20260706\\mylar\\visuals\\depth_cross_section.png",
+    "regions": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\mario\\prototype_32_closed_body_codex_20260706\\mylar\\visuals\\regions"
+  }
+}

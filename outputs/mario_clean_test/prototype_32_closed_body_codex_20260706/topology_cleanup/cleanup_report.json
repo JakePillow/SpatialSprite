@@ -1,0 +1,23 @@
+{
+  "schema": "spritespatial_topology_cleanup_report_v1",
+  "topology_cleanup_applied": true,
+  "non_manifold_before_cleanup": 53,
+  "non_manifold_after_cleanup": 21,
+  "duplicate_faces_removed": 0,
+  "duplicate_vertices_merged": 0,
+  "sliver_faces_removed": 0,
+  "non_manifold_faces_removed": 64,
+  "mesh_connected_components": 1,
+  "degenerate_face_count": 0,
+  "semantic_labels_in_mesh": [
+    1,
+    5,
+    6,
+    8,
+    9,
+    10,
+    12
+  ],
+  "semantic_labels_missing_from_mesh": [],
+  "passed": true
+}

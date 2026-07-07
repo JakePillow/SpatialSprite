@@ -4,6 +4,9 @@ import sys
 import unittest
 from pathlib import Path
 
+import numpy as np
+from PIL import Image
+
 
 WORKSPACE_ROOT = Path(__file__).resolve().parent
 TOOL_ROOT = WORKSPACE_ROOT / "tool"
@@ -15,6 +18,7 @@ if str(TOOLS_ROOT) not in sys.path:
 
 from build_topological_sprite_model import (  # noqa: E402
     _depth_multiplier_for_part,
+    _build_front_led_voxel_occupancy,
     _relief_face_colour,
     _rgba_float,
     _vibrant_side_colour,
@@ -29,6 +33,54 @@ def _assert_float_list_close(test_case: unittest.TestCase, actual: list[float], 
 
 
 class TopologicalSpriteModelTests(unittest.TestCase):
+    def test_side_envelope_can_only_trim_voxel_depth(self) -> None:
+        front = Image.new("RGBA", (7, 7), (0, 0, 0, 0))
+        side = Image.new("RGBA", (7, 7), (0, 0, 0, 0))
+        for y in range(1, 6):
+            for x in range(1, 6):
+                front.putpixel((x, y), (220, 40, 80, 255))
+            side.putpixel((3, y), (220, 40, 80, 255))
+            side.putpixel((4, y), (220, 40, 80, 255))
+        for x in range(2, 5):
+            side.putpixel((x, 1), (220, 40, 80, 255))
+            side.putpixel((x, 5), (220, 40, 80, 255))
+        source = np.zeros((7, 7, 15), dtype=bool)
+        source[1:6, 1:6, 4:11] = True
+
+        uncapped, _ = _build_front_led_voxel_occupancy(front, source)
+        capped, report = _build_front_led_voxel_occupancy(front, source, side=side)
+
+        self.assertTrue(np.all(capped <= uncapped))
+        self.assertTrue(np.array_equal(capped.any(axis=2), uncapped.any(axis=2)))
+        self.assertLess(int(capped[3].sum()), int(uncapped[3].sum()))
+        self.assertTrue(report["side_view_depth_cap_used"])
+        self.assertFalse(report["side_view_voxels_added"])
+
+    def test_front_led_voxel_occupancy_uses_local_relief_and_ignores_back_only_support(self) -> None:
+        image = Image.new("RGBA", (7, 7), (0, 0, 0, 0))
+        for y in range(1, 6):
+            for x in range(1, 6):
+                image.putpixel((x, y), (220, 40, 80, 255))
+        image.putpixel((3, 3), (248, 208, 192, 255))
+        source = np.zeros((7, 7, 15), dtype=bool)
+        source[1:6, 1:6, 4:11] = True
+        source[0, 0, 4:11] = True
+
+        occupancy, report = _build_front_led_voxel_occupancy(image, source)
+
+        self.assertFalse(occupancy[0, 0, :].any())
+        self.assertTrue(np.array_equal(occupancy.any(axis=2), np.asarray(image)[:, :, 3] > 16))
+        self.assertGreater(int(occupancy[3, 3, :].sum()), int(occupancy[1, 1, :].sum()))
+        occupied_columns = occupancy[np.asarray(image)[:, :, 3] > 16]
+        self.assertTrue(
+            all(
+                np.all(column[np.flatnonzero(column)[0] : np.flatnonzero(column)[-1] + 1])
+                for column in occupied_columns
+            )
+        )
+        self.assertEqual(report["geometry_authority"], "front_alpha_local_colour_relief")
+        self.assertFalse(report["side_view_geometry_used"])
+
     def test_rgba_float_converts_correctly(self) -> None:
         _assert_float_list_close(self, _rgba_float((255, 128, 0, 255)), [1.0, 128 / 255.0, 0.0, 1.0])
         _assert_float_list_close(self, _rgba_float((0, 0, 0, 0)), [0.0, 0.0, 0.0, 0.0])

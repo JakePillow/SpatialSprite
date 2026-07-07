@@ -1,0 +1,18 @@
+{
+  "schema": "spritespatial_seam_validation_v1",
+  "seam_ring_count": 1,
+  "component_count": 1,
+  "components": [
+    {
+      "index": 0,
+      "pixel_count": 216
+    }
+  ],
+  "inner_holes_detected": 0,
+  "inner_holes_seamed": 0,
+  "front_seam_zero": true,
+  "back_seam_zero": true,
+  "seam_discontinuity_max": 0.0,
+  "concave_seam_points": 26,
+  "passed": true
+}

@@ -1,0 +1,95 @@
+{
+  "schema": "spritespatial_view_authority_v1",
+  "multi_view_authority_enabled": true,
+  "view_authority_mode": "front_back_side",
+  "front_geometry_authority": "authored_front",
+  "back_geometry_authority": "authored_back",
+  "side_geometry_authority": "authored_side",
+  "side_semantic_authority": "colour_correspondence",
+  "front_back_sprite_backend_enabled": true,
+  "front_back_side_backend_enabled": true,
+  "side_authority_used": true,
+  "side_mirror_fallback_used": false,
+  "front_back_correspondence_passed": true,
+  "side_view_correspondence_passed": true,
+  "view_constraint_conflict_count": 68,
+  "side_constraint_conflict_count": 227,
+  "side_semantic_label_count": 6,
+  "side_depth_extents": {
+    "left_arm": {
+      "pixel_count": 48,
+      "min_side_x": 14,
+      "max_side_x": 25,
+      "min_y": 27,
+      "max_y": 39
+    },
+    "left_leg": {
+      "pixel_count": 29,
+      "min_side_x": 14,
+      "max_side_x": 25,
+      "min_y": 31,
+      "max_y": 36
+    },
+    "outline": {
+      "pixel_count": 98,
+      "min_side_x": 12,
+      "max_side_x": 26,
+      "min_y": 29,
+      "max_y": 45
+    },
+    "right_leg": {
+      "pixel_count": 31,
+      "min_side_x": 15,
+      "max_side_x": 26,
+      "min_y": 26,
+      "max_y": 39
+    },
+    "torso": {
+      "pixel_count": 49,
+      "min_side_x": 13,
+      "max_side_x": 25,
+      "min_y": 32,
+      "max_y": 44
+    },
+    "unknown": {
+      "pixel_count": 15,
+      "min_side_x": 15,
+      "max_side_x": 24,
+      "min_y": 37,
+      "max_y": 44
+    }
+  },
+  "initial_projection": {
+    "front_back_alpha_iou": 0.7301587301587301,
+    "front_pixel_count": 216,
+    "back_pixel_count": 220,
+    "front_only_pixel_count": 32,
+    "back_only_pixel_count": 36,
+    "side_pixel_count": 238
+  },
+  "back_sprite_path": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\assets\\samples\\mario_clean_test\\back.png",
+  "side_sprite_path": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\assets\\samples\\mario_clean_test\\left.png;C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\assets\\samples\\mario_clean_test\\right.png",
+  "warnings": [],
+  "passed": true,
+  "multi_view_depth_inputs_applied": true,
+  "support_pixel_count": 252,
+  "front_constraint_pixel_count": 216,
+  "back_constraint_pixel_count": 220,
+  "side_constraint_pixel_count": 238,
+  "front_projection_iou": 1.0,
+  "back_projection_iou": 0.873015873015873,
+  "side_projection_iou": 0.3978779840848806,
+  "front_projection_pixel_count": 216,
+  "back_projection_pixel_count": 252,
+  "projection_measurement_stage": "post_volume_cleanup",
+  "side_projection_pixel_count": 377,
+  "side_constraint_resampled_pixel_count": 150,
+  "side_projection_iou_before_enforcement": 0.38726790450928383,
+  "side_projection_iou_after_enforcement": 0.3978779840848806,
+  "side_constraint_voxels_filled": 4,
+  "side_constraint_voxels_skipped_by_arbitration": 0,
+  "side_constraint_rejected_for_topology": false,
+  "side_constraint_components_before": 2,
+  "side_constraint_components_after": 2,
+  "side_constraint_partially_weighted": true
+}

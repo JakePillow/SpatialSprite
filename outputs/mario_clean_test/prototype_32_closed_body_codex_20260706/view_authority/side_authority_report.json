@@ -1,0 +1,60 @@
+{
+  "schema": "spritespatial_side_authority_report_v1",
+  "side_geometry_authority": "authored_side",
+  "side_semantic_authority": "colour_correspondence",
+  "side_authority_used": true,
+  "side_mirror_fallback_used": false,
+  "side_sprite_paths": [
+    "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\assets\\samples\\mario_clean_test\\left.png",
+    "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\assets\\samples\\mario_clean_test\\right.png"
+  ],
+  "left_status": "authored_side",
+  "right_status": "authored_side",
+  "side_view_correspondence_passed": true,
+  "side_semantic_label_count": 6,
+  "side_depth_extents": {
+    "left_arm": {
+      "pixel_count": 48,
+      "min_side_x": 14,
+      "max_side_x": 25,
+      "min_y": 27,
+      "max_y": 39
+    },
+    "left_leg": {
+      "pixel_count": 29,
+      "min_side_x": 14,
+      "max_side_x": 25,
+      "min_y": 31,
+      "max_y": 36
+    },
+    "outline": {
+      "pixel_count": 98,
+      "min_side_x": 12,
+      "max_side_x": 26,
+      "min_y": 29,
+      "max_y": 45
+    },
+    "right_leg": {
+      "pixel_count": 31,
+      "min_side_x": 15,
+      "max_side_x": 26,
+      "min_y": 26,
+      "max_y": 39
+    },
+    "torso": {
+      "pixel_count": 49,
+      "min_side_x": 13,
+      "max_side_x": 25,
+      "min_y": 32,
+      "max_y": 44
+    },
+    "unknown": {
+      "pixel_count": 15,
+      "min_side_x": 15,
+      "max_side_x": 24,
+      "min_y": 37,
+      "max_y": 44
+    }
+  },
+  "warnings": []
+}

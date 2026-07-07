@@ -1,0 +1,26 @@
+{
+  "mode": "front_back_sprite",
+  "front_back_sprite_deferred": false,
+  "back_geometry_authority": "authored_back",
+  "back_sprite_path": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\assets\\samples\\mario_clean_test\\back.png",
+  "comparison_back_sprite_path": "",
+  "scales": {
+    "outline": 0.12,
+    "torso": 0.85,
+    "left_arm": 1.0,
+    "left_leg": 0.9,
+    "right_leg": 0.9,
+    "boots/feet": 0.7,
+    "unknown": 0.7
+  },
+  "front_alpha_pixel_count": 216,
+  "back_alpha_pixel_count": 220,
+  "front_back_alpha_iou": 0.7301587301587301,
+  "front_only_pixel_count": 32,
+  "back_only_pixel_count": 36,
+  "z_back_min": -0.3381165564060211,
+  "z_back_max": 0.0,
+  "same_silhouette_seam": true,
+  "missing_critical_back_regions": [],
+  "back_region_exceeds_configured_max_depth": false
+}

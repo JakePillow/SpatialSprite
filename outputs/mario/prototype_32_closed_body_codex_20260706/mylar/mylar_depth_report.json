@@ -1,0 +1,280 @@
+{
+  "schema": "spritespatial_mylar_depth_v2",
+  "pipeline_version": "0.4.0",
+  "semantic_version": "0.2.1",
+  "depth_version": "0.3.0",
+  "profile_pack": "humanoid_default_v2",
+  "max_total_depth": 0.6,
+  "z_min": 0.0,
+  "z_max": 0.4508680999279022,
+  "silhouette_pin_confirmed": true,
+  "isolated_spike_count": 0,
+  "opaque_semantic_pixels": 298,
+  "valid_depth_pixels": 241,
+  "outline_full_depth_slab": false,
+  "validation": {
+    "schema": "spritespatial_validation_report_v1",
+    "stage": "depth_synthesis",
+    "passed": true,
+    "fatal": false,
+    "highest_severity": "WARNING",
+    "counts": {
+      "INFO": 0,
+      "WARNING": 2,
+      "ERROR": 0,
+      "FATAL": 0
+    },
+    "issues": [
+      {
+        "code": "join_discontinuity",
+        "message": "Depth discontinuity remains between HAIR and HEAD.",
+        "severity": "WARNING",
+        "region_id": null,
+        "context": {
+          "maximum": 0.1882137879729271,
+          "limit": 0.14
+        }
+      },
+      {
+        "code": "join_discontinuity",
+        "message": "Depth discontinuity remains between HAIR and TORSO.",
+        "severity": "WARNING",
+        "region_id": null,
+        "context": {
+          "maximum": 0.15661795437335968,
+          "limit": 0.14
+        }
+      }
+    ],
+    "metadata": {}
+  },
+  "diagnostics": {
+    "regions": [
+      {
+        "region_id": "04_torso",
+        "semantic_class": "TORSO",
+        "profile_name": "cosine",
+        "max_depth": 0.4,
+        "actual_depth_min": 0.0,
+        "actual_depth_max": 0.4508680999279022,
+        "actual_depth_mean": 0.1852715015411377,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.838095186994626,
+        "primitive_residual_estimate": 0.6606665454873019,
+        "explicit_profile": true,
+        "warnings": []
+      },
+      {
+        "region_id": "05_left_arm",
+        "semantic_class": "ARM",
+        "profile_name": "convex",
+        "max_depth": 0.3,
+        "actual_depth_min": 0.23078840970993042,
+        "actual_depth_max": 0.26137489080429077,
+        "actual_depth_mean": 0.2460816502571106,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.31120172142982483,
+        "primitive_residual_estimate": 0.06214701718393679,
+        "explicit_profile": true,
+        "warnings": []
+      },
+      {
+        "region_id": "06_left_leg",
+        "semantic_class": "LEG",
+        "profile_name": "convex",
+        "max_depth": 0.34,
+        "actual_depth_min": 0.0,
+        "actual_depth_max": 0.3178931474685669,
+        "actual_depth_mean": 0.18765303492546082,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.6575668923744635,
+        "primitive_residual_estimate": 0.5309586965391273,
+        "explicit_profile": true,
+        "warnings": []
+      },
+      {
+        "region_id": "07_right_leg",
+        "semantic_class": "LEG",
+        "profile_name": "convex",
+        "max_depth": 0.34,
+        "actual_depth_min": 0.0,
+        "actual_depth_max": 0.3399661183357239,
+        "actual_depth_mean": 0.1869644820690155,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.6882632656508134,
+        "primitive_residual_estimate": 0.6382203390235766,
+        "explicit_profile": true,
+        "warnings": []
+      },
+      {
+        "region_id": "03_hair_hat",
+        "semantic_class": "HAIR",
+        "profile_name": "concave_shell",
+        "max_depth": 0.12,
+        "actual_depth_min": 0.0,
+        "actual_depth_max": 0.137037456035614,
+        "actual_depth_mean": 0.04002012684941292,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.10552610138741625,
+        "primitive_residual_estimate": 1.3678044156185791,
+        "explicit_profile": true,
+        "warnings": [
+          "high_primitive_residual_estimate"
+        ]
+      },
+      {
+        "region_id": "01_head",
+        "semantic_class": "HEAD",
+        "profile_name": "cosine",
+        "max_depth": 0.45,
+        "actual_depth_min": 0.0,
+        "actual_depth_max": 0.34812477231025696,
+        "actual_depth_mean": 0.1564580798149109,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.7241725036759435,
+        "primitive_residual_estimate": 0.39013861221494966,
+        "explicit_profile": true,
+        "warnings": []
+      },
+      {
+        "region_id": "02_face",
+        "semantic_class": "FACE",
+        "profile_name": "cosine",
+        "max_depth": 0.12,
+        "actual_depth_min": 0.0,
+        "actual_depth_max": 0.12550711631774902,
+        "actual_depth_mean": 0.07485184073448181,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.44333808783155215,
+        "primitive_residual_estimate": 0.5057013705545962,
+        "explicit_profile": true,
+        "warnings": []
+      },
+      {
+        "region_id": "00_outline",
+        "semantic_class": "OUTLINE",
+        "profile_name": "linear",
+        "max_depth": 0.0,
+        "actual_depth_min": 0.0,
+        "actual_depth_max": 0.0,
+        "actual_depth_mean": 0.0,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.0,
+        "primitive_residual_estimate": 0.0,
+        "explicit_profile": true,
+        "warnings": []
+      }
+    ],
+    "silhouette_pin_passed": true,
+    "isolated_spike_count": 0,
+    "join_discontinuity_max": 0.1882137879729271,
+    "assigned_pixel_count": 298,
+    "opaque_pixel_count": 298
+  },
+  "regions": [
+    {
+      "index": 0,
+      "name": "outline",
+      "semantic_label": "outline",
+      "profile": "linear",
+      "max_depth": 0.0,
+      "pixel_count": 79,
+      "explicit_profile": true,
+      "actual_max_depth": 0.0,
+      "actual_mean_depth": 0.0,
+      "debug": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\mario\\prototype_32_closed_body_codex_20260706\\mylar\\z_regions\\00_outline.png"
+    },
+    {
+      "index": 1,
+      "name": "head",
+      "semantic_label": "head",
+      "profile": "cosine",
+      "max_depth": 0.45,
+      "pixel_count": 34,
+      "explicit_profile": true,
+      "actual_max_depth": 0.44999998807907104,
+      "actual_mean_depth": 0.2448529601097107,
+      "debug": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\mario\\prototype_32_closed_body_codex_20260706\\mylar\\z_regions\\01_head.png"
+    },
+    {
+      "index": 2,
+      "name": "face",
+      "semantic_label": "face",
+      "profile": "cosine",
+      "max_depth": 0.12,
+      "pixel_count": 24,
+      "explicit_profile": true,
+      "actual_max_depth": 0.11999999731779099,
+      "actual_mean_depth": 0.07000000029802322,
+      "debug": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\mario\\prototype_32_closed_body_codex_20260706\\mylar\\z_regions\\02_face.png"
+    },
+    {
+      "index": 3,
+      "name": "hair",
+      "semantic_label": "hair/hat",
+      "profile": "concave_shell",
+      "max_depth": 0.12,
+      "pixel_count": 28,
+      "explicit_profile": true,
+      "actual_max_depth": 0.11999999731779099,
+      "actual_mean_depth": 0.024719620123505592,
+      "debug": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\mario\\prototype_32_closed_body_codex_20260706\\mylar\\z_regions\\03_hair_hat.png"
+    },
+    {
+      "index": 4,
+      "name": "torso",
+      "semantic_label": "torso",
+      "profile": "cosine",
+      "max_depth": 0.4,
+      "pixel_count": 69,
+      "explicit_profile": true,
+      "actual_max_depth": 0.4000000059604645,
+      "actual_mean_depth": 0.18664413690567017,
+      "debug": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\mario\\prototype_32_closed_body_codex_20260706\\mylar\\z_regions\\04_torso.png"
+    },
+    {
+      "index": 5,
+      "name": "left_arm",
+      "semantic_label": "left_arm",
+      "profile": "convex",
+      "max_depth": 0.3,
+      "pixel_count": 2,
+      "explicit_profile": true,
+      "actual_max_depth": 0.30000001192092896,
+      "actual_mean_depth": 0.30000001192092896,
+      "debug": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\mario\\prototype_32_closed_body_codex_20260706\\mylar\\z_regions\\05_left_arm.png"
+    },
+    {
+      "index": 6,
+      "name": "left_leg",
+      "semantic_label": "left_leg",
+      "profile": "convex",
+      "max_depth": 0.34,
+      "pixel_count": 34,
+      "explicit_profile": true,
+      "actual_max_depth": 0.3400000035762787,
+      "actual_mean_depth": 0.2134864181280136,
+      "debug": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\mario\\prototype_32_closed_body_codex_20260706\\mylar\\z_regions\\06_left_leg.png"
+    },
+    {
+      "index": 7,
+      "name": "right_leg",
+      "semantic_label": "right_leg",
+      "profile": "convex",
+      "max_depth": 0.34,
+      "pixel_count": 28,
+      "explicit_profile": true,
+      "actual_max_depth": 0.3400000035762787,
+      "actual_mean_depth": 0.24031272530555725,
+      "debug": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\mario\\prototype_32_closed_body_codex_20260706\\mylar\\z_regions\\07_right_leg.png"
+    }
+  ]
+}

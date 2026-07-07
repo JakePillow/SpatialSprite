@@ -1002,12 +1002,18 @@ def _build_command(asset_path: Path, output_dir: Path) -> list[str]:
         "profiles/prototype_32.json",
         "--out",
         _rel(output_dir),
+        "--depth-mode",
+        "mylar_edt",
+        "--closed-body",
+        "--emit-sdf-debug",
+        "--mesh-backend",
+        "voxel_depth",
     ]
     semantic_overrides = asset_dir / "semantic_overrides"
     if semantic_overrides.exists():
         command.extend(["--semantic-overrides", _rel(semantic_overrides)])
-    if (asset_dir / "front.png").exists() and (asset_dir / "side.png").exists() and (asset_dir / "back.png").exists():
-        command.extend(["--multi-view-authority", "--view-authority-mode", "front_back_side", "--back-mode", "front_back_sprite"])
+    if (asset_dir / "front.png").exists() and (asset_dir / "back.png").exists():
+        command.extend(["--multi-view-authority", "--view-authority-mode", "front_back_sprite", "--back-mode", "front_back_sprite"])
     return command
 
 
@@ -1063,6 +1069,8 @@ def _discover_build_artifacts(output_dir: Path) -> dict[str, str]:
         "topological_model": "topological_model.json",
         "mesh": "mesh.json",
         "mesh_topology_cleaned": "mesh_topology_cleaned.json",
+        "surface_nets_report": "surface_nets_report.json",
+        "voxel_depth_report": "voxel_depth_report.json",
         "manifest": "manifest.json",
         "depth_field_report": "mylar/depth_field_report.json",
         "depth_heatmap": "mylar/visuals/pinned_depth_field.png",

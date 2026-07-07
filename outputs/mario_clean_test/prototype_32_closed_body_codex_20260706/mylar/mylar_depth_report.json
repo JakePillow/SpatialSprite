@@ -1,0 +1,269 @@
+{
+  "schema": "spritespatial_mylar_depth_v2",
+  "pipeline_version": "0.4.0",
+  "semantic_version": "0.2.1",
+  "depth_version": "0.3.0",
+  "profile_pack": "humanoid_default_v2",
+  "max_total_depth": 0.6,
+  "z_min": 0.0,
+  "z_max": 0.37568506598472595,
+  "silhouette_pin_confirmed": true,
+  "isolated_spike_count": 0,
+  "opaque_semantic_pixels": 216,
+  "valid_depth_pixels": 166,
+  "outline_full_depth_slab": false,
+  "validation": {
+    "schema": "spritespatial_validation_report_v1",
+    "stage": "depth_synthesis",
+    "passed": true,
+    "fatal": false,
+    "highest_severity": "INFO",
+    "counts": {
+      "INFO": 1,
+      "WARNING": 0,
+      "ERROR": 0,
+      "FATAL": 0
+    },
+    "issues": [
+      {
+        "code": "depth_field_valid",
+        "message": "Depth field passed all acceptance criteria.",
+        "severity": "INFO",
+        "region_id": null,
+        "context": {}
+      }
+    ],
+    "metadata": {}
+  },
+  "diagnostics": {
+    "regions": [
+      {
+        "region_id": "07_unknown",
+        "semantic_class": "UNKNOWN",
+        "profile_name": "linear",
+        "max_depth": 0.2,
+        "actual_depth_min": 0.0,
+        "actual_depth_max": 0.1815694123506546,
+        "actual_depth_mean": 0.0605231374502182,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.16335269808769226,
+        "primitive_residual_estimate": 1.414213572402668,
+        "explicit_profile": true,
+        "warnings": [
+          "high_primitive_residual_estimate"
+        ]
+      },
+      {
+        "region_id": "01_torso",
+        "semantic_class": "TORSO",
+        "profile_name": "cosine",
+        "max_depth": 0.4,
+        "actual_depth_min": 0.0,
+        "actual_depth_max": 0.340108186006546,
+        "actual_depth_mean": 0.1550161987543106,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.6633080765604973,
+        "primitive_residual_estimate": 0.693677069442056,
+        "explicit_profile": true,
+        "warnings": []
+      },
+      {
+        "region_id": "02_left_arm",
+        "semantic_class": "ARM",
+        "profile_name": "convex",
+        "max_depth": 0.3,
+        "actual_depth_min": 0.0,
+        "actual_depth_max": 0.28520792722702026,
+        "actual_depth_mean": 0.20331066846847534,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.5722531917549314,
+        "primitive_residual_estimate": 0.578716988660467,
+        "explicit_profile": true,
+        "warnings": []
+      },
+      {
+        "region_id": "03_left_leg",
+        "semantic_class": "LEG",
+        "profile_name": "convex",
+        "max_depth": 0.34,
+        "actual_depth_min": 0.0,
+        "actual_depth_max": 0.37568506598472595,
+        "actual_depth_mean": 0.19870097935199738,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.7211615968356158,
+        "primitive_residual_estimate": 0.5037558315410657,
+        "explicit_profile": true,
+        "warnings": []
+      },
+      {
+        "region_id": "04_right_leg",
+        "semantic_class": "LEG",
+        "profile_name": "convex",
+        "max_depth": 0.34,
+        "actual_depth_min": 0.0,
+        "actual_depth_max": 0.3061091899871826,
+        "actual_depth_mean": 0.15944397449493408,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.5929324013345383,
+        "primitive_residual_estimate": 0.7827185604924961,
+        "explicit_profile": true,
+        "warnings": [
+          "high_primitive_residual_estimate"
+        ]
+      },
+      {
+        "region_id": "05_boots_feet",
+        "semantic_class": "FOOT",
+        "profile_name": "plateau",
+        "max_depth": 0.18,
+        "actual_depth_min": 0.16171379387378693,
+        "actual_depth_max": 0.17668665945529938,
+        "actual_depth_mean": 0.16920022666454315,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.10159003403451705,
+        "primitive_residual_estimate": 0.044245997409913924,
+        "explicit_profile": true,
+        "warnings": []
+      },
+      {
+        "region_id": "06_boots_feet",
+        "semantic_class": "FOOT",
+        "profile_name": "plateau",
+        "max_depth": 0.18,
+        "actual_depth_min": 0.0,
+        "actual_depth_max": 0.2666058838367462,
+        "actual_depth_mean": 0.15891486406326294,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.545506201684475,
+        "primitive_residual_estimate": 0.610986107678153,
+        "explicit_profile": true,
+        "warnings": []
+      },
+      {
+        "region_id": "00_outline",
+        "semantic_class": "OUTLINE",
+        "profile_name": "linear",
+        "max_depth": 0.0,
+        "actual_depth_min": 0.0,
+        "actual_depth_max": 0.0,
+        "actual_depth_mean": 0.0,
+        "silhouette_pin_passed": true,
+        "spike_count": 0,
+        "continuity_score": 0.0,
+        "primitive_residual_estimate": 0.0,
+        "explicit_profile": true,
+        "warnings": []
+      }
+    ],
+    "silhouette_pin_passed": true,
+    "isolated_spike_count": 0,
+    "join_discontinuity_max": 0.10896968841552734,
+    "assigned_pixel_count": 216,
+    "opaque_pixel_count": 216
+  },
+  "regions": [
+    {
+      "index": 0,
+      "name": "outline",
+      "semantic_label": "outline",
+      "profile": "linear",
+      "max_depth": 0.0,
+      "pixel_count": 73,
+      "explicit_profile": true,
+      "actual_max_depth": 0.0,
+      "actual_mean_depth": 0.0,
+      "debug": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\mario_clean_test\\prototype_32_closed_body_codex_20260706\\mylar\\z_regions\\00_outline.png"
+    },
+    {
+      "index": 1,
+      "name": "torso",
+      "semantic_label": "torso",
+      "profile": "cosine",
+      "max_depth": 0.4,
+      "pixel_count": 25,
+      "explicit_profile": true,
+      "actual_max_depth": 0.4000000059604645,
+      "actual_mean_depth": 0.22866085171699524,
+      "debug": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\mario_clean_test\\prototype_32_closed_body_codex_20260706\\mylar\\z_regions\\01_torso.png"
+    },
+    {
+      "index": 2,
+      "name": "left_arm",
+      "semantic_label": "left_arm",
+      "profile": "convex",
+      "max_depth": 0.3,
+      "pixel_count": 8,
+      "explicit_profile": true,
+      "actual_max_depth": 0.30000001192092896,
+      "actual_mean_depth": 0.30000001192092896,
+      "debug": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\mario_clean_test\\prototype_32_closed_body_codex_20260706\\mylar\\z_regions\\02_left_arm.png"
+    },
+    {
+      "index": 3,
+      "name": "left_leg",
+      "semantic_label": "left_leg",
+      "profile": "convex",
+      "max_depth": 0.34,
+      "pixel_count": 70,
+      "explicit_profile": true,
+      "actual_max_depth": 0.3400000035762787,
+      "actual_mean_depth": 0.19507403671741486,
+      "debug": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\mario_clean_test\\prototype_32_closed_body_codex_20260706\\mylar\\z_regions\\03_left_leg.png"
+    },
+    {
+      "index": 4,
+      "name": "right_leg",
+      "semantic_label": "right_leg",
+      "profile": "convex",
+      "max_depth": 0.34,
+      "pixel_count": 19,
+      "explicit_profile": true,
+      "actual_max_depth": 0.3400000035762787,
+      "actual_mean_depth": 0.26211073994636536,
+      "debug": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\mario_clean_test\\prototype_32_closed_body_codex_20260706\\mylar\\z_regions\\04_right_leg.png"
+    },
+    {
+      "index": 5,
+      "name": "left_foot",
+      "semantic_label": "boots/feet",
+      "profile": "plateau",
+      "max_depth": 0.18,
+      "pixel_count": 2,
+      "explicit_profile": true,
+      "actual_max_depth": 0.18000000715255737,
+      "actual_mean_depth": 0.18000000715255737,
+      "debug": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\mario_clean_test\\prototype_32_closed_body_codex_20260706\\mylar\\z_regions\\05_boots_feet.png"
+    },
+    {
+      "index": 6,
+      "name": "right_foot",
+      "semantic_label": "boots/feet",
+      "profile": "plateau",
+      "max_depth": 0.18,
+      "pixel_count": 16,
+      "explicit_profile": true,
+      "actual_max_depth": 0.18000000715255737,
+      "actual_mean_depth": 0.16425000131130219,
+      "debug": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\mario_clean_test\\prototype_32_closed_body_codex_20260706\\mylar\\z_regions\\06_boots_feet.png"
+    },
+    {
+      "index": 7,
+      "name": "unknown",
+      "semantic_label": "unknown",
+      "profile": "linear",
+      "max_depth": 0.2,
+      "pixel_count": 3,
+      "explicit_profile": true,
+      "actual_max_depth": 0.20000000298023224,
+      "actual_mean_depth": 0.20000000298023224,
+      "debug": "C:\\Users\\jake.pillow\\Desktop\\SpatialSprite\\outputs\\mario_clean_test\\prototype_32_closed_body_codex_20260706\\mylar\\z_regions\\07_unknown.png"
+    }
+  ]
+}
